@@ -324,6 +324,9 @@ def main() -> int:
         measurement["status"] = "failed"
         measurement["error"] = str(exc)
         r1_stats.atomic_write_json(directory / "measurement.json", measurement)
+        r1_stats.atomic_write_json(directory / "failure.json", {
+            "reason": str(exc), "schedule": schedule,
+        })
         print(f"measurement failed; diagnostics preserved in {directory}", file=sys.stderr)
         raise
 
@@ -332,11 +335,19 @@ def main() -> int:
         measurement["status"] = "failed"
         measurement["error"] = f"checksum mismatch: {checks}"
         r1_stats.atomic_write_json(directory / "measurement.json", measurement)
+        r1_stats.atomic_write_json(directory / "failure.json", {
+            "reason": "checksum mismatch", "checks": checks,
+            "schedule": schedule,
+        })
         raise SystemExit(f"CHECKSUM MISMATCH across configurations: {checks}")
     if any(values != {"OK"} for values in verifies.values()):
         measurement["status"] = "failed"
         measurement["error"] = f"verify failure: {verifies}"
         r1_stats.atomic_write_json(directory / "measurement.json", measurement)
+        r1_stats.atomic_write_json(directory / "failure.json", {
+            "reason": "verify failure", "verify": verifies,
+            "schedule": schedule,
+        })
         raise SystemExit(f"VERIFY failure: {verifies}")
 
     fieldnames = ["campaign", "case", "mode", "n", "block_id", "execution_index",
