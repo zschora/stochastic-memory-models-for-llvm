@@ -1,0 +1,33 @@
+﻿{
+    "case":  "ts_known",
+    "campaign":  "EXP-20261107-R1A",
+    "source":  "llvm-test-suite MicroBenchmarks/LoopVectorization/VectorOperations.cpp (local patched copy)",
+    "filter":  "benchForTruncOrZextVecInLoopWithVW16From_uint64_t_To_uint8_t_",
+    "clang":  "clang version 24.0.0git (https://github.com/llvm/llvm-project.git 6f4196219399a3502cea3beb2d0c8c28b2241649)",
+    "opt":  "LLVM (http://llvm.org/):",
+    "llc":  "LLVM (http://llvm.org/):",
+    "cpu":  "alderlake",
+    "ir_rewrites":  [
+
+                    ],
+    "configs":  {
+                    "A":  {
+                              "fused_remarks":  0,
+                              "insufficient_reuse_remarks":  0,
+                              "ll_sha256":  "34C5A5C79736A099E702B82CE7630FC2DBA2CE66DEB2ED911300C56F14D8349A",
+                              "exe_sha256":  "7B68C6B917CE6D21A3A4F8497B0585ED60F0554D8BEEE743C7BBBCC88BDC0410"
+                          },
+                    "B":  {
+                              "fused_remarks":  0,
+                              "insufficient_reuse_remarks":  0,
+                              "ll_sha256":  "34C5A5C79736A099E702B82CE7630FC2DBA2CE66DEB2ED911300C56F14D8349A",
+                              "exe_sha256":  "A1CE51922EB98A4049E9E87BB06406DFC38979ADB2D24DF5C5A8812806FE139D"
+                          },
+                    "C":  {
+                              "fused_remarks":  0,
+                              "insufficient_reuse_remarks":  0,
+                              "ll_sha256":  "34C5A5C79736A099E702B82CE7630FC2DBA2CE66DEB2ED911300C56F14D8349A",
+                              "exe_sha256":  "EA44F5DE7E73964502A9B161FEB9060653F5B73F1C469B1A9B251D1102A33AF1"
+                          }
+                }
+}

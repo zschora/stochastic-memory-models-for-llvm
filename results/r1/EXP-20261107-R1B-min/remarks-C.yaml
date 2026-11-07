@@ -1,0 +1,54 @@
+--- !Analysis
+Pass:            loop-interchange
+Name:            Dependence
+Function:        meta_min
+Args:
+  - String:          Computed dependence info, invoking the transform.
+...
+--- !Analysis
+Pass:            loop-interchange
+Name:            Dependence
+Function:        meta_min
+Args:
+  - String:          Computed dependence info, invoking the transform.
+...
+--- !Passed
+Pass:            loop-fusion
+Name:            FuseCounter
+Function:        meta_min
+Args:
+  - String:          '['
+  - String:          meta_min
+  - String:          ']: '
+  - Cand1:           l1.preheader
+  - String:          ' and '
+  - Cand2:           l2.preheader
+  - String:          ': '
+  - String:          Loops fused
+...
+--- !Missed
+Pass:            loop-vectorize
+Name:            MissedExplicitlyDisabled
+Function:        meta_min
+Args:
+  - String:          'loop not vectorized: '
+  - String:          vectorization is explicitly disabled
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        meta_min
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotBeneficial
+Function:        meta_min
+Args:
+  - String:          'List vectorization was possible but not beneficial with cost '
+  - Cost:            '0'
+  - String:          ' >= '
+  - Treshold:        '0'
+...

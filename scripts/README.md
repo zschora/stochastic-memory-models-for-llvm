@@ -23,6 +23,14 @@ and `.work/` directories.
 | `research/record_toolchain.py` | Record explicit LLVM source revision, build cache, binary paths, hashes and versions as a toolchain provenance manifest. |
 | `research/schema_lite.py` | Explicit JSON Schema subset validator used by the harness. |
 | `research/tests/test_harness.py` | Fast offline unittest suite for the harness tools, provenance checks and invalid records. |
+| `r1_build_case.ps1` | Build native front-end IR and A/B/C/D/A-A artifacts for one R1 kernel without `ir_compat.py`. |
+| `r1_run_case.py` | Interleaved A/B/C/A-A runner for one R1 case and size. |
+| `r1_campaign.py` | Build and run the R1-A microbenchmark matrix; supports append/resume. |
+| `r1_build_testsuite.ps1` | Build the exact llvm-test-suite VW16 benchmark with matched tools. |
+| `r1_run_testsuite.py` | Run the exact benchmark with Google Benchmark JSON output. |
+| `r1_analyze.py` | Summarize loop-fusion remarks, loop metadata and assembly shape. |
+| `r1_summarize.py` | Build the R1-A table from campaign summaries. |
+| `r1_predictor.py` | Offline in-sample comparison of simple profitability rules. |
 
 ## Order
 

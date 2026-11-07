@@ -1,0 +1,144 @@
+﻿opt.exe : Loop info for function 'known_setup':
+C:\work\llvm-profitability-research\scripts\r1_build_case.ps1:94 знак:3
++   & $Opt -passes="print<loops>" -disable-output $ll 2>&1 | Out-File $ ...
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Loop info for function 'known_setup'::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Loop at depth 1 containing: %.lr.ph23<header><latch><exiting>
+Loop at depth 1 containing: %vector.body<header><latch><exiting>
+Loop at depth 1 containing: %.lr.ph.epil<header><latch><exiting>
+Loop at depth 1 containing: %.lr.ph<header><latch><exiting>
+Loop info for function 'known_hot':
+Loop at depth 1 containing: %.lr.ph<header><latch><exiting>
+Loop at depth 1 containing: %vector.body<header><latch><exiting>
+Loop info for function 'known_body':
+Loop at depth 1 containing: %.preheader<header>,%vector.body67,%middle.block74,%scalar.ph63.preheader,%scalar.ph63,%._c
+rit_edge<latch><exiting>
+    Loop at depth 2 containing: %vector.body67<header><latch><exiting>
+    Loop at depth 2 containing: %scalar.ph63<header><latch><exiting>
+Loop at depth 1 containing: %.lr.ph40<header><latch><exiting>
+Loop at depth 1 containing: %vector.body<header><latch><exiting>
+Loop at depth 1 containing: %.lr.ph.epil<header><latch><exiting>
+Loop at depth 1 containing: %.lr.ph<header><latch><exiting>
+Loop info for function 'main':
+Loop at depth 1 containing: %.preheader<header><exiting>,%64<exiting>,%71<latch>
+Loop at depth 1 containing: %.preheader32<header><exiting>,%87<exiting>,%93<latch>
+Loop at depth 1 containing: %.preheader33<header><exiting>,%106<exiting>,%113<latch>
+Loop at depth 1 containing: %.lr.ph<header><exiting>,%47<exiting>,%40<latch><exiting>
+Loop info for function '?parse_args@bench@@YA?AUArgs@1@HPEAPEAD_KHH@Z':
+Loop info for function '?aligned_alloc64@bench@@YAPEAX_K@Z':
+Loop info for function '?init_u64@bench@@YAXPEA_K_K1@Z':
+Loop at depth 1 containing: %.lr.ph<header><latch><exiting>
+Loop info for function '?pin_environment@bench@@YAXXZ':
+Loop info for function 'printf':
+Loop info for function '?hash_bytes@bench@@YA_KPEBX_K@Z':
+Loop at depth 1 containing: %.lr.ph.epil<header><latch><exiting>
+Loop at depth 1 containing: %.lr.ph<header><latch><exiting>
+Loop info for function '??$run_trials@V<lambda_0>@?0??main@@9@@bench@@YAXPEBD0_KHHV<lambda_0>@?0??main@@9@@Z':
+Loop at depth 1 containing: %.lr.ph.us<header>,%13,%._crit_edge.us<latch><exiting>
+    Loop at depth 2 containing: %13<header><latch><exiting>
+Loop at depth 1 containing: %.lr.ph4.split<header><latch><exiting>
+Loop info for function '?c_str@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEBAPEBDXZ':
+Loop info for function '??$run_trials@V<lambda_1>@?0??main@@9@@bench@@YAXPEBD0_KHHV<lambda_1>@?0??main@@9@@Z':
+Loop at depth 1 containing: %.lr.ph.us<header>,%13,%._crit_edge.us<latch><exiting>
+    Loop at depth 2 containing: %13<header><latch><exiting>
+Loop at depth 1 containing: %.lr.ph4.split<header><latch><exiting>
+Loop info for function '??$run_trials@V<lambda_2>@?0??main@@9@@bench@@YAXPEBD0_KHHV<lambda_2>@?0??main@@9@@Z':
+Loop at depth 1 containing: %.lr.ph.us<header>,%13,%._crit_edge.us<latch><exiting>
+    Loop at depth 2 containing: %13<header><latch><exiting>
+Loop at depth 1 containing: %.lr.ph4.split<header><latch><exiting>
+Loop info for function '?aligned_free@bench@@YAXPEAX@Z':
+Loop info for function '??1Args@bench@@QEAA@XZ':
+Loop info for function '??0Args@bench@@QEAA@XZ':
+Loop info for function '??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV01@QEBD@Z':
+Loop info for function '??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA@XZ':
+Loop info for function '??$?0$$V@?$_Compressed_pair@V?$allocator@D@std@@V?$_String_val@U?$_Simple_types@D@std@@@2@$00@s
+td@@QEAA@U_Zero_then_variadic_args_t@1@@Z':
+Loop info for function '?_Construct_empty@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAAXXZ':
+Loop info for function '??0?$allocator@D@std@@QEAA@XZ':
+Loop info for function '??0?$_String_val@U?$_Simple_types@D@std@@@std@@QEAA@XZ':
+Loop info for function '??0_Bxty@?$_String_val@U?$_Simple_types@D@std@@@std@@QEAA@XZ':
+Loop info for function '?_Alloc_proxy@_Container_base0@std@@QEAAXAEBU_Fake_allocator@2@@Z':
+Loop info for function '??$_Get_proxy_allocator@V?$allocator@D@std@@@std@@YA?AU_Fake_allocator@0@AEBV?$allocator@D@0@@Z
+':
+Loop info for function '?_Getal@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAAAEAV?$allocator@D@2@XZ
+':
+Loop info for function '?_Activate_SSO_buffer@?$_String_val@U?$_Simple_types@D@std@@@std@@QEAAXXZ':
+Loop info for function '?assign@?$_Narrow_char_traits@DH@std@@SAXAEADAEBD@Z':
+Loop info for function '?_Get_first@?$_Compressed_pair@V?$allocator@D@std@@V?$_String_val@U?$_Simple_types@D@std@@@2@$0
+0@std@@QEAAAEAV?$allocator@D@2@XZ':
+Loop info for function '?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@QEBD@Z':
+Loop info for function '??$_Assign@D@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAAAEAV01@QEBD_K@Z':
+Loop info for function '??$_Convert_size@_K_K@std@@YA_K_K@Z':
+Loop info for function '?length@?$_Narrow_char_traits@DH@std@@SA_KQEBD@Z':
+Loop info for function '?_Myptr@?$_String_val@U?$_Simple_types@D@std@@@std@@QEAAPEADXZ':
+Loop info for function '??$_Traits_move_batch@U?$char_traits@D@std@@D@std@@YAXQEADQEBD_K@Z':
+Loop info for function '??$_Reallocate_for@V<lambda_1>@?0???$_Assign@D@?$basic_string@DU?$char_traits@D@std@@V?$allocat
+or@D@2@@std@@AEAAAEAV23@QEBD_K@Z@PEBD@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAAAEAV01@_KV<lambd
+a_1>@?0???$_Assign@D@01@AEAAAEAV01@QEBD0@Z@PEBD@Z':
+Loop info for function '?_Large_mode_engaged@?$_String_val@U?$_Simple_types@D@std@@@std@@QEBA_NXZ':
+Loop info for function '??$_Unfancy@D@std@@YAPEADPEAD@Z':
+Loop info for function '?move@?$_Char_traits@DH@std@@SAPEADQEADQEBD_K@Z':
+Loop info for function '?max_size@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEBA_KXZ':
+Loop info for function '?_Xlen_string@std@@YAXXZ':
+Loop info for function '?_Calculate_growth@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBA_K_K@Z':
+Loop info for function '??$_Allocate_for_capacity@$0A@@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@CAP
+EADAEAV?$allocator@D@1@AEA_K@Z':
+Loop info for function '?_Orphan_all@_Container_base0@std@@QEAAXXZ':
+Loop info for function '??R<lambda_1>@?0???$_Assign@D@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAA
+AEAV12@QEBD_K@Z@SA?A?<auto>@@QEAD10@Z':
+Loop info for function '?_Deallocate_for_capacity@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@CAXAEAV?
+$allocator@D@2@QEAD_K@Z':
+Loop info for function '??$_Construct_in_place@PEADAEBQEAD@std@@YAXAEAPEADAEBQEAD@Z':
+Loop info for function '?max_size@?$_Default_allocator_traits@V?$allocator@D@std@@@std@@SA_KAEBV?$allocator@D@2@@Z':
+Loop info for function '?_Getal@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBAAEBV?$allocator@D@2@XZ
+':
+Loop info for function '??$max@_K@std@@YAAEB_KAEB_K0@Z':
+Loop info for function '??$min@_K@std@@YAAEB_KAEB_K0@Z':
+Loop info for function '??$_Max_limit@_J@std@@YA_JXZ':
+Loop info for function '?_Get_first@?$_Compressed_pair@V?$allocator@D@std@@V?$_String_val@U?$_Simple_types@D@std@@@2@$0
+0@std@@QEBAAEBV?$allocator@D@2@XZ':
+Loop info for function '?_Calculate_growth@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@CA_K_K00@Z':
+Loop info for function '??$_Allocate_at_least_helper@V?$allocator@D@std@@@std@@YAPEADAEAV?$allocator@D@0@AEA_K@Z':
+Loop info for function '?allocate@?$allocator@D@std@@QEAAPEAD_K@Z':
+Loop info for function '??$_Allocate@$0BA@U_Default_allocate_traits@std@@@std@@YAPEAX_K@Z':
+Loop info for function '??$_Get_size_of_n@$00@std@@YA_K_K@Z':
+Loop info for function '??$_Allocate_manually_vector_aligned@U_Default_allocate_traits@std@@@std@@YAPEAX_K@Z':
+Loop info for function '?_Allocate@_Default_allocate_traits@std@@SAPEAX_K@Z':
+Loop info for function '?_Throw_bad_array_new_length@std@@YAXXZ':
+Loop info for function '??0bad_array_new_length@std@@QEAA@XZ':
+Loop info for function '??0bad_array_new_length@std@@QEAA@AEBV01@@Z':
+Loop info for function '??0bad_alloc@std@@QEAA@AEBV01@@Z':
+Loop info for function '??0exception@std@@QEAA@AEBV01@@Z':
+Loop info for function '??1bad_array_new_length@std@@UEAA@XZ':
+Loop info for function '??0bad_alloc@std@@AEAA@QEBD@Z':
+Loop info for function '?what@exception@std@@UEBAPEBDXZ':
+Loop info for function '??0exception@std@@QEAA@QEBDH@Z':
+Loop info for function '??_Gexception@std@@UEAAPEAXI@Z':
+Loop info for function '??1exception@std@@UEAA@XZ':
+Loop info for function '??_Gbad_alloc@std@@UEAAPEAXI@Z':
+Loop info for function '??1bad_alloc@std@@UEAA@XZ':
+Loop info for function '??_Gbad_array_new_length@std@@UEAAPEAXI@Z':
+Loop info for function '??$_Traits_copy_batch@U?$char_traits@D@std@@D@std@@YAXQEADQEBD_K@Z':
+Loop info for function '?copy@?$_Char_traits@DH@std@@SAPEADQEADQEBD_K@Z':
+Loop info for function '?deallocate@?$allocator@D@std@@QEAAXQEAD_K@Z':
+Loop info for function '??$_Deallocate@$0BA@@std@@YAXPEAX_K@Z':
+Loop info for function '?_Adjust_manually_vector_aligned@std@@YAXAEAPEAXAEA_K@Z':
+Loop info for function 'fprintf':
+Loop info for function '_vfprintf_l':
+Loop info for function '__local_stdio_printf_options':
+Loop info for function '?lcg@bench@@YA_KAEA_K@Z':
+Loop info for function '??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA@XZ':
+Loop info for function '?_Tidy_deallocate@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAAXXZ':
+Loop info for function '??1?$_Compressed_pair@V?$allocator@D@std@@V?$_String_val@U?$_Simple_types@D@std@@@2@$00@std@@QE
+AA@XZ':
+Loop info for function '?_Switch_to_buf@_Bxty@?$_String_val@U?$_Simple_types@D@std@@@std@@QEAAXXZ':
+Loop info for function '??$_Destroy_in_place@PEAD@std@@YAXAEAPEAD@Z':
+Loop info for function '??1?$_String_val@U?$_Simple_types@D@std@@@std@@QEAA@XZ':
+Loop info for function '??1_Bxty@?$_String_val@U?$_Simple_types@D@std@@@std@@QEAA@XZ':
+Loop info for function '?_Myptr@?$_String_val@U?$_Simple_types@D@std@@@std@@QEBAPEBDXZ':
+Loop info for function '?qpc_ns_per_tick@bench@@YANXZ':
+Loop info for function '??R<lambda_0>@?0??main@@9@QEBA?A?<auto>@@XZ':
+Loop info for function '??R<lambda_1>@?0??main@@9@QEBA?A?<auto>@@XZ':
+Loop info for function '??R<lambda_2>@?0??main@@9@QEBA?A?<auto>@@XZ':

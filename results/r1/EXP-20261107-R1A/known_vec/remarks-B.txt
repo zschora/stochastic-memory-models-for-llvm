@@ -1,0 +1,27 @@
+﻿opt.exe : remark: <unknown>:0:0: [known_setup]: .lr.ph.preheader and .lr.ph23.preheader: Loops fused
+C:\work\llvm-profitability-research\scripts\r1_build_case.ps1:84 знак:3
++   & $Opt @all 2>&1 | Out-File $txt -Encoding utf8
++   ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (remark: <unknow...er: Loops fused:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+remark: <unknown>:0:0: [known_body]: .lr.ph.preheader and .lr.ph40.preheader: Loops fused
+remark: <unknown>:0:0: [known_body]: .lr.ph.preheader and .preheader.preheader: Loop trip counts are not the same
+remark: <unknown>:0:0: Loop is not a candidate for fusion
+remark: <unknown>:0:0: [??$run_trials@V<lambda_0>@?0??main@@9@@bench@@YAXPEBD0_KHHV<lambda_0>@?0??main@@9@@Z]: Loop is 
+not a candidate for fusion: Loop may throw an exception
+remark: <unknown>:0:0: Loop is not a candidate for fusion
+remark: <unknown>:0:0: [??$run_trials@V<lambda_0>@?0??main@@9@@bench@@YAXPEBD0_KHHV<lambda_0>@?0??main@@9@@Z]: Loop is 
+not a candidate for fusion: Loop may throw an exception
+remark: <unknown>:0:0: Loop is not a candidate for fusion
+remark: <unknown>:0:0: [??$run_trials@V<lambda_1>@?0??main@@9@@bench@@YAXPEBD0_KHHV<lambda_1>@?0??main@@9@@Z]: Loop is 
+not a candidate for fusion: Loop may throw an exception
+remark: <unknown>:0:0: Loop is not a candidate for fusion
+remark: <unknown>:0:0: [??$run_trials@V<lambda_1>@?0??main@@9@@bench@@YAXPEBD0_KHHV<lambda_1>@?0??main@@9@@Z]: Loop is 
+not a candidate for fusion: Loop may throw an exception
+remark: <unknown>:0:0: Loop is not a candidate for fusion
+remark: <unknown>:0:0: [??$run_trials@V<lambda_2>@?0??main@@9@@bench@@YAXPEBD0_KHHV<lambda_2>@?0??main@@9@@Z]: Loop is 
+not a candidate for fusion: Loop may throw an exception
+remark: <unknown>:0:0: Loop is not a candidate for fusion
+remark: <unknown>:0:0: [??$run_trials@V<lambda_2>@?0??main@@9@@bench@@YAXPEBD0_KHHV<lambda_2>@?0??main@@9@@Z]: Loop is 
+not a candidate for fusion: Loop may throw an exception

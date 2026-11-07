@@ -1,0 +1,61 @@
+﻿{
+    "case":  "shifted_reuse",
+    "campaign":  "EXP-20261107-R1A",
+    "source":  "benchmarks/shifted_reuse.cpp",
+    "source_sha256":  "A3E68B823B96ED409ADBBF00312542CAEAC85C9E74BF6E1477BA6F7036F71C6C",
+    "kernel_ll":  "",
+    "input_ir":  "shifted_reuse.frontend.ll",
+    "input_ir_sha256":  "DAC414650B63DD5E10594A316ECA6BE927B775519C8C3FEEEF105953FF390B55",
+    "clang":  "clang version 24.0.0git (https://github.com/llvm/llvm-project.git 6f4196219399a3502cea3beb2d0c8c28b2241649)",
+    "opt":  "LLVM (http://llvm.org/):",
+    "llc":  "LLVM (http://llvm.org/):",
+    "cpu":  "alderlake",
+    "configs":  {
+                    "A":  {
+                              "fusion_flags":  [
+
+                                               ],
+                              "loops_after":  13,
+                              "fused_remarks":  0,
+                              "insufficient_reuse_remarks":  0,
+                              "ll_sha256":  "7C9BDCE7E0529C7FA6DF463E17DBA658E614B9FAB528A0D0C7557A8A749439A0",
+                              "asm_sha256":  "48701E5EC8552C22739C234DD8773083C3AD86114B10987E2331D13BA5CFC2BE",
+                              "exe_sha256":  "4D6F77EC2D276FFF6FA7E94922C84AA34766BB2FC945F32B6722AA9908C9CA22",
+                              "obj_size":  40013,
+                              "asm_size":  125428
+                          },
+                    "B":  {
+                              "fusion_flags":  [
+                                                   "-enable-loopfusion",
+                                                   "-loop-fusion-min-reused-values=0"
+                                               ],
+                              "loops_after":  9,
+                              "fused_remarks":  2,
+                              "insufficient_reuse_remarks":  0,
+                              "ll_sha256":  "BFBC1710508BC8F576FED468529AEF259BAB97D926EB71E38D3A2EB6762FA981",
+                              "asm_sha256":  "B16B6D07F4947B72C906A78521107507FF71A9D0DCA07398F6FA2E1074C1F83D",
+                              "exe_sha256":  "5C30A582EE2BD2F7A6435F4C14BD4F9C9BC12A2BE60C2FB02EE928E8B922E73C",
+                              "obj_size":  39675,
+                              "asm_size":  122071
+                          },
+                    "C":  {
+                              "fusion_flags":  [
+                                                   "-enable-loopfusion",
+                                                   "-loop-fusion-min-reused-values=1"
+                                               ],
+                              "loops_after":  13,
+                              "fused_remarks":  0,
+                              "insufficient_reuse_remarks":  0,
+                              "ll_sha256":  "7C9BDCE7E0529C7FA6DF463E17DBA658E614B9FAB528A0D0C7557A8A749439A0",
+                              "asm_sha256":  "1E44BA11306505841D95F42D5D16E5D31FBF41C863AC39361AAC96D1C43BFA0A",
+                              "exe_sha256":  "679DC5E978385463934C9949CCB493F5672170EF92E82165B19207F595B30833",
+                              "obj_size":  40013,
+                              "asm_size":  125428
+                          }
+                },
+    "aa_control":  {
+                       "binary":  "shifted_reuse.AA.exe",
+                       "sha256":  "4D6F77EC2D276FFF6FA7E94922C84AA34766BB2FC945F32B6722AA9908C9CA22",
+                       "identical_to_A":  true
+                   }
+}
