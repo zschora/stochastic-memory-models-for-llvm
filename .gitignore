@@ -1,0 +1,19 @@
+# Large local toolchains / builds / scratch data
+.tools/
+.work/
+.tmp/
+
+# Build products and binaries
+*.exe
+*.obj
+*.lib
+*.pdb
+*.dll
+*.o
+*.a
+__pycache__/
+*.pyc
+
+# OS noise
+Thumbs.db
+desktop.ini
