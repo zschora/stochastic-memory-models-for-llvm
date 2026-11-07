@@ -177,6 +177,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--audit-dir", default=f"results/r1/{AUDIT_CAMPAIGN}")
     ap.add_argument("--out", default="")
+    ap.add_argument("--markdown-out", default="")
     args = ap.parse_args()
     audit_dir = ROOT / args.audit_dir
     stats_path = audit_dir / "reanalysis" / "audit_stats.json"
@@ -291,6 +292,9 @@ def main() -> int:
     out = Path(args.out) if args.out else audit_dir / "predictor_v2.json"
     out = out if out.is_absolute() else ROOT / out
     r1_stats.atomic_write_json(out, result)
+    md_out = (Path(args.markdown_out) if args.markdown_out
+              else audit_dir / "predictor_v2.md")
+    md_out = md_out if md_out.is_absolute() else ROOT / md_out
 
     lines = [
         "# R1.1 predictor screen v2",
@@ -314,8 +318,7 @@ def main() -> int:
         lines.append(f"- **{category}**: {text}")
     lines += ["", "Limits: no held-out families, no workload-frequency weighting, "
               "and no deployable claim.", ""]
-    (audit_dir / "predictor_v2.md").write_text("\n".join(lines), encoding="utf-8",
-                                               newline="\n")
+    md_out.write_text("\n".join(lines), encoding="utf-8", newline="\n")
     print(f"wrote {out}")
     print("\n".join(lines))
     return 0

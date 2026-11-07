@@ -140,16 +140,18 @@ class FeatureSchemaTests(unittest.TestCase):
         import hashlib
         import subprocess
         script = ROOT / "scripts" / "r1_predictor.py"
-        first = subprocess.run([sys.executable, str(script)], capture_output=True,
-                               text=True, cwd=ROOT)
-        self.assertEqual(first.returncode, 0, first.stderr)
-        out = audit / "predictor_v2.json"
-        h1 = hashlib.sha256(out.read_bytes()).hexdigest()
-        second = subprocess.run([sys.executable, str(script)], capture_output=True,
-                                text=True, cwd=ROOT)
-        self.assertEqual(second.returncode, 0, second.stderr)
-        h2 = hashlib.sha256(out.read_bytes()).hexdigest()
-        self.assertEqual(h1, h2)
+        with tempfile.TemporaryDirectory() as temp:
+            out = Path(temp) / "predictor_v2.json"
+            md = Path(temp) / "predictor_v2.md"
+            cmd = [sys.executable, str(script), "--out", str(out),
+                   "--markdown-out", str(md)]
+            first = subprocess.run(cmd, capture_output=True, text=True, cwd=ROOT)
+            self.assertEqual(first.returncode, 0, first.stderr)
+            h1 = hashlib.sha256(out.read_bytes()).hexdigest()
+            second = subprocess.run(cmd, capture_output=True, text=True, cwd=ROOT)
+            self.assertEqual(second.returncode, 0, second.stderr)
+            h2 = hashlib.sha256(out.read_bytes()).hexdigest()
+            self.assertEqual(h1, h2)
 
 
 if __name__ == "__main__":
