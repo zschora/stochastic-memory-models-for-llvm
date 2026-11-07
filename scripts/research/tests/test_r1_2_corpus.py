@@ -6,6 +6,7 @@ TSVC/PolyBench checkouts or an LLVM build.
 from __future__ import annotations
 
 import json
+import re
 import sys
 import unittest
 from pathlib import Path
@@ -111,6 +112,29 @@ class HeldOutTests(unittest.TestCase):
     def test_r12_campaign_is_not_baseline_eligible(self):
         info = r1_experiments.role("EXP-20261107-R12-tsvc-pinned")
         self.assertFalse(info["baseline_eligible"])
+
+    def _function_body(self, case: str, config: str, name: str) -> str:
+        path = (ROOT / "results" / "r1" / "EXP-20261107-R12-tsvc-pinned"
+                / case / f"{case}.{config}.ll")
+        text = path.read_text(encoding="utf-8", errors="replace")
+        match = re.search(rf"^define[^\n]*@{name}\([^\n]*\n", text, re.M)
+        self.assertIsNotNone(match, f"missing {name} in {path}")
+        return text[match.start():text.find("\n}", match.end())]
+
+    def test_s2233_unrestricted_fusion_removes_vector_loops(self):
+        counts = {cfg: self._function_body("tsvc_s2233", cfg, "s2233")
+                  .count("vector.body") for cfg in ("A", "B", "C")}
+        self.assertGreater(counts["A"], 0)
+        self.assertGreater(counts["C"], 0)
+        self.assertEqual(counts["B"], 0)
+        self.assertEqual(counts["A"], counts["C"])
+
+    def test_s233_fused_shapes_are_identical(self):
+        bodies = {cfg: self._function_body("tsvc_s233", cfg, "s233")
+                  for cfg in ("B", "C")}
+        self.assertEqual(bodies["B"], bodies["C"])
+        self.assertLess(bodies["B"].count(" load "),
+                        self._function_body("tsvc_s233", "A", "s233").count(" load "))
 
 
 if __name__ == "__main__":
