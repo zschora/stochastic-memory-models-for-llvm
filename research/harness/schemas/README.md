@@ -1,8 +1,8 @@
 # Record schemas
 
 The JSON files in this directory are the field contract for experiment runs,
-mathematical claims, simulations, the hypothesis ledger and toolchain
-provenance.
+mathematical claims, simulations, the hypothesis ledger, toolchain provenance,
+immutable R1 measurements and predictor feature records.
 
 They use a deliberately small JSON Schema Draft 2020-12 subset implemented by
 [`../../../scripts/research/schema_lite.py`](../../../scripts/research/schema_lite.py):

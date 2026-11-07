@@ -1,0 +1,320 @@
+{
+  "schema_version": "1.1",
+  "status": "complete",
+  "campaign": "EXP-20261107-R11-audit",
+  "case": "producer_consumer_split",
+  "mode": "",
+  "n": 131072,
+  "point_id": "m-963e961e40410906",
+  "attempt": 1,
+  "raw_csv": "results/r1/EXP-20261107-R11-audit/measurements/producer_consumer_split/mode-default/n-131072/m-963e961e40410906/attempt-01/raw.csv",
+  "measurement_json": "results/r1/EXP-20261107-R11-audit/measurements/producer_consumer_split/mode-default/n-131072/m-963e961e40410906/attempt-01/measurement.json",
+  "schedule_json": "results/r1/EXP-20261107-R11-audit/measurements/producer_consumer_split/mode-default/n-131072/m-963e961e40410906/attempt-01/schedule.json",
+  "configs": [
+    "A",
+    "B",
+    "C",
+    "AA"
+  ],
+  "checksum": "fb20b16fd0a67959",
+  "verify": {
+    "A": [
+      "OK"
+    ],
+    "B": [
+      "OK"
+    ],
+    "C": [
+      "OK"
+    ],
+    "AA": [
+      "OK"
+    ]
+  },
+  "process_observations": {
+    "0": {
+      "A": 109360.0,
+      "B": 84240.0,
+      "C": 92100.0,
+      "AA": 95255.0
+    },
+    "1": {
+      "A": 117335.0,
+      "B": 92950.0,
+      "C": 89825.0,
+      "AA": 104820.0
+    },
+    "2": {
+      "A": 101800.0,
+      "B": 81715.0,
+      "C": 95740.0,
+      "AA": 98460.0
+    },
+    "3": {
+      "A": 101945.0,
+      "B": 85980.0,
+      "C": 89520.0,
+      "AA": 102660.0
+    },
+    "4": {
+      "A": 102840.0,
+      "B": 90935.0,
+      "C": 82940.0,
+      "AA": 109890.0
+    },
+    "5": {
+      "A": 100825.0,
+      "B": 84395.0,
+      "C": 93405.0,
+      "AA": 116420.0
+    },
+    "6": {
+      "A": 94200.0,
+      "B": 89990.0,
+      "C": 87765.0,
+      "AA": 104080.0
+    },
+    "7": {
+      "A": 100415.0,
+      "B": 90545.0,
+      "C": 90480.0,
+      "AA": 104915.0
+    },
+    "8": {
+      "A": 105465.0,
+      "B": 82430.0,
+      "C": 95720.0,
+      "AA": 98650.0
+    }
+  },
+  "effects": {
+    "B": {
+      "config": "B",
+      "baseline": "A",
+      "n_blocks": 9,
+      "block_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "block_ratios": [
+        0.7702999268471105,
+        0.7921762474964844,
+        0.8027013752455796,
+        0.8433959487959194,
+        0.8842376507195644,
+        0.8370443838333747,
+        0.9553078556263269,
+        0.9017079121645173,
+        0.7815863082539231
+      ],
+      "median_ratio": 0.8370443838333747,
+      "geometric_mean_ratio": 0.8389384412302474,
+      "ci95_median_ratio": [
+        0.7815863082539231,
+        0.9017079121645173
+      ],
+      "ci95_geometric_mean_ratio": [
+        0.8036980976446737,
+        0.878095943723515
+      ],
+      "median_delta_pct": -16.295561616662535,
+      "geometric_mean_delta_pct": -16.106155876975258,
+      "ci95_median_delta_pct": [
+        -21.841369174607696,
+        -9.829208783548271
+      ],
+      "improvement_blocks": 9,
+      "degradation_blocks": 0,
+      "tie_blocks": 0,
+      "sign_consistency": 1.0
+    },
+    "C": {
+      "config": "C",
+      "baseline": "A",
+      "n_blocks": 9,
+      "block_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "block_ratios": [
+        0.8421726408193123,
+        0.7655431030809221,
+        0.9404715127701375,
+        0.878120555201334,
+        0.8064955270322831,
+        0.9264071410860402,
+        0.931687898089172,
+        0.9010605985161579,
+        0.9075996776181672
+      ],
+      "median_ratio": 0.9010605985161579,
+      "geometric_mean_ratio": 0.8757885147082487,
+      "ci95_median_ratio": [
+        0.8064955270322831,
+        0.931687898089172
+      ],
+      "ci95_geometric_mean_ratio": [
+        0.8364204258519629,
+        0.9116340080371973
+      ],
+      "median_delta_pct": -9.893940148384207,
+      "geometric_mean_delta_pct": -12.421148529175131,
+      "ci95_median_delta_pct": [
+        -19.35044729677169,
+        -6.831210191082803
+      ],
+      "improvement_blocks": 9,
+      "degradation_blocks": 0,
+      "tie_blocks": 0,
+      "sign_consistency": 1.0
+    },
+    "AA": {
+      "config": "AA",
+      "baseline": "A",
+      "n_blocks": 9,
+      "block_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "block_ratios": [
+        0.8710223116313094,
+        0.8933395832445562,
+        0.9671905697445973,
+        1.007013585757026,
+        1.0685530921820303,
+        1.154673939995041,
+        1.1048832271762208,
+        1.0448140218094906,
+        0.9353814061537002
+      ],
+      "median_ratio": 1.007013585757026,
+      "geometric_mean_ratio": 1.0010732773017097,
+      "ci95_median_ratio": [
+        0.8933395832445562,
+        1.1048832271762208
+      ],
+      "ci95_geometric_mean_ratio": [
+        0.9432867401673536,
+        1.0634988368463272
+      ],
+      "median_delta_pct": 0.7013585757025931,
+      "geometric_mean_delta_pct": 0.10732773017096964,
+      "ci95_median_delta_pct": [
+        -10.66604167554438,
+        10.48832271762208
+      ],
+      "improvement_blocks": 4,
+      "degradation_blocks": 5,
+      "tie_blocks": 0,
+      "sign_consistency": 0.5555555555555556
+    }
+  },
+  "classifications": {
+    "B": {
+      "classification": "confirmed_profitable",
+      "reasons": [
+        "median ratio 0.8370, 95% CI [0.7816, 0.9017], practical threshold +/-5%"
+      ]
+    },
+    "C": {
+      "classification": "confirmed_profitable",
+      "reasons": [
+        "median ratio 0.9011, 95% CI [0.8065, 0.9317], practical threshold +/-5%"
+      ]
+    },
+    "AA": {
+      "classification": "inconclusive",
+      "reasons": [
+        "median ratio 1.0070, 95% CI [0.8933, 1.1049], practical threshold +/-5%"
+      ]
+    }
+  },
+  "thresholds": {
+    "practical_relative": 0.05,
+    "aa_noise_relative": 0.05,
+    "aa_max_ci_width": 0.5,
+    "min_blocks": 5
+  },
+  "parameters": {
+    "campaign": "EXP-20261107-R11-audit",
+    "case": "producer_consumer_split",
+    "mode": "",
+    "n": 131072,
+    "configs": [
+      "A",
+      "B",
+      "C",
+      "AA"
+    ],
+    "reps": 20,
+    "trials": 5,
+    "blocks": 9,
+    "seed": 20261107,
+    "exe_sha256": {
+      "A": "5d756eb2c968292d2484953986caa2e46cb1d276460ab3a1109a748ccd62438d",
+      "AA": "5d756eb2c968292d2484953986caa2e46cb1d276460ab3a1109a748ccd62438d",
+      "B": "5940e6b2475f90b94727b1113df10794f650802db29ca1c7c5a12ffdecc393c4",
+      "C": "5940e6b2475f90b94727b1113df10794f650802db29ca1c7c5a12ffdecc393c4"
+    },
+    "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+  },
+  "commands": [
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 131072 20 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 131072 20 5"
+  ]
+}

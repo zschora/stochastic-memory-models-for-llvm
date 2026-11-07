@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "record_type": "toolchain",
+  "toolchain_id": "TC-llvm-24.0.0git-6f41962-v2",
+  "llvm_revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+  "source": {
+    "repository": "https://github.com/llvm/llvm-project",
+    "tag": "",
+    "commit": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+    "dir": ".tools/llvm-project",
+    "dirty": false,
+    "checkout": "branch main; sparse checkout"
+  },
+  "build": {
+    "dir": ".tools/llvm-build",
+    "configuration": "Release",
+    "generator": "Ninja",
+    "assertions": false,
+    "targets": [
+      "X86"
+    ],
+    "cmake_args": [
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DLLVM_ENABLE_PROJECTS=clang",
+      "-DLLVM_TARGETS_TO_BUILD=X86",
+      "-DLLVM_ENABLE_ASSERTIONS=OFF",
+      "-DCLANG_ENABLE_CIR=OFF"
+    ],
+    "compiler": "cl",
+    "cmake_cache_sha256": "000fab37f2c7bbb02b2039ca276710d120da41989a897a7a48bb199329dbdcfd"
+  },
+  "tools": {
+    "clang": {
+      "path": ".tools/llvm-build/bin/clang.exe",
+      "version": "clang version 24.0.0git (https://github.com/llvm/llvm-project.git 6f4196219399a3502cea3beb2d0c8c28b2241649)",
+      "version_output": "clang version 24.0.0git (https://github.com/llvm/llvm-project.git 6f4196219399a3502cea3beb2d0c8c28b2241649)\nTarget: x86_64-pc-windows-msvc\nThread model: posix\nInstalledDir: C:\\work\\llvm-profitability-research\\.tools\\llvm-build\\bin",
+      "sha256": "9477e11c9c5e4d01c4f24d50ebd25d94935529b0c67edcd252383e8dd8ef20e2",
+      "source_revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+      "provenance": "local-build"
+    },
+    "opt": {
+      "path": ".tools/llvm-build/bin/opt.exe",
+      "version": "LLVM version 24.0.0git",
+      "version_output": "LLVM (http://llvm.org/):\n  LLVM version 24.0.0git\n  Optimized build.\n  Default target: x86_64-pc-windows-msvc\n  Host CPU: alderlake",
+      "sha256": "f0b20b1e3d5c800f874cb69d58c3b1b4681c2efcad313f61324e9536e1029721",
+      "source_revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+      "provenance": "local-build"
+    },
+    "llc": {
+      "path": ".tools/llvm-build/bin/llc.exe",
+      "version": "LLVM version 24.0.0git",
+      "version_output": "LLVM (http://llvm.org/):\n  LLVM version 24.0.0git\n  Optimized build.\n  Default target: x86_64-pc-windows-msvc\n  Host CPU: alderlake\n\n  Registered Targets:\n    x86    - 32-bit X86: Pentium-Pro and above\n    x86-64 - 64-bit X86: EM64T and AMD64",
+      "sha256": "f74b889f789694afda8f9059c11b44cd4b8e5e5d93150223d77f1db9801a4652",
+      "source_revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+      "provenance": "local-build"
+    },
+    "llvm-config": {
+      "path": ".tools/llvm-build/bin/llvm-config.exe",
+      "version": "24.0.0git",
+      "version_output": "24.0.0git",
+      "sha256": "f410b8fc9663a6f22a5cae1481f21e02f25a349417a0bb82b1a82d8f330f34c2",
+      "source_revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+      "provenance": "local-build"
+    }
+  },
+  "verification": {
+    "method": "explicit absolute paths + SHA-256 + recorded --version output + source git HEAD/cleanliness + CMakeCache build settings",
+    "verified_utc": "2026-11-07T05:37:18Z",
+    "verified_by": "research-lead (automated record_toolchain.py)",
+    "require_local_source": true,
+    "reject_path_shadowing": true,
+    "limitations": [
+      "opt --version does not embed a source SHA; provenance is bound by its recorded hash and the build/source manifest.",
+      "llc --version does not embed a source SHA; provenance is bound by its recorded hash and the build/source manifest.",
+      "llvm-config --version does not embed a source SHA; provenance is bound by its recorded hash and the build/source manifest.",
+      "Hash and version checks bind binaries to this manifest, but do not independently prove how an external release binary was produced.",
+      "Passing this check is provenance verification, not scientific validation of any experiment."
+    ]
+  },
+  "consistency": "verified"
+}

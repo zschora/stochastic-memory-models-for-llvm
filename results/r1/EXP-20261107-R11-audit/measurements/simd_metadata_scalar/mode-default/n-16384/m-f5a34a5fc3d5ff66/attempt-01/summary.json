@@ -1,0 +1,320 @@
+{
+  "schema_version": "1.1",
+  "status": "complete",
+  "campaign": "EXP-20261107-R11-audit",
+  "case": "simd_metadata_scalar",
+  "mode": "",
+  "n": 16384,
+  "point_id": "m-f5a34a5fc3d5ff66",
+  "attempt": 1,
+  "raw_csv": "results/r1/EXP-20261107-R11-audit/measurements/simd_metadata_scalar/mode-default/n-16384/m-f5a34a5fc3d5ff66/attempt-01/raw.csv",
+  "measurement_json": "results/r1/EXP-20261107-R11-audit/measurements/simd_metadata_scalar/mode-default/n-16384/m-f5a34a5fc3d5ff66/attempt-01/measurement.json",
+  "schedule_json": "results/r1/EXP-20261107-R11-audit/measurements/simd_metadata_scalar/mode-default/n-16384/m-f5a34a5fc3d5ff66/attempt-01/schedule.json",
+  "configs": [
+    "A",
+    "B",
+    "C",
+    "AA"
+  ],
+  "checksum": "eaee55539d2c3ffe",
+  "verify": {
+    "A": [
+      "OK"
+    ],
+    "B": [
+      "OK"
+    ],
+    "C": [
+      "OK"
+    ],
+    "AA": [
+      "OK"
+    ]
+  },
+  "process_observations": {
+    "0": {
+      "A": 11914.0,
+      "B": 15458.0,
+      "C": 16368.0,
+      "AA": 12527.5
+    },
+    "1": {
+      "A": 12837.5,
+      "B": 15667.0,
+      "C": 17734.5,
+      "AA": 13663.0
+    },
+    "2": {
+      "A": 11904.5,
+      "B": 16595.5,
+      "C": 16152.0,
+      "AA": 12282.5
+    },
+    "3": {
+      "A": 17067.0,
+      "B": 15931.5,
+      "C": 15749.0,
+      "AA": 11950.0
+    },
+    "4": {
+      "A": 14157.5,
+      "B": 19291.0,
+      "C": 16012.5,
+      "AA": 12698.0
+    },
+    "5": {
+      "A": 12464.5,
+      "B": 16123.5,
+      "C": 17483.0,
+      "AA": 12413.5
+    },
+    "6": {
+      "A": 14518.5,
+      "B": 15469.5,
+      "C": 16772.5,
+      "AA": 12437.5
+    },
+    "7": {
+      "A": 11924.5,
+      "B": 15961.5,
+      "C": 16318.5,
+      "AA": 12767.5
+    },
+    "8": {
+      "A": 11928.5,
+      "B": 16431.5,
+      "C": 17209.0,
+      "AA": 12052.0
+    }
+  },
+  "effects": {
+    "B": {
+      "config": "B",
+      "baseline": "A",
+      "n_blocks": 9,
+      "block_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "block_ratios": [
+        1.2974651670303845,
+        1.2204089581304771,
+        1.3940526691587214,
+        0.9334680963262436,
+        1.3625993289775737,
+        1.2935536924866622,
+        1.065502634569687,
+        1.338546689588662,
+        1.3774992664626735
+      ],
+      "median_ratio": 1.2974651670303845,
+      "geometric_mean_ratio": 1.2440090362284357,
+      "ci95_median_ratio": [
+        1.065502634569687,
+        1.3774992664626735
+      ],
+      "ci95_geometric_mean_ratio": [
+        1.1321917544396713,
+        1.3397520157458105
+      ],
+      "median_delta_pct": 29.746516703038452,
+      "geometric_mean_delta_pct": 24.400903622843572,
+      "ci95_median_delta_pct": [
+        6.550263456968697,
+        37.749926646267355
+      ],
+      "improvement_blocks": 1,
+      "degradation_blocks": 8,
+      "tie_blocks": 0,
+      "sign_consistency": 0.8888888888888888
+    },
+    "C": {
+      "config": "C",
+      "baseline": "A",
+      "n_blocks": 9,
+      "block_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "block_ratios": [
+        1.3738458955850261,
+        1.381460564751704,
+        1.3567978495526902,
+        0.9227749458018398,
+        1.131025957972806,
+        1.402623450599703,
+        1.1552501980232117,
+        1.3684850517841418,
+        1.4426792974808231
+      ],
+      "median_ratio": 1.3684850517841418,
+      "geometric_mean_ratio": 1.2700498900405337,
+      "ci95_median_ratio": [
+        1.131025957972806,
+        1.402623450599703
+      ],
+      "ci95_geometric_mean_ratio": [
+        1.1517684639261856,
+        1.376896575736844
+      ],
+      "median_delta_pct": 36.84850517841418,
+      "geometric_mean_delta_pct": 27.00498900405337,
+      "ci95_median_delta_pct": [
+        13.102595797280593,
+        40.26234505997031
+      ],
+      "improvement_blocks": 1,
+      "degradation_blocks": 8,
+      "tie_blocks": 0,
+      "sign_consistency": 0.8888888888888888
+    },
+    "AA": {
+      "config": "AA",
+      "baseline": "A",
+      "n_blocks": 9,
+      "block_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "block_ratios": [
+        1.0514940406244755,
+        1.0643037974683545,
+        1.0317526985593684,
+        0.7001816370774009,
+        0.8969097651421508,
+        0.9959083797986281,
+        0.8566656335020836,
+        1.0706947880414273,
+        1.0103533554093138
+      ],
+      "median_ratio": 1.0103533554093138,
+      "geometric_mean_ratio": 0.9563562290684295,
+      "ci95_median_ratio": [
+        0.8566656335020836,
+        1.0643037974683545
+      ],
+      "ci95_geometric_mean_ratio": [
+        0.8698677776750796,
+        1.0317836038839228
+      ],
+      "median_delta_pct": 1.0353355409313814,
+      "geometric_mean_delta_pct": -4.364377093157046,
+      "ci95_median_delta_pct": [
+        -14.333436649791642,
+        6.430379746835446
+      ],
+      "improvement_blocks": 4,
+      "degradation_blocks": 5,
+      "tie_blocks": 0,
+      "sign_consistency": 0.5555555555555556
+    }
+  },
+  "classifications": {
+    "B": {
+      "classification": "confirmed_harmful",
+      "reasons": [
+        "median ratio 1.2975, 95% CI [1.0655, 1.3775], practical threshold +/-5%"
+      ]
+    },
+    "C": {
+      "classification": "confirmed_harmful",
+      "reasons": [
+        "median ratio 1.3685, 95% CI [1.1310, 1.4026], practical threshold +/-5%"
+      ]
+    },
+    "AA": {
+      "classification": "inconclusive",
+      "reasons": [
+        "median ratio 1.0104, 95% CI [0.8567, 1.0643], practical threshold +/-5%"
+      ]
+    }
+  },
+  "thresholds": {
+    "practical_relative": 0.05,
+    "aa_noise_relative": 0.05,
+    "aa_max_ci_width": 0.5,
+    "min_blocks": 5
+  },
+  "parameters": {
+    "campaign": "EXP-20261107-R11-audit",
+    "case": "simd_metadata_scalar",
+    "mode": "",
+    "n": 16384,
+    "configs": [
+      "A",
+      "B",
+      "C",
+      "AA"
+    ],
+    "reps": 200,
+    "trials": 5,
+    "blocks": 9,
+    "seed": 20261107,
+    "exe_sha256": {
+      "A": "7af408bd5506757a9d4b9478d7b0dfa56c56378f5ecb504906e8eef2a6ef50c0",
+      "AA": "7af408bd5506757a9d4b9478d7b0dfa56c56378f5ecb504906e8eef2a6ef50c0",
+      "B": "828765efb7e1600a6461f5c08f9e5bd99ba06cd604eaae7ef00b222257561713",
+      "C": "828765efb7e1600a6461f5c08f9e5bd99ba06cd604eaae7ef00b222257561713"
+    },
+    "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+  },
+  "commands": [
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 16384 200 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 16384 200 5"
+  ]
+}

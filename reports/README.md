@@ -7,6 +7,7 @@
 | [R1-C: corpus status](r1c_corpus.md) | Partial: 10 controlled kernels, 41 size points; no real-workload corpus. |
 | [R1-F: metadata-guard prototype](r1f_patch.md) | Local prototype; removes L1/L2 metadata regression, not upstream-ready. |
 | [R1 synthesis](r1_report.md) | Campaign summary, proof status, novelty assessment and next steps. |
+| [R1.1 measurement audit](r1_1_measurement_audit.md) | Corrected paired-block statistics, preserved raw evidence, predictor-feature audit and readiness decision for R1.2. |
 
 Stage 0 is an empirical study of LLVM's initial exact-reuse profitability gate.
 It compares fusion off, unrestricted fusion and the current model on a pinned

@@ -1,5 +1,10 @@
 # R1-C corpus status
 
+> **R1.1 erratum (2026-11-07):** the size-point counts and some small-size
+> conclusions are superseded by the paired-block audit in
+> [`r1_1_measurement_audit.md`](r1_1_measurement_audit.md). The corpus itself is
+> unchanged; read corrected effect classifications there.
+
 - Campaign: `EXP-20261107-R1A`
 - Scope: controlled C++ microbenchmarks plus the exact llvm-test-suite VW16
   benchmark and the `known_vec` replica.

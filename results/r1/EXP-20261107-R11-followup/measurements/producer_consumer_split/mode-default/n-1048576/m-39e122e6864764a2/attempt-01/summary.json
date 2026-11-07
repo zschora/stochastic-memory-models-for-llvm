@@ -1,0 +1,288 @@
+{
+  "schema_version": "1.1",
+  "status": "complete",
+  "campaign": "EXP-20261107-R11-followup",
+  "case": "producer_consumer_split",
+  "mode": "",
+  "n": 1048576,
+  "point_id": "m-39e122e6864764a2",
+  "attempt": 1,
+  "raw_csv": "results/r1/EXP-20261107-R11-followup/measurements/producer_consumer_split/mode-default/n-1048576/m-39e122e6864764a2/attempt-01/raw.csv",
+  "measurement_json": "results/r1/EXP-20261107-R11-followup/measurements/producer_consumer_split/mode-default/n-1048576/m-39e122e6864764a2/attempt-01/measurement.json",
+  "schedule_json": "results/r1/EXP-20261107-R11-followup/measurements/producer_consumer_split/mode-default/n-1048576/m-39e122e6864764a2/attempt-01/schedule.json",
+  "configs": [
+    "A",
+    "B",
+    "C",
+    "AA"
+  ],
+  "checksum": "ab82b63758a57947",
+  "verify": {
+    "A": [
+      "OK"
+    ],
+    "B": [
+      "OK"
+    ],
+    "C": [
+      "OK"
+    ],
+    "AA": [
+      "OK"
+    ]
+  },
+  "process_observations": {
+    "0": {
+      "A": 1609166.667,
+      "B": 1215500.0,
+      "C": 1193933.333,
+      "AA": 1717433.333
+    },
+    "1": {
+      "A": 1721900.0,
+      "B": 1301900.0,
+      "C": 1397033.333,
+      "AA": 1738933.333
+    },
+    "2": {
+      "A": 1949966.667,
+      "B": 1299833.333,
+      "C": 1289766.667,
+      "AA": 1903033.333
+    },
+    "3": {
+      "A": 1901966.667,
+      "B": 1264866.667,
+      "C": 1301266.667,
+      "AA": 1916766.667
+    },
+    "4": {
+      "A": 1699033.333,
+      "B": 1246766.667,
+      "C": 1253333.333,
+      "AA": 1957833.333
+    },
+    "5": {
+      "A": 1756500.0,
+      "B": 1190233.333,
+      "C": 1353000.0,
+      "AA": 1777800.0
+    },
+    "6": {
+      "A": 1775700.0,
+      "B": 1387200.0,
+      "C": 1239200.0,
+      "AA": 1745800.0
+    }
+  },
+  "effects": {
+    "B": {
+      "config": "B",
+      "baseline": "A",
+      "n_blocks": 7,
+      "block_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "block_ratios": [
+        0.7553599169849073,
+        0.7560833962483303,
+        0.6665925910414551,
+        0.6650309329527277,
+        0.7338094213834944,
+        0.6776164719612867,
+        0.7812130427437067
+      ],
+      "median_ratio": 0.7338094213834944,
+      "geometric_mean_ratio": 0.7179743935684886,
+      "ci95_median_ratio": [
+        0.6665925910414551,
+        0.7560833962483303
+      ],
+      "ci95_geometric_mean_ratio": [
+        0.6862249487698044,
+        0.7498674766036642
+      ],
+      "median_delta_pct": -26.619057861650564,
+      "geometric_mean_delta_pct": -28.20256064315114,
+      "ci95_median_delta_pct": [
+        -33.340740895854495,
+        -24.391660375166968
+      ],
+      "improvement_blocks": 7,
+      "degradation_blocks": 0,
+      "tie_blocks": 0,
+      "sign_consistency": 1.0
+    },
+    "C": {
+      "config": "C",
+      "baseline": "A",
+      "n_blocks": 7,
+      "block_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "block_ratios": [
+        0.7419575345951409,
+        0.8113324426505605,
+        0.661430109974285,
+        0.6841690180893165,
+        0.7376743638024905,
+        0.7702818104184458,
+        0.697865630455595
+      ],
+      "median_ratio": 0.7376743638024905,
+      "geometric_mean_ratio": 0.7276628448723085,
+      "ci95_median_ratio": [
+        0.6841690180893165,
+        0.7702818104184458
+      ],
+      "ci95_geometric_mean_ratio": [
+        0.6942379915601588,
+        0.7639701694402902
+      ],
+      "median_delta_pct": -26.232563619750948,
+      "geometric_mean_delta_pct": -27.23371551276915,
+      "ci95_median_delta_pct": [
+        -31.58309819106835,
+        -22.97181895815542
+      ],
+      "improvement_blocks": 7,
+      "degradation_blocks": 0,
+      "tie_blocks": 0,
+      "sign_consistency": 1.0
+    },
+    "AA": {
+      "config": "AA",
+      "baseline": "A",
+      "n_blocks": 7,
+      "block_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "block_ratios": [
+        1.0672812010217958,
+        1.0098921731807888,
+        0.9759312121615873,
+        1.0077814192313603,
+        1.1523219085661105,
+        1.0121263877028182,
+        0.9831615700850369
+      ],
+      "median_ratio": 1.0098921731807888,
+      "geometric_mean_ratio": 1.0282776864097023,
+      "ci95_median_ratio": [
+        0.9831615700850369,
+        1.0672812010217958
+      ],
+      "ci95_geometric_mean_ratio": [
+        0.9937953268889755,
+        1.0738429219176595
+      ],
+      "median_delta_pct": 0.9892173180788832,
+      "geometric_mean_delta_pct": 2.8277686409702296,
+      "ci95_median_delta_pct": [
+        -1.6838429914963093,
+        6.72812010217958
+      ],
+      "improvement_blocks": 2,
+      "degradation_blocks": 5,
+      "tie_blocks": 0,
+      "sign_consistency": 0.7142857142857143
+    }
+  },
+  "classifications": {
+    "B": {
+      "classification": "confirmed_profitable",
+      "reasons": [
+        "median ratio 0.7338, 95% CI [0.6666, 0.7561], practical threshold +/-5%"
+      ]
+    },
+    "C": {
+      "classification": "confirmed_profitable",
+      "reasons": [
+        "median ratio 0.7377, 95% CI [0.6842, 0.7703], practical threshold +/-5%"
+      ]
+    },
+    "AA": {
+      "classification": "inconclusive",
+      "reasons": [
+        "median ratio 1.0099, 95% CI [0.9832, 1.0673], practical threshold +/-5%"
+      ]
+    }
+  },
+  "thresholds": {
+    "practical_relative": 0.05,
+    "aa_noise_relative": 0.05,
+    "aa_max_ci_width": 0.5,
+    "min_blocks": 5
+  },
+  "parameters": {
+    "campaign": "EXP-20261107-R11-followup",
+    "case": "producer_consumer_split",
+    "mode": "",
+    "n": 1048576,
+    "configs": [
+      "A",
+      "B",
+      "C",
+      "AA"
+    ],
+    "reps": 3,
+    "trials": 5,
+    "blocks": 7,
+    "seed": 20261108,
+    "exe_sha256": {
+      "A": "26a5d5d2361670600547e2f878f57fa9abb8cbced631a6f01f64afb660a85d24",
+      "AA": "26a5d5d2361670600547e2f878f57fa9abb8cbced631a6f01f64afb660a85d24",
+      "B": "580e5b040635b417d2e977193cdfaaf993ad0fd1d0c499d5eac9af130afc9166",
+      "C": "580e5b040635b417d2e977193cdfaaf993ad0fd1d0c499d5eac9af130afc9166"
+    },
+    "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+  },
+  "commands": [
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.AA.exe AA 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.A.exe A 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.B.exe B 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.C.exe C 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.AA.exe AA 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.A.exe A 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.B.exe B 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.C.exe C 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.C.exe C 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.B.exe B 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.A.exe A 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.AA.exe AA 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.C.exe C 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.B.exe B 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.AA.exe AA 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.A.exe A 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.A.exe A 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.B.exe B 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.AA.exe AA 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.C.exe C 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.C.exe C 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.B.exe B 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.A.exe A 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.AA.exe AA 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.A.exe A 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.B.exe B 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.AA.exe AA 1048576 3 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.C.exe C 1048576 3 5"
+  ]
+}

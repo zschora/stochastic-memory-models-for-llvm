@@ -1,0 +1,61 @@
+﻿{
+    "case":  "producer_consumer_split",
+    "campaign":  "EXP-20261107-R11-followup",
+    "source":  "benchmarks/producer_consumer_split.cpp",
+    "source_sha256":  "3F2F97CD50C573601D2D811E15BFE1583F5657DA589B1725C1EE2F23D8563F58",
+    "kernel_ll":  "C:\\work\\llvm-profitability-research\\benchmarks\\producer_consumer_split.ll",
+    "input_ir":  "producer_consumer_split.linked.ll",
+    "input_ir_sha256":  "952FCB3D4649BDD3E51F61A7F5E5FA03439E924BE21AEED3F66607C3ABE30BC5",
+    "clang":  "clang version 24.0.0git (https://github.com/llvm/llvm-project.git 6f4196219399a3502cea3beb2d0c8c28b2241649)",
+    "opt":  "LLVM (http://llvm.org/):",
+    "llc":  "LLVM (http://llvm.org/):",
+    "cpu":  "alderlake",
+    "configs":  {
+                    "A":  {
+                              "fusion_flags":  [
+
+                                               ],
+                              "loops_after":  13,
+                              "fused_remarks":  0,
+                              "insufficient_reuse_remarks":  0,
+                              "ll_sha256":  "16F893389E31C44ED200FAC5E1877EA66947A07143F1DE0A7B7724F21830BA6B",
+                              "asm_sha256":  "C805D0D1D0F3839586857750AFC1E62D14B1E197D2338DC0A7E7E2F9504BF1D0",
+                              "exe_sha256":  "26A5D5D2361670600547E2F878F57FA9ABB8CBCED631A6F01F64AFB660A85D24",
+                              "obj_size":  40059,
+                              "asm_size":  124587
+                          },
+                    "B":  {
+                              "fusion_flags":  [
+                                                   "-enable-loopfusion",
+                                                   "-loop-fusion-min-reused-values=0"
+                                               ],
+                              "loops_after":  9,
+                              "fused_remarks":  1,
+                              "insufficient_reuse_remarks":  0,
+                              "ll_sha256":  "3D9B491409ADAF82A6E3A7F6AE66D15A8156D99E6BBE01E556735AE6C0F39883",
+                              "asm_sha256":  "827A5EE96D68808ED6B8E506AFC921C5E1801E84D42B6B878D8E1515601C5162",
+                              "exe_sha256":  "580E5B040635B417D2E977193CDFAAF993AD0FD1D0C499D5EAC9AF130AFC9166",
+                              "obj_size":  39728,
+                              "asm_size":  121490
+                          },
+                    "C":  {
+                              "fusion_flags":  [
+                                                   "-enable-loopfusion",
+                                                   "-loop-fusion-min-reused-values=1"
+                                               ],
+                              "loops_after":  9,
+                              "fused_remarks":  1,
+                              "insufficient_reuse_remarks":  0,
+                              "ll_sha256":  "3D9B491409ADAF82A6E3A7F6AE66D15A8156D99E6BBE01E556735AE6C0F39883",
+                              "asm_sha256":  "2452FDBAB9530FF7ED79DEFA6799CFDEAD51580BBAA2A71131AB4601BEB2CA93",
+                              "exe_sha256":  "580E5B040635B417D2E977193CDFAAF993AD0FD1D0C499D5EAC9AF130AFC9166",
+                              "obj_size":  39728,
+                              "asm_size":  121490
+                          }
+                },
+    "aa_control":  {
+                       "binary":  "producer_consumer_split.AA.exe",
+                       "sha256":  "26A5D5D2361670600547E2F878F57FA9ABB8CBCED631A6F01F64AFB660A85D24",
+                       "identical_to_A":  true
+                   }
+}

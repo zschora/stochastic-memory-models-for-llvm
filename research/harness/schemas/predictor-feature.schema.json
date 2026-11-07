@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/zschora/stochastic-memory-models-for-llvm/research/harness/schemas/predictor-feature.schema.json",
+  "title": "Predictor feature record with availability categories",
+  "type": "object",
+  "required": ["schema_version", "record_type", "case", "sources",
+               "static", "scenario", "diagnostic"],
+  "properties": {
+    "schema_version": {"const": "1.1"},
+    "record_type": {"const": "predictor-features"},
+    "case": {"type": "string", "minLength": 1},
+    "sources": {
+      "type": "object",
+      "required": ["source_ir", "source_sha256", "pipeline_stage"],
+      "properties": {
+        "source_ir": {"type": "string"},
+        "source_sha256": {"type": "string"},
+        "early_ir": {"type": "string"},
+        "pipeline_stage": {"type": "string"}
+      }
+    },
+    "static": {
+      "type": "object",
+      "required": ["kernel_function", "loop_count", "metadata_conflict",
+                   "reuse_kind", "element_bytes", "trip_count", "unknowns"],
+      "properties": {
+        "kernel_function": {"type": ["string", "null"]},
+        "loop_count": {"type": "integer", "minimum": 0},
+        "metadata_conflict": {"type": ["boolean", "null"]},
+        "loop_hints": {"type": "array", "items": {"type": "object"}},
+        "metadata_conflict_evidence": {"type": "array", "items": {"type": "object"}},
+        "reuse_kind": {"enum": ["exact", "shifted", "unknown"]},
+        "element_bytes": {"type": ["integer", "null"]},
+        "trip_count": {"type": "string"},
+        "feature_confidence": {"type": "string"},
+        "unknowns": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "scenario": {
+      "type": "object",
+      "required": ["n", "footprint_bytes", "l3_bytes", "fits_l3", "source"],
+      "properties": {
+        "n": {"type": ["integer", "null"]},
+        "footprint_bytes": {"type": ["integer", "null"]},
+        "l3_bytes": {"type": ["integer", "null"]},
+        "fits_l3": {"type": "boolean"},
+        "source": {"type": "string"}
+      }
+    },
+    "diagnostic": {
+      "type": "object",
+      "description": "Post-optimisation or measured facts; must never be a decision input."
+    }
+  },
+  "additionalProperties": true
+}

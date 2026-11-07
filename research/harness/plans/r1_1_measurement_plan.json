@@ -1,0 +1,25 @@
+{
+  "campaign": "EXP-20261107-R11-audit",
+  "seed": 20261107,
+  "toolchain_manifest": "research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json",
+  "defaults": {
+    "trials": 5,
+    "configs": ["A", "B", "C", "AA"]
+  },
+  "rationale": "Pre-registered before observing new results. Nine randomized complete blocks for small/noisy points (enough for a one-sided sign test at p<0.01 if all blocks agree); seven blocks for large-footprint points to bound campaign time. Five internal trials per process; process median is the experimental unit. The mandatory known_vec setup/hot/body modes replace the historically overwritten raw files with new, separately preserved measurements, never as a claim about the lost data.",
+  "points": [
+    {"case": "known_vec", "mode": "setup", "n": 10000, "reps": 200, "blocks": 9},
+    {"case": "known_vec", "mode": "hot", "n": 10000, "reps": 4000, "blocks": 9},
+    {"case": "known_vec", "mode": "body", "n": 10000, "reps": 12, "blocks": 9},
+    {"case": "read_read", "n": 1024, "reps": 10000, "blocks": 9},
+    {"case": "read_read", "n": 16384, "reps": 300, "blocks": 9},
+    {"case": "read_read_offset", "n": 1024, "reps": 10000, "blocks": 9},
+    {"case": "simd_metadata_scalar", "n": 16384, "reps": 200, "blocks": 9},
+    {"case": "producer_consumer_split", "n": 16384, "reps": 200, "blocks": 9},
+    {"case": "producer_consumer_split", "n": 131072, "reps": 20, "blocks": 9},
+    {"case": "simd_metadata", "n": 1048576, "reps": 3, "blocks": 7},
+    {"case": "simd_metadata", "n": 8388608, "reps": 1, "blocks": 7},
+    {"case": "shifted_reuse", "n": 131072, "reps": 40, "blocks": 7},
+    {"case": "shifted_reuse", "n": 1048576, "reps": 6, "blocks": 7}
+  ]
+}

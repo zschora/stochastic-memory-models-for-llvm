@@ -24,13 +24,16 @@ and `.work/` directories.
 | `research/schema_lite.py` | Explicit JSON Schema subset validator used by the harness. |
 | `research/tests/test_harness.py` | Fast offline unittest suite for the harness tools, provenance checks and invalid records. |
 | `r1_build_case.ps1` | Build native front-end IR and A/B/C/D/A-A artifacts for one R1 kernel without `ir_compat.py`. |
-| `r1_run_case.py` | Interleaved A/B/C/A-A runner for one R1 case and size. |
-| `r1_campaign.py` | Build and run the R1-A microbenchmark matrix; supports append/resume. |
 | `r1_build_testsuite.ps1` | Build the exact llvm-test-suite VW16 benchmark with matched tools. |
 | `r1_run_testsuite.py` | Run the exact benchmark with Google Benchmark JSON output. |
 | `r1_analyze.py` | Summarize loop-fusion remarks, loop metadata and assembly shape. |
-| `r1_summarize.py` | Build the R1-A table from campaign summaries. |
-| `r1_predictor.py` | Offline in-sample comparison of simple profitability rules. |
+| `r1_run_case.py` | Immutable randomized-complete-block runner; mode/n/campaign-specific paths, seed/schedule, process and trial provenance, safe resume. |
+| `r1_stats.py` | Paired block ratios, block bootstrap, A/A noise gate and evidence classification. |
+| `r1_campaign.py` | Pre-registered spec runner with atomic campaign summary and safe resume. |
+| `r1_audit.py` | Recompute historical R1 raw measurements with paired-block statistics into a new audit campaign. |
+| `r1_features.py` | Extract static/scenario features from pre-treatment IR; diagnostic facts excluded. |
+| `r1_predictor.py` | Corrected in-sample policy screen with absolute-runtime regret and feature allowlist. |
+| `r1_summarize.py` | Build the R1-A table from campaign summaries (historical layout). |
 
 ## Order
 

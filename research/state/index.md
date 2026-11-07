@@ -1,41 +1,40 @@
 # Research state index
 
-Updated: 2026-11-07. This is the short cross-session index. Load it before any
-large report or raw artifact.
+Updated: 2026-11-07. Short cross-session index; load before large reports.
 
 ## Current stage
 
 - Stage 0 published; R1-A completed on matched LLVM `6f41962`.
+- **R1.1 measurement audit completed**: output collisions fixed, paired-block
+  statistics and corrected predictor evaluation written.
 - R1-B mechanism evidence and a local metadata-guard prototype exist.
-- R1-C is partial: 10 controlled kernels, 41 size points; no real-workload corpus.
-- R1-D is an in-sample rule screen only; R1-E has exact finite checks, no
-  independently proved theorem.
+- R1-C is partial: controlled kernels only; no held-out real-workload corpus.
+- R1-D is an in-sample screen only; R1-E has finite checks, no independently
+  proved theorem.
 - **No stochastic memory model is integrated into LLVM.**
 
 ## Session start checklist
 
 1. Read `AGENTS.md` and `CONTRIBUTING.md`.
 2. Read this file.
-3. Read one hypothesis from [hypotheses.json](hypotheses.json); do not load all.
-4. Load the relevant report section: [R1-A](../../reports/r1a_report.md),
-   [R1-C](../../reports/r1c_corpus.md), [R1-F](../../reports/r1f_patch.md), or the
-   [R1 synthesis](../../reports/r1_report.md).
-5. Read one role from [../harness/roles/](../harness/roles/) and one skill only.
-6. Check `git status`, the current branch and the latest run.
+3. Read one hypothesis from [hypotheses.json](hypotheses.json).
+4. Load one report section: [R1.1 audit](../../reports/r1_1_measurement_audit.md),
+   [R1-A](../../reports/r1a_report.md), [R1 synthesis](../../reports/r1_report.md).
+5. Load one role and one skill only.
+6. Check `git status`, branch and latest run.
 
 ## Active focus
 
-**Next action:** independent review of R1-A, then a held-out corpus and a static
-two-signal (vectorization-compatibility + footprint) rule. Do not promote any R1
-finding to `supported` without independent or human review.
-
-Useful commands:
+**Next action:** R1.2 held-out benchmark corpus and out-of-sample evaluation of
+the corrected feature set. Use `scripts/r1_run_case.py`, `scripts/r1_stats.py`
+and the v2 toolchain manifest. Do not use the old predictor or its regret metric.
 
 ```powershell
-python scripts/research/doctor.py --experiment --json --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962.json
+python scripts/research/doctor.py --experiment --json --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json
+python scripts/r1_campaign.py --spec research/harness/plans/r1_1_measurement_plan.json --resume
+python scripts/r1_audit.py
+python scripts/r1_predictor.py
 python scripts/research/validate_run.py --all --json
-python scripts/research/check_docs.py --json
-python -m unittest discover -s scripts/research/tests -v
 ```
 
 ## Hypothesis ledger
@@ -53,38 +52,41 @@ python -m unittest discover -s scripts/research/tests -v
 | H-R1-D1 | A cheap two-signal rule can beat exact reuse | inconclusive | self-review |
 | H-R1-E1 | Exact LRU DP and capacity-one formula | analyzed | self-review |
 | H-R1-E2 | Partial orders change achievable LRU statistics | analyzed | self-review |
-| H-R1-F1 | Metadata guard removes the L1/L2 false positive | analyzed | self-review |
+| H-R1-F1 | Metadata guard removes the L1/L2 false positive | inconclusive | self-review |
+| H-R1-AUDIT | R1 evidence is reproducible under paired-block analysis | analyzed | self-review |
 | H-HARNESS-001 | Protocol works without the transcript | analyzed | self-review |
 
-Full statements, evidence and next actions: [hypotheses.json](hypotheses.json).
-Self-review is not independent verification.
+Full statements and evidence: [hypotheses.json](hypotheses.json). Self-review is
+not independent verification.
 
 ## Blockers and limitations
 
-- No independent or human review of R1-A or the mathematical claims.
-- One laptop, no hardware performance counters; small effects are not claimed.
-- Several A/A controls exceed 10%; only large effects are treated as established.
-- The exact VW16 test-suite benchmark is not-testable for fusion under the native
-  pipeline without an extra inlining rewrite.
-- The local metadata-guard patch is not upstream-ready and misses DRAM cases.
-- The corpus lacks TSVC, PolyBench and whole-program workloads.
+- No independent or human review of R1-A, R1.1 or mathematical claims.
+- One laptop, no hardware counters; 7-9 blocks are still coarse.
+- Several old A/A controls exceed 10%; small effects stay inconclusive.
+- Historical `known_vec` setup/hot raw files were overwritten; new measurements
+  are separate observations, not reconstructions.
+- Exact VW16 test-suite benchmark remains not-testable for fusion under the
+  native pipeline.
+- R1-F patched `opt` is unverified and has only four blocks.
+- Corpus lacks TSVC/PolyBench/whole-program workloads.
 
-## Key evidence and documents
+## Key evidence
 
-- [R1 synthesis](../../reports/r1_report.md) - start here for outcomes.
-- [R1-A matched validation](../../reports/r1a_report.md) and
-  [campaign data](../../results/r1/EXP-20261107-R1A/table.md).
-- [R1-C corpus status](../../reports/r1c_corpus.md).
-- [R1-F prototype patch report](../../reports/r1f_patch.md).
-- [R1 plan](../harness/plans/r1-research-program.md).
-- [Toolchain manifest](../harness/toolchains/llvm-24.0.0git-6f41962.json).
-- [Mathematical claims](../claims/) and [theory notes](../theory/lru-multiset-exact.md).
+- [R1.1 audit](../../reports/r1_1_measurement_audit.md) and
+  [corrected stats](../../results/r1/EXP-20261107-R11-audit/reanalysis/audit_stats.md).
+- [R1.1 predictor v2](../../results/r1/EXP-20261107-R11-audit/predictor_v2.md).
+- [R1.1 campaign plan](../harness/plans/r1_1_measurement_plan.json).
+- [R1 synthesis](../../reports/r1_report.md), [R1-A](../../reports/r1a_report.md),
+  [R1-F](../../reports/r1f_patch.md).
+- [Toolchain v2](../harness/toolchains/llvm-24.0.0git-6f41962-v2.json).
+- [Mathematical claims](../claims/), [theory note](../theory/lru-multiset-exact.md).
 - [Decisions](decisions.md), [harness guide](../harness/README.md).
 
 ## State update rules
 
 - Update a hypothesis status only under `research/harness/protocol.md`.
-- Record a decision in [decisions.md](decisions.md) when priorities or gates change.
-- Keep this index short; link to details instead of copying them.
-- Do not edit Stage 0 raw measurements. Add a new run.
-- End every session with: next action, blockers, evidence links and review needed.
+- Record decisions in [decisions.md](decisions.md).
+- Keep this index short; link to detail.
+- Never edit historical raw measurements; use new campaigns or audit outputs.
+- End every session with next action, blockers, evidence and review needed.

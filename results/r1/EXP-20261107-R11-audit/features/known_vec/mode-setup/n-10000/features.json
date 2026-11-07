@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.1",
+  "record_type": "predictor-features",
+  "case": "known_vec",
+  "sources": {
+    "source_ir": "results/r1/EXP-20261107-R11-audit/known_vec/known_vec.frontend.ll",
+    "source_sha256": "430b389426132e4f83a582496cd5c95582effaeec5c8b4760e12db3ed330e8e6",
+    "early_ir": "results/r1/EXP-20261107-R11-audit/features/ir/known_vec-setup.early.ll",
+    "pipeline_stage": "early scalar pipeline (mem2reg, loop-simplify, lcssa, loop-rotate); before LoopFusion"
+  },
+  "static": {
+    "kernel_function": "known_setup",
+    "loop_count": 2,
+    "selection_reason": "function with >=2 loops, loads and no calls",
+    "metadata_conflict": false,
+    "loop_hints": [
+      {
+        "metadata_id": "22",
+        "vectorize_enable": false,
+        "vectorize_disable": true,
+        "vectorize_width": 1,
+        "requested": false,
+        "blocked": true
+      },
+      {
+        "metadata_id": "31",
+        "vectorize_enable": true,
+        "vectorize_disable": false,
+        "vectorize_width": 16,
+        "requested": true,
+        "blocked": false
+      }
+    ],
+    "metadata_conflict_evidence": [],
+    "element_bytes": 8,
+    "element_types": [
+      "i64",
+      "i64"
+    ],
+    "trip_count": "runtime-dependent",
+    "reuse_kind": "unknown",
+    "reuse_evidence": {
+      "kind": "unknown",
+      "reason": "no matching read-read stream",
+      "accesses": [
+        {
+          "base": "%0",
+          "index_raw": "%7",
+          "index_normalized": "%7",
+          "load_type": "i64"
+        },
+        {
+          "base": "%0",
+          "index_raw": "%18",
+          "index_normalized": "%18",
+          "load_type": "i64"
+        }
+      ]
+    },
+    "loop_body_instruction_count": 43,
+    "feature_confidence": "partial",
+    "unknowns": [
+      "reuse_kind"
+    ]
+  },
+  "scenario": {
+    "n": 10000,
+    "footprint_bytes": 80000,
+    "l3_bytes": 18874368,
+    "fits_l3": true,
+    "source": "benchmark driver input size; not generally compile-time available"
+  },
+  "diagnostic": {
+    "note": "not populated by this extractor; predictor evaluation keeps post-optimisation facts separate"
+  }
+}

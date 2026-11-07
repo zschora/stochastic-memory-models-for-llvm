@@ -67,9 +67,10 @@ research/harness/protocol.md            lifecycle, statuses, gates, handoff
 research/harness/upstream-policy.md     LLVM AI policy and local rules
 research/harness/roles/                 six portable specialist roles
 research/harness/skills/                four on-demand SKILL.md procedures
-research/harness/schemas/               JSON Schemas for run/claim/toolchain records
+research/harness/schemas/               JSON Schemas for run/claim/toolchain/measurement/features
 research/harness/toolchains/            verified toolchain provenance manifests
-research/harness/plans/                 R1 research programme (not executed)
+research/harness/features/              predictor feature availability contract
+research/harness/plans/                 R1 and R1.1 plans and pre-registered specs
 research/state/index.md                 short cross-session index
 research/state/hypotheses.json          machine-readable hypothesis ledger
 research/state/decisions.md             architecture and evidence decisions
@@ -87,6 +88,8 @@ python scripts/research/new_run.py --hypothesis H-R1-001 --dry-run
 python scripts/research/validate_run.py research/runs/SIM-0001-handoff-smoke
 python scripts/research/check_docs.py
 python -m unittest discover -s scripts/research/tests -v
+python scripts/r1_audit.py
+python scripts/r1_predictor.py
 ```
 
 `doctor.py --docs-only` must work without LLVM. `--experiment` is the strict
@@ -140,9 +143,8 @@ a measurement.
 
 No agent scheduler, database, hosted service, vector store, automatic PR
 posting, benchmark execution during documentation work, or replacement of the
-existing LLVM benchmark scripts. R1 experiments are documented in
-[plans/r1-research-program.md](plans/r1-research-program.md) and are intentionally
-not started here.
+existing LLVM benchmark scripts. R1/R1.1 evidence is in `reports/`; R1.2's
+held-out corpus is not started here.
 
 ## References
 

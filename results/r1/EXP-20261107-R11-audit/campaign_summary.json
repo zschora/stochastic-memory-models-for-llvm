@@ -1,0 +1,4070 @@
+{
+  "schema_version": "1.1",
+  "campaign": "EXP-20261107-R11-audit",
+  "status": "complete",
+  "spec_path": "research/harness/plans/r1_1_measurement_plan.json",
+  "spec_sha256": "e7dac9160e7950448842c4ba66a42334750116ebd20bdf4de13229d58e52ab88",
+  "rationale": "Pre-registered before observing new results. Nine randomized complete blocks for small/noisy points (enough for a one-sided sign test at p<0.01 if all blocks agree); seven blocks for large-footprint points to bound campaign time. Five internal trials per process; process median is the experimental unit. The mandatory known_vec setup/hot/body modes replace the historically overwritten raw files with new, separately preserved measurements, never as a claim about the lost data.",
+  "seed": 20261107,
+  "toolchain_manifest": "research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json",
+  "started_utc": "2026-11-07T05:46:50Z",
+  "updated_utc": "2026-11-07T05:47:57Z",
+  "results": [
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "known_vec",
+      "mode": "setup",
+      "n": 10000,
+      "point_id": "m-a8fd83ec6f809d36",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R11-audit/measurements/known_vec/mode-setup/n-10000/m-a8fd83ec6f809d36/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R11-audit/measurements/known_vec/mode-setup/n-10000/m-a8fd83ec6f809d36/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R11-audit/measurements/known_vec/mode-setup/n-10000/m-a8fd83ec6f809d36/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "0000000000000000",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 2632.0,
+          "B": 1955.5,
+          "C": 2158.0,
+          "AA": 2630.5
+        },
+        "1": {
+          "A": 2602.5,
+          "B": 2098.0,
+          "C": 2109.5,
+          "AA": 2547.5
+        },
+        "2": {
+          "A": 2779.5,
+          "B": 2099.5,
+          "C": 2096.0,
+          "AA": 2744.0
+        },
+        "3": {
+          "A": 2802.5,
+          "B": 2098.0,
+          "C": 2212.5,
+          "AA": 2790.0
+        },
+        "4": {
+          "A": 2802.5,
+          "B": 2199.0,
+          "C": 2200.5,
+          "AA": 2951.5
+        },
+        "5": {
+          "A": 2982.0,
+          "B": 2318.0,
+          "C": 2273.5,
+          "AA": 2948.0
+        },
+        "6": {
+          "A": 2959.5,
+          "B": 2149.0,
+          "C": 2202.5,
+          "AA": 2978.5
+        },
+        "7": {
+          "A": 2946.0,
+          "B": 2213.5,
+          "C": 2261.0,
+          "AA": 3045.5
+        },
+        "8": {
+          "A": 3012.5,
+          "B": 2258.5,
+          "C": 2257.0,
+          "AA": 2920.5
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            0.7429711246200608,
+            0.806147934678194,
+            0.7553516819571865,
+            0.7486173059768064,
+            0.7846565566458519,
+            0.7773306505700872,
+            0.7261361716506166,
+            0.7513577732518669,
+            0.7497095435684648
+          ],
+          "median_ratio": 0.7513577732518669,
+          "geometric_mean_ratio": 0.7599060343777237,
+          "ci95_median_ratio": [
+            0.7429711246200608,
+            0.7846565566458519
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.7459732700604614,
+            0.7758552395855819
+          ],
+          "median_delta_pct": -24.86422267481331,
+          "geometric_mean_delta_pct": -24.009396562227625,
+          "ci95_median_delta_pct": [
+            -25.702887537993924,
+            -21.53434433541481
+          ],
+          "improvement_blocks": 9,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            0.8199088145896657,
+            0.810566762728146,
+            0.7540924626731427,
+            0.7894736842105263,
+            0.7851917930419269,
+            0.7624077800134138,
+            0.7442135495860788,
+            0.7674813306177868,
+            0.7492116182572615
+          ],
+          "median_ratio": 0.7674813306177868,
+          "geometric_mean_ratio": 0.7754232906379153,
+          "ci95_median_ratio": [
+            0.7492116182572615,
+            0.810566762728146
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.7599902498594228,
+            0.7924471721757581
+          ],
+          "median_delta_pct": -23.251866938221323,
+          "geometric_mean_delta_pct": -22.457670936208473,
+          "ci95_median_delta_pct": [
+            -25.078838174273855,
+            -18.9433237271854
+          ],
+          "improvement_blocks": 9,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            0.9994300911854104,
+            0.978866474543708,
+            0.9872279186904119,
+            0.9955396966993756,
+            1.0531668153434433,
+            0.98859825620389,
+            1.0064200033789492,
+            1.03377460964019,
+            0.969460580912863
+          ],
+          "median_ratio": 0.9955396966993756,
+          "geometric_mean_ratio": 1.0010761850327676,
+          "ci95_median_ratio": [
+            0.978866474543708,
+            1.03377460964019
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9860647905636869,
+            1.0182144964284707
+          ],
+          "median_delta_pct": -0.4460303300624413,
+          "geometric_mean_delta_pct": 0.10761850327676292,
+          "ci95_median_delta_pct": [
+            -2.113352545629199,
+            3.377460964019008
+          ],
+          "improvement_blocks": 6,
+          "degradation_blocks": 3,
+          "tie_blocks": 0,
+          "sign_consistency": 0.6666666666666666
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "confirmed_profitable",
+          "reasons": [
+            "median ratio 0.7514, 95% CI [0.7430, 0.7847], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "confirmed_profitable",
+          "reasons": [
+            "median ratio 0.7675, 95% CI [0.7492, 0.8106], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "neutral",
+          "reasons": [
+            "median ratio 0.9955, 95% CI [0.9789, 1.0338], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R11-audit",
+        "case": "known_vec",
+        "mode": "setup",
+        "n": 10000,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 200,
+        "trials": 5,
+        "blocks": 9,
+        "seed": 20261107,
+        "exe_sha256": {
+          "A": "f221fb3c1dcb293955539c9f47fae2f0947c02ef6b8f652feac7ef8a00419d36",
+          "AA": "f221fb3c1dcb293955539c9f47fae2f0947c02ef6b8f652feac7ef8a00419d36",
+          "B": "5945103afc15f5e038ec3c0b0b901178a163e011b89ca2f0cc456d687af5b948",
+          "C": "5945103afc15f5e038ec3c0b0b901178a163e011b89ca2f0cc456d687af5b948"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 200 5 setup",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 200 5 setup"
+      ]
+    },
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "known_vec",
+      "mode": "hot",
+      "n": 10000,
+      "point_id": "m-75a84c56039d8152",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R11-audit/measurements/known_vec/mode-hot/n-10000/m-75a84c56039d8152/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R11-audit/measurements/known_vec/mode-hot/n-10000/m-75a84c56039d8152/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R11-audit/measurements/known_vec/mode-hot/n-10000/m-75a84c56039d8152/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "0000000000000000",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 1252.525,
+          "B": 1277.625,
+          "C": 1174.95,
+          "AA": 1242.325
+        },
+        "1": {
+          "A": 1244.875,
+          "B": 1212.25,
+          "C": 1271.1,
+          "AA": 1230.675
+        },
+        "2": {
+          "A": 1249.725,
+          "B": 1244.075,
+          "C": 1224.15,
+          "AA": 1271.275
+        },
+        "3": {
+          "A": 1217.0,
+          "B": 1232.15,
+          "C": 1244.35,
+          "AA": 1247.175
+        },
+        "4": {
+          "A": 1241.925,
+          "B": 1256.35,
+          "C": 1235.9,
+          "AA": 1236.725
+        },
+        "5": {
+          "A": 1234.9,
+          "B": 1317.375,
+          "C": 1250.6,
+          "AA": 1256.6
+        },
+        "6": {
+          "A": 1248.875,
+          "B": 1225.8,
+          "C": 1235.55,
+          "AA": 1247.1
+        },
+        "7": {
+          "A": 1228.975,
+          "B": 1242.4,
+          "C": 1264.55,
+          "AA": 1243.025
+        },
+        "8": {
+          "A": 1233.4,
+          "B": 1268.175,
+          "C": 1246.4,
+          "AA": 1239.65
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            1.020039520169258,
+            0.9737925494527563,
+            0.995479005381184,
+            1.0124486442070666,
+            1.0116150331139158,
+            1.0667867843550085,
+            0.9815233710339305,
+            1.0109237372607256,
+            1.0281944219231391
+          ],
+          "median_ratio": 1.0116150331139158,
+          "geometric_mean_ratio": 1.0108746464938516,
+          "ci95_median_ratio": [
+            0.9815233710339305,
+            1.0281944219231391
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9948962697220066,
+            1.0288912190998292
+          ],
+          "median_delta_pct": 1.1615033113915763,
+          "geometric_mean_delta_pct": 1.0874646493851614,
+          "ci95_median_delta_pct": [
+            -1.8476628966069497,
+            2.8194421923139146
+          ],
+          "improvement_blocks": 3,
+          "degradation_blocks": 6,
+          "tie_blocks": 0,
+          "sign_consistency": 0.6666666666666666
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            0.9380651084808687,
+            1.0210663721257154,
+            0.9795354978095182,
+            1.0224732949876745,
+            0.9951486603458342,
+            1.0127135800469673,
+            0.9893303973576218,
+            1.02894688663317,
+            1.0105399708123886
+          ],
+          "median_ratio": 1.0105399708123886,
+          "geometric_mean_ratio": 0.9993916661550181,
+          "ci95_median_ratio": [
+            0.9795354978095182,
+            1.0224732949876745
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9799615533208881,
+            1.0151596993599343
+          ],
+          "median_delta_pct": 1.0539970812388555,
+          "geometric_mean_delta_pct": -0.06083338449819342,
+          "ci95_median_delta_pct": [
+            -2.0464502190481793,
+            2.2473294987674475
+          ],
+          "improvement_blocks": 4,
+          "degradation_blocks": 5,
+          "tie_blocks": 0,
+          "sign_consistency": 0.5555555555555556
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            0.9918564499710584,
+            0.9885932322522342,
+            1.0172437936345997,
+            1.0247945768282662,
+            0.9958129516677737,
+            1.017572273058547,
+            0.9985787208487639,
+            1.0114322911369231,
+            1.0050672936598022
+          ],
+          "median_ratio": 1.0050672936598022,
+          "geometric_mean_ratio": 1.005589255735193,
+          "ci95_median_ratio": [
+            0.9918564499710584,
+            1.017572273058547
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9978283927994245,
+            1.0134826351200028
+          ],
+          "median_delta_pct": 0.5067293659802186,
+          "geometric_mean_delta_pct": 0.5589255735193088,
+          "ci95_median_delta_pct": [
+            -0.8143550028941626,
+            1.7572273058547028
+          ],
+          "improvement_blocks": 4,
+          "degradation_blocks": 5,
+          "tie_blocks": 0,
+          "sign_consistency": 0.5555555555555556
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "neutral",
+          "reasons": [
+            "median ratio 1.0116, 95% CI [0.9815, 1.0282], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "neutral",
+          "reasons": [
+            "median ratio 1.0105, 95% CI [0.9795, 1.0225], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "neutral",
+          "reasons": [
+            "median ratio 1.0051, 95% CI [0.9919, 1.0176], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R11-audit",
+        "case": "known_vec",
+        "mode": "hot",
+        "n": 10000,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 4000,
+        "trials": 5,
+        "blocks": 9,
+        "seed": 20261107,
+        "exe_sha256": {
+          "A": "f221fb3c1dcb293955539c9f47fae2f0947c02ef6b8f652feac7ef8a00419d36",
+          "AA": "f221fb3c1dcb293955539c9f47fae2f0947c02ef6b8f652feac7ef8a00419d36",
+          "B": "5945103afc15f5e038ec3c0b0b901178a163e011b89ca2f0cc456d687af5b948",
+          "C": "5945103afc15f5e038ec3c0b0b901178a163e011b89ca2f0cc456d687af5b948"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 4000 5 hot",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 4000 5 hot"
+      ]
+    },
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "known_vec",
+      "mode": "body",
+      "n": 10000,
+      "point_id": "m-3a37203853e592ff",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R11-audit/measurements/known_vec/mode-body/n-10000/m-3a37203853e592ff/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R11-audit/measurements/known_vec/mode-body/n-10000/m-3a37203853e592ff/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R11-audit/measurements/known_vec/mode-body/n-10000/m-3a37203853e592ff/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "0000000000000000",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 1288200.0,
+          "B": 1286108.333,
+          "C": 1295841.667,
+          "AA": 1295558.333
+        },
+        "1": {
+          "A": 1291400.0,
+          "B": 1286275.0,
+          "C": 1290425.0,
+          "AA": 1331716.667
+        },
+        "2": {
+          "A": 1282683.333,
+          "B": 1303050.0,
+          "C": 1278258.333,
+          "AA": 1304858.333
+        },
+        "3": {
+          "A": 1291933.333,
+          "B": 1285016.667,
+          "C": 1277125.0,
+          "AA": 1277858.333
+        },
+        "4": {
+          "A": 1299991.667,
+          "B": 1287308.333,
+          "C": 1298066.667,
+          "AA": 1296708.333
+        },
+        "5": {
+          "A": 1290833.333,
+          "B": 1289491.667,
+          "C": 1296683.333,
+          "AA": 1291825.0
+        },
+        "6": {
+          "A": 1295625.0,
+          "B": 1309500.0,
+          "C": 1300266.667,
+          "AA": 1279900.0
+        },
+        "7": {
+          "A": 1293150.0,
+          "B": 1303075.0,
+          "C": 1300675.0,
+          "AA": 1295800.0
+        },
+        "8": {
+          "A": 1301583.333,
+          "B": 1302700.0,
+          "C": 1292633.333,
+          "AA": 1308800.0
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            0.9983762870672257,
+            0.9960314387486449,
+            1.015878172325172,
+            0.9946462670918638,
+            0.9902435266917755,
+            0.9989606202708741,
+            1.0107091172214182,
+            1.0076750570312802,
+            1.0008579297012248
+          ],
+          "median_ratio": 0.9989606202708741,
+          "geometric_mean_ratio": 1.0014560617344566,
+          "ci95_median_ratio": [
+            0.9946462670918638,
+            1.0107091172214182
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.996681859324355,
+            1.006692404100671
+          ],
+          "median_delta_pct": -0.10393797291259332,
+          "geometric_mean_delta_pct": 0.14560617344565596,
+          "ci95_median_delta_pct": [
+            -0.5353732908136233,
+            1.0709117221418207
+          ],
+          "improvement_blocks": 5,
+          "degradation_blocks": 4,
+          "tie_blocks": 0,
+          "sign_consistency": 0.5555555555555556
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            1.0059320501474927,
+            0.9992450054204739,
+            0.9965502007501332,
+            0.9885378505053247,
+            0.9985192212774392,
+            1.0045319561018804,
+            1.003582569802219,
+            1.0058191238448748,
+            0.9931237595218961
+          ],
+          "median_ratio": 0.9992450054204739,
+          "geometric_mean_ratio": 0.9995216046806216,
+          "ci95_median_ratio": [
+            0.9931237595218961,
+            1.0058191238448748
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9955904827639173,
+            1.0031106453440108
+          ],
+          "median_delta_pct": -0.07549945795261026,
+          "geometric_mean_delta_pct": -0.047839531937843294,
+          "ci95_median_delta_pct": [
+            -0.6876240478103868,
+            0.5819123844874818
+          ],
+          "improvement_blocks": 5,
+          "degradation_blocks": 4,
+          "tie_blocks": 0,
+          "sign_consistency": 0.5555555555555556
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            1.005712104486881,
+            1.031219348768778,
+            1.0172879770318182,
+            0.9891054749958991,
+            0.9974743422720725,
+            1.000768237831057,
+            0.9878630004823926,
+            1.0020492595599892,
+            1.0055445293566923
+          ],
+          "median_ratio": 1.0020492595599892,
+          "geometric_mean_ratio": 1.004033438854293,
+          "ci95_median_ratio": [
+            0.9891054749958991,
+            1.0172879770318182
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9963520948616076,
+            1.0129114617062365
+          ],
+          "median_delta_pct": 0.2049259559989247,
+          "geometric_mean_delta_pct": 0.4033438854293081,
+          "ci95_median_delta_pct": [
+            -1.089452500410093,
+            1.728797703181817
+          ],
+          "improvement_blocks": 3,
+          "degradation_blocks": 6,
+          "tie_blocks": 0,
+          "sign_consistency": 0.6666666666666666
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "neutral",
+          "reasons": [
+            "median ratio 0.9990, 95% CI [0.9946, 1.0107], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "neutral",
+          "reasons": [
+            "median ratio 0.9992, 95% CI [0.9931, 1.0058], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "neutral",
+          "reasons": [
+            "median ratio 1.0020, 95% CI [0.9891, 1.0173], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R11-audit",
+        "case": "known_vec",
+        "mode": "body",
+        "n": 10000,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 12,
+        "trials": 5,
+        "blocks": 9,
+        "seed": 20261107,
+        "exe_sha256": {
+          "A": "f221fb3c1dcb293955539c9f47fae2f0947c02ef6b8f652feac7ef8a00419d36",
+          "AA": "f221fb3c1dcb293955539c9f47fae2f0947c02ef6b8f652feac7ef8a00419d36",
+          "B": "5945103afc15f5e038ec3c0b0b901178a163e011b89ca2f0cc456d687af5b948",
+          "C": "5945103afc15f5e038ec3c0b0b901178a163e011b89ca2f0cc456d687af5b948"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.B.exe B 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.A.exe A 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.C.exe C 10000 12 5 body",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec\\known_vec.AA.exe AA 10000 12 5 body"
+      ]
+    },
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "read_read",
+      "mode": "",
+      "n": 1024,
+      "point_id": "m-764adbb10b455d9f",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R11-audit/measurements/read_read/mode-default/n-1024/m-764adbb10b455d9f/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R11-audit/measurements/read_read/mode-default/n-1024/m-764adbb10b455d9f/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R11-audit/measurements/read_read/mode-default/n-1024/m-764adbb10b455d9f/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "3e7f36ed31f45da7",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 94.03,
+          "B": 89.48,
+          "C": 107.89,
+          "AA": 96.89
+        },
+        "1": {
+          "A": 109.63,
+          "B": 114.54,
+          "C": 112.05,
+          "AA": 115.96
+        },
+        "2": {
+          "A": 126.93,
+          "B": 120.21,
+          "C": 116.16,
+          "AA": 119.75
+        },
+        "3": {
+          "A": 122.57,
+          "B": 117.52,
+          "C": 117.81,
+          "AA": 121.93
+        },
+        "4": {
+          "A": 123.92,
+          "B": 119.41,
+          "C": 121.39,
+          "AA": 123.73
+        },
+        "5": {
+          "A": 167.5,
+          "B": 118.06,
+          "C": 117.18,
+          "AA": 131.19
+        },
+        "6": {
+          "A": 436.49,
+          "B": 113.48,
+          "C": 435.93,
+          "AA": 124.14
+        },
+        "7": {
+          "A": 99.13,
+          "B": 81.91,
+          "C": 308.27,
+          "AA": 462.01
+        },
+        "8": {
+          "A": 118.97,
+          "B": 764.28,
+          "C": 120.77,
+          "AA": 131.82
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            0.9516111879187493,
+            1.044787010854693,
+            0.9470574332309146,
+            0.9587990536020233,
+            0.9636055519690122,
+            0.7048358208955224,
+            0.25998304657609567,
+            0.8262887117925956,
+            6.42414053963184
+          ],
+          "median_ratio": 0.9516111879187493,
+          "geometric_mean_ratio": 0.9816149208576994,
+          "ci95_median_ratio": [
+            0.7048358208955224,
+            1.044787010854693
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.6111085144756988,
+            1.7415270995559287
+          ],
+          "median_delta_pct": -4.838881208125068,
+          "geometric_mean_delta_pct": -1.8385079142300587,
+          "ci95_median_delta_pct": [
+            -29.516417910447757,
+            4.4787010854693055
+          ],
+          "improvement_blocks": 7,
+          "degradation_blocks": 2,
+          "tie_blocks": 0,
+          "sign_consistency": 0.7777777777777778
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            1.1473997660321174,
+            1.0220742497491562,
+            0.9151500827227605,
+            0.9611650485436893,
+            0.97958360232408,
+            0.6995820895522389,
+            0.9987170381910239,
+            3.1097548673459094,
+            1.015129864671766
+          ],
+          "median_ratio": 0.9987170381910239,
+          "geometric_mean_ratio": 1.093133240315505,
+          "ci95_median_ratio": [
+            0.9151500827227605,
+            1.1473997660321174
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.8909152411162058,
+            1.4549026604254398
+          ],
+          "median_delta_pct": -0.12829618089761352,
+          "geometric_mean_delta_pct": 9.313324031550497,
+          "ci95_median_delta_pct": [
+            -8.484991727723944,
+            14.739976603211735
+          ],
+          "improvement_blocks": 5,
+          "degradation_blocks": 4,
+          "tie_blocks": 0,
+          "sign_consistency": 0.5555555555555556
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            1.030415824736786,
+            1.057739669798413,
+            0.9434333884818403,
+            0.9947784939218407,
+            0.9984667527437057,
+            0.7832238805970149,
+            0.2844051410112488,
+            4.660647634419449,
+            1.1080104227956626
+          ],
+          "median_ratio": 0.9984667527437057,
+          "geometric_mean_ratio": 1.0180640792135611,
+          "ci95_median_ratio": [
+            0.7832238805970149,
+            1.1080104227956626
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.6601030413456556,
+            1.6326827729457392
+          ],
+          "median_delta_pct": -0.15332472562943344,
+          "geometric_mean_delta_pct": 1.8064079213561124,
+          "ci95_median_delta_pct": [
+            -21.67761194029851,
+            10.801042279566264
+          ],
+          "improvement_blocks": 5,
+          "degradation_blocks": 4,
+          "tie_blocks": 0,
+          "sign_consistency": 0.5555555555555556
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 0.9516, 95% CI [0.7048, 1.0448], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 0.9987, 95% CI [0.9152, 1.1474], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 0.9985, 95% CI [0.7832, 1.1080], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R11-audit",
+        "case": "read_read",
+        "mode": "",
+        "n": 1024,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 10000,
+        "trials": 5,
+        "blocks": 9,
+        "seed": 20261107,
+        "exe_sha256": {
+          "A": "854b5487e5294253638fc6e862c18c08c032472d486e64b8c863766f02771c91",
+          "AA": "854b5487e5294253638fc6e862c18c08c032472d486e64b8c863766f02771c91",
+          "B": "cc241456c5448bd3a0bcd9970abbb69042cfd1a08aa668508136be8e0dea03bf",
+          "C": "9c7acaa98dd6616372d6070e79e117ea93a1db7d1d90b62126213680f7b7b561"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.C.exe C 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.A.exe A 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.B.exe B 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.AA.exe AA 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.A.exe A 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.AA.exe AA 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.C.exe C 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.B.exe B 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.AA.exe AA 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.C.exe C 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.A.exe A 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.B.exe B 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.B.exe B 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.AA.exe AA 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.A.exe A 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.C.exe C 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.C.exe C 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.A.exe A 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.AA.exe AA 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.B.exe B 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.AA.exe AA 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.B.exe B 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.A.exe A 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.C.exe C 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.AA.exe AA 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.A.exe A 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.C.exe C 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.B.exe B 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.B.exe B 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.A.exe A 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.AA.exe AA 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.C.exe C 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.B.exe B 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.A.exe A 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.C.exe C 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.AA.exe AA 1024 10000 5"
+      ]
+    },
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "read_read",
+      "mode": "",
+      "n": 16384,
+      "point_id": "m-1dc0558802a83c47",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R11-audit/measurements/read_read/mode-default/n-16384/m-1dc0558802a83c47/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R11-audit/measurements/read_read/mode-default/n-16384/m-1dc0558802a83c47/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R11-audit/measurements/read_read/mode-default/n-16384/m-1dc0558802a83c47/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "2058b75dac77aacb",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 6568.0,
+          "B": 6113.0,
+          "C": 5559.333,
+          "AA": 5547.333
+        },
+        "1": {
+          "A": 7854.667,
+          "B": 7492.333,
+          "C": 9787.0,
+          "AA": 6024.667
+        },
+        "2": {
+          "A": 5898.667,
+          "B": 6238.667,
+          "C": 6212.333,
+          "AA": 5745.333
+        },
+        "3": {
+          "A": 6086.333,
+          "B": 6099.333,
+          "C": 5888.0,
+          "AA": 5889.0
+        },
+        "4": {
+          "A": 5763.667,
+          "B": 6357.667,
+          "C": 5969.333,
+          "AA": 5976.333
+        },
+        "5": {
+          "A": 5730.667,
+          "B": 6097.0,
+          "C": 6363.0,
+          "AA": 5918.667
+        },
+        "6": {
+          "A": 5951.667,
+          "B": 5254.667,
+          "C": 6185.333,
+          "AA": 5924.667
+        },
+        "7": {
+          "A": 5695.333,
+          "B": 5892.0,
+          "C": 6157.333,
+          "AA": 5643.333
+        },
+        "8": {
+          "A": 5650.0,
+          "B": 6114.0,
+          "C": 6237.667,
+          "AA": 5984.333
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            0.9307247259439708,
+            0.9538702277257584,
+            1.05764014140822,
+            1.0021359330815451,
+            1.1030593891007237,
+            1.0639250195483352,
+            0.8828899533525649,
+            1.034531255678992,
+            1.0821238938053097
+          ],
+          "median_ratio": 1.034531255678992,
+          "geometric_mean_ratio": 1.0097725904213004,
+          "ci95_median_ratio": [
+            0.9307247259439708,
+            1.0821238938053097
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9621166367967905,
+            1.0558339874423346
+          ],
+          "median_delta_pct": 3.4531255678992068,
+          "geometric_mean_delta_pct": 0.9772590421300409,
+          "ci95_median_delta_pct": [
+            -6.927527405602918,
+            8.212389380530972
+          ],
+          "improvement_blocks": 3,
+          "degradation_blocks": 6,
+          "tie_blocks": 0,
+          "sign_consistency": 0.6666666666666666
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            0.8464270706455541,
+            1.2460108111521468,
+            1.0531757429263253,
+            0.9674133833952234,
+            1.0356831857218676,
+            1.1103419549591695,
+            1.0392605970730553,
+            1.0811190495797174,
+            1.1040118584070797
+          ],
+          "median_ratio": 1.0531757429263253,
+          "geometric_mean_ratio": 1.0485975879613372,
+          "ci95_median_ratio": [
+            0.9674133833952234,
+            1.1103419549591695
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9795952201909766,
+            1.1157010152036464
+          ],
+          "median_delta_pct": 5.317574292632532,
+          "geometric_mean_delta_pct": 4.859758796133717,
+          "ci95_median_delta_pct": [
+            -3.2586616604776575,
+            11.034195495916954
+          ],
+          "improvement_blocks": 2,
+          "degradation_blocks": 7,
+          "tie_blocks": 0,
+          "sign_consistency": 0.7777777777777778
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            0.8446000304506699,
+            0.7670174941853041,
+            0.9740053134038588,
+            0.9675776859399576,
+            1.0368976903072296,
+            1.0328059543505146,
+            0.9954634558687507,
+            0.9908697173633219,
+            1.059173982300885
+          ],
+          "median_ratio": 0.9908697173633219,
+          "geometric_mean_ratio": 0.9585339150465033,
+          "ci95_median_ratio": [
+            0.8446000304506699,
+            1.0368976903072296
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.8931812763942676,
+            1.0144975370963474
+          ],
+          "median_delta_pct": -0.9130282636678144,
+          "geometric_mean_delta_pct": -4.1466084953496685,
+          "ci95_median_delta_pct": [
+            -15.539996954933011,
+            3.689769030722956
+          ],
+          "improvement_blocks": 6,
+          "degradation_blocks": 3,
+          "tie_blocks": 0,
+          "sign_consistency": 0.6666666666666666
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 1.0345, 95% CI [0.9307, 1.0821], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 1.0532, 95% CI [0.9674, 1.1103], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 0.9909, 95% CI [0.8446, 1.0369], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R11-audit",
+        "case": "read_read",
+        "mode": "",
+        "n": 16384,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 300,
+        "trials": 5,
+        "blocks": 9,
+        "seed": 20261107,
+        "exe_sha256": {
+          "A": "854b5487e5294253638fc6e862c18c08c032472d486e64b8c863766f02771c91",
+          "AA": "854b5487e5294253638fc6e862c18c08c032472d486e64b8c863766f02771c91",
+          "B": "cc241456c5448bd3a0bcd9970abbb69042cfd1a08aa668508136be8e0dea03bf",
+          "C": "9c7acaa98dd6616372d6070e79e117ea93a1db7d1d90b62126213680f7b7b561"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.C.exe C 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.A.exe A 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.B.exe B 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.AA.exe AA 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.A.exe A 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.AA.exe AA 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.C.exe C 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.B.exe B 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.AA.exe AA 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.C.exe C 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.A.exe A 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.B.exe B 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.B.exe B 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.AA.exe AA 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.A.exe A 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.C.exe C 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.C.exe C 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.A.exe A 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.AA.exe AA 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.B.exe B 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.AA.exe AA 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.B.exe B 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.A.exe A 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.C.exe C 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.AA.exe AA 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.A.exe A 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.C.exe C 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.B.exe B 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.B.exe B 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.A.exe A 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.AA.exe AA 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.C.exe C 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.B.exe B 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.A.exe A 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.C.exe C 16384 300 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read\\read_read.AA.exe AA 16384 300 5"
+      ]
+    },
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "read_read_offset",
+      "mode": "",
+      "n": 1024,
+      "point_id": "m-3b3fdfac94f25ca1",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R11-audit/measurements/read_read_offset/mode-default/n-1024/m-3b3fdfac94f25ca1/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R11-audit/measurements/read_read_offset/mode-default/n-1024/m-3b3fdfac94f25ca1/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R11-audit/measurements/read_read_offset/mode-default/n-1024/m-3b3fdfac94f25ca1/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "3e7f36ed31f45da7",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 110.42,
+          "B": 87.84,
+          "C": 144.4,
+          "AA": 95.55
+        },
+        "1": {
+          "A": 121.12,
+          "B": 109.42,
+          "C": 126.75,
+          "AA": 161.98
+        },
+        "2": {
+          "A": 183.36,
+          "B": 168.77,
+          "C": 167.3,
+          "AA": 139.01
+        },
+        "3": {
+          "A": 174.35,
+          "B": 144.42,
+          "C": 154.64,
+          "AA": 169.72
+        },
+        "4": {
+          "A": 174.36,
+          "B": 162.76,
+          "C": 161.62,
+          "AA": 181.16
+        },
+        "5": {
+          "A": 177.15,
+          "B": 188.75,
+          "C": 167.19,
+          "AA": 176.13
+        },
+        "6": {
+          "A": 170.2,
+          "B": 158.6,
+          "C": 161.31,
+          "AA": 171.55
+        },
+        "7": {
+          "A": 183.25,
+          "B": 163.15,
+          "C": 166.05,
+          "AA": 148.9
+        },
+        "8": {
+          "A": 178.66,
+          "B": 166.39,
+          "C": 170.28,
+          "AA": 179.84
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            0.7955080601340337,
+            0.9034015852047556,
+            0.9204297556719022,
+            0.828333811299111,
+            0.9334709795824729,
+            1.0654812305955406,
+            0.9318448883666275,
+            0.8903137789904503,
+            0.931322064256129
+          ],
+          "median_ratio": 0.9204297556719022,
+          "geometric_mean_ratio": 0.90836759838395,
+          "ci95_median_ratio": [
+            0.828333811299111,
+            0.9334709795824729
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.8637573793678913,
+            0.9571977209759753
+          ],
+          "median_delta_pct": -7.957024432809778,
+          "geometric_mean_delta_pct": -9.163240161605001,
+          "ci95_median_delta_pct": [
+            -17.1666188700889,
+            -6.652902041752706
+          ],
+          "improvement_blocks": 8,
+          "degradation_blocks": 1,
+          "tie_blocks": 0,
+          "sign_consistency": 0.8888888888888888
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            1.307734106140192,
+            1.0464828269484807,
+            0.912412739965096,
+            0.8869515342701462,
+            0.9269327827483367,
+            0.9437764606265876,
+            0.9477673325499413,
+            0.9061391541609823,
+            0.9530952647486847
+          ],
+          "median_ratio": 0.9437764606265876,
+          "geometric_mean_ratio": 0.9745639579280689,
+          "ci95_median_ratio": [
+            0.9061391541609823,
+            1.0464828269484807
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9197341470816769,
+            1.0593633876391795
+          ],
+          "median_delta_pct": -5.62235393734124,
+          "geometric_mean_delta_pct": -2.5436042071931064,
+          "ci95_median_delta_pct": [
+            -9.386084583901766,
+            4.6482826948480716
+          ],
+          "improvement_blocks": 7,
+          "degradation_blocks": 2,
+          "tie_blocks": 0,
+          "sign_consistency": 0.7777777777777778
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            0.8653323673247599,
+            1.3373513870541611,
+            0.7581260907504362,
+            0.9734442213937482,
+            1.0389997705895846,
+            0.99424216765453,
+            1.0079318448883667,
+            0.8125511596180082,
+            1.0066047240568679
+          ],
+          "median_ratio": 0.99424216765453,
+          "geometric_mean_ratio": 0.9652428824280256,
+          "ci95_median_ratio": [
+            0.8125511596180082,
+            1.0389997705895846
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.8754082511063414,
+            1.0725105376145423
+          ],
+          "median_delta_pct": -0.5757832345470004,
+          "geometric_mean_delta_pct": -3.4757117571974416,
+          "ci95_median_delta_pct": [
+            -18.74488403819918,
+            3.8999770589584593
+          ],
+          "improvement_blocks": 5,
+          "degradation_blocks": 4,
+          "tie_blocks": 0,
+          "sign_consistency": 0.5555555555555556
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "confirmed_profitable",
+          "reasons": [
+            "median ratio 0.9204, 95% CI [0.8283, 0.9335], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 0.9438, 95% CI [0.9061, 1.0465], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 0.9942, 95% CI [0.8126, 1.0390], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R11-audit",
+        "case": "read_read_offset",
+        "mode": "",
+        "n": 1024,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 10000,
+        "trials": 5,
+        "blocks": 9,
+        "seed": 20261107,
+        "exe_sha256": {
+          "A": "63f16f9040c19c85f395d54e248c89713eb041d2b916c79a99b41b833a1ebced",
+          "AA": "63f16f9040c19c85f395d54e248c89713eb041d2b916c79a99b41b833a1ebced",
+          "B": "f751d176f946fb9b4f03292b66604685f69185c011109e2d38735f22add65679",
+          "C": "f751d176f946fb9b4f03292b66604685f69185c011109e2d38735f22add65679"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.C.exe C 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.A.exe A 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.B.exe B 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.AA.exe AA 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.A.exe A 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.AA.exe AA 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.C.exe C 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.B.exe B 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.AA.exe AA 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.C.exe C 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.A.exe A 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.B.exe B 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.B.exe B 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.AA.exe AA 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.A.exe A 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.C.exe C 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.C.exe C 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.A.exe A 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.AA.exe AA 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.B.exe B 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.AA.exe AA 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.B.exe B 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.A.exe A 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.C.exe C 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.AA.exe AA 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.A.exe A 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.C.exe C 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.B.exe B 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.B.exe B 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.A.exe A 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.AA.exe AA 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.C.exe C 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.B.exe B 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.A.exe A 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.C.exe C 1024 10000 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset\\read_read_offset.AA.exe AA 1024 10000 5"
+      ]
+    },
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "simd_metadata_scalar",
+      "mode": "",
+      "n": 16384,
+      "point_id": "m-f5a34a5fc3d5ff66",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R11-audit/measurements/simd_metadata_scalar/mode-default/n-16384/m-f5a34a5fc3d5ff66/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R11-audit/measurements/simd_metadata_scalar/mode-default/n-16384/m-f5a34a5fc3d5ff66/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R11-audit/measurements/simd_metadata_scalar/mode-default/n-16384/m-f5a34a5fc3d5ff66/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "eaee55539d2c3ffe",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 11914.0,
+          "B": 15458.0,
+          "C": 16368.0,
+          "AA": 12527.5
+        },
+        "1": {
+          "A": 12837.5,
+          "B": 15667.0,
+          "C": 17734.5,
+          "AA": 13663.0
+        },
+        "2": {
+          "A": 11904.5,
+          "B": 16595.5,
+          "C": 16152.0,
+          "AA": 12282.5
+        },
+        "3": {
+          "A": 17067.0,
+          "B": 15931.5,
+          "C": 15749.0,
+          "AA": 11950.0
+        },
+        "4": {
+          "A": 14157.5,
+          "B": 19291.0,
+          "C": 16012.5,
+          "AA": 12698.0
+        },
+        "5": {
+          "A": 12464.5,
+          "B": 16123.5,
+          "C": 17483.0,
+          "AA": 12413.5
+        },
+        "6": {
+          "A": 14518.5,
+          "B": 15469.5,
+          "C": 16772.5,
+          "AA": 12437.5
+        },
+        "7": {
+          "A": 11924.5,
+          "B": 15961.5,
+          "C": 16318.5,
+          "AA": 12767.5
+        },
+        "8": {
+          "A": 11928.5,
+          "B": 16431.5,
+          "C": 17209.0,
+          "AA": 12052.0
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            1.2974651670303845,
+            1.2204089581304771,
+            1.3940526691587214,
+            0.9334680963262436,
+            1.3625993289775737,
+            1.2935536924866622,
+            1.065502634569687,
+            1.338546689588662,
+            1.3774992664626735
+          ],
+          "median_ratio": 1.2974651670303845,
+          "geometric_mean_ratio": 1.2440090362284357,
+          "ci95_median_ratio": [
+            1.065502634569687,
+            1.3774992664626735
+          ],
+          "ci95_geometric_mean_ratio": [
+            1.1321917544396713,
+            1.3397520157458105
+          ],
+          "median_delta_pct": 29.746516703038452,
+          "geometric_mean_delta_pct": 24.400903622843572,
+          "ci95_median_delta_pct": [
+            6.550263456968697,
+            37.749926646267355
+          ],
+          "improvement_blocks": 1,
+          "degradation_blocks": 8,
+          "tie_blocks": 0,
+          "sign_consistency": 0.8888888888888888
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            1.3738458955850261,
+            1.381460564751704,
+            1.3567978495526902,
+            0.9227749458018398,
+            1.131025957972806,
+            1.402623450599703,
+            1.1552501980232117,
+            1.3684850517841418,
+            1.4426792974808231
+          ],
+          "median_ratio": 1.3684850517841418,
+          "geometric_mean_ratio": 1.2700498900405337,
+          "ci95_median_ratio": [
+            1.131025957972806,
+            1.402623450599703
+          ],
+          "ci95_geometric_mean_ratio": [
+            1.1517684639261856,
+            1.376896575736844
+          ],
+          "median_delta_pct": 36.84850517841418,
+          "geometric_mean_delta_pct": 27.00498900405337,
+          "ci95_median_delta_pct": [
+            13.102595797280593,
+            40.26234505997031
+          ],
+          "improvement_blocks": 1,
+          "degradation_blocks": 8,
+          "tie_blocks": 0,
+          "sign_consistency": 0.8888888888888888
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            1.0514940406244755,
+            1.0643037974683545,
+            1.0317526985593684,
+            0.7001816370774009,
+            0.8969097651421508,
+            0.9959083797986281,
+            0.8566656335020836,
+            1.0706947880414273,
+            1.0103533554093138
+          ],
+          "median_ratio": 1.0103533554093138,
+          "geometric_mean_ratio": 0.9563562290684295,
+          "ci95_median_ratio": [
+            0.8566656335020836,
+            1.0643037974683545
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.8698677776750796,
+            1.0317836038839228
+          ],
+          "median_delta_pct": 1.0353355409313814,
+          "geometric_mean_delta_pct": -4.364377093157046,
+          "ci95_median_delta_pct": [
+            -14.333436649791642,
+            6.430379746835446
+          ],
+          "improvement_blocks": 4,
+          "degradation_blocks": 5,
+          "tie_blocks": 0,
+          "sign_consistency": 0.5555555555555556
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "confirmed_harmful",
+          "reasons": [
+            "median ratio 1.2975, 95% CI [1.0655, 1.3775], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "confirmed_harmful",
+          "reasons": [
+            "median ratio 1.3685, 95% CI [1.1310, 1.4026], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 1.0104, 95% CI [0.8567, 1.0643], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R11-audit",
+        "case": "simd_metadata_scalar",
+        "mode": "",
+        "n": 16384,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 200,
+        "trials": 5,
+        "blocks": 9,
+        "seed": 20261107,
+        "exe_sha256": {
+          "A": "7af408bd5506757a9d4b9478d7b0dfa56c56378f5ecb504906e8eef2a6ef50c0",
+          "AA": "7af408bd5506757a9d4b9478d7b0dfa56c56378f5ecb504906e8eef2a6ef50c0",
+          "B": "828765efb7e1600a6461f5c08f9e5bd99ba06cd604eaae7ef00b222257561713",
+          "C": "828765efb7e1600a6461f5c08f9e5bd99ba06cd604eaae7ef00b222257561713"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 16384 200 5"
+      ]
+    },
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "producer_consumer_split",
+      "mode": "",
+      "n": 16384,
+      "point_id": "m-d7e928956fe7c02e",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R11-audit/measurements/producer_consumer_split/mode-default/n-16384/m-d7e928956fe7c02e/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R11-audit/measurements/producer_consumer_split/mode-default/n-16384/m-d7e928956fe7c02e/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R11-audit/measurements/producer_consumer_split/mode-default/n-16384/m-d7e928956fe7c02e/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "ee8f14e515953dc9",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 5607.0,
+          "B": 4295.0,
+          "C": 5927.5,
+          "AA": 4403.0
+        },
+        "1": {
+          "A": 4892.0,
+          "B": 6081.5,
+          "C": 7835.0,
+          "AA": 5557.0
+        },
+        "2": {
+          "A": 5858.5,
+          "B": 6215.0,
+          "C": 7287.5,
+          "AA": 5637.0
+        },
+        "3": {
+          "A": 6428.0,
+          "B": 6066.5,
+          "C": 6309.5,
+          "AA": 6185.0
+        },
+        "4": {
+          "A": 6358.5,
+          "B": 6367.0,
+          "C": 6143.0,
+          "AA": 6420.5
+        },
+        "5": {
+          "A": 6122.5,
+          "B": 6183.0,
+          "C": 6066.5,
+          "AA": 6324.5
+        },
+        "6": {
+          "A": 6486.0,
+          "B": 5754.0,
+          "C": 13660.0,
+          "AA": 6177.5
+        },
+        "7": {
+          "A": 6379.0,
+          "B": 5856.0,
+          "C": 13472.0,
+          "AA": 6304.0
+        },
+        "8": {
+          "A": 6124.0,
+          "B": 13126.5,
+          "C": 13592.0,
+          "AA": 6040.0
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            0.7660067772427323,
+            1.2431520850367948,
+            1.06085175386191,
+            0.9437616677037959,
+            1.0013367932688526,
+            1.0098815843201308,
+            0.8871415356151712,
+            0.9180122276218843,
+            2.1434519921619857
+          ],
+          "median_ratio": 1.0013367932688526,
+          "geometric_mean_ratio": 1.0595463599405472,
+          "ci95_median_ratio": [
+            0.8871415356151712,
+            1.2431520850367948
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.910791990394271,
+            1.3040125164516692
+          ],
+          "median_delta_pct": 0.13367932688526096,
+          "geometric_mean_delta_pct": 5.954635994054724,
+          "ci95_median_delta_pct": [
+            -11.285846438482883,
+            24.315208503679475
+          ],
+          "improvement_blocks": 4,
+          "degradation_blocks": 5,
+          "tie_blocks": 0,
+          "sign_consistency": 0.5555555555555556
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            1.0571606919921526,
+            1.6015944399018807,
+            1.2439190919177263,
+            0.9815650280024891,
+            0.9661083588896753,
+            0.9908534095549204,
+            2.1060746222633364,
+            2.111929769556357,
+            2.2194644023514045
+          ],
+          "median_ratio": 1.2439190919177263,
+          "geometric_mean_ratio": 1.3913193503711974,
+          "ci95_median_ratio": [
+            0.9815650280024891,
+            2.111929769556357
+          ],
+          "ci95_geometric_mean_ratio": [
+            1.1231391499128487,
+            1.7347119924188974
+          ],
+          "median_delta_pct": 24.391909191772633,
+          "geometric_mean_delta_pct": 39.13193503711974,
+          "ci95_median_delta_pct": [
+            -1.8434971997510874,
+            111.19297695563569
+          ],
+          "improvement_blocks": 3,
+          "degradation_blocks": 6,
+          "tie_blocks": 0,
+          "sign_consistency": 0.6666666666666666
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            0.7852684144818977,
+            1.1359362224039247,
+            0.9621916872919689,
+            0.9621966397013068,
+            1.0097507273728081,
+            1.0329930583911802,
+            0.9524360160345359,
+            0.9882426712650886,
+            0.9862834748530372
+          ],
+          "median_ratio": 0.9862834748530372,
+          "geometric_mean_ratio": 0.9754662573701137,
+          "ci95_median_ratio": [
+            0.9524360160345359,
+            1.0329930583911802
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9126483376920118,
+            1.0310898411824496
+          ],
+          "median_delta_pct": -1.3716525146962755,
+          "geometric_mean_delta_pct": -2.453374262988628,
+          "ci95_median_delta_pct": [
+            -4.7563983965464125,
+            3.2993058391180163
+          ],
+          "improvement_blocks": 6,
+          "degradation_blocks": 3,
+          "tie_blocks": 0,
+          "sign_consistency": 0.6666666666666666
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 1.0013, 95% CI [0.8871, 1.2432], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 1.2439, 95% CI [0.9816, 2.1119], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "neutral",
+          "reasons": [
+            "median ratio 0.9863, 95% CI [0.9524, 1.0330], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R11-audit",
+        "case": "producer_consumer_split",
+        "mode": "",
+        "n": 16384,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 200,
+        "trials": 5,
+        "blocks": 9,
+        "seed": 20261107,
+        "exe_sha256": {
+          "A": "5d756eb2c968292d2484953986caa2e46cb1d276460ab3a1109a748ccd62438d",
+          "AA": "5d756eb2c968292d2484953986caa2e46cb1d276460ab3a1109a748ccd62438d",
+          "B": "5940e6b2475f90b94727b1113df10794f650802db29ca1c7c5a12ffdecc393c4",
+          "C": "5940e6b2475f90b94727b1113df10794f650802db29ca1c7c5a12ffdecc393c4"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 16384 200 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 16384 200 5"
+      ]
+    },
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "producer_consumer_split",
+      "mode": "",
+      "n": 131072,
+      "point_id": "m-963e961e40410906",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R11-audit/measurements/producer_consumer_split/mode-default/n-131072/m-963e961e40410906/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R11-audit/measurements/producer_consumer_split/mode-default/n-131072/m-963e961e40410906/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R11-audit/measurements/producer_consumer_split/mode-default/n-131072/m-963e961e40410906/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "fb20b16fd0a67959",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 109360.0,
+          "B": 84240.0,
+          "C": 92100.0,
+          "AA": 95255.0
+        },
+        "1": {
+          "A": 117335.0,
+          "B": 92950.0,
+          "C": 89825.0,
+          "AA": 104820.0
+        },
+        "2": {
+          "A": 101800.0,
+          "B": 81715.0,
+          "C": 95740.0,
+          "AA": 98460.0
+        },
+        "3": {
+          "A": 101945.0,
+          "B": 85980.0,
+          "C": 89520.0,
+          "AA": 102660.0
+        },
+        "4": {
+          "A": 102840.0,
+          "B": 90935.0,
+          "C": 82940.0,
+          "AA": 109890.0
+        },
+        "5": {
+          "A": 100825.0,
+          "B": 84395.0,
+          "C": 93405.0,
+          "AA": 116420.0
+        },
+        "6": {
+          "A": 94200.0,
+          "B": 89990.0,
+          "C": 87765.0,
+          "AA": 104080.0
+        },
+        "7": {
+          "A": 100415.0,
+          "B": 90545.0,
+          "C": 90480.0,
+          "AA": 104915.0
+        },
+        "8": {
+          "A": 105465.0,
+          "B": 82430.0,
+          "C": 95720.0,
+          "AA": 98650.0
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            0.7702999268471105,
+            0.7921762474964844,
+            0.8027013752455796,
+            0.8433959487959194,
+            0.8842376507195644,
+            0.8370443838333747,
+            0.9553078556263269,
+            0.9017079121645173,
+            0.7815863082539231
+          ],
+          "median_ratio": 0.8370443838333747,
+          "geometric_mean_ratio": 0.8389384412302474,
+          "ci95_median_ratio": [
+            0.7815863082539231,
+            0.9017079121645173
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.8036980976446737,
+            0.878095943723515
+          ],
+          "median_delta_pct": -16.295561616662535,
+          "geometric_mean_delta_pct": -16.106155876975258,
+          "ci95_median_delta_pct": [
+            -21.841369174607696,
+            -9.829208783548271
+          ],
+          "improvement_blocks": 9,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            0.8421726408193123,
+            0.7655431030809221,
+            0.9404715127701375,
+            0.878120555201334,
+            0.8064955270322831,
+            0.9264071410860402,
+            0.931687898089172,
+            0.9010605985161579,
+            0.9075996776181672
+          ],
+          "median_ratio": 0.9010605985161579,
+          "geometric_mean_ratio": 0.8757885147082487,
+          "ci95_median_ratio": [
+            0.8064955270322831,
+            0.931687898089172
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.8364204258519629,
+            0.9116340080371973
+          ],
+          "median_delta_pct": -9.893940148384207,
+          "geometric_mean_delta_pct": -12.421148529175131,
+          "ci95_median_delta_pct": [
+            -19.35044729677169,
+            -6.831210191082803
+          ],
+          "improvement_blocks": 9,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 9,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "block_ratios": [
+            0.8710223116313094,
+            0.8933395832445562,
+            0.9671905697445973,
+            1.007013585757026,
+            1.0685530921820303,
+            1.154673939995041,
+            1.1048832271762208,
+            1.0448140218094906,
+            0.9353814061537002
+          ],
+          "median_ratio": 1.007013585757026,
+          "geometric_mean_ratio": 1.0010732773017097,
+          "ci95_median_ratio": [
+            0.8933395832445562,
+            1.1048832271762208
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9432867401673536,
+            1.0634988368463272
+          ],
+          "median_delta_pct": 0.7013585757025931,
+          "geometric_mean_delta_pct": 0.10732773017096964,
+          "ci95_median_delta_pct": [
+            -10.66604167554438,
+            10.48832271762208
+          ],
+          "improvement_blocks": 4,
+          "degradation_blocks": 5,
+          "tie_blocks": 0,
+          "sign_consistency": 0.5555555555555556
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "confirmed_profitable",
+          "reasons": [
+            "median ratio 0.8370, 95% CI [0.7816, 0.9017], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "confirmed_profitable",
+          "reasons": [
+            "median ratio 0.9011, 95% CI [0.8065, 0.9317], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 1.0070, 95% CI [0.8933, 1.1049], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R11-audit",
+        "case": "producer_consumer_split",
+        "mode": "",
+        "n": 131072,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 20,
+        "trials": 5,
+        "blocks": 9,
+        "seed": 20261107,
+        "exe_sha256": {
+          "A": "5d756eb2c968292d2484953986caa2e46cb1d276460ab3a1109a748ccd62438d",
+          "AA": "5d756eb2c968292d2484953986caa2e46cb1d276460ab3a1109a748ccd62438d",
+          "B": "5940e6b2475f90b94727b1113df10794f650802db29ca1c7c5a12ffdecc393c4",
+          "C": "5940e6b2475f90b94727b1113df10794f650802db29ca1c7c5a12ffdecc393c4"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.C.exe C 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split\\producer_consumer_split.AA.exe AA 131072 20 5"
+      ]
+    },
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "simd_metadata",
+      "mode": "",
+      "n": 1048576,
+      "point_id": "m-2bffc5a5ad9e964a",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R11-audit/measurements/simd_metadata/mode-default/n-1048576/m-2bffc5a5ad9e964a/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R11-audit/measurements/simd_metadata/mode-default/n-1048576/m-2bffc5a5ad9e964a/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R11-audit/measurements/simd_metadata/mode-default/n-1048576/m-2bffc5a5ad9e964a/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "8ebd380097abd3b5",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 1527833.333,
+          "B": 1469566.667,
+          "C": 1419633.333,
+          "AA": 1515333.333
+        },
+        "1": {
+          "A": 1563100.0,
+          "B": 1422866.667,
+          "C": 1402166.667,
+          "AA": 1548633.333
+        },
+        "2": {
+          "A": 1749300.0,
+          "B": 1481366.667,
+          "C": 1448166.667,
+          "AA": 1496300.0
+        },
+        "3": {
+          "A": 1770966.667,
+          "B": 1491400.0,
+          "C": 1471933.333,
+          "AA": 1414333.333
+        },
+        "4": {
+          "A": 1589700.0,
+          "B": 1437800.0,
+          "C": 1441900.0,
+          "AA": 1549766.667
+        },
+        "5": {
+          "A": 1564733.333,
+          "B": 1542866.667,
+          "C": 1433533.333,
+          "AA": 1506000.0
+        },
+        "6": {
+          "A": 1460733.333,
+          "B": 1392966.667,
+          "C": 1402600.0,
+          "AA": 1587233.333
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.9618632054023918,
+            0.9102851173949202,
+            0.846833971874464,
+            0.8421389446738808,
+            0.9044473800088066,
+            0.9860253082497603,
+            0.9536077773615096
+          ],
+          "median_ratio": 0.9102851173949202,
+          "geometric_mean_ratio": 0.9135462965330311,
+          "ci95_median_ratio": [
+            0.846833971874464,
+            0.9618632054023918
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.8766632041156229,
+            0.9515224511970376
+          ],
+          "median_delta_pct": -8.971488260507975,
+          "geometric_mean_delta_pct": -8.64537034669689,
+          "ci95_median_delta_pct": [
+            -15.316602812553604,
+            -3.8136794597608215
+          ],
+          "improvement_blocks": 7,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.9291807570479286,
+            0.897042202674173,
+            0.8278549516949636,
+            0.8311468309527478,
+            0.9070264829842108,
+            0.9161518469422163,
+            0.9602026381635257
+          ],
+          "median_ratio": 0.9070264829842108,
+          "geometric_mean_ratio": 0.8943331818533282,
+          "ci95_median_ratio": [
+            0.8311468309527478,
+            0.9291807570479286
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.860387096843153,
+            0.9276049055364605
+          ],
+          "median_delta_pct": -9.297351701578915,
+          "geometric_mean_delta_pct": -10.566681814667177,
+          "ci95_median_delta_pct": [
+            -16.885316904725222,
+            -7.081924295207143
+          ],
+          "improvement_blocks": 7,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.9918184793262395,
+            0.9907448870833601,
+            0.8553707197164581,
+            0.7986222210471453,
+            0.974879956595584,
+            0.962464317873645,
+            1.0866003377496691
+          ],
+          "median_ratio": 0.974879956595584,
+          "geometric_mean_ratio": 0.9472634365234955,
+          "ci95_median_ratio": [
+            0.8553707197164581,
+            0.9918184793262395
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.8806180348353781,
+            1.010858085877638
+          ],
+          "median_delta_pct": -2.512004340441598,
+          "geometric_mean_delta_pct": -5.273656347650446,
+          "ci95_median_delta_pct": [
+            -14.462928028354193,
+            -0.8181520673760545
+          ],
+          "improvement_blocks": 6,
+          "degradation_blocks": 1,
+          "tie_blocks": 0,
+          "sign_consistency": 0.8571428571428571
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 0.9103, 95% CI [0.8468, 0.9619], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "confirmed_profitable",
+          "reasons": [
+            "median ratio 0.9070, 95% CI [0.8311, 0.9292], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 0.9749, 95% CI [0.8554, 0.9918], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R11-audit",
+        "case": "simd_metadata",
+        "mode": "",
+        "n": 1048576,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 3,
+        "trials": 5,
+        "blocks": 7,
+        "seed": 20261107,
+        "exe_sha256": {
+          "A": "dfc36952aecc3ac638585b50a47e54dbc819430254ad79180efb96723aa05581",
+          "AA": "dfc36952aecc3ac638585b50a47e54dbc819430254ad79180efb96723aa05581",
+          "B": "fd8ca614fb7f93589297fb81ed14cbeda46ec99b9556cc56fa90c983cb5628ad",
+          "C": "fd8ca614fb7f93589297fb81ed14cbeda46ec99b9556cc56fa90c983cb5628ad"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.B.exe B 1048576 3 5"
+      ]
+    },
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "simd_metadata",
+      "mode": "",
+      "n": 8388608,
+      "point_id": "m-293bdcacd3201147",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R11-audit/measurements/simd_metadata/mode-default/n-8388608/m-293bdcacd3201147/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R11-audit/measurements/simd_metadata/mode-default/n-8388608/m-293bdcacd3201147/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R11-audit/measurements/simd_metadata/mode-default/n-8388608/m-293bdcacd3201147/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "96928c1d82c76a49",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 17171300.0,
+          "B": 13630800.0,
+          "C": 12914500.0,
+          "AA": 16407800.0
+        },
+        "1": {
+          "A": 17729700.0,
+          "B": 13056100.0,
+          "C": 13076100.0,
+          "AA": 16752500.0
+        },
+        "2": {
+          "A": 16249300.0,
+          "B": 13415400.0,
+          "C": 13091300.0,
+          "AA": 16361000.0
+        },
+        "3": {
+          "A": 16351300.0,
+          "B": 12932700.0,
+          "C": 13004600.0,
+          "AA": 16318800.0
+        },
+        "4": {
+          "A": 16276400.0,
+          "B": 14341700.0,
+          "C": 13055400.0,
+          "AA": 17769600.0
+        },
+        "5": {
+          "A": 16749400.0,
+          "B": 12929200.0,
+          "C": 13214900.0,
+          "AA": 16501000.0
+        },
+        "6": {
+          "A": 16548400.0,
+          "B": 12925300.0,
+          "C": 13012900.0,
+          "AA": 17470300.0
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.7938129320435844,
+            0.7363971189585836,
+            0.8255986411722351,
+            0.790927938451377,
+            0.8811346489395689,
+            0.7719201881858455,
+            0.7810604046312635
+          ],
+          "median_ratio": 0.790927938451377,
+          "geometric_mean_ratio": 0.7961686311336831,
+          "ci95_median_ratio": [
+            0.7719201881858455,
+            0.8255986411722351
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.7673101106221546,
+            0.8293631120326879
+          ],
+          "median_delta_pct": -20.9072061548623,
+          "geometric_mean_delta_pct": -20.383136886631693,
+          "ci95_median_delta_pct": [
+            -22.80798118141545,
+            -17.440135882776488
+          ],
+          "improvement_blocks": 7,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.752097977439099,
+            0.7375251696306198,
+            0.8056531665979457,
+            0.7953251423434222,
+            0.8021061168317318,
+            0.7889775156124995,
+            0.7863539677551908
+          ],
+          "median_ratio": 0.7889775156124995,
+          "geometric_mean_ratio": 0.7807691807234327,
+          "ci95_median_ratio": [
+            0.752097977439099,
+            0.8021061168317318
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.7609148190101395,
+            0.7974341974236807
+          ],
+          "median_delta_pct": -21.10224843875005,
+          "geometric_mean_delta_pct": -21.923081927656728,
+          "ci95_median_delta_pct": [
+            -24.790202256090097,
+            -19.789388316826816
+          ],
+          "improvement_blocks": 7,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.9555362727341552,
+            0.9448834441643119,
+            1.006874142270744,
+            0.9980123904521353,
+            1.0917401882480156,
+            0.9851696180161678,
+            1.0557093132870852
+          ],
+          "median_ratio": 0.9980123904521353,
+          "geometric_mean_ratio": 1.0042560504339626,
+          "ci95_median_ratio": [
+            0.9555362727341552,
+            1.0557093132870852
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9703572244641963,
+            1.042968880639369
+          ],
+          "median_delta_pct": -0.19876095478646993,
+          "geometric_mean_delta_pct": 0.42560504339625993,
+          "ci95_median_delta_pct": [
+            -4.44637272658448,
+            5.570931328708517
+          ],
+          "improvement_blocks": 4,
+          "degradation_blocks": 3,
+          "tie_blocks": 0,
+          "sign_consistency": 0.5714285714285714
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "confirmed_profitable",
+          "reasons": [
+            "median ratio 0.7909, 95% CI [0.7719, 0.8256], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "confirmed_profitable",
+          "reasons": [
+            "median ratio 0.7890, 95% CI [0.7521, 0.8021], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 0.9980, 95% CI [0.9555, 1.0557], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R11-audit",
+        "case": "simd_metadata",
+        "mode": "",
+        "n": 8388608,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 1,
+        "trials": 5,
+        "blocks": 7,
+        "seed": 20261107,
+        "exe_sha256": {
+          "A": "dfc36952aecc3ac638585b50a47e54dbc819430254ad79180efb96723aa05581",
+          "AA": "dfc36952aecc3ac638585b50a47e54dbc819430254ad79180efb96723aa05581",
+          "B": "fd8ca614fb7f93589297fb81ed14cbeda46ec99b9556cc56fa90c983cb5628ad",
+          "C": "fd8ca614fb7f93589297fb81ed14cbeda46ec99b9556cc56fa90c983cb5628ad"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.C.exe C 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.A.exe A 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.B.exe B 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.AA.exe AA 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.A.exe A 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.AA.exe AA 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.C.exe C 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.B.exe B 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.AA.exe AA 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.C.exe C 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.A.exe A 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.B.exe B 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.B.exe B 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.AA.exe AA 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.A.exe A 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.C.exe C 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.C.exe C 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.A.exe A 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.AA.exe AA 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.B.exe B 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.AA.exe AA 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.B.exe B 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.A.exe A 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.C.exe C 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.AA.exe AA 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.A.exe A 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.C.exe C 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata\\simd_metadata.B.exe B 8388608 1 5"
+      ]
+    },
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "shifted_reuse",
+      "mode": "",
+      "n": 131072,
+      "point_id": "m-7ee7ffc54a89b7fb",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R11-audit/measurements/shifted_reuse/mode-default/n-131072/m-7ee7ffc54a89b7fb/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R11-audit/measurements/shifted_reuse/mode-default/n-131072/m-7ee7ffc54a89b7fb/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R11-audit/measurements/shifted_reuse/mode-default/n-131072/m-7ee7ffc54a89b7fb/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "80c0392b735bbdb6",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 117147.5,
+          "B": 85962.5,
+          "C": 108490.0,
+          "AA": 116927.5
+        },
+        "1": {
+          "A": 122885.0,
+          "B": 101855.0,
+          "C": 123790.0,
+          "AA": 111762.5
+        },
+        "2": {
+          "A": 115027.5,
+          "B": 93942.5,
+          "C": 117730.0,
+          "AA": 114070.0
+        },
+        "3": {
+          "A": 132730.0,
+          "B": 101265.0,
+          "C": 136775.0,
+          "AA": 123067.5
+        },
+        "4": {
+          "A": 122902.5,
+          "B": 103097.5,
+          "C": 131677.5,
+          "AA": 118242.5
+        },
+        "5": {
+          "A": 112122.5,
+          "B": 95682.5,
+          "C": 129010.0,
+          "AA": 126440.0
+        },
+        "6": {
+          "A": 112687.5,
+          "B": 108077.5,
+          "C": 121382.5,
+          "AA": 113770.0
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.7337971360891185,
+            0.8288643854009846,
+            0.816696007476473,
+            0.7629398026067957,
+            0.8388560037428042,
+            0.8533746571829918,
+            0.9590904048807543
+          ],
+          "median_ratio": 0.8288643854009846,
+          "geometric_mean_ratio": 0.825032365415624,
+          "ci95_median_ratio": [
+            0.7629398026067957,
+            0.8533746571829918
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.7803704989319447,
+            0.8752591168888357
+          ],
+          "median_delta_pct": -17.11356145990154,
+          "geometric_mean_delta_pct": -17.496763458437602,
+          "ci95_median_delta_pct": [
+            -23.70601973932043,
+            -14.662534281700824
+          ],
+          "improvement_blocks": 7,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.9260974412599501,
+            1.0073646091874517,
+            1.0234943817782705,
+            1.0304754011903865,
+            1.0713980594373589,
+            1.1506165131886998,
+            1.0771602884082085
+          ],
+          "median_ratio": 1.0304754011903865,
+          "geometric_mean_ratio": 1.0389382866562074,
+          "ci95_median_ratio": [
+            1.0073646091874517,
+            1.0771602884082085
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9911237891396603,
+            1.086914464763139
+          ],
+          "median_delta_pct": 3.0475401190386497,
+          "geometric_mean_delta_pct": 3.8938286656207355,
+          "ci95_median_delta_pct": [
+            0.7364609187451743,
+            7.716028840820854
+          ],
+          "improvement_blocks": 1,
+          "degradation_blocks": 6,
+          "tie_blocks": 0,
+          "sign_consistency": 0.8571428571428571
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.9981220256514224,
+            0.9094885462017334,
+            0.9916759035882724,
+            0.9272018383183908,
+            0.9620837655865422,
+            1.127695154852951,
+            1.0096062118691072
+          ],
+          "median_ratio": 0.9916759035882724,
+          "geometric_mean_ratio": 0.9872797264494672,
+          "ci95_median_ratio": [
+            0.9272018383183908,
+            1.0096062118691072
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9458355155588217,
+            1.0397677209499392
+          ],
+          "median_delta_pct": -0.83240964117276,
+          "geometric_mean_delta_pct": -1.2720273550532846,
+          "ci95_median_delta_pct": [
+            -7.279816168160924,
+            0.9606211869107151
+          ],
+          "improvement_blocks": 5,
+          "degradation_blocks": 2,
+          "tie_blocks": 0,
+          "sign_consistency": 0.7142857142857143
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "confirmed_profitable",
+          "reasons": [
+            "median ratio 0.8289, 95% CI [0.7629, 0.8534], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 1.0305, 95% CI [1.0074, 1.0772], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 0.9917, 95% CI [0.9272, 1.0096], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R11-audit",
+        "case": "shifted_reuse",
+        "mode": "",
+        "n": 131072,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 40,
+        "trials": 5,
+        "blocks": 7,
+        "seed": 20261107,
+        "exe_sha256": {
+          "A": "e492de33bf6ef249095dd5fe9955a11f8a67106031213803c89d04c8c2e6dd4b",
+          "AA": "e492de33bf6ef249095dd5fe9955a11f8a67106031213803c89d04c8c2e6dd4b",
+          "B": "f652a50749f73c308e7cc5707f0b5357cbc42ea8093e4acada947577760c51d2",
+          "C": "83cd0b2e39248e79d3cc9da6bac6447938bd6e53d08cd11777f05fb216f942fb"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.C.exe C 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.A.exe A 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.B.exe B 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.AA.exe AA 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.A.exe A 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.AA.exe AA 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.C.exe C 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.B.exe B 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.AA.exe AA 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.C.exe C 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.A.exe A 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.B.exe B 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.B.exe B 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.AA.exe AA 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.A.exe A 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.C.exe C 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.C.exe C 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.A.exe A 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.AA.exe AA 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.B.exe B 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.AA.exe AA 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.B.exe B 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.A.exe A 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.C.exe C 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.AA.exe AA 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.A.exe A 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.C.exe C 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.B.exe B 131072 40 5"
+      ]
+    },
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "shifted_reuse",
+      "mode": "",
+      "n": 1048576,
+      "point_id": "m-f72f458050c25ffd",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R11-audit/measurements/shifted_reuse/mode-default/n-1048576/m-f72f458050c25ffd/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R11-audit/measurements/shifted_reuse/mode-default/n-1048576/m-f72f458050c25ffd/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R11-audit/measurements/shifted_reuse/mode-default/n-1048576/m-f72f458050c25ffd/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "670c4244dbe078b8",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 1500433.333,
+          "B": 1167100.0,
+          "C": 1289733.333,
+          "AA": 1520733.333
+        },
+        "1": {
+          "A": 1433933.333,
+          "B": 1151266.667,
+          "C": 1141416.667,
+          "AA": 1561233.333
+        },
+        "2": {
+          "A": 1323283.333,
+          "B": 1210816.667,
+          "C": 1402950.0,
+          "AA": 1257750.0
+        },
+        "3": {
+          "A": 1493783.333,
+          "B": 1132900.0,
+          "C": 1456633.333,
+          "AA": 1499416.667
+        },
+        "4": {
+          "A": 1329433.333,
+          "B": 1165633.333,
+          "C": 1451700.0,
+          "AA": 1424800.0
+        },
+        "5": {
+          "A": 1460950.0,
+          "B": 1117950.0,
+          "C": 1505733.333,
+          "AA": 1456466.667
+        },
+        "6": {
+          "A": 1470116.667,
+          "B": 1168366.667,
+          "C": 1260683.333,
+          "AA": 1438783.333
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.7778419569408486,
+            0.8028732162822243,
+            0.9150093837084546,
+            0.7584098543426444,
+            0.8767896095772107,
+            0.7652212601389506,
+            0.7947441813473434
+          ],
+          "median_ratio": 0.7947441813473434,
+          "geometric_mean_ratio": 0.8111685234541087,
+          "ci95_median_ratio": [
+            0.7652212601389506,
+            0.8767896095772107
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.7754893186308781,
+            0.8551021105365534
+          ],
+          "median_delta_pct": -20.525581865265664,
+          "geometric_mean_delta_pct": -18.883147654589127,
+          "ci95_median_delta_pct": [
+            -23.477873986104935,
+            -12.321039042278926
+          ],
+          "improvement_blocks": 7,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.8595739008418843,
+            0.7960039987437825,
+            1.0602037863043197,
+            0.9751302620806521,
+            1.0919690096261487,
+            1.0306535699373696,
+            0.8575396506269255
+          ],
+          "median_ratio": 0.9751302620806521,
+          "geometric_mean_ratio": 0.9469307973366864,
+          "ci95_median_ratio": [
+            0.8575396506269255,
+            1.0602037863043197
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.8692710925595402,
+            1.0289226055511373
+          ],
+          "median_delta_pct": -2.486973791934788,
+          "geometric_mean_delta_pct": -5.30692026633136,
+          "ci95_median_delta_pct": [
+            -14.24603493730745,
+            6.020378630431966
+          ],
+          "improvement_blocks": 4,
+          "degradation_blocks": 3,
+          "tie_blocks": 0,
+          "sign_consistency": 0.5714285714285714
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            1.0135294248358317,
+            1.088776791131335,
+            0.950476718503338,
+            1.003771185469506,
+            1.0717348246299763,
+            0.9969312207809986,
+            0.9786864983553037
+          ],
+          "median_ratio": 1.003771185469506,
+          "geometric_mean_ratio": 1.013827196626971,
+          "ci95_median_ratio": [
+            0.9786864983553037,
+            1.0717348246299763
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9821306161669955,
+            1.0485315992754403
+          ],
+          "median_delta_pct": 0.37711854695059444,
+          "geometric_mean_delta_pct": 1.3827196626970961,
+          "ci95_median_delta_pct": [
+            -2.1313501644696253,
+            7.173482462997627
+          ],
+          "improvement_blocks": 3,
+          "degradation_blocks": 4,
+          "tie_blocks": 0,
+          "sign_consistency": 0.5714285714285714
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "confirmed_profitable",
+          "reasons": [
+            "median ratio 0.7947, 95% CI [0.7652, 0.8768], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 0.9751, 95% CI [0.8575, 1.0602], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 1.0038, 95% CI [0.9787, 1.0717], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R11-audit",
+        "case": "shifted_reuse",
+        "mode": "",
+        "n": 1048576,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 6,
+        "trials": 5,
+        "blocks": 7,
+        "seed": 20261107,
+        "exe_sha256": {
+          "A": "e492de33bf6ef249095dd5fe9955a11f8a67106031213803c89d04c8c2e6dd4b",
+          "AA": "e492de33bf6ef249095dd5fe9955a11f8a67106031213803c89d04c8c2e6dd4b",
+          "B": "f652a50749f73c308e7cc5707f0b5357cbc42ea8093e4acada947577760c51d2",
+          "C": "83cd0b2e39248e79d3cc9da6bac6447938bd6e53d08cd11777f05fb216f942fb"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.C.exe C 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.A.exe A 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.B.exe B 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.AA.exe AA 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.A.exe A 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.AA.exe AA 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.C.exe C 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.B.exe B 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.AA.exe AA 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.C.exe C 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.A.exe A 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.B.exe B 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.B.exe B 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.AA.exe AA 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.A.exe A 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.C.exe C 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.C.exe C 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.A.exe A 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.AA.exe AA 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.B.exe B 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.AA.exe AA 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.B.exe B 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.A.exe A 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.C.exe C 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.AA.exe AA 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.A.exe A 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.C.exe C 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.B.exe B 1048576 6 5"
+      ]
+    }
+  ],
+  "failures": [],
+  "commands": [
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case known_vec -Campaign EXP-20261107-R11-audit -OutRoot results/r1 -Configs A,B,C -Force",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case known_vec --n 10000 --reps 200 --blocks 9 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --mode setup --attempt 1",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case known_vec --n 10000 --reps 4000 --blocks 9 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --mode hot --attempt 1",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case known_vec --n 10000 --reps 12 --blocks 9 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --mode body --attempt 1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case read_read -Campaign EXP-20261107-R11-audit -OutRoot results/r1 -Configs A,B,C -Force",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case read_read --n 1024 --reps 10000 --blocks 9 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --attempt 1",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case read_read --n 16384 --reps 300 --blocks 9 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --attempt 1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case read_read_offset -Campaign EXP-20261107-R11-audit -OutRoot results/r1 -Configs A,B,C -Force",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case read_read_offset --n 1024 --reps 10000 --blocks 9 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --attempt 1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case simd_metadata_scalar -Campaign EXP-20261107-R11-audit -OutRoot results/r1 -Configs A,B,C -Force",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case simd_metadata_scalar --n 16384 --reps 200 --blocks 9 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --attempt 1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case producer_consumer_split -Campaign EXP-20261107-R11-audit -OutRoot results/r1 -Configs A,B,C -Force -KernelLl C:\\work\\llvm-profitability-research\\benchmarks\\producer_consumer_split.ll",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case producer_consumer_split --n 16384 --reps 200 --blocks 9 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --attempt 1",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case producer_consumer_split --n 131072 --reps 20 --blocks 9 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --attempt 1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case simd_metadata -Campaign EXP-20261107-R11-audit -OutRoot results/r1 -Configs A,B,C -Force",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case simd_metadata --n 1048576 --reps 3 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --attempt 1",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case simd_metadata --n 8388608 --reps 1 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --attempt 1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case shifted_reuse -Campaign EXP-20261107-R11-audit -OutRoot results/r1 -Configs A,B,C -Force",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case shifted_reuse --n 131072 --reps 40 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --attempt 1",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case shifted_reuse --n 1048576 --reps 6 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --attempt 1"
+  ],
+  "finished_utc": "2026-11-07T05:47:57Z"
+}

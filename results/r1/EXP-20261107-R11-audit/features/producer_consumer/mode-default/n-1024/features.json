@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.1",
+  "record_type": "predictor-features",
+  "case": "producer_consumer",
+  "sources": {
+    "source_ir": "results/r1/EXP-20261107-R1A/producer_consumer/producer_consumer.frontend.ll",
+    "source_sha256": "170ccdb61a10efbfe1204965982847d4fcd386cd9eac9be427382eaa706efa5c",
+    "early_ir": "results/r1/EXP-20261107-R11-audit/features/ir/producer_consumer-default.early.ll",
+    "pipeline_stage": "early scalar pipeline (mem2reg, loop-simplify, lcssa, loop-rotate); before LoopFusion"
+  },
+  "static": {
+    "kernel_function": "pc_kernel",
+    "loop_count": 2,
+    "selection_reason": "function with >=2 loops, loads and no calls",
+    "metadata_conflict": false,
+    "loop_hints": [
+      {
+        "metadata_id": "17",
+        "vectorize_enable": false,
+        "vectorize_disable": false,
+        "vectorize_width": null,
+        "requested": false,
+        "blocked": false
+      },
+      {
+        "metadata_id": "19",
+        "vectorize_enable": false,
+        "vectorize_disable": false,
+        "vectorize_width": null,
+        "requested": false,
+        "blocked": false
+      }
+    ],
+    "metadata_conflict_evidence": [],
+    "element_bytes": 8,
+    "element_types": [
+      "double",
+      "double"
+    ],
+    "trip_count": "runtime-dependent",
+    "reuse_kind": "unknown",
+    "reuse_evidence": {
+      "kind": "unknown",
+      "reason": "no matching read-read stream",
+      "accesses": [
+        {
+          "base": "%0",
+          "index_raw": "%.012",
+          "index_normalized": "IV",
+          "load_type": "double"
+        },
+        {
+          "base": "%2",
+          "index_raw": "%.03",
+          "index_normalized": "IV",
+          "load_type": "double"
+        }
+      ]
+    },
+    "loop_body_instruction_count": 39,
+    "feature_confidence": "partial",
+    "unknowns": [
+      "reuse_kind"
+    ]
+  },
+  "scenario": {
+    "n": 1024,
+    "footprint_bytes": 8192,
+    "l3_bytes": 18874368,
+    "fits_l3": true,
+    "source": "benchmark driver input size; not generally compile-time available"
+  },
+  "diagnostic": {
+    "note": "not populated by this extractor; predictor evaluation keeps post-optimisation facts separate"
+  }
+}

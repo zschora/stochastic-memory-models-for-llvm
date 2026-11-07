@@ -1,5 +1,11 @@
 # R1 synthesis - LoopFusion failures, matched validation and predictive rules
 
+> **R1.1 erratum (2026-11-07):** the R1.1 measurement audit supersedes the
+> statistical comparisons and predictor metrics below. Historical numbers are
+> retained; see [`r1_1_measurement_audit.md`](r1_1_measurement_audit.md) for
+> corrected paired-block estimates, the lost `known_vec` raw-data gap, and the
+> corrected feature-availability/regret evaluation.
+
 - Date: 2026-11-07
 - Stage 0 baseline: mixed clang 23.1.5 / LLVM 24.0.0git, `ir_compat.py`
 - R1 matched toolchain: LLVM `6f4196219399a3502cea3beb2d0c8c28b2241649`

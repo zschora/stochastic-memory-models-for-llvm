@@ -29,6 +29,7 @@ motivates the work; **no stochastic cost model is yet integrated into LLVM**.
 
 - [Research notes index](research/README.md)
 - [R1 synthesis](reports/r1_report.md)
+- [R1.1 measurement audit](reports/r1_1_measurement_audit.md)
 - [R1-A matched validation](reports/r1a_report.md)
 - [R1-C corpus status](reports/r1c_corpus.md)
 - [R1-F local prototype](reports/r1f_patch.md)
@@ -58,7 +59,9 @@ python scripts/research/check_docs.py
 
 R1-A is complete but self-reviewed; R1-B has mechanism evidence, R1-C is partial,
 R1-D is an in-sample rule screen, R1-E has finite mathematical checks, and R1-F
-is a local prototype. Nothing is `supported` without independent review.
+is a local prototype. R1.1 corrected the measurement infrastructure and
+statistics; see [reports/r1_1_measurement_audit.md](reports/r1_1_measurement_audit.md).
+Nothing is `supported` without independent review.
 
 ## Baseline
 

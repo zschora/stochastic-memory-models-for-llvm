@@ -130,7 +130,8 @@ def check_state(root: Path) -> list[dict]:
             common._check_status_history(history, str(h.get("status", "")), errors)
             # A history is optional for the legacy ledger, but when present it
             # must be internally consistent.
-    for schema in ("experiment-run", "math-claim", "simulation", "hypotheses", "toolchain"):
+    for schema in ("experiment-run", "math-claim", "simulation", "hypotheses",
+                   "toolchain", "predictor-feature", "r1-measurement"):
         path = root / "research/harness/schemas" / f"{schema}.schema.json"
         try:
             schema_doc = common.load_json(path)
