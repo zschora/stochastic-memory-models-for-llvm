@@ -1,0 +1,41 @@
+{
+  "case": "ts_known",
+  "filter": "benchForTruncOrZextVecInLoopWithVW16From_uint64_t_To_uint8_t_",
+  "rounds": 7,
+  "reps": 5,
+  "min_time": "0.2s",
+  "raw_csv": "C:\\work\\llvm-profitability-research\\results\\raw\\ts_known_v1.csv",
+  "summary": {
+    "A": {
+      "n": 35,
+      "median_ns": 1799.346260815497,
+      "min_ns": 1673.099091984098,
+      "mad_ns": 61.28574850926975,
+      "ci95_lo": 1738.0605123062273,
+      "ci95_hi": 1828.5846696681351,
+      "speedup_vs_A": 1.0,
+      "delta_pct_vs_A": 0.0
+    },
+    "B": {
+      "n": 35,
+      "median_ns": 1753.133999882266,
+      "min_ns": 1610.7299104208194,
+      "mad_ns": 60.05197269042492,
+      "ci95_lo": 1728.5931913387944,
+      "ci95_hi": 1814.720981851029,
+      "speedup_vs_A": 1.026359799613911,
+      "delta_pct_vs_A": -2.5682805994376445
+    },
+    "C": {
+      "n": 35,
+      "median_ns": 1781.5546459101254,
+      "min_ns": 1649.0601536182912,
+      "mad_ns": 44.90903400173306,
+      "ci95_lo": 1747.3110430955971,
+      "ci95_hi": 1799.9993300630092,
+      "speedup_vs_A": 1.0099865670391954,
+      "delta_pct_vs_A": -0.9887821645461536,
+      "delta_pct_vs_B": 1.6211336971257317
+    }
+  }
+}

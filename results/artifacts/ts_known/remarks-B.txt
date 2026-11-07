@@ -1,0 +1,116 @@
+﻿opt.exe : remark: <unknown>:0:0: [??R?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JN
+CMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@QEAAIXZ]:  and .preheader.i.preheader: Loop trip counts are not the same
+C:\work\llvm-profitability-research\scripts\build_testsuite_bench.ps1:63 знак:3
++   & $Opt @flags 2>&1 | Out-File $err -Encoding utf8
++   ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (remark: <unknow...re not the same:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopFrom_uint32_t_To_uint64_t_@@YAXAEAVState@benchmark@@@Z]: ??$init_d
+ata@I@@YAXAEBV?$unique_ptr@$$BY0A@IU?$default_delete@$$BY0A@I@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWithNoVec
+@I_K@@YAXPEBIPEA_KH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW16From_uint32_t_To_uint64_t_@@YAXAEAVState@benchmark@@@Z]: ?
+?$init_data@I@@YAXAEBV?$unique_ptr@$$BY0A@IU?$default_delete@$$BY0A@I@std@@@std@@I@Z.exit.preheader and ??$truncOrZextW
+ithNoVec@I_K@@YAXPEBIPEA_KH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW8From_uint32_t_To_uint64_t_@@YAXAEAVState@benchmark@@@Z]: ??
+$init_data@I@@YAXAEBV?$unique_ptr@$$BY0A@IU?$default_delete@$$BY0A@I@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWi
+thNoVec@I_K@@YAXPEBIPEA_KH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint64_t_@@YAXAEAVState@benchmark@@@Z]: ??$init_d
+ata@G@@YAXAEBV?$unique_ptr@$$BY0A@GU?$default_delete@$$BY0A@G@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWithNoVec
+@G_K@@YAXPEBGPEA_KH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint64_t_@@YAXAEAVState@benchmark@@@Z]: ?
+?$init_data@G@@YAXAEBV?$unique_ptr@$$BY0A@GU?$default_delete@$$BY0A@G@std@@@std@@I@Z.exit.preheader and ??$truncOrZextW
+ithNoVec@G_K@@YAXPEBGPEA_KH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint64_t_@@YAXAEAVState@benchmark@@@Z]: ??
+$init_data@G@@YAXAEBV?$unique_ptr@$$BY0A@GU?$default_delete@$$BY0A@G@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWi
+thNoVec@G_K@@YAXPEBGPEA_KH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint32_t_@@YAXAEAVState@benchmark@@@Z]: ??$init_d
+ata@G@@YAXAEBV?$unique_ptr@$$BY0A@GU?$default_delete@$$BY0A@G@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWithNoVec
+@GI@@YAXPEBGPEAIH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint32_t_@@YAXAEAVState@benchmark@@@Z]: ?
+?$init_data@G@@YAXAEBV?$unique_ptr@$$BY0A@GU?$default_delete@$$BY0A@G@std@@@std@@I@Z.exit.preheader and ??$truncOrZextW
+ithNoVec@GI@@YAXPEBGPEAIH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint32_t_@@YAXAEAVState@benchmark@@@Z]: ??
+$init_data@G@@YAXAEBV?$unique_ptr@$$BY0A@GU?$default_delete@$$BY0A@G@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWi
+thNoVec@GI@@YAXPEBGPEAIH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint64_t_@@YAXAEAVState@benchmark@@@Z]: ??$init_da
+ta@E@@YAXAEBV?$unique_ptr@$$BY0A@EU?$default_delete@$$BY0A@E@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWithNoVec@
+E_K@@YAXPEBEPEA_KH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint64_t_@@YAXAEAVState@benchmark@@@Z]: ??
+$init_data@E@@YAXAEBV?$unique_ptr@$$BY0A@EU?$default_delete@$$BY0A@E@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWi
+thNoVec@E_K@@YAXPEBEPEA_KH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint64_t_@@YAXAEAVState@benchmark@@@Z]: ??$
+init_data@E@@YAXAEBV?$unique_ptr@$$BY0A@EU?$default_delete@$$BY0A@E@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWit
+hNoVec@E_K@@YAXPEBEPEA_KH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint32_t_@@YAXAEAVState@benchmark@@@Z]: ??$init_da
+ta@E@@YAXAEBV?$unique_ptr@$$BY0A@EU?$default_delete@$$BY0A@E@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWithNoVec@
+EI@@YAXPEBEPEAIH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint32_t_@@YAXAEAVState@benchmark@@@Z]: ??
+$init_data@E@@YAXAEBV?$unique_ptr@$$BY0A@EU?$default_delete@$$BY0A@E@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWi
+thNoVec@EI@@YAXPEBEPEAIH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint32_t_@@YAXAEAVState@benchmark@@@Z]: ??$
+init_data@E@@YAXAEBV?$unique_ptr@$$BY0A@EU?$default_delete@$$BY0A@E@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWit
+hNoVec@EI@@YAXPEBEPEAIH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint16_t_@@YAXAEAVState@benchmark@@@Z]: ??$init_da
+ta@E@@YAXAEBV?$unique_ptr@$$BY0A@EU?$default_delete@$$BY0A@E@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWithNoVec@
+EG@@YAXPEBEPEAGH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint16_t_@@YAXAEAVState@benchmark@@@Z]: ??
+$init_data@E@@YAXAEBV?$unique_ptr@$$BY0A@EU?$default_delete@$$BY0A@E@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWi
+thNoVec@EG@@YAXPEBEPEAGH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint16_t_@@YAXAEAVState@benchmark@@@Z]: ??$
+init_data@E@@YAXAEBV?$unique_ptr@$$BY0A@EU?$default_delete@$$BY0A@E@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWit
+hNoVec@EG@@YAXPEBEPEAGH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopFrom_uint64_t_To_uint32_t_@@YAXAEAVState@benchmark@@@Z]: ??$init_d
+ata@_K@@YAXAEBV?$unique_ptr@$$BY0A@_KU?$default_delete@$$BY0A@_K@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWithNo
+Vec@_KI@@YAXPEB_KPEAIH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW16From_uint64_t_To_uint32_t_@@YAXAEAVState@benchmark@@@Z]: ?
+?$init_data@_K@@YAXAEBV?$unique_ptr@$$BY0A@_KU?$default_delete@$$BY0A@_K@std@@@std@@I@Z.exit.preheader and ??$truncOrZe
+xtWithNoVec@_KI@@YAXPEB_KPEAIH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW8From_uint64_t_To_uint32_t_@@YAXAEAVState@benchmark@@@Z]: ??
+$init_data@_K@@YAXAEBV?$unique_ptr@$$BY0A@_KU?$default_delete@$$BY0A@_K@std@@@std@@I@Z.exit.preheader and ??$truncOrZex
+tWithNoVec@_KI@@YAXPEB_KPEAIH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopFrom_uint64_t_To_uint16_t_@@YAXAEAVState@benchmark@@@Z]: ??$init_d
+ata@_K@@YAXAEBV?$unique_ptr@$$BY0A@_KU?$default_delete@$$BY0A@_K@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWithNo
+Vec@_KG@@YAXPEB_KPEAGH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW16From_uint64_t_To_uint16_t_@@YAXAEAVState@benchmark@@@Z]: ?
+?$init_data@_K@@YAXAEBV?$unique_ptr@$$BY0A@_KU?$default_delete@$$BY0A@_K@std@@@std@@I@Z.exit.preheader and ??$truncOrZe
+xtWithNoVec@_KG@@YAXPEB_KPEAGH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW8From_uint64_t_To_uint16_t_@@YAXAEAVState@benchmark@@@Z]: ??
+$init_data@_K@@YAXAEBV?$unique_ptr@$$BY0A@_KU?$default_delete@$$BY0A@_K@std@@@std@@I@Z.exit.preheader and ??$truncOrZex
+tWithNoVec@_KG@@YAXPEB_KPEAGH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopFrom_uint32_t_To_uint16_t_@@YAXAEAVState@benchmark@@@Z]: ??$init_d
+ata@I@@YAXAEBV?$unique_ptr@$$BY0A@IU?$default_delete@$$BY0A@I@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWithNoVec
+@IG@@YAXPEBIPEAGH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW16From_uint32_t_To_uint16_t_@@YAXAEAVState@benchmark@@@Z]: ?
+?$init_data@I@@YAXAEBV?$unique_ptr@$$BY0A@IU?$default_delete@$$BY0A@I@std@@@std@@I@Z.exit.preheader and ??$truncOrZextW
+ithNoVec@IG@@YAXPEBIPEAGH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW8From_uint32_t_To_uint16_t_@@YAXAEAVState@benchmark@@@Z]: ??
+$init_data@I@@YAXAEBV?$unique_ptr@$$BY0A@IU?$default_delete@$$BY0A@I@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWi
+thNoVec@IG@@YAXPEBIPEAGH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopFrom_uint64_t_To_uint8_t_@@YAXAEAVState@benchmark@@@Z]: ??$init_da
+ta@_K@@YAXAEBV?$unique_ptr@$$BY0A@_KU?$default_delete@$$BY0A@_K@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWithNoV
+ec@_KE@@YAXPEB_KPEAEH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW16From_uint64_t_To_uint8_t_@@YAXAEAVState@benchmark@@@Z]: ??
+$init_data@_K@@YAXAEBV?$unique_ptr@$$BY0A@_KU?$default_delete@$$BY0A@_K@std@@@std@@I@Z.exit.preheader and ??$truncOrZex
+tWithNoVec@_KE@@YAXPEB_KPEAEH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW8From_uint64_t_To_uint8_t_@@YAXAEAVState@benchmark@@@Z]: ??$
+init_data@_K@@YAXAEBV?$unique_ptr@$$BY0A@_KU?$default_delete@$$BY0A@_K@std@@@std@@I@Z.exit.preheader and ??$truncOrZext
+WithNoVec@_KE@@YAXPEB_KPEAEH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopFrom_uint32_t_To_uint8_t_@@YAXAEAVState@benchmark@@@Z]: ??$init_da
+ta@I@@YAXAEBV?$unique_ptr@$$BY0A@IU?$default_delete@$$BY0A@I@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWithNoVec@
+IE@@YAXPEBIPEAEH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW16From_uint32_t_To_uint8_t_@@YAXAEAVState@benchmark@@@Z]: ??
+$init_data@I@@YAXAEBV?$unique_ptr@$$BY0A@IU?$default_delete@$$BY0A@I@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWi
+thNoVec@IE@@YAXPEBIPEAEH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW8From_uint32_t_To_uint8_t_@@YAXAEAVState@benchmark@@@Z]: ??$
+init_data@I@@YAXAEBV?$unique_ptr@$$BY0A@IU?$default_delete@$$BY0A@I@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWit
+hNoVec@IE@@YAXPEBIPEAEH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint8_t_@@YAXAEAVState@benchmark@@@Z]: ??$init_da
+ta@G@@YAXAEBV?$unique_ptr@$$BY0A@GU?$default_delete@$$BY0A@G@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWithNoVec@
+GE@@YAXPEBGPEAEH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint8_t_@@YAXAEAVState@benchmark@@@Z]: ??
+$init_data@G@@YAXAEBV?$unique_ptr@$$BY0A@GU?$default_delete@$$BY0A@G@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWi
+thNoVec@GE@@YAXPEBGPEAEH@Z.exit.preheader: Loops fused
+remark: <unknown>:0:0: [?benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint8_t_@@YAXAEAVState@benchmark@@@Z]: ??$
+init_data@G@@YAXAEBV?$unique_ptr@$$BY0A@GU?$default_delete@$$BY0A@G@std@@@std@@I@Z.exit.preheader and ??$truncOrZextWit
+hNoVec@GE@@YAXPEBGPEAEH@Z.exit.preheader: Loops fused

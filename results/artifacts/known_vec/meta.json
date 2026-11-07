@@ -1,0 +1,46 @@
+﻿{
+    "case":  "known_vec",
+    "source_sha256":  "2D3E18AF492B079C3F78E28CFB3C221FBFE9BA0D1A3A0AF8EA7843D046313A05",
+    "ir_o1_sha256":  "933693AEC522B119808ED694476FFEC2BBA2A62F05D2367987BACCFB259EB27D",
+    "clang":  "clang version 23.1.5 (https://github.com/llvm/llvm-project 392dfff97d29b59d77e5cac6d4b6ef2585fe7117)",
+    "opt_version":  "LLVM (http://llvm.org/):",
+    "llc_version":  "LLVM (http://llvm.org/):",
+    "cpu":  "alderlake",
+    "configs":  {
+                    "C":  {
+                              "fusion_flags":  [
+                                                   "-enable-loopfusion",
+                                                   "-loop-fusion-min-reused-values=1"
+                                               ],
+                              "loops_after":  20,
+                              "fused_remarks":  3,
+                              "insufficient_reuse_remarks":  0,
+                              "exe_sha256":  "FBC170097AF28FCC38A42D341B10DACD6B31F740C87FBCC7E4FF299434EED526",
+                              "obj_size":  43384,
+                              "asm_size":  148218
+                          },
+                    "A":  {
+                              "fusion_flags":  [
+
+                                               ],
+                              "loops_after":  24,
+                              "fused_remarks":  0,
+                              "insufficient_reuse_remarks":  0,
+                              "exe_sha256":  "DD364732CEFC988052C5A7DEB312B119322CDBF9E8C4D356A1EFE206CCF19DD7",
+                              "obj_size":  43084,
+                              "asm_size":  146772
+                          },
+                    "B":  {
+                              "fusion_flags":  [
+                                                   "-enable-loopfusion",
+                                                   "-loop-fusion-min-reused-values=0"
+                                               ],
+                              "loops_after":  20,
+                              "fused_remarks":  3,
+                              "insufficient_reuse_remarks":  0,
+                              "exe_sha256":  "081715F67A3AB76D501AF332204C42615314F96996521E82744ACE05147F4804",
+                              "obj_size":  43384,
+                              "asm_size":  148218
+                          }
+                }
+}

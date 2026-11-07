@@ -1,0 +1,139 @@
+{
+  "read_read": {
+    "A": {},
+    "B": {
+      "rr_kernel": {
+        "FuseCounter": 1
+      }
+    },
+    "C": {
+      "rr_kernel": {
+        "FuseCounter": 1
+      }
+    }
+  },
+  "producer_consumer": {
+    "A": {},
+    "B": {
+      "pc_kernel": {
+        "InvalidDependencies": 1
+      }
+    },
+    "C": {
+      "pc_kernel": {
+        "InvalidDependencies": 1
+      }
+    }
+  },
+  "simd_reduction": {
+    "A": {},
+    "B": {
+      "simd_kernel": {
+        "FuseCounter": 1
+      }
+    },
+    "C": {
+      "simd_kernel": {
+        "FuseCounter": 1
+      }
+    }
+  },
+  "simd_metadata": {
+    "A": {},
+    "B": {
+      "simd_meta_kernel": {
+        "FuseCounter": 1
+      }
+    },
+    "C": {
+      "simd_meta_kernel": {
+        "FuseCounter": 1
+      }
+    }
+  },
+  "simd_metadata_scalar": {
+    "A": {},
+    "B": {
+      "simd_meta_scalar_kernel": {
+        "FuseCounter": 1
+      }
+    },
+    "C": {
+      "simd_meta_scalar_kernel": {
+        "FuseCounter": 1
+      }
+    }
+  },
+  "shifted_reuse": {
+    "A": {},
+    "B": {
+      "shift_kernel": {
+        "FuseCounter": 1
+      }
+    },
+    "C": {
+      "shift_kernel": {
+        "InsufficientReuse": 1
+      }
+    }
+  },
+  "known_vec": {
+    "A": {},
+    "B": {
+      "known_setup": {
+        "FuseCounter": 1
+      },
+      "known_body": {
+        "FuseCounter": 1,
+        "NonEqualTripCount": 1
+      }
+    },
+    "C": {
+      "known_setup": {
+        "FuseCounter": 1
+      },
+      "known_body": {
+        "FuseCounter": 1,
+        "NonEqualTripCount": 1
+      }
+    }
+  },
+  "producer_consumer_split": {
+    "A": {},
+    "B": {
+      "pc_split_kernel": {
+        "FuseCounter": 1
+      }
+    },
+    "C": {
+      "pc_split_kernel": {
+        "FuseCounter": 1
+      }
+    }
+  },
+  "ts_known": {
+    "A": {},
+    "B": {
+      "?benchForTruncOrZextVecWithAddInLoopWithVW16From_uint64_t_To_uint8_t_@@YAXAEAVState@benchmark@@@Z": {
+        "InvalidCandidate": 1,
+        "ContainsAtomicAccess": 1
+      },
+      "?benchForTruncOrZextVecInLoopWithVW16From_uint64_t_To_uint8_t_@@YAXAEAVState@benchmark@@@Z": {
+        "InvalidCandidate": 1,
+        "ContainsAtomicAccess": 1,
+        "FuseCounter": 1
+      }
+    },
+    "C": {
+      "?benchForTruncOrZextVecWithAddInLoopWithVW16From_uint64_t_To_uint8_t_@@YAXAEAVState@benchmark@@@Z": {
+        "InvalidCandidate": 1,
+        "ContainsAtomicAccess": 1
+      },
+      "?benchForTruncOrZextVecInLoopWithVW16From_uint64_t_To_uint8_t_@@YAXAEAVState@benchmark@@@Z": {
+        "InvalidCandidate": 1,
+        "ContainsAtomicAccess": 1,
+        "FuseCounter": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+﻿{
+    "memory_gb":  16,
+    "msvc":  "19.51.36231 (VS 18.10.3)",
+    "llvm_main_sha":  "6f4196219399a3502cea3beb2d0c8c28b2241649",
+    "opt_version":  "LLVM 24.0.0git (Optimized build, X86)",
+    "cmake":  "cmake version 3.30.3",
+    "git":  "git version 2.56.0.windows.4",
+    "caches":  {
+                   "L2_mb_per_pcore":  1.25,
+                   "L1d_kb_per_pcore":  48,
+                   "L3_mb":  18
+               },
+    "date":  "2026-11-07T02:16:01",
+    "cost_model_merge_sha":  "a244d7762eecc19c327ce1e65a995e466962ab05",
+    "google_benchmark":  "v1.9.5",
+    "python":  "Python 3.12.5",
+    "clang_version":  "clang version 23.1.5 (https://github.com/llvm/llvm-project 392dfff97d29b59d77e5cac6d4b6ef2585fe7117)",
+    "flags":  {
+                  "C":  "-enable-loopfusion -loop-fusion-min-reused-values=1",
+                  "llc":  "-O3 -mtriple=x86_64-pc-windows-msvc -mcpu=alderlake",
+                  "opt":  "-passes=default\u003cO3\u003e -mcpu=alderlake",
+                  "frontend":  "-O0 -Xclang -disable-O0-optnone -march=alderlake -std=c++17",
+                  "B":  "-enable-loopfusion -loop-fusion-min-reused-values=0"
+              },
+    "ninja":  "1.13.1",
+    "os":  "Windows 11 build 26200",
+    "cpu":  "12th Gen Intel Core i5-12500H, 4P+8E / 16 threads",
+    "test_suite_sha":  "d3f64b96fe6176716771a2e172f799caf1239b5b"
+}
