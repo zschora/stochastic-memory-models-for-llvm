@@ -265,16 +265,18 @@ def trip_count_hint(block: str) -> str:
 
 
 def choose_kernel(blocks: dict[str, str], counts: dict[str, int],
-                  mode: str = "") -> tuple[str | None, dict]:
+                  mode: str = "", kernel_override: str = "") -> tuple[str | None, dict]:
     candidates = []
     for name, block in blocks.items():
         n_loops = counts.get(name, 0)
         n_calls = sum(1 for line in block.splitlines()
                       if CALL.search(line) and "@llvm." not in line)
         n_loads = len(LOAD.findall(block))
-        if mode and mode.lower() in name.lower() and n_loads > 0:
+        if kernel_override and name == kernel_override:
             candidates.append((True, n_loads, -n_calls, name, block, n_loops))
-        elif not mode and n_loops >= 2 and n_loads > 0:
+        elif mode and mode.lower() in name.lower() and n_loads > 0:
+            candidates.append((True, n_loads, -n_calls, name, block, n_loops))
+        elif not mode and not kernel_override and n_loops >= 2 and n_loads > 0:
             candidates.append((n_calls == 0, n_loads, -n_calls, name, block, n_loops))
     if not candidates:
         return None, {}
@@ -313,7 +315,8 @@ def early_loop_counts(text: str, opt: Path | None) -> dict[str, int]:
 
 
 def extract(case_dir: Path, opt: Path | None, n: int | None,
-            cache_sizes: dict, mode: str = "", early_out: Path | None = None) -> dict:
+            cache_sizes: dict, mode: str = "", early_out: Path | None = None,
+            kernel_override: str = "") -> dict:
     source = None
     for pattern in ("*.linked.ll", "*.frontend.ll"):
         found = sorted(case_dir.glob(pattern))
@@ -325,7 +328,7 @@ def extract(case_dir: Path, opt: Path | None, n: int | None,
     text, stage = prepare_early_ir(source, opt, early_out)
     blocks = function_blocks(text)
     counts = early_loop_counts(text, opt)
-    kernel, info = choose_kernel(blocks, counts, mode)
+    kernel, info = choose_kernel(blocks, counts, mode, kernel_override)
     static = {
         "kernel_function": kernel,
         "loop_count": info.get("loop_count", 0),
@@ -438,6 +441,7 @@ def main() -> int:
     ap.add_argument("--case-dir", type=Path, required=True)
     ap.add_argument("--n", type=int, default=None)
     ap.add_argument("--mode", default="")
+    ap.add_argument("--kernel", default="")
     ap.add_argument("--opt", type=Path, default=ROOT / ".tools" / "llvm-build" / "bin" / "opt.exe")
     ap.add_argument("--early-out", type=Path, default=None)
     ap.add_argument("--out", type=Path, default=None)
@@ -447,7 +451,8 @@ def main() -> int:
     early_out = args.early_out
     if early_out is not None and not early_out.is_absolute():
         early_out = ROOT / early_out
-    data = extract(case_dir, args.opt, args.n, cache_sizes(), args.mode, early_out)
+    data = extract(case_dir, args.opt, args.n, cache_sizes(), args.mode, early_out,
+                   args.kernel)
     text = json.dumps(data, indent=2)
     if args.out:
         out = args.out if args.out.is_absolute() else ROOT / args.out

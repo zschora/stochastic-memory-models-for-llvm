@@ -23,7 +23,11 @@ import r1_stats  # noqa: E402
 
 BUILD = ROOT / "scripts" / "r1_build_case.ps1"
 RUN = ROOT / "scripts" / "r1_run_case.py"
-KERNELS = {"producer_consumer_split": "benchmarks/producer_consumer_split.ll"}
+KERNELS = {
+    "producer_consumer_split": "benchmarks/producer_consumer_split.ll",
+    "tsvc_s233": ".work/r1_2/tsvc_measure.ll",
+    "tsvc_s2233": ".work/r1_2/tsvc_measure.ll",
+}
 
 
 def now_utc() -> str:

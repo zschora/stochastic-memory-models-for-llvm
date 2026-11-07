@@ -1,0 +1,14 @@
+{
+  "campaign": "EXP-20261107-R12-tsvc-pinned",
+  "seed": 20261110,
+  "toolchain_manifest": "research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json",
+  "defaults": {
+    "trials": 5,
+    "configs": ["A", "B", "C", "AA"]
+  },
+  "rationale": "Follow-up after the first 9-block TSVC campaign showed a large A/A drift (s233 AA -7.6%, s2233 AA +5.1%). The wrappers now call the same logical-CPU-2/high-priority pinning used by the established harness; 15 complete blocks are pre-registered before observing this follow-up to reduce block-level scheduling noise. This is a methodological correction, not a favorable-result rerun; the original 9-block campaign remains unchanged.",
+  "points": [
+    {"case": "tsvc_s233", "n": 256, "reps": 1, "blocks": 15},
+    {"case": "tsvc_s2233", "n": 256, "reps": 1, "blocks": 15}
+  ]
+}

@@ -1,0 +1,1 @@
+/* minimal compatibility header for corpus discovery on Windows */
