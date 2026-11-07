@@ -104,6 +104,21 @@ SHA-256 hashes and version outputs. The states are:
 `analyzed` and later experiment statuses require `verified`. See
 [`toolchains/README.md`](toolchains/README.md).
 
+## R1 measurement and predictor rules
+
+- New timing campaigns use `scripts/r1_run_case.py`: randomized complete blocks,
+  saved seed/schedule, process-level medians, exclusive per-point directories and
+  no silent overwrites.
+- Inference uses `scripts/r1_stats.py`: paired block ratios and a block
+  bootstrap. Internal trials are not independent blocks. A/A is a noise gate.
+- Small effects remain `inconclusive` unless the paired interval, sign stability
+  and practical threshold support a stronger label.
+- Predictor features are classified as `static`, `scenario`, `baseline` or
+  `diagnostic`; post-fusion assembly and measured runtimes never enter a policy.
+  See [`features/README.md`](features/README.md).
+- Regret is absolute runtime above the per-point A/B oracle, with explicit
+  weighting; it is not a sum of percentages.
+
 ## Experiment record requirements
 
 Every physical campaign has a run directory with a `manifest.json` that records:

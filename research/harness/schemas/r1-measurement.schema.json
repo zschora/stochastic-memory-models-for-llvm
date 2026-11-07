@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/zschora/stochastic-memory-models-for-llvm/research/harness/schemas/r1-measurement.schema.json",
+  "title": "R1.1 immutable measurement manifest",
+  "type": "object",
+  "required": [
+    "schema_version", "record_type", "campaign", "case", "mode", "n",
+    "point_id", "attempt", "status", "created_utc", "parameters",
+    "toolchain", "host", "timing_unit", "warmup_policy", "affinity",
+    "environment", "schedule_seed", "exe_sha256", "configs"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.1"},
+    "record_type": {"const": "r1-measurement"},
+    "campaign": {"type": "string", "minLength": 1},
+    "case": {"type": "string", "minLength": 1},
+    "mode": {"type": "string"},
+    "n": {"type": "integer", "minimum": 1},
+    "point_id": {"type": "string", "pattern": "^m-[0-9a-f]{16}$"},
+    "attempt": {"type": "integer", "minimum": 1},
+    "status": {"enum": ["running", "complete", "failed"]},
+    "created_utc": {"type": "string"},
+    "completed_utc": {"type": "string"},
+    "parameters": {
+      "type": "object",
+      "required": ["campaign", "case", "mode", "n", "configs", "reps",
+                   "trials", "blocks", "seed", "exe_sha256",
+                   "toolchain_manifest_sha256"]
+    },
+    "toolchain": {
+      "type": "object",
+      "required": ["manifest_path", "manifest_sha256", "llvm_revision",
+                   "toolchain_id", "consistency"]
+    },
+    "host": {"type": "object"},
+    "timing_unit": {"type": "string"},
+    "warmup_policy": {"type": "string"},
+    "affinity": {"type": "string"},
+    "environment": {"type": "object"},
+    "schedule_seed": {"type": "integer"},
+    "schedule_json": {"type": "string"},
+    "exe_sha256": {"type": "object"},
+    "configs": {"type": "array", "items": {"type": "string"}, "minItems": 2},
+    "raw_csv": {"type": "string"},
+    "error": {"type": "string"}
+  },
+  "additionalProperties": true
+}

@@ -52,6 +52,10 @@ def main() -> int:
     parser.add_argument("--source-dir", type=Path, required=True)
     parser.add_argument("--build-dir", type=Path, required=True)
     parser.add_argument("--clang", type=Path, required=True)
+    parser.add_argument("--clang-provenance", default="local-build",
+                        choices=["local-build", "official-release-binary",
+                                 "external-binary"],
+                        help="how the clang binary was obtained (default: local-build)")
     parser.add_argument("--opt", type=Path, required=True)
     parser.add_argument("--llc", type=Path, required=True)
     parser.add_argument("--llvm-config", type=Path, required=True)
@@ -104,7 +108,8 @@ def main() -> int:
         mm = common.major_minor(line)
         if mm:
             versions.append(mm)
-        provenance = "official-release-binary" if name == "clang" else "local-build"
+        provenance = (args.clang_provenance if name == "clang"
+                      else "local-build")
         embedded = re.search(r"\b([0-9a-f]{40})\b", out)
         if embedded and embedded.group(1).lower() != expected:
             raise SystemExit(f"{name} version output embeds a different revision: "

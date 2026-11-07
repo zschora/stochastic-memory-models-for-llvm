@@ -46,3 +46,12 @@ Those limitations are recorded in every manifest.
 A run at status `analyzed`, `under-review`, `supported` or `refuted` must use a
 `verified` toolchain. Mixed or unverified toolchains may only appear in planned
 or exploratory records and must carry an explicit caveat.
+
+## Erratum: clang provenance label (2026-11-07)
+
+The first manifest `llvm-24.0.0git-6f41962.json` labelled clang as
+`official-release-binary`, but clang was built locally from the pinned source
+revision. The historical manifest is retained unchanged for auditability. The
+corrected manifest is `llvm-24.0.0git-6f41962-v2.json`, with clang marked
+`local-build`. New campaigns use v2; R1-A's historical record remains tied to the
+original manifest and is identified by this erratum.

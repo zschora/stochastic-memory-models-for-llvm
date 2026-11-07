@@ -82,7 +82,10 @@ REQUIRED_DOCS = [
     "research/harness/schemas/simulation.schema.json",
     "research/harness/schemas/hypotheses.schema.json",
     "research/harness/schemas/toolchain.schema.json",
+    "research/harness/schemas/predictor-feature.schema.json",
+    "research/harness/schemas/r1-measurement.schema.json",
     "research/harness/toolchains/README.md",
+    "research/harness/features/README.md",
 ]
 REQUIRED_ROLES = [
     "research-lead", "llvm-engineer", "performance-scientist",
