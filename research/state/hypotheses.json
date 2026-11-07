@@ -452,16 +452,19 @@
       ],
       "status": "analyzed",
       "evidence_links": [
+        "reports/r1_1_1_evidence_integrity.md",
         "reports/r1_1_measurement_audit.md",
         "research/runs/EXP-20261107-R11-audit/manifest.json",
         "research/runs/EXP-20261107-R11-followup/manifest.json",
-        "results/r1/EXP-20261107-R11-audit/reanalysis/audit_stats.json",
-        "results/r1/EXP-20261107-R11-audit/predictor_v2.json"
+        "results/r1/EXP-20261107-R11-audit/predictor_v2.json",
+        "results/r1/EXP-20261107-R11-audit/predictor_v3.json",
+        "results/r1/EXP-20261107-R11-audit/predictor_v3_selection.json",
+        "results/r1/EXP-20261107-R11-audit/reanalysis/audit_stats.json"
       ],
       "review_status": "model-assisted-self-review",
       "review_note": "Corrected campaign, paired-block reanalysis and feature audit are complete; no independent review.",
       "decision": "Use the corrected paired estimates and feature categories; treat small effects as inconclusive.",
-      "next_action": "Independent review, then R1.2 held-out corpus."
+      "next_action": "Independent review; then R1.2 held-out corpus."
     }
   ]
 }

@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.1",
+  "record_type": "predictor-features",
+  "feature_version": "r1.1.1-memory",
+  "case": "simd_metadata_scalar",
+  "sources": {
+    "source_ir": "results/r1/EXP-20261107-R1A/simd_metadata_scalar/simd_metadata_scalar.frontend.ll",
+    "source_sha256": "98cd9a2c7c6ddab7d6e20d06b029fd116cdf368814479e06dbe1eee0e2f50c90",
+    "early_ir": "results/r1/EXP-20261107-R11-audit/features_v3/ir/simd_metadata_scalar-default.early.ll",
+    "pipeline_stage": "early scalar pipeline (mem2reg, loop-simplify, lcssa, loop-rotate); before LoopFusion"
+  },
+  "static": {
+    "kernel_function": "simd_meta_scalar_kernel",
+    "loop_count": 2,
+    "selection_reason": "function with >=2 loops, loads and no calls",
+    "metadata_conflict": false,
+    "loop_hints": [
+      {
+        "metadata_id": "17",
+        "vectorize_enable": false,
+        "vectorize_disable": true,
+        "vectorize_width": 1,
+        "requested": false,
+        "blocked": true
+      },
+      {
+        "metadata_id": "21",
+        "vectorize_enable": false,
+        "vectorize_disable": true,
+        "vectorize_width": 1,
+        "requested": false,
+        "blocked": true
+      }
+    ],
+    "metadata_conflict_evidence": [],
+    "element_bytes": 8,
+    "element_types": [
+      "double",
+      "double",
+      "double"
+    ],
+    "trip_count": "runtime-dependent",
+    "reuse_kind": "exact",
+    "reuse_evidence": {
+      "kind": "exact",
+      "reason": "same base and normalized index",
+      "accesses": [
+        {
+          "base": "%0",
+          "index_raw": "%.012",
+          "index_normalized": "IV",
+          "load_type": "double"
+        },
+        {
+          "base": "%0",
+          "index_raw": "%.012",
+          "index_normalized": "IV",
+          "load_type": "double"
+        },
+        {
+          "base": "%0",
+          "index_raw": "%.03",
+          "index_normalized": "IV",
+          "load_type": "double"
+        }
+      ]
+    },
+    "memory": {
+      "n_elements": 1024,
+      "element_bytes": 8,
+      "streams": 3,
+      "bytes_per_stream": 8192,
+      "footprint_proxy_bytes": 24576,
+      "reused_bytes": 8192,
+      "bytes_allocated": "unknown",
+      "unique_bytes_touched": "unknown",
+      "working_set_estimate": "unknown",
+      "footprint_definition": "n_elements * element_bytes * distinct GEP base pointers; a proxy, not allocation or guaranteed timed working set",
+      "aliasing": "unknown",
+      "bounds": "runtime-dependent"
+    },
+    "loop_body_instruction_count": 43,
+    "feature_confidence": "partial",
+    "unknowns": []
+  },
+  "scenario": {
+    "n": 1024,
+    "n_elements": 1024,
+    "element_bytes": 8,
+    "bytes_per_stream": 8192,
+    "streams": 3,
+    "footprint_proxy_bytes": 24576,
+    "reused_bytes": 8192,
+    "bytes_allocated": "unknown",
+    "working_set_estimate": "unknown",
+    "l3_bytes": 18874368,
+    "fits_l3_proxy": true,
+    "source": "benchmark driver input size; footprint is a distinct-stream proxy, not allocation"
+  },
+  "diagnostic": {
+    "note": "not populated by this extractor; predictor evaluation keeps post-optimisation facts separate"
+  }
+}

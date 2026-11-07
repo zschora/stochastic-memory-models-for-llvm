@@ -29,6 +29,9 @@ Updated: 2026-11-07. Short cross-session index; load before large reports.
 the corrected feature set. Use `scripts/r1_run_case.py`, `scripts/r1_stats.py`
 and the v2 toolchain manifest. Do not use the old predictor or its regret metric.
 
+R1.1.1 corrected the remaining dataset-selection and memory-accounting defects;
+see [R1.1.1](../../reports/r1_1_1_evidence_integrity.md).
+
 ```powershell
 python scripts/research/doctor.py --experiment --json --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json
 python scripts/r1_campaign.py --spec research/harness/plans/r1_1_measurement_plan.json --resume
@@ -53,8 +56,7 @@ python scripts/research/validate_run.py --all --json
 | H-R1-E1 | Exact LRU DP and capacity-one formula | analyzed | self-review |
 | H-R1-E2 | Partial orders change achievable LRU statistics | analyzed | self-review |
 | H-R1-F1 | Metadata guard removes the L1/L2 false positive | inconclusive | self-review |
-| H-R1-AUDIT | R1 evidence is reproducible under paired-block analysis | analyzed | self-review |
-| H-HARNESS-001 | Protocol works without the transcript | analyzed | self-review |
+| H-R1-AUDIT | R1 evidence is reproducible under paired-block analysis | analyzed | self-review || H-HARNESS-001 | Protocol works without the transcript | analyzed | self-review |
 
 Full statements and evidence: [hypotheses.json](hypotheses.json). Self-review is
 not independent verification.

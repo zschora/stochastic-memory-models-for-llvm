@@ -26,6 +26,7 @@ LOOP_HDR = re.compile(r"Loop info for function '([^']+)'")
 LOOP_LINE = re.compile(r"^\s*Loop at depth 1 containing:")
 META_LINE = re.compile(r"^!(?P<id>\d+)\s*=\s*(?:distinct\s+)?!\{", re.MULTILINE)
 LOAD = re.compile(r"\bload\s+(?:volatile\s+)?(<[^>]+>|[A-Za-z0-9_.]+)\s*,\s*ptr\s+(%[^,\s]+)")
+STORE = re.compile(r"\bstore\s+[^,]+,\s*ptr\s+(%[^,\s]+)")
 GEP = re.compile(
     r"^(?P<res>%[A-Za-z0-9_.]+)\s*=\s*getelementptr\b.*?ptr\s+(?P<base>%[A-Za-z0-9_.]+),\s*i\d+\s+(?P<index>%[A-Za-z0-9_.]+|[-]?\d+)")
 PHI = re.compile(r"^(?P<res>%[A-Za-z0-9_.]+)\s*=\s*phi\b")
@@ -209,6 +210,52 @@ def reuse_kind(block: str) -> dict:
             "accesses": accesses}
 
 
+def memory_summary(block: str, n: int | None, element_bytes: int | None,
+                   reuse: dict, trip_count: str) -> dict:
+    """Conservative memory-size account from static IR.
+
+    This counts distinct base pointers, not arrays that may alias.  It does not
+    claim bytes allocated, unique bytes touched, or a cache working set.
+    """
+    geps = {}
+    for line in block.splitlines():
+        match = GEP.match(line.strip())
+        if match:
+            geps[match.group("res")] = match.group("base")
+    bases = set()
+    for match in LOAD.finditer(block):
+        base = geps.get(match.group(2))
+        if base:
+            bases.add(base)
+    for match in STORE.finditer(block):
+        base = geps.get(match.group(1))
+        if base:
+            bases.add(base)
+    streams = len(bases) if bases else None
+    per_stream = (n * element_bytes) if (n and element_bytes) else None
+    proxy = (per_stream * streams) if (per_stream and streams) else None
+    reused = None
+    if per_stream and reuse.get("kind") in {"exact", "shifted"}:
+        reused = per_stream
+    return {
+        "n_elements": n,
+        "element_bytes": element_bytes,
+        "streams": streams,
+        "bytes_per_stream": per_stream,
+        "footprint_proxy_bytes": proxy,
+        "reused_bytes": reused,
+        "bytes_allocated": "unknown",
+        "unique_bytes_touched": "unknown",
+        "working_set_estimate": "unknown",
+        "footprint_definition": (
+            "n_elements * element_bytes * distinct GEP base pointers; a proxy, "
+            "not allocation or guaranteed timed working set"
+        ),
+        "aliasing": "unknown",
+        "bounds": trip_count,
+    }
+
+
 def trip_count_hint(block: str) -> str:
     if re.search(r"icmp\s+(?:eq|slt|ult)\s+i\d+\s+%[^,]+,\s*[-]?\d+", block):
         return "constant-or-mixed"
@@ -291,6 +338,7 @@ def extract(case_dir: Path, opt: Path | None, n: int | None,
         "trip_count": "unknown",
         "reuse_kind": "unknown",
         "reuse_evidence": None,
+        "memory": {},
         "loop_body_instruction_count": None,
         "feature_confidence": "partial",
         "unknowns": [],
@@ -302,15 +350,18 @@ def extract(case_dir: Path, opt: Path | None, n: int | None,
         conflict, evidence = metadata_conflict(hints)
         size, types = element_bytes(block)
         reuse = reuse_kind(block)
+        trip = trip_count_hint(block)
+        memory = memory_summary(block, n, size, reuse, trip)
         static.update({
             "loop_hints": hints,
             "metadata_conflict": conflict,
             "metadata_conflict_evidence": evidence,
             "element_bytes": size,
             "element_types": types,
-            "trip_count": trip_count_hint(block),
+            "trip_count": trip,
             "reuse_kind": reuse["kind"],
             "reuse_evidence": reuse,
+            "memory": memory,
             "loop_body_instruction_count": sum(
                 1 for line in block.splitlines()
                 if line.strip() and not line.strip().startswith((";", "}", "define",
@@ -320,23 +371,35 @@ def extract(case_dir: Path, opt: Path | None, n: int | None,
             static["unknowns"].append("element_bytes")
         if reuse["kind"] == "unknown":
             static["unknowns"].append("reuse_kind")
-        if static["trip_count"] == "unknown":
+        if trip == "unknown":
             static["unknowns"].append("trip_count")
+        if memory["streams"] is None:
+            static["unknowns"].append("streams")
     else:
         static["unknowns"].append("kernel_function")
         static["feature_confidence"] = "unknown"
-    footprint = (n * static["element_bytes"]) if (n and static["element_bytes"]) else None
+        memory = memory_summary("", n, None, {"kind": "unknown"}, "unknown")
+        static["memory"] = memory
     scenario = {
         "n": n,
-        "footprint_bytes": footprint,
+        "n_elements": n,
+        "element_bytes": static["element_bytes"],
+        "bytes_per_stream": memory["bytes_per_stream"],
+        "streams": memory["streams"],
+        "footprint_proxy_bytes": memory["footprint_proxy_bytes"],
+        "reused_bytes": memory["reused_bytes"],
+        "bytes_allocated": "unknown",
+        "working_set_estimate": "unknown",
         "l3_bytes": cache_sizes.get("l3_bytes"),
-        "fits_l3": (footprint is not None and cache_sizes.get("l3_bytes") is not None
-                    and footprint <= cache_sizes["l3_bytes"]),
-        "source": "benchmark driver input size; not generally compile-time available",
+        "fits_l3_proxy": (memory["footprint_proxy_bytes"] is not None
+                          and cache_sizes.get("l3_bytes") is not None
+                          and memory["footprint_proxy_bytes"] <= cache_sizes["l3_bytes"]),
+        "source": "benchmark driver input size; footprint is a distinct-stream proxy, not allocation",
     }
     return {
         "schema_version": "1.1",
         "record_type": "predictor-features",
+        "feature_version": "r1.1.1-memory",
         "case": case_dir.name,
         "sources": {
             "source_ir": str(source.relative_to(ROOT)).replace("\\", "/")

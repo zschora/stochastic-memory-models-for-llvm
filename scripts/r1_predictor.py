@@ -24,14 +24,15 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import r1_features  # noqa: E402
+import r1_experiments  # noqa: E402
 import r1_stats  # noqa: E402
 
 AUDIT_CAMPAIGN = "EXP-20261107-R11-audit"
-NEW_CAMPAIGNS = {"EXP-20261107-R11-audit", "EXP-20261107-R11-followup"}
+FEATURE_DIR = "features_v3"
 POLICY_KEYS = {
     "static.metadata_conflict",
     "static.reuse_kind",
-    "scenario.footprint_bytes",
+    "scenario.footprint_proxy_bytes",
     "scenario.l3_bytes",
     "scenario.n",
     "baseline.current_model_fuses",
@@ -53,14 +54,14 @@ def case_dir_for(point: dict) -> Path:
 
 
 def feature_record(audit_dir: Path, campaign: str, case: str, mode: str, n: int) -> dict:
-    cache_dir = audit_dir / "features" / case / f"mode-{mode or 'default'}" / f"n-{n}"
+    cache_dir = audit_dir / FEATURE_DIR / case / f"mode-{mode or 'default'}" / f"n-{n}"
     path = cache_dir / "features.json"
     if path.is_file():
         return load_json(path)
     case_dir = ROOT / "results" / "r1" / campaign / case
     if not case_dir.is_dir():
         case_dir = audit_dir / case
-    early = audit_dir / "features" / "ir" / f"{case}-{mode or 'default'}.early.ll"
+    early = audit_dir / FEATURE_DIR / "ir" / f"{case}-{mode or 'default'}.early.ll"
     data = r1_features.extract(case_dir, ROOT / ".tools" / "llvm-build" / "bin" / "opt.exe",
                               n, r1_features.cache_sizes(), mode, early)
     r1_stats.atomic_write_json(path, data)
@@ -69,34 +70,59 @@ def feature_record(audit_dir: Path, campaign: str, case: str, mode: str, n: int)
 
 def fusion_lookup() -> dict:
     lookup = {}
-    for campaign in ("EXP-20261107-R1A", "EXP-20261107-R1C-offsets"):
+    for campaign in r1_experiments.CAMPAIGN_ROLES:
         path = ROOT / "results" / "r1" / campaign / "analysis.json"
         if path.is_file():
             lookup[campaign] = load_json(path)
     return lookup
 
 
-def fused(lookup: dict, point: dict, kernel: str | None, config: str) -> bool:
+LEGALITY_EVENTS = {
+    "InvalidDependencies", "InvalidCandidate", "NonEqualTripCount",
+    "UnknownTripCount", "UncomputableTripCount", "NotRotated",
+    "NotSimplifiedForm", "ContainsAtomicAccess", "ContainsVolatileAccess",
+    "MayThrowException", "NonIdenticalGuards", "NonEmptyPreheader",
+    "NonEmptyExitBlock", "NonEmptyGuardBlock", "AddressTakenBB",
+}
+
+
+def classify_legality(lookup: dict, point: dict, kernel: str | None) -> dict:
+    """Classify legality/fusion from remarks; never infer illegality from silence."""
     if not kernel:
-        return False
-    campaigns = [point["campaign"]]
-    if point["campaign"] in NEW_CAMPAIGNS:
-        campaigns = ["EXP-20261107-R1A", "EXP-20261107-R1C-offsets"]
-    for campaign in campaigns:
-        data = lookup.get(campaign, {}).get(point["case"], {})
-        configs = data.get("configs", {})
-        cfg_data = configs.get(config, {})
-        per_function = cfg_data.get("remarks", {}).get("per_function", {})
-        if per_function.get(kernel, {}).get("FuseCounter", 0) > 0:
-            return True
-    return False
+        return {"class": "unknown_or_not_evaluated",
+                "reason": "no kernel function resolved", "b_events": {},
+                "c_events": {}}
+    data = lookup.get(point["campaign"], {}).get(point["case"], {})
+    configs = data.get("configs", {})
+    def events(config):
+        cfg = configs.get(config, {})
+        return cfg.get("remarks", {}).get("per_function", {}).get(kernel, {})
+    b_events = events("B")
+    c_events = events("C")
+    b_fused = b_events.get("FuseCounter", 0) > 0
+    c_fused = c_events.get("FuseCounter", 0) > 0
+    if b_fused and c_fused:
+        return {"class": "legal_and_fused", "reason": "B and C both emit FuseCounter",
+                "b_events": b_events, "c_events": c_events}
+    if b_fused and not c_fused:
+        return {"class": "legal_but_rejected",
+                "reason": "B fuses; C rejects (profitability)",
+                "b_events": b_events, "c_events": c_events}
+    if any(name in b_events for name in LEGALITY_EVENTS):
+        return {"class": "illegal", "reason": "legality/eligibility remark",
+                "b_events": b_events, "c_events": c_events}
+    return {"class": "unknown_or_not_evaluated",
+            "reason": "no fusion and no explicit legality remark",
+            "b_events": b_events, "c_events": c_events}
 
 
 def policy_decisions(features: dict, baseline_fuses: bool, legal: bool) -> dict:
     static = features["static"]
     scenario = features["scenario"]
     conflict = static.get("metadata_conflict")
-    footprint = scenario.get("footprint_bytes")
+    footprint = scenario.get("footprint_proxy_bytes")
+    if footprint is None:
+        footprint = scenario.get("footprint_bytes")
     l3 = scenario.get("l3_bytes")
     large = footprint is not None and l3 is not None and footprint > l3
     # Decision functions receive only static/scenario/baseline facts.
@@ -185,71 +211,71 @@ def main() -> int:
         raise SystemExit(f"missing audit stats: {stats_path}")
     audit = load_json(stats_path)
     lookup = fusion_lookup()
-
-    # Choose the newest measurement for each case/mode/n, preferring the R1.1
-    # campaign over historical data.  The source is retained in the output.
-    chosen = {}
-    for point in audit["points"]:
-        key = (point["case"], point.get("mode", ""), point["n"])
-        priority = (2 if point["campaign"] == "EXP-20261107-R11-audit"
-                    else 1 if point["campaign"] == "EXP-20261107-R11-followup"
-                    else 0)
-        if key not in chosen or priority >= chosen[key][0]:
-            chosen[key] = (priority, point)
+    selected, excluded, selection_manifest = r1_experiments.select_baseline_points(
+        audit["points"])
 
     feature_cache = {}
     prepared = []
-    for _, point in chosen.values():
+    for point in selected:
         features = feature_cache.get((point["case"], point.get("mode", "")))
         if features is None:
             features = feature_record(audit_dir, point["campaign"], point["case"],
                                       point.get("mode", ""), point["n"])
             feature_cache[(point["case"], point.get("mode", ""))] = features
-        # Scenario is point-specific; refresh n/footprint without touching static.
         scenario = dict(features["scenario"])
-        scenario["n"] = point["n"]
         static = features["static"]
-        scenario["footprint_bytes"] = (point["n"] * static["element_bytes"]
-                                       if static.get("element_bytes") else None)
+        scenario["n"] = point["n"]
+        memory = static.get("memory", {})
+        element_bytes = static.get("element_bytes")
+        streams = memory.get("streams")
+        per_stream = (point["n"] * element_bytes
+                      if point["n"] and element_bytes else None)
+        proxy = per_stream * streams if (per_stream and streams) else None
+        scenario["n_elements"] = point["n"]
+        scenario["element_bytes"] = element_bytes
+        scenario["bytes_per_stream"] = per_stream
+        scenario["streams"] = streams
+        scenario["footprint_proxy_bytes"] = proxy
+        scenario["reused_bytes"] = (per_stream if static.get("reuse_kind") in
+                                    {"exact", "shifted"} else None)
+        scenario["bytes_allocated"] = "unknown"
+        scenario["working_set_estimate"] = "unknown"
         features = dict(features, scenario=scenario)
         kernel = static.get("kernel_function")
-        b_fused = fused(lookup, point, kernel, "B")
-        c_fused = fused(lookup, point, kernel, "C")
-        legal = b_fused
-        b_class = point.get("classifications", {}).get("B", {})
-        threshold = 0.05
-        effect = point.get("effects", {}).get("B", {})
-        lo, hi = closed_interval(effect)
-        if not legal:
+        legality = classify_legality(lookup, point, kernel)
+        legal_class = legality["class"]
+        legal_ok = legal_class in {"legal_and_fused", "legal_but_rejected"}
+        b_class = point.get("classifications", {}).get("B", {}).get(
+            "classification", "inconclusive")
+        allowed_labels = {"confirmed_profitable", "confirmed_harmful", "neutral",
+                          "inconclusive", "high_noise", "requires_remeasurement"}
+        if legal_class == "illegal":
             label = "illegal"
-        elif lo is not None and hi is not None:
-            if hi < 1 - threshold:
-                label = "confirmed_profitable"
-            elif lo > 1 + threshold:
-                label = "confirmed_harmful"
-            elif lo >= 1 - threshold and hi <= 1 + threshold:
-                label = "neutral"
-            else:
-                label = b_class.get("classification", "inconclusive")
-                if label in {"high_noise", "requires_remeasurement"}:
-                    label = label
-                else:
-                    label = "inconclusive"
+        elif legal_class == "unknown_or_not_evaluated":
+            label = "unknown_or_not_evaluated"
+        elif b_class in allowed_labels:
+            label = b_class
         else:
             label = "inconclusive"
         point = dict(point)
         point["features"] = features
-        point["legal"] = legal
+        point["legal"] = legal_ok
+        point["legal_class"] = legal_class
+        point["legality_evidence"] = legality
         point["label"] = label
         point["ta"] = point["times_ns"]["A"]
-        point["tb"] = point["times_ns"]["B"] if legal else point["times_ns"]["A"]
+        point["tb"] = point["times_ns"]["B"] if legal_ok else point["times_ns"]["A"]
         point["key"] = f"{point['campaign']}:{point['case']}:{point.get('mode','')}:{point['n']}"
-        point["diagnostic"] = {"b_fused": b_fused, "c_fused": c_fused}
+        point["diagnostic"] = {
+            "b_fused": legality["b_events"].get("FuseCounter", 0) > 0,
+            "c_fused": legality["c_events"].get("FuseCounter", 0) > 0,
+            "b_events": legality["b_events"], "c_events": legality["c_events"],
+        }
         prepared.append(point)
 
     decisions = {}
     for point in prepared:
-        d = policy_decisions(point["features"], point["diagnostic"]["c_fused"],
+        d = policy_decisions(point["features"], point["legal_class"] == "legal_and_fused",
                              point["legal"])
         for name, value in d.items():
             decisions.setdefault(name, {})[point["key"]] = value
@@ -260,8 +286,8 @@ def main() -> int:
                 "current_model": "baseline current exact-reuse decision (available at decision time)",
                 "metadata_guard": "current decision plus static explicit metadata compatibility",
                 "metadata_guard_or_large": "metadata guard with scenario footprint > L3 exception",
-                "footprint_256k": "legal candidate and scenario footprint > 256 KiB",
-                "two_signal": "metadata conflict + footprint/L3 two-signal rule",
+                "footprint_256k": "legal candidate and scenario footprint proxy > 256 KiB",
+                "two_signal": "metadata conflict + footprint-proxy/L3 two-signal rule",
             }[name],
             "all_points": aggregate(prepared, values),
             "confirmed_only": aggregate(
@@ -272,6 +298,7 @@ def main() -> int:
     result = {
         "schema_version": "1.1",
         "audit_dir": args.audit_dir,
+        "dataset_selection": selection_manifest,
         "feature_categories": {
             "static": "pre-treatment IR; available before the profitability decision",
             "scenario": "benchmark/runtime context; not deployable by itself",
@@ -283,24 +310,29 @@ def main() -> int:
         "policies": policies,
         "notes": [
             "In-sample exploratory screen; no held-out benchmark family.",
+            "Only baseline-eligible, verified unpatched campaigns are selected; R1-F is excluded.",
             "No policy uses post-fusion YMM counts, measured runtimes or final assembly.",
+            "Evidence labels come directly from r1_stats; high_noise is not promoted.",
             "Regret is absolute ns above the per-point oracle min(A,B), equal-case weighted.",
             "Confirmed-only metrics exclude high-noise/inconclusive labels from FP/FN and regret.",
             "A 256 KiB or L3 threshold is a scenario rule, not a deployable cost model.",
         ],
     }
-    out = Path(args.out) if args.out else audit_dir / "predictor_v2.json"
+    out = Path(args.out) if args.out else audit_dir / "predictor_v3.json"
     out = out if out.is_absolute() else ROOT / out
     r1_stats.atomic_write_json(out, result)
+    selection_path = audit_dir / "predictor_v3_selection.json"
+    r1_stats.atomic_write_json(selection_path, selection_manifest)
     md_out = (Path(args.markdown_out) if args.markdown_out
-              else audit_dir / "predictor_v2.md")
+              else audit_dir / "predictor_v3.md")
     md_out = md_out if md_out.is_absolute() else ROOT / md_out
 
     lines = [
-        "# R1.1 predictor screen v2",
+        "# R1.1.1 predictor screen v3",
         "",
         "Decision features are static or scenario-labelled; diagnostic facts are "
-        "used only for scoring. This is in-sample and exploratory.",
+        "used only for scoring. Baseline selection excludes the R1-F patched "
+        "toolchain. This is in-sample and exploratory.",
         "",
         "| policy | FP | missed profitable | regret (ms) | rel. regret | geomean speedup | worst regression |",
         "| --- | ---: | ---: | ---: | ---: | ---: | ---: |",

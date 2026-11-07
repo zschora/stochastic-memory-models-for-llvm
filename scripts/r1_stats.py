@@ -343,6 +343,14 @@ def point_id(parameters: dict) -> str:
     return "m-" + hashlib.sha256(canonical.encode("utf-8")).hexdigest()[:16]
 
 
+def sha256_text_file(path: Path) -> str:
+    """Hash text artifacts with CRLF normalized to LF for cross-checkout stability."""
+    import hashlib
+    digest = hashlib.sha256()
+    digest.update(path.read_bytes().replace(b"\r\n", b"\n"))
+    return digest.hexdigest()
+
+
 def validate_completed_measurement(directory: Path, expected_parameters: dict) -> bool:
     summary_path = directory / "summary.json"
     meta_path = directory / "measurement.json"
@@ -361,3 +369,91 @@ def validate_completed_measurement(directory: Path, expected_parameters: dict) -
     if summary.get("point_id") != point_id(expected_parameters):
         return False
     return True
+
+
+def validate_measurement_artifacts(directory: Path, expected_parameters: dict,
+                                   *, root: Path | None = None,
+                                   legacy: bool = False) -> tuple[bool, list[str]]:
+    """Validate a completed attempt against its raw evidence and schedule.
+
+    This is intentionally stricter than reading summary.json['status'].
+    Legacy attempts may omit newer hash fields, but still have to pass the
+    structural/raw/schedule checks.
+    """
+    errors: list[str] = []
+    if not validate_completed_measurement(directory, expected_parameters):
+        return False, ["summary/manifest/point identity validation failed"]
+    raw_path = directory / "raw.csv"
+    summary_path = directory / "summary.json"
+    meta_path = directory / "measurement.json"
+    schedule_path = directory / "schedule.json"
+    try:
+        meta = json.loads(meta_path.read_text(encoding="utf-8"))
+        summary = json.loads(summary_path.read_text(encoding="utf-8"))
+        schedule = json.loads(schedule_path.read_text(encoding="utf-8"))
+        rows = read_raw_csv(raw_path)
+    except Exception as exc:
+        return False, [f"cannot read artifacts: {exc}"]
+    if meta.get("status") != "complete" or summary.get("status") != "complete":
+        errors.append("status is not complete")
+    configs = list(expected_parameters["configs"])
+    blocks = int(expected_parameters["blocks"])
+    trials = int(expected_parameters["trials"])
+    if schedule.get("seed") != expected_parameters["seed"]:
+        errors.append("schedule seed differs from parameters")
+    if int(schedule.get("blocks", -1)) != blocks:
+        errors.append("schedule block count differs from parameters")
+    if sorted(schedule.get("configs", [])) != sorted(configs):
+        errors.append("schedule configuration set differs from parameters")
+    entries = schedule.get("schedule", [])
+    if len(entries) != blocks * len(configs):
+        errors.append("schedule does not contain blocks x configurations entries")
+    for block in range(blocks):
+        block_entries = [e for e in entries if int(e.get("block_id", -1)) == block]
+        if sorted(str(e.get("config")) for e in block_entries) != sorted(configs):
+            errors.append(f"block {block} does not contain each configuration once")
+    try:
+        observations = process_observations(rows, configs)
+    except StatsError as exc:
+        return False, errors + [str(exc)]
+    if len(observations) != blocks:
+        errors.append("raw data does not contain exactly the expected blocks")
+    for block, values in observations.items():
+        for config in configs:
+            key = (block, config)
+            trials_for_key = [r for r in rows
+                              if int(r["block_id"]) == block and r["config"] == config]
+            ids = sorted(int(r.get("trial", r.get("trial_id", -1)))
+                         for r in trials_for_key)
+            if len(ids) != trials or ids != list(range(trials)):
+                errors.append(f"block {block} config {config} has invalid trial ids/count")
+    stored = summary.get("process_observations", {})
+    for block, values in observations.items():
+        stored_block = stored.get(str(block), {})
+        for config in configs:
+            if config not in stored_block:
+                errors.append(f"summary lacks block {block} config {config}")
+            elif abs(float(stored_block[config]) - values[config]) > 1e-9:
+                errors.append(f"summary observation mismatch at block {block} config {config}")
+    for field in ("checksum", "verify"):
+        if field not in summary:
+            errors.append(f"summary lacks {field}")
+    if not legacy:
+        for key, file in (("raw_sha256", raw_path),
+                          ("summary_sha256", summary_path),
+                          ("schedule_sha256", schedule_path)):
+            recorded = meta.get(key)
+            if recorded:
+                if recorded != sha256_text_file(file):
+                    errors.append(f"{key} mismatch")
+        manifest_path = meta.get("toolchain", {}).get("manifest_path")
+        manifest_sha = meta.get("toolchain", {}).get("manifest_sha256")
+        if manifest_path and manifest_sha and root is not None:
+            mpath = Path(manifest_path)
+            mpath = mpath if mpath.is_absolute() else root / mpath
+            if not mpath.is_file():
+                errors.append("toolchain manifest is missing")
+            else:
+                if sha256_text_file(mpath) != manifest_sha:
+                    errors.append("toolchain manifest hash mismatch")
+    return not errors, errors

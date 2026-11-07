@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import csv
 import sys
 import tempfile
 import unittest
@@ -175,25 +176,79 @@ class R1StatsTests(unittest.TestCase):
 
     def test_resume_validation_requires_raw_rows(self):
         with tempfile.TemporaryDirectory() as temp:
-            directory = Path(temp)
-            parameters = r1_stats.measurement_parameters(
-                "C", "read_read", "", 1024, CONFIGS, 10, 5, 1, 1,
-                {"A": "a", "AA": "a", "B": "b", "C": "c"}, "sha")
-            point = r1_stats.point_id(parameters)
-            directory.mkdir(exist_ok=True)
-            (directory / "raw.csv").write_text(
-                "config,block_id,trial_id,ns_per_call\n"
-                "A,0,0,100\nB,0,0,80\nC,0,0,80\nAA,0,0,100\n",
-                encoding="utf-8")
-            (directory / "measurement.json").write_text(
-                json.dumps({"parameters": parameters}), encoding="utf-8")
-            (directory / "summary.json").write_text(
-                json.dumps({"status": "complete", "point_id": point,
-                            "parameters": parameters}), encoding="utf-8")
+            directory, parameters = self._valid_attempt(Path(temp))
             self.assertTrue(r1_run_case.validate_existing(directory, parameters))
             (directory / "raw.csv").write_text(
                 "config,block_id,trial_id\nA,0,0\n", encoding="utf-8")
             self.assertFalse(r1_run_case.validate_existing(directory, parameters))
+
+    def _valid_attempt(self, temp: Path) -> tuple[Path, dict]:
+        parameters = r1_stats.measurement_parameters(
+            "C", "read_read", "", 1024, CONFIGS, 10, 2, 1, 1,
+            {"A": "a", "AA": "a", "B": "b", "C": "c"}, "sha")
+        point = r1_stats.point_id(parameters)
+        directory = temp / "attempt"
+        directory.mkdir(parents=True)
+        rows = []
+        for config in CONFIGS:
+            for trial in range(2):
+                rows.append({"config": config, "block_id": 0,
+                             "trial_id": trial,
+                             "ns_per_call": 100 if config in ("A", "AA") else 80})
+        with open(directory / "raw.csv", "w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+            writer.writeheader()
+            writer.writerows(rows)
+        schedule = {
+            "seed": 1, "blocks": 1, "configs": CONFIGS, "status": "complete",
+            "schedule": [{"block_id": 0, "execution_index": i, "config": c,
+                          "status": "complete"} for i, c in enumerate(CONFIGS)],
+        }
+        summary = {
+            "status": "complete", "point_id": point, "parameters": parameters,
+            "process_observations": {"0": {"A": 100, "AA": 100, "B": 80, "C": 80}},
+            "checksum": "x", "verify": {c: ["OK"] for c in CONFIGS},
+        }
+        measurement = {"status": "complete", "parameters": parameters}
+        (directory / "measurement.json").write_text(json.dumps(measurement), encoding="utf-8")
+        (directory / "summary.json").write_text(json.dumps(summary), encoding="utf-8")
+        (directory / "schedule.json").write_text(json.dumps(schedule), encoding="utf-8")
+        return directory, parameters
+
+    def test_measurement_artifact_corruption_is_detected(self):
+        with tempfile.TemporaryDirectory() as temp:
+            directory, parameters = self._valid_attempt(Path(temp))
+            ok, errors = r1_stats.validate_measurement_artifacts(
+                directory, parameters)
+            self.assertTrue(ok, errors)
+            # Altered raw timing disagrees with the stored summary.
+            raw = directory / "raw.csv"
+            raw.write_text(raw.read_text(encoding="utf-8").replace(",100\n", ",999\n", 1),
+                           encoding="utf-8")
+            ok, errors = r1_stats.validate_measurement_artifacts(directory, parameters)
+            self.assertFalse(ok)
+            self.assertTrue(any("mismatch" in e for e in errors), errors)
+            # Duplicate trial id.
+            directory, parameters = self._valid_attempt(Path(temp) / "second")
+            raw = directory / "raw.csv"
+            raw.write_text(raw.read_text(encoding="utf-8").replace(",1,80", ",0,80", 1),
+                           encoding="utf-8")
+            ok, errors = r1_stats.validate_measurement_artifacts(directory, parameters)
+            self.assertFalse(ok)
+            # Truncated schedule.
+            directory, parameters = self._valid_attempt(Path(temp) / "third")
+            schedule = json.loads((directory / "schedule.json").read_text(encoding="utf-8"))
+            schedule["schedule"] = schedule["schedule"][:2]
+            (directory / "schedule.json").write_text(json.dumps(schedule), encoding="utf-8")
+            ok, errors = r1_stats.validate_measurement_artifacts(directory, parameters)
+            self.assertFalse(ok)
+            # Inconsistent summary status.
+            directory, parameters = self._valid_attempt(Path(temp) / "fourth")
+            summary = json.loads((directory / "summary.json").read_text(encoding="utf-8"))
+            summary["status"] = "running"
+            (directory / "summary.json").write_text(json.dumps(summary), encoding="utf-8")
+            ok, errors = r1_stats.validate_measurement_artifacts(directory, parameters)
+            self.assertFalse(ok)
 
     def test_completed_measurement_validation(self):
         with tempfile.TemporaryDirectory() as temp:
