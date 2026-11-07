@@ -1,0 +1,333 @@
+{
+  "schema_version": "1.1",
+  "campaign": "EXP-20261107-R12-tsvc-pinned",
+  "dataset": "two TSVC legal opportunities; not a broad held-out family set",
+  "points": [
+    {
+      "key": "tsvc_s233",
+      "case": "tsvc_s233",
+      "legal_class": "legal_and_fused",
+      "label": "confirmed_profitable",
+      "ta": 45623800.0,
+      "tb": 41365800.0,
+      "tc": 41354600.0
+    },
+    {
+      "key": "tsvc_s2233",
+      "case": "tsvc_s2233",
+      "legal_class": "legal_but_rejected",
+      "label": "confirmed_harmful",
+      "ta": 22917200.0,
+      "tb": 54054100.0,
+      "tc": 22897500.0
+    }
+  ],
+  "policies": {
+    "current_model": {
+      "all_points": {
+        "points_considered": 2,
+        "false_positives": 0,
+        "missed_confirmed_profitable": 0,
+        "neutral_points": 0,
+        "inconclusive_or_noisy_points": 0,
+        "absolute_regret_ns": 0.0,
+        "mean_regret_ns_per_point": 0.0,
+        "relative_regret_to_baseline_total": 0.0,
+        "relative_regret_to_oracle_total": 0.0,
+        "geometric_mean_speedup_vs_A": 1.050207253371431,
+        "worst_regression_pct_vs_A": 0.0,
+        "family": {
+          "tsvc_s233": {
+            "regret": 0.0,
+            "baseline": 45623800.0,
+            "points": 1,
+            "fp": 0,
+            "fn": 0
+          },
+          "tsvc_s2233": {
+            "regret": 0.0,
+            "baseline": 22917200.0,
+            "points": 1,
+            "fp": 0,
+            "fn": 0
+          }
+        }
+      },
+      "confirmed_only": {
+        "points_considered": 2,
+        "false_positives": 0,
+        "missed_confirmed_profitable": 0,
+        "neutral_points": 0,
+        "inconclusive_or_noisy_points": 0,
+        "absolute_regret_ns": 0.0,
+        "mean_regret_ns_per_point": 0.0,
+        "relative_regret_to_baseline_total": 0.0,
+        "relative_regret_to_oracle_total": 0.0,
+        "geometric_mean_speedup_vs_A": 1.050207253371431,
+        "worst_regression_pct_vs_A": 0.0,
+        "family": {
+          "tsvc_s233": {
+            "regret": 0.0,
+            "baseline": 45623800.0,
+            "points": 1,
+            "fp": 0,
+            "fn": 0
+          },
+          "tsvc_s2233": {
+            "regret": 0.0,
+            "baseline": 22917200.0,
+            "points": 1,
+            "fp": 0,
+            "fn": 0
+          }
+        }
+      }
+    },
+    "no_fusion": {
+      "all_points": {
+        "points_considered": 2,
+        "false_positives": 0,
+        "missed_confirmed_profitable": 1,
+        "neutral_points": 0,
+        "inconclusive_or_noisy_points": 0,
+        "absolute_regret_ns": 4258000.0,
+        "mean_regret_ns_per_point": 2129000.0,
+        "relative_regret_to_baseline_total": 0.06212340059234619,
+        "relative_regret_to_oracle_total": 0.0662383522859854,
+        "geometric_mean_speedup_vs_A": 1.0,
+        "worst_regression_pct_vs_A": 0.0,
+        "family": {
+          "tsvc_s233": {
+            "regret": 4258000.0,
+            "baseline": 45623800.0,
+            "points": 1,
+            "fp": 0,
+            "fn": 1
+          },
+          "tsvc_s2233": {
+            "regret": 0.0,
+            "baseline": 22917200.0,
+            "points": 1,
+            "fp": 0,
+            "fn": 0
+          }
+        }
+      },
+      "confirmed_only": {
+        "points_considered": 2,
+        "false_positives": 0,
+        "missed_confirmed_profitable": 1,
+        "neutral_points": 0,
+        "inconclusive_or_noisy_points": 0,
+        "absolute_regret_ns": 4258000.0,
+        "mean_regret_ns_per_point": 2129000.0,
+        "relative_regret_to_baseline_total": 0.06212340059234619,
+        "relative_regret_to_oracle_total": 0.0662383522859854,
+        "geometric_mean_speedup_vs_A": 1.0,
+        "worst_regression_pct_vs_A": 0.0,
+        "family": {
+          "tsvc_s233": {
+            "regret": 4258000.0,
+            "baseline": 45623800.0,
+            "points": 1,
+            "fp": 0,
+            "fn": 1
+          },
+          "tsvc_s2233": {
+            "regret": 0.0,
+            "baseline": 22917200.0,
+            "points": 1,
+            "fp": 0,
+            "fn": 0
+          }
+        }
+      }
+    },
+    "always_fuse": {
+      "all_points": {
+        "points_considered": 2,
+        "false_positives": 1,
+        "missed_confirmed_profitable": 0,
+        "neutral_points": 0,
+        "inconclusive_or_noisy_points": 0,
+        "absolute_regret_ns": 31136900.0,
+        "mean_regret_ns_per_point": 15568450.0,
+        "relative_regret_to_baseline_total": 0.4542813790286106,
+        "relative_regret_to_oracle_total": 0.484372229049671,
+        "geometric_mean_speedup_vs_A": 0.6838194833469812,
+        "worst_regression_pct_vs_A": 135.86694709650394,
+        "family": {
+          "tsvc_s233": {
+            "regret": 0.0,
+            "baseline": 45623800.0,
+            "points": 1,
+            "fp": 0,
+            "fn": 0
+          },
+          "tsvc_s2233": {
+            "regret": 31136900.0,
+            "baseline": 22917200.0,
+            "points": 1,
+            "fp": 1,
+            "fn": 0
+          }
+        }
+      },
+      "confirmed_only": {
+        "points_considered": 2,
+        "false_positives": 1,
+        "missed_confirmed_profitable": 0,
+        "neutral_points": 0,
+        "inconclusive_or_noisy_points": 0,
+        "absolute_regret_ns": 31136900.0,
+        "mean_regret_ns_per_point": 15568450.0,
+        "relative_regret_to_baseline_total": 0.4542813790286106,
+        "relative_regret_to_oracle_total": 0.484372229049671,
+        "geometric_mean_speedup_vs_A": 0.6838194833469812,
+        "worst_regression_pct_vs_A": 135.86694709650394,
+        "family": {
+          "tsvc_s233": {
+            "regret": 0.0,
+            "baseline": 45623800.0,
+            "points": 1,
+            "fp": 0,
+            "fn": 0
+          },
+          "tsvc_s2233": {
+            "regret": 31136900.0,
+            "baseline": 22917200.0,
+            "points": 1,
+            "fp": 1,
+            "fn": 0
+          }
+        }
+      }
+    },
+    "metadata_guard": {
+      "all_points": {
+        "points_considered": 2,
+        "false_positives": 0,
+        "missed_confirmed_profitable": 0,
+        "neutral_points": 0,
+        "inconclusive_or_noisy_points": 0,
+        "absolute_regret_ns": 0.0,
+        "mean_regret_ns_per_point": 0.0,
+        "relative_regret_to_baseline_total": 0.0,
+        "relative_regret_to_oracle_total": 0.0,
+        "geometric_mean_speedup_vs_A": 1.050207253371431,
+        "worst_regression_pct_vs_A": 0.0,
+        "family": {
+          "tsvc_s233": {
+            "regret": 0.0,
+            "baseline": 45623800.0,
+            "points": 1,
+            "fp": 0,
+            "fn": 0
+          },
+          "tsvc_s2233": {
+            "regret": 0.0,
+            "baseline": 22917200.0,
+            "points": 1,
+            "fp": 0,
+            "fn": 0
+          }
+        }
+      },
+      "confirmed_only": {
+        "points_considered": 2,
+        "false_positives": 0,
+        "missed_confirmed_profitable": 0,
+        "neutral_points": 0,
+        "inconclusive_or_noisy_points": 0,
+        "absolute_regret_ns": 0.0,
+        "mean_regret_ns_per_point": 0.0,
+        "relative_regret_to_baseline_total": 0.0,
+        "relative_regret_to_oracle_total": 0.0,
+        "geometric_mean_speedup_vs_A": 1.050207253371431,
+        "worst_regression_pct_vs_A": 0.0,
+        "family": {
+          "tsvc_s233": {
+            "regret": 0.0,
+            "baseline": 45623800.0,
+            "points": 1,
+            "fp": 0,
+            "fn": 0
+          },
+          "tsvc_s2233": {
+            "regret": 0.0,
+            "baseline": 22917200.0,
+            "points": 1,
+            "fp": 0,
+            "fn": 0
+          }
+        }
+      }
+    },
+    "footprint_256k": {
+      "all_points": {
+        "points_considered": 2,
+        "false_positives": 0,
+        "missed_confirmed_profitable": 1,
+        "neutral_points": 0,
+        "inconclusive_or_noisy_points": 0,
+        "absolute_regret_ns": 4258000.0,
+        "mean_regret_ns_per_point": 2129000.0,
+        "relative_regret_to_baseline_total": 0.06212340059234619,
+        "relative_regret_to_oracle_total": 0.0662383522859854,
+        "geometric_mean_speedup_vs_A": 1.0,
+        "worst_regression_pct_vs_A": 0.0,
+        "family": {
+          "tsvc_s233": {
+            "regret": 4258000.0,
+            "baseline": 45623800.0,
+            "points": 1,
+            "fp": 0,
+            "fn": 1
+          },
+          "tsvc_s2233": {
+            "regret": 0.0,
+            "baseline": 22917200.0,
+            "points": 1,
+            "fp": 0,
+            "fn": 0
+          }
+        }
+      },
+      "confirmed_only": {
+        "points_considered": 2,
+        "false_positives": 0,
+        "missed_confirmed_profitable": 1,
+        "neutral_points": 0,
+        "inconclusive_or_noisy_points": 0,
+        "absolute_regret_ns": 4258000.0,
+        "mean_regret_ns_per_point": 2129000.0,
+        "relative_regret_to_baseline_total": 0.06212340059234619,
+        "relative_regret_to_oracle_total": 0.0662383522859854,
+        "geometric_mean_speedup_vs_A": 1.0,
+        "worst_regression_pct_vs_A": 0.0,
+        "family": {
+          "tsvc_s233": {
+            "regret": 4258000.0,
+            "baseline": 45623800.0,
+            "points": 1,
+            "fp": 0,
+            "fn": 1
+          },
+          "tsvc_s2233": {
+            "regret": 0.0,
+            "baseline": 22917200.0,
+            "points": 1,
+            "fp": 0,
+            "fn": 0
+          }
+        }
+      }
+    }
+  },
+  "notes": [
+    "s233: current model accepts and is profitable.",
+    "s2233: current model rejects; unrestricted fusion is harmful.",
+    "Only two legal real-workload candidates were found in TSVC/PolyBench discovery.",
+    "This is a case study, not evidence of broad generalization."
+  ]
+}

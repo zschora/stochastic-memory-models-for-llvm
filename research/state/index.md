@@ -5,10 +5,13 @@ Updated: 2026-11-07. Short cross-session index; load before large reports.
 ## Current stage
 
 - Stage 0 published; R1-A completed on matched LLVM `6f41962`.
-- **R1.1 measurement audit completed**: output collisions fixed, paired-block
-  statistics and corrected predictor evaluation written.
+- **R1.1/R1.1.1 audits completed**: output collisions, paired-block statistics,
+  baseline/patched isolation, failure diagnostics and predictor v3.
+- **R1.2 real-workload study completed**: 30 PolyBench cases and TSVC discovery;
+  only two legal TSVC opportunities measured. The current gate handled both,
+  but two cases do not establish generalization.
 - R1-B mechanism evidence and a local metadata-guard prototype exist.
-- R1-C is partial: controlled kernels only; no held-out real-workload corpus.
+- R1-C is partial: controlled kernels plus a small real TSVC corpus.
 - R1-D is an in-sample screen only; R1-E has finite checks, no independently
   proved theorem.
 - **No stochastic memory model is integrated into LLVM.**
@@ -18,26 +21,26 @@ Updated: 2026-11-07. Short cross-session index; load before large reports.
 1. Read `AGENTS.md` and `CONTRIBUTING.md`.
 2. Read this file.
 3. Read one hypothesis from [hypotheses.json](hypotheses.json).
-4. Load one report section: [R1.1 audit](../../reports/r1_1_measurement_audit.md),
-   [R1-A](../../reports/r1a_report.md), [R1 synthesis](../../reports/r1_report.md).
+4. Load one report section: [R1.2 final](../../reports/r1_2_final.md),
+   [R1.1.1](../../reports/r1_1_1_evidence_integrity.md),
+   [R1.1 audit](../../reports/r1_1_measurement_audit.md), or
+   [R1-A](../../reports/r1a_report.md).
 5. Load one role and one skill only.
 6. Check `git status`, branch and latest run.
 
 ## Active focus
 
-**Next action:** R1.2 held-out benchmark corpus and out-of-sample evaluation of
-the corrected feature set. Use `scripts/r1_run_case.py`, `scripts/r1_stats.py`
-and the v2 toolchain manifest. Do not use the old predictor or its regret metric.
-
-R1.1.1 corrected the remaining dataset-selection and memory-accounting defects;
-see [R1.1.1](../../reports/r1_1_1_evidence_integrity.md).
+**Next action:** a targeted R1.3 discovery study, not a cost-model
+implementation: broaden whole-program/real families, test loop-distribution and
+phase-order alternatives, and independently audit the TSVC wrapper. The R1.2
+corpus is too small to justify a new LLVM profitability model.
 
 ```powershell
-python scripts/research/doctor.py --experiment --json --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json
-python scripts/r1_campaign.py --spec research/harness/plans/r1_1_measurement_plan.json --resume
-python scripts/r1_audit.py
-python scripts/r1_predictor.py
+python scripts/r1_2_discover.py
+python scripts/r1_2_evaluate.py
 python scripts/research/validate_run.py --all --json
+python scripts/research/check_docs.py --json
+python -m unittest discover -s scripts/research/tests -v
 ```
 
 ## Hypothesis ledger
@@ -56,7 +59,10 @@ python scripts/research/validate_run.py --all --json
 | H-R1-E1 | Exact LRU DP and capacity-one formula | analyzed | self-review |
 | H-R1-E2 | Partial orders change achievable LRU statistics | analyzed | self-review |
 | H-R1-F1 | Metadata guard removes the L1/L2 false positive | inconclusive | self-review |
-| H-R1-AUDIT | R1 evidence is reproducible under paired-block analysis | analyzed | self-review || H-HARNESS-001 | Protocol works without the transcript | analyzed | self-review |
+| H-R1-AUDIT | R1 evidence is reproducible under paired-block analysis | analyzed | self-review |
+| H-R12-001 | Real LoopFusion opportunities are rare; current gate handles two TSVC cases | analyzed | self-review |
+| H-R12-002 | PolyBench kernel loops expose no legal LoopFusion opportunity | analyzed | self-review |
+| H-HARNESS-001 | Protocol works without the transcript | analyzed | self-review |
 
 Full statements and evidence: [hypotheses.json](hypotheses.json). Self-review is
 not independent verification.
@@ -71,14 +77,22 @@ not independent verification.
 - Exact VW16 test-suite benchmark remains not-testable for fusion under the
   native pipeline.
 - R1-F patched `opt` is unverified and has only four blocks.
-- Corpus lacks TSVC/PolyBench/whole-program workloads.
+- R1.2 real corpus is small: 2 measured TSVC cases, no whole-program timing,
+  and no independent audit of the TSVC wrapper.
+- 126/136 TSVC functions and all 28 PolyBench functions did not become legal
+  LoopFusion candidates; the reason set was not manually audited in full.
 
 ## Key evidence
 
 - [R1.1 audit](../../reports/r1_1_measurement_audit.md) and
   [corrected stats](../../results/r1/EXP-20261107-R11-audit/reanalysis/audit_stats.md).
-- [R1.1 predictor v2](../../results/r1/EXP-20261107-R11-audit/predictor_v2.md).
+- [R1.1 predictor v3](../../results/r1/EXP-20261107-R11-audit/predictor_v3.md).
 - [R1.1 campaign plan](../harness/plans/r1_1_measurement_plan.json).
+- [R1.2 corpus](../../reports/r1_2_corpus.md),
+  [profitability](../../reports/r1_2_profitability.md),
+  [final](../../reports/r1_2_final.md).
+- [R1.2 discovery](../../results/r1/EXP-20261107-R12-discovery/discovery.json),
+  [TSVC campaign](../../results/r1/EXP-20261107-R12-tsvc-pinned/campaign_summary.json).
 - [R1 synthesis](../../reports/r1_report.md), [R1-A](../../reports/r1a_report.md),
   [R1-F](../../reports/r1f_patch.md).
 - [Toolchain v2](../harness/toolchains/llvm-24.0.0git-6f41962-v2.json).

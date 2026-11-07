@@ -30,6 +30,8 @@ motivates the work; **no stochastic cost model is yet integrated into LLVM**.
 - [Research notes index](research/README.md)
 - [R1 synthesis](reports/r1_report.md)
 - [R1.1 measurement audit](reports/r1_1_measurement_audit.md)
+- [R1.1.1 evidence integrity](reports/r1_1_1_evidence_integrity.md)
+- [R1.2 final synthesis](reports/r1_2_final.md)
 - [R1-A matched validation](reports/r1a_report.md)
 - [R1-C corpus status](reports/r1c_corpus.md)
 - [R1-F local prototype](reports/r1f_patch.md)
