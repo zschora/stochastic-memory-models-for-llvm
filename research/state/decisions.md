@@ -95,3 +95,48 @@ validation only.
 
 **Consequences:** The record demonstrates the workflow but cannot support a
 scientific claim. It is excluded from performance evidence.
+
+## D-009 - Toolchain provenance is a manifest, not a version string
+
+**Context:** clang 23.1.5 and locally built LLVM 24.0.0git can both report
+plausible version numbers while differing in source revision and build
+configuration. PATH discovery can silently select the wrong binary.
+
+**Decision:** Strict experiment readiness requires an explicit toolchain
+manifest with full LLVM source SHA, source/build directories, CMake settings,
+absolute binary paths, SHA-256 hashes and recorded version output. States are
+`verified`, `matched`, `mixed` and `unverified`; only `verified` is acceptable
+for `analyzed` or later experiment records.
+
+**Consequences:** A build with matching version strings still needs a manifest.
+`doctor.py --experiment` fails without one. Structural provenance is necessary
+but does not independently prove how an external release binary was produced.
+
+## D-010 - Schema subset plus semantic gates
+
+**Context:** Parsing a schema file does not validate records. The repository
+cannot assume `jsonschema` is installed.
+
+**Decision:** Implement an explicit, documented Draft 2020-12 subset in
+`scripts/research/schema_lite.py`, reject unsupported schema keywords, and keep
+repository-specific semantic checks for provenance, status transitions,
+artifact existence and review gates.
+
+**Consequences:** The contract is consistent and offline. It is not full JSON
+Schema; unsupported constructs fail loudly instead of being ignored. Structural
+validation cannot certify mathematical truth or scientific validity.
+
+## D-011 - Evidence gates require review artifacts
+
+**Context:** Labels such as `proved`, `validated` and `supported` were previously
+too easy to assert with only a status string.
+
+**Decision:** `proved` requires a proof artifact, a review artifact, reviewer
+identity/type, an accept decision and zero unresolved obligations.
+`numerically-checked` requires actual check artifacts. `supported` requires
+validated evidence, raw timings, validation artifacts, a review artifact and
+independent/human review. Self-review by the same model remains
+`model-assisted-self-review`.
+
+**Consequences:** More records remain `analyzed` or `under-review`; this is
+intended. A human or genuinely separate agent is still required for promotion.

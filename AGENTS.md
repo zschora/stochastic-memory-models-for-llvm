@@ -1,6 +1,10 @@
 # Agent guidance
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md), [research/origins.md](research/origins.md) and the current [Stage 0 report](reports/stage0_report.md) before substantial changes. For research work, also read [research/state/index.md](research/state/index.md) and [research/harness/README.md](research/harness/README.md).
+Read [CONTRIBUTING.md](CONTRIBUTING.md) and [research/state/index.md](research/state/index.md)
+before substantial changes. For research work also read
+[research/harness/README.md](research/harness/README.md) and
+[research/harness/protocol.md](research/harness/protocol.md). Load the relevant
+Stage 0 report section or raw evidence only when the task needs it.
 
 - Keep experiments narrow, reproducible and motivated by concrete observed failures.
 - Follow English Conventional Commits: `type(scope): imperative summary`.

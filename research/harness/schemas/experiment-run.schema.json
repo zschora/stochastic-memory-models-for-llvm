@@ -6,8 +6,8 @@
   "required": [
     "schema_version", "record_type", "run_id", "hypothesis_id", "title",
     "status", "created_utc", "git", "toolchain", "build", "host", "pipeline",
-    "case", "procedure", "artifacts", "commands", "results", "review",
-    "evidence", "next_action"
+    "case", "procedure", "artifacts", "commands", "results", "evidence",
+    "review", "status_history", "next_action"
   ],
   "properties": {
     "schema_version": {"const": "1.0"},
@@ -19,22 +19,25 @@
       "enum": ["proposed", "planned", "running", "analyzed", "under-review",
                "supported", "refuted", "inconclusive", "archived"]
     },
-    "created_utc": {"type": "string", "format": "date-time"},
+    "created_utc": {"type": "string"},
     "git": {
       "type": "object",
       "required": ["base_commit", "branch", "working_tree_dirty"],
       "properties": {
-        "base_commit": {"type": "string", "pattern": "^[0-9a-f]{7,40}$"},
+        "base_commit": {"type": "string", "pattern": "^[0-9a-fA-F]{7,40}$"},
         "branch": {"type": "string", "minLength": 1},
-        "working_tree_dirty": {"type": "boolean"}
+        "working_tree_dirty": {"type": "boolean"},
+        "available": {"type": "boolean"}
       }
     },
     "toolchain": {
       "type": "object",
-      "required": ["consistency", "llvm_revision", "clang", "opt", "llc", "llvm_config"],
+      "required": ["consistency", "llvm_revision", "manifest_path", "clang",
+                   "opt", "llc", "llvm_config"],
       "properties": {
-        "consistency": {"enum": ["matched", "mixed", "unknown"]},
+        "consistency": {"enum": ["verified", "matched", "mixed", "unverified"]},
         "llvm_revision": {"type": "string"},
+        "manifest_path": {"type": "string"},
         "clang": {"$ref": "#/$defs/tool"},
         "opt": {"$ref": "#/$defs/tool"},
         "llc": {"$ref": "#/$defs/tool"},
@@ -80,8 +83,9 @@
       "properties": {
         "name": {"type": "string", "minLength": 1},
         "source": {"type": "string"},
-        "input_sizes": {"type": "array", "items": {"type": "integer"}},
-        "seeds": {"type": "array", "items": {"type": "integer"}}
+        "input_sizes": {"type": "array", "items": {"type": "integer", "minimum": 0}},
+        "seeds": {"type": "array", "items": {"type": "integer"}},
+        "mandatory": {"type": "boolean"}
       }
     },
     "procedure": {
@@ -95,7 +99,9 @@
         "order": {"type": "string"},
         "timing_unit": {"type": "string"},
         "timing_method": {"type": "string"},
-        "correctness_oracle": {"type": "string"}
+        "correctness_oracle": {"type": "string"},
+        "aa_control": {"type": "string"},
+        "randomization_seed": {"type": "integer"}
       }
     },
     "artifacts": {
@@ -108,7 +114,8 @@
         "assembly": {"type": "array", "items": {"type": "string"}},
         "remarks": {"type": "array", "items": {"type": "string"}},
         "analysis_script": {"type": "string"},
-        "analysis_script_revision": {"type": "string"}
+        "analysis_script_revision": {"type": "string"},
+        "checksums": {"type": "array", "items": {"type": "string"}}
       }
     },
     "commands": {"type": "array", "items": {"type": "string"}},
@@ -122,20 +129,44 @@
     },
     "review": {
       "type": "object",
-      "required": ["status", "reviewer", "notes"],
+      "required": ["status", "reviewer", "reviewer_type", "decision",
+                   "artifact", "notes"],
       "properties": {
         "status": {"enum": ["not-reviewed", "model-assisted-self-review",
                              "independent-review", "human-review"]},
         "reviewer": {"type": "string"},
-        "notes": {"type": "string"}
+        "reviewer_type": {"enum": ["unknown", "same-model", "separate-agent", "human"]},
+        "decision": {"enum": ["not-reviewed", "accept", "accept-with-limits",
+                               "needs-work", "reject"]},
+        "artifact": {"type": "string"},
+        "notes": {"type": "string"},
+        "reviewed_utc": {"type": "string"}
       }
     },
     "evidence": {
       "type": "object",
-      "required": ["quality", "notes"],
+      "required": ["quality", "notes", "validation_artifacts"],
       "properties": {
         "quality": {"enum": ["none", "preliminary", "measured", "validated"]},
-        "notes": {"type": "string"}
+        "notes": {"type": "string"},
+        "validation_artifacts": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "status_history": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["status", "utc", "reason"],
+        "properties": {
+          "status": {
+            "enum": ["proposed", "planned", "running", "analyzed", "under-review",
+                     "supported", "refuted", "inconclusive", "archived"]
+          },
+          "utc": {"type": "string"},
+          "reason": {"type": "string", "minLength": 1},
+          "evidence": {"type": "array", "items": {"type": "string"}}
+        }
       }
     },
     "next_action": {"type": "string", "minLength": 1}
@@ -147,7 +178,8 @@
       "properties": {
         "version": {"type": "string"},
         "path": {"type": "string"},
-        "revision": {"type": "string"}
+        "revision": {"type": "string"},
+        "sha256": {"type": "string"}
       }
     }
   },

@@ -12,6 +12,7 @@ import sys
 from pathlib import Path
 
 import common
+import schema_lite
 
 LINK_RE = re.compile(r"(?<!!)\[[^\]]*\]\(([^)]+)\)")
 FENCE_RE = re.compile(r"```.*?```", re.DOTALL)
@@ -93,6 +94,10 @@ def check_state(root: Path) -> list[dict]:
         data = common.load_json(path)
     except Exception as exc:
         return [{"code": "E-STATE", "message": f"invalid hypotheses.json: {exc}"}]
+    schema_errors = common.validate_schema_data(data, root, "hypotheses")
+    for issue in schema_errors:
+        errors.append({"code": "E-STATE", "message": issue["message"],
+                       "field": issue.get("field", "")})
     if data.get("schema_version") != "1.0":
         errors.append({"code": "E-STATE", "message": "hypotheses schema_version must be 1.0"})
     seen = set()
@@ -120,12 +125,34 @@ def check_state(root: Path) -> list[dict]:
             target = (root / ref.split("#", 1)[0]).resolve()
             if not target.exists():
                 errors.append({"code": "E-STATE", "message": f"missing evidence link: {ref}", "field": ident})
-    for schema in ("experiment-run", "math-claim", "simulation", "hypotheses"):
+        history = h.get("status_history")
+        if history is not None:
+            common._check_status_history(history, str(h.get("status", "")), errors)
+            # A history is optional for the legacy ledger, but when present it
+            # must be internally consistent.
+    for schema in ("experiment-run", "math-claim", "simulation", "hypotheses", "toolchain"):
         path = root / "research/harness/schemas" / f"{schema}.schema.json"
         try:
-            common.load_json(path)
+            schema_doc = common.load_json(path)
         except Exception as exc:
             errors.append({"code": "E-SCHEMA", "message": f"invalid {schema} schema: {exc}"})
+            continue
+        for issue in schema_lite.check_schema_supported(schema_doc):
+            errors.append({"code": "E-SCHEMA",
+                           "message": f"{schema}: {issue['message']}"})
+    toolchains = root / "research/harness/toolchains"
+    if toolchains.is_dir():
+        for manifest in sorted(toolchains.glob("*.json")):
+            try:
+                doc = common.load_json(manifest)
+            except Exception as exc:
+                errors.append({"code": "E-SCHEMA",
+                               "message": f"invalid toolchain manifest {manifest.name}: {exc}"})
+                continue
+            for issue in common.validate_schema_data(doc, root, "toolchain"):
+                errors.append({"code": "E-SCHEMA",
+                               "message": f"{manifest.name}: {issue['message']}",
+                               "field": issue.get("field", "")})
     return errors
 
 
@@ -138,6 +165,12 @@ def check_plan(root: Path) -> list[dict]:
     for workstream in "ABCDEFG":
         if f"R1-{workstream}" not in text:
             errors.append({"code": "E-PLAN", "message": f"plan is missing R1-{workstream}"})
+    for case in ("read_read", "read_read_offset", "shifted_reuse", "simd_metadata",
+                 "simd_metadata_scalar", "simd_reduction", "producer_consumer",
+                 "producer_consumer_split", "known_vec",
+                 "uint64_t -> uint8_t"):
+        if case not in text:
+            errors.append({"code": "E-PLAN", "message": f"plan is missing required case: {case}"})
     return errors
 
 

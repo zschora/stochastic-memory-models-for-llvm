@@ -24,7 +24,11 @@
   "review": {
     "status": "model-assisted-self-review",
     "reviewer": "same model as author",
-    "notes": "The reviewer checked the handoff and validator behavior, but this is not independent verification."
+    "reviewer_type": "same-model",
+    "decision": "accept-with-limits",
+    "artifact": "research/runs/SIM-0001-handoff-smoke/review.md",
+    "notes": "The reviewer checked the handoff and validator behavior, but this is not independent verification.",
+    "reviewed_utc": "2026-11-07T00:00:00Z"
   },
   "outcome": "accept-with-limits: the protocol is usable without a transcript, but it has not been tested on a real R1 campaign or by an independent agent.",
   "limitations": [

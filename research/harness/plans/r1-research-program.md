@@ -45,15 +45,33 @@ compiler measurements remain separate evidence types.
 2. Regenerate all benchmark IR with that clang. Do **not** use
    `scripts/ir_compat.py`; do **not** strip alias-scope metadata. If a
    compatibility problem remains, record it as a blocker rather than hiding it.
-3. Reproduce the five Stage 0 cases:
-   - `simd_metadata` (vectorization metadata false positive);
-   - `shifted_reuse` (exact-affine false negative);
-   - `read_read` (cache-residency trend);
-   - `producer_consumer` (canonical-loop legality);
-   - exact `VW16 uint64_t -> uint8_t` test-suite benchmark.
+3. Reproduce the Stage 0 cases. Mandatory cases exercise the retained Stage 0
+   claims; optional extensions discriminate alternative explanations:
+
+   | Case | Role | Status |
+   | --- | --- | --- |
+   | `read_read` | aligned exact reuse, size sweep L1/L2/LLC/DRAM | mandatory |
+   | `read_read_offset` | cache-line-offset negative control | mandatory |
+   | `shifted_reuse` (`A[i]` vs `A[i+1]`) | exact-affine false negative | mandatory |
+   | shifted-offset variants (`k = 1, 2, 4, 8` elements) | separate alignment from reuse strength | optional extension |
+   | `simd_metadata` | wide-vector loop + scalar loop metadata conflict | mandatory |
+   | `simd_metadata_scalar` | both loops scalar; isolates fusion overhead from SIMD loss | mandatory |
+   | `simd_reduction` | vectorizable loop + latency-bound reduction; tests a blanket "SIMD differs -> reject" rule | mandatory |
+   | `producer_consumer` | canonical clang rotated loops; DA/latch legality | mandatory |
+   | `producer_consumer_split` | hand-written separate-latch IR; same computation | mandatory |
+   | `known_vec` | RFC `uint64_t -> uint8_t` replica and hot-loop control | mandatory |
+   | exact test-suite VW16 `uint64_t -> uint8_t` benchmark | upstream benchmark reproduction | mandatory |
+   | A/A identical-binary control | noise floor and layout sensitivity | mandatory |
+   | hardware counters | cache/memory attribution where available | optional, recorded if unavailable |
+
+   A blanket rule "reject fusion whenever the loops' vectorizability differs" is
+   not supported unless `simd_reduction` also regresses. A changed offset or
+   alignment must not be interpreted as a pure cache-capacity effect. Canonical
+   C++ and separate-latch IR must be compared as a matched pair.
+
 4. For each case, verify: transform decisions via remarks/IR, correctness,
-   assembly differences, A/B/C runtime with the Stage 0 protocol, and the
-   baseline caveats that remain.
+   assembly differences, A/B/C runtime with the Stage 0 protocol, an A/A
+   identical-binary control, and the baseline caveats that remain.
 5. Classify each finding as `reproduced`, `contradicted`, `inconclusive` or
    `not-testable` and update only the corresponding hypothesis status after
    review.
@@ -61,8 +79,8 @@ compiler measurements remain separate evidence types.
 ### Exit criteria
 
 - Toolchain is matched; `doctor.py --experiment --json` exits 0.
-- Every case has a validated run record with raw data or an explicit
-  not-testable reason.
+- Every mandatory case has a validated run record with raw data or an explicit
+  `not-testable` reason; optional cases are marked as such.
 - A reviewer has checked the reproduction table.
 - No Stage 0 raw result was edited.
 

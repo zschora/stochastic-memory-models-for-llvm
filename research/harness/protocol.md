@@ -32,12 +32,24 @@ particular, `supported` requires all of:
 
 - a run or claim record with resolvable evidence;
 - evidence quality `validated` for experiments, or `proved` with an audited
-  proof for mathematics;
+  proof artifact for mathematics;
 - review status `independent-review` or `human-review`;
+- reviewer identity and `reviewer_type` (`separate-agent` or `human`);
+- an explicit review decision `accept` or `accept-with-limits`;
+- a review artifact path that exists;
 - no unresolved correctness or provenance error.
 
 `model-assisted-self-review` is useful but never counts as independent
-verification.
+verification. A second context from the same model is still self-review unless a
+human or a genuinely separate agent performed it; the record must state which.
+
+## Status history
+
+Every experiment record carries `status_history` with `status`, `utc`, `reason`
+and optional evidence links. The validator rejects unknown statuses, a last
+entry that disagrees with `status`, and illegal transitions such as
+`planned -> supported`. Reopening a claim (`supported -> under-review`) is
+allowed; silently promoting one is not.
 
 ## Mathematical labels
 
@@ -66,6 +78,32 @@ Never describe a cache, SIMD or register-pressure explanation as measured unless
 the corresponding counters or controlled code-generation evidence exist. State
 when hardware counters are unavailable.
 
+## Structural validation versus truth
+
+`validate_run.py` checks that required fields, paths, hashes, statuses and
+review records are present and internally consistent. This is **structural
+verification only**. No script can certify that a theorem is true, that a
+measurement is unbiased, or that a review was competent. A passing validation
+means "the evidence package is complete enough to review", not "the claim is
+true".
+
+## Toolchain provenance
+
+Equal `clang`/`opt`/`llc` version strings are insufficient. Strict experiment
+readiness requires an explicit toolchain manifest that records the full LLVM
+source revision, source/build directories, CMake settings, exact binary paths,
+SHA-256 hashes and version outputs. The states are:
+
+| State | Meaning |
+| --- | --- |
+| `verified` | Manifest present; hashes, source revision, build cache and explicit paths agree. |
+| `matched` | Version numbers agree, but provenance is not established. Not sufficient for R1 evidence. |
+| `mixed` | Known inconsistent versions or revisions. |
+| `unverified` | Missing manifest, missing tools or ambiguous discovery. |
+
+`analyzed` and later experiment statuses require `verified`. See
+[`toolchains/README.md`](toolchains/README.md).
+
 ## Experiment record requirements
 
 Every physical campaign has a run directory with a `manifest.json` that records:
@@ -91,10 +129,18 @@ real evidence.
 
 ## Mathematical record requirements
 
-A `claim.json` records exact model assumptions, the claim, proof status, proof
-notes or gaps, numerical checks, counterexamples, prior art, unresolved
-obligations, review status and limitations. Store derivations in the same
-directory. Do not put CPU timings into a mathematical claim.
+A `claim.json` records exact model assumptions, the precise claim, proof status,
+`proof_notes`, `proof_artifact`, numerical checks, `check_artifacts`,
+counterexamples, `counterexample_artifacts`, prior art, unresolved obligations,
+review status, reviewer identity and type, review decision, review artifact,
+limitations and next action. Store derivations in the same directory. Do not put
+CPU timings into a mathematical claim.
+
+`proved` requires a real proof artifact, independent/human review with an accept
+decision, a review artifact and zero unresolved obligations. `numerically-checked`
+requires references to actual checks or generated artifacts. A file existing is
+not a proof; the label means that a human or separate reviewer must still judge
+the mathematics.
 
 ## Review protocol
 

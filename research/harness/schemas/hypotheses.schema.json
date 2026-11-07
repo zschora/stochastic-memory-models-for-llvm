@@ -6,7 +6,7 @@
   "required": ["schema_version", "updated_utc", "hypotheses"],
   "properties": {
     "schema_version": {"const": "1.0"},
-    "updated_utc": {"type": "string", "format": "date-time"},
+    "updated_utc": {"type": "string"},
     "hypotheses": {
       "type": "array",
       "items": {
@@ -38,7 +38,20 @@
           },
           "review_note": {"type": "string"},
           "decision": {"type": "string"},
-          "next_action": {"type": "string", "minLength": 1}
+          "next_action": {"type": "string", "minLength": 1},
+          "status_history": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["status", "utc", "reason"],
+              "properties": {
+                "status": {"type": "string"},
+                "utc": {"type": "string"},
+                "reason": {"type": "string", "minLength": 1},
+                "evidence": {"type": "array", "items": {"type": "string"}}
+              }
+            }
+          }
         },
         "additionalProperties": true
       }

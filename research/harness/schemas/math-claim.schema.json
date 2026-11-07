@@ -6,19 +6,22 @@
   "required": [
     "schema_version", "record_type", "claim_id", "title", "status",
     "created_utc", "model_assumptions", "claim", "proof_status", "proof_notes",
-    "numerical_checks", "counterexamples", "prior_art", "unresolved_obligations",
-    "review", "limitations", "next_action"
+    "proof_artifact", "numerical_checks", "check_artifacts", "counterexamples",
+    "counterexample_artifacts", "prior_art", "unresolved_obligations", "review",
+    "limitations", "next_action"
   ],
   "properties": {
     "schema_version": {"const": "1.0"},
     "record_type": {"const": "math-claim"},
     "claim_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,63}$"},
+    "hypothesis_id": {"type": "string"},
     "title": {"type": "string", "minLength": 1},
     "status": {
       "enum": ["proposed", "working-proof", "numerically-checked",
                "proved", "conjecture", "known-prior-art", "refuted", "archived"]
     },
-    "created_utc": {"type": "string", "format": "date-time"},
+    "created_utc": {"type": "string"},
+    "author": {"type": "string"},
     "model_assumptions": {"type": "array", "items": {"type": "string"}},
     "claim": {"type": "string", "minLength": 1},
     "proof_status": {
@@ -26,21 +29,44 @@
                "conjecture", "known-prior-art", "refuted"]
     },
     "proof_notes": {"type": "string"},
+    "proof_artifact": {"type": "string"},
     "numerical_checks": {"type": "array", "items": {"type": "string"}},
+    "check_artifacts": {"type": "array", "items": {"type": "string"}},
     "counterexamples": {"type": "array", "items": {"type": "string"}},
+    "counterexample_artifacts": {"type": "array", "items": {"type": "string"}},
     "prior_art": {"type": "array", "items": {"type": "string"}},
     "unresolved_obligations": {"type": "array", "items": {"type": "string"}},
     "review": {
       "type": "object",
-      "required": ["status", "reviewer", "notes"],
+      "required": ["status", "reviewer", "reviewer_type", "decision",
+                   "artifact", "notes"],
       "properties": {
         "status": {"enum": ["not-reviewed", "model-assisted-self-review",
                              "independent-review", "human-review"]},
         "reviewer": {"type": "string"},
-        "notes": {"type": "string"}
+        "reviewer_type": {"enum": ["unknown", "same-model", "separate-agent", "human"]},
+        "decision": {"enum": ["not-reviewed", "accept", "accept-with-limits",
+                               "needs-work", "reject"]},
+        "artifact": {"type": "string"},
+        "notes": {"type": "string"},
+        "reviewed_utc": {"type": "string"}
       }
     },
     "artifacts": {"type": "array", "items": {"type": "string"}},
+    "status_history": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["status", "utc", "reason"],
+        "properties": {
+          "status": {"type": "string"},
+          "utc": {"type": "string"},
+          "reason": {"type": "string", "minLength": 1},
+          "evidence": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
     "limitations": {"type": "array", "items": {"type": "string"}},
     "next_action": {"type": "string", "minLength": 1}
   },

@@ -67,7 +67,8 @@ research/harness/protocol.md            lifecycle, statuses, gates, handoff
 research/harness/upstream-policy.md     LLVM AI policy and local rules
 research/harness/roles/                 six portable specialist roles
 research/harness/skills/                four on-demand SKILL.md procedures
-research/harness/schemas/               JSON Schemas for run/claim records
+research/harness/schemas/               JSON Schemas for run/claim/toolchain records
+research/harness/toolchains/            verified toolchain provenance manifests
 research/harness/plans/                 R1 research programme (not executed)
 research/state/index.md                 short cross-session index
 research/state/hypotheses.json          machine-readable hypothesis ledger
@@ -81,7 +82,7 @@ scripts/research/                       doctor, new_run, validate_run, check_doc
 
 ```powershell
 python scripts/research/doctor.py --docs-only --json
-python scripts/research/doctor.py --experiment --json
+python scripts/research/doctor.py --experiment --json --toolchain-manifest research/harness/toolchains/<verified>.json
 python scripts/research/new_run.py --hypothesis H-R1-001 --dry-run
 python scripts/research/validate_run.py research/runs/SIM-0001-handoff-smoke
 python scripts/research/check_docs.py
@@ -89,18 +90,33 @@ python -m unittest discover -s scripts/research/tests -v
 ```
 
 `doctor.py --docs-only` must work without LLVM. `--experiment` is the strict
-readiness check: it reports missing tools or a mixed Clang/LLVM toolchain as an
-error for a new campaign.
+readiness check: it requires an explicit verified toolchain manifest and reports
+missing binaries, source-revision disagreement, hash mismatch, build-cache
+mismatch or PATH shadowing as errors. Equal version strings alone are
+`matched`, not `verified`, and are not sufficient for R1-A.
+
+## Validation contract
+
+Records are validated against the JSON Schemas in
+[`schemas/`](schemas/) using a small, explicit Draft 2020-12 subset implemented
+in `scripts/research/schema_lite.py`. The subset is documented in that module
+and `check_docs.py` rejects unsupported schema keywords. Repository-specific
+semantic checks then enforce provenance, status transitions, review gates and
+artifact existence. Structural validation proves that the evidence package is
+complete and consistent; it cannot prove a theorem or the scientific validity of
+a measurement.
 
 ## What the harness enforces
 
 - A hypothesis must exist before an experiment run is created.
-- Every run has a stable ID, Git base, toolchain metadata, commands, procedure,
+- Every run has a stable ID, Git base, toolchain provenance, commands, procedure,
   raw-artifact references and a review status.
-- A claim cannot move to `supported` without independent or human review and
-  validated evidence.
-- Mathematical claims use a separate schema and explicit proof labels; they are
-  never treated as CPU measurements.
+- `analyzed` and later runs require verified toolchain provenance; equal version
+  numbers alone are insufficient.
+- A claim cannot move to `supported` without validated evidence, an explicit
+  review decision and independent or human review.
+- Mathematical `proved` requires a proof artifact, a review artifact and no
+  unresolved obligations; `numerically-checked` requires real check artifacts.
 - A model that reviews its own work records `model-assisted-self-review`, not
   independent verification.
 - Existing raw Stage 0 evidence is not rewritten; new campaigns get new run

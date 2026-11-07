@@ -1,0 +1,42 @@
+name: research-harness
+
+on:
+  push:
+    branches: [main, chore/research-harness]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  offline-checks:
+    name: offline checks (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Python syntax
+        run: python -m compileall -q scripts/research
+
+      - name: Documentation-only environment check
+        run: python scripts/research/doctor.py --docs-only --json
+
+      - name: Documentation and schema checks
+        run: python scripts/research/check_docs.py --json
+
+      - name: Record validation
+        run: python scripts/research/validate_run.py --all --json
+
+      - name: Harness tests
+        run: python -m unittest discover -s scripts/research/tests -v

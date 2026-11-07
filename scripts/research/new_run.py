@@ -47,21 +47,69 @@ def load_hypotheses(root: Path) -> set[str]:
     return ids
 
 
-def default_toolchain(root: Path) -> dict:
-    tools = common.discover_tools(root)
+def default_toolchain(root: Path, manifest_path: str = "") -> dict:
+    selected = manifest_path.strip() or os.environ.get("RESEARCH_TOOLCHAIN_MANIFEST", "")
+    if selected:
+        path = Path(selected)
+        if not path.is_absolute():
+            path = root / path
+        manifest = common.load_json(path)
+        schema_errors = common.validate_schema_data(manifest, root, "toolchain")
+        if schema_errors:
+            raise SystemExit("invalid toolchain manifest: " +
+                             "; ".join(common.format_issue(x) for x in schema_errors))
+        revision = str(manifest.get("llvm_revision", ""))
+        tools = manifest.get("tools", {})
+        return {
+            "consistency": manifest.get("consistency", "unverified"),
+            "llvm_revision": revision,
+            "manifest_path": common.rel_to(root, path),
+            "clang": {
+                "version": tools.get("clang", {}).get("version", ""),
+                "path": tools.get("clang", {}).get("path", ""),
+                "revision": tools.get("clang", {}).get("source_revision", ""),
+                "sha256": tools.get("clang", {}).get("sha256", ""),
+            },
+            "opt": {
+                "version": tools.get("opt", {}).get("version", ""),
+                "path": tools.get("opt", {}).get("path", ""),
+                "revision": tools.get("opt", {}).get("source_revision", ""),
+                "sha256": tools.get("opt", {}).get("sha256", ""),
+            },
+            "llc": {
+                "version": tools.get("llc", {}).get("version", ""),
+                "path": tools.get("llc", {}).get("path", ""),
+                "revision": tools.get("llc", {}).get("source_revision", ""),
+                "sha256": tools.get("llc", {}).get("sha256", ""),
+            },
+            "llvm_config": {
+                "version": tools.get("llvm-config", {}).get("version", ""),
+                "path": tools.get("llvm-config", {}).get("path", ""),
+                "revision": tools.get("llvm-config", {}).get("source_revision", ""),
+                "sha256": tools.get("llvm-config", {}).get("sha256", ""),
+            },
+            "compatibility_notes": (
+                "Provenance supplied by an explicit toolchain manifest."
+                if manifest.get("consistency") == "verified"
+                else "Toolchain manifest is not verified; strict mode must fail."
+            ),
+            "baseline_caveat": manifest.get("consistency") != "verified",
+        }
+    tools = common.discover_tools(root, probe=False)
     cons = common.toolchain_consistency(tools)
     def rec(name):
         return {"version": tools[name]["version"], "path": tools[name]["path"]}
     return {
         "consistency": cons["consistency"],
         "llvm_revision": "",
+        "manifest_path": "",
         "clang": rec("clang"),
         "opt": rec("opt"),
         "llc": rec("llc"),
         "llvm_config": rec("llvm-config"),
         "compatibility_notes": (
             "" if cons["consistency"] == "matched"
-            else "Toolchain is mixed or unknown; fill this before execution."
+            else "Toolchain is mixed or unverified; strict experiment mode will fail."
         ),
         "baseline_caveat": cons["consistency"] != "matched",
     }
@@ -77,7 +125,9 @@ def host_info() -> dict:
     }
 
 
-def experiment_manifest(root: Path, ident: str, title: str, hypothesis: str) -> dict:
+def experiment_manifest(root: Path, ident: str, title: str, hypothesis: str,
+                        toolchain_manifest: str = "") -> dict:
+    now = common.now_utc()
     return {
         "schema_version": "1.0",
         "record_type": "experiment",
@@ -85,9 +135,9 @@ def experiment_manifest(root: Path, ident: str, title: str, hypothesis: str) -> 
         "hypothesis_id": hypothesis,
         "title": title,
         "status": "planned",
-        "created_utc": common.now_utc(),
+        "created_utc": now,
         "git": common.git_info(root),
-        "toolchain": default_toolchain(root),
+        "toolchain": default_toolchain(root, toolchain_manifest),
         "build": {
             "configuration": "not configured",
             "cmake_args": [],
@@ -123,6 +173,7 @@ def experiment_manifest(root: Path, ident: str, title: str, hypothesis: str) -> 
             "remarks": [],
             "analysis_script": "",
             "analysis_script_revision": "",
+            "checksums": [],
         },
         "commands": [],
         "results": {
@@ -132,38 +183,56 @@ def experiment_manifest(root: Path, ident: str, title: str, hypothesis: str) -> 
         "review": {
             "status": "not-reviewed",
             "reviewer": "",
+            "reviewer_type": "unknown",
+            "decision": "not-reviewed",
+            "artifact": "",
             "notes": "",
         },
         "evidence": {
             "quality": "none",
             "notes": "planned run; no evidence yet",
+            "validation_artifacts": [],
         },
+        "status_history": [
+            {"status": "planned", "utc": now, "reason": "record created", "evidence": []}
+        ],
         "next_action": "fill build, pipeline and case; execute; attach raw evidence; then validate and review",
     }
 
 
 def math_manifest(root: Path, ident: str, title: str, hypothesis: str | None) -> dict:
+    now = common.now_utc()
     data = {
         "schema_version": "1.0",
         "record_type": "math-claim",
         "claim_id": ident,
         "title": title,
         "status": "proposed",
-        "created_utc": common.now_utc(),
+        "created_utc": now,
+        "author": "research-lead",
         "model_assumptions": [],
         "claim": "TBD: state the exact model, quantifiers and claim.",
         "proof_status": "conjecture",
         "proof_notes": "Draft; no proof or numerical check has been recorded yet.",
+        "proof_artifact": "",
         "numerical_checks": [],
+        "check_artifacts": [],
         "counterexamples": [],
+        "counterexample_artifacts": [],
         "prior_art": [],
         "unresolved_obligations": ["Write the model and claim before attempting a proof."],
         "review": {
             "status": "not-reviewed",
             "reviewer": "",
+            "reviewer_type": "unknown",
+            "decision": "not-reviewed",
+            "artifact": "",
             "notes": "",
         },
         "artifacts": [],
+        "status_history": [
+            {"status": "proposed", "utc": now, "reason": "record created", "evidence": []}
+        ],
         "limitations": ["Draft record; no evidence yet."],
         "next_action": "write exact assumptions and claim, then check small cases and prior art",
     }
@@ -187,6 +256,9 @@ def simulation_manifest(root: Path, ident: str, title: str, hypothesis: str | No
         "review": {
             "status": "not-reviewed",
             "reviewer": "",
+            "reviewer_type": "unknown",
+            "decision": "not-reviewed",
+            "artifact": "",
             "notes": "",
         },
         "outcome": "not run",
@@ -232,6 +304,8 @@ def main() -> int:
                         help="hypothesis ID from research/state/hypotheses.json")
     parser.add_argument("--title", default="")
     parser.add_argument("--run-id", default="")
+    parser.add_argument("--toolchain-manifest", default="",
+                        help="verified toolchain provenance manifest to embed")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--json", action="store_true")
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[2],
@@ -255,7 +329,8 @@ def main() -> int:
 
     title = args.title.strip() or f"Untitled {args.kind} record"
     if args.kind == "experiment":
-        manifest = experiment_manifest(root, ident, title, args.hypothesis)
+        manifest = experiment_manifest(root, ident, title, args.hypothesis,
+                                       args.toolchain_manifest)
     elif args.kind == "math":
         manifest = math_manifest(root, ident, title, args.hypothesis or None)
     else:
