@@ -321,7 +321,11 @@ def main() -> int:
     out = Path(args.out) if args.out else audit_dir / "predictor_v3.json"
     out = out if out.is_absolute() else ROOT / out
     r1_stats.atomic_write_json(out, result)
-    selection_path = audit_dir / "predictor_v3_selection.json"
+    if args.out:
+        # Keep test/experiment outputs out of the tracked audit directory.
+        selection_path = out.with_name(out.stem + "_selection.json")
+    else:
+        selection_path = audit_dir / "predictor_v3_selection.json"
     r1_stats.atomic_write_json(selection_path, selection_manifest)
     md_out = (Path(args.markdown_out) if args.markdown_out
               else audit_dir / "predictor_v3.md")
