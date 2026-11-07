@@ -1,0 +1,76 @@
+﻿{
+    "case":  "simd_metadata",
+    "campaign":  "EXP-20261107-R1F-patch",
+    "source":  "benchmarks/simd_metadata.cpp",
+    "source_sha256":  "CF12A9DAC9278CE276D1F5784503E9EFF3567EB4129A433995B633B41A51AD7F",
+    "kernel_ll":  "",
+    "input_ir":  "simd_metadata.frontend.ll",
+    "input_ir_sha256":  "E80CA9914FB81651EC1C9D5255B6FBBCAF7568D1A2E87D8D03618945A4B477C1",
+    "clang":  "clang version 24.0.0git (https://github.com/llvm/llvm-project.git 6f4196219399a3502cea3beb2d0c8c28b2241649)",
+    "opt":  "LLVM (http://llvm.org/):",
+    "llc":  "LLVM (http://llvm.org/):",
+    "cpu":  "alderlake",
+    "configs":  {
+                    "A":  {
+                              "fusion_flags":  [
+
+                                               ],
+                              "loops_after":  11,
+                              "fused_remarks":  0,
+                              "insufficient_reuse_remarks":  0,
+                              "ll_sha256":  "4CDC1C5227A5F33C89C6F3212188D4C2931CE5FD5BE30BCE455AE022A93A1E29",
+                              "asm_sha256":  "CA22C8A8CDD9DD2EAEE69F1C522C67E63392F9EA88BEBF95998C01D1D372522F",
+                              "exe_sha256":  "4FB7DB1FC7810FC9AA1431A2823F93EC637637C74220BFA991B72C44A359F362",
+                              "obj_size":  40718,
+                              "asm_size":  128512
+                          },
+                    "B":  {
+                              "fusion_flags":  [
+                                                   "-enable-loopfusion",
+                                                   "-loop-fusion-min-reused-values=0"
+                                               ],
+                              "loops_after":  9,
+                              "fused_remarks":  2,
+                              "insufficient_reuse_remarks":  0,
+                              "ll_sha256":  "FBCB21EA1BC625999839184BDE2777FA5FB5CD9CE23A2B9EEC2E9B9324856C39",
+                              "asm_sha256":  "522669EB3B16E432D522A5CB09A5A8468D789DBB9B97CB09A9E876AB348207DD",
+                              "exe_sha256":  "C5598B1A24454DE3F19CBA5C37DC4A6936FD511049D411B8049252CBD24E549E",
+                              "obj_size":  40350,
+                              "asm_size":  125268
+                          },
+                    "C":  {
+                              "fusion_flags":  [
+                                                   "-enable-loopfusion",
+                                                   "-loop-fusion-min-reused-values=1"
+                                               ],
+                              "loops_after":  9,
+                              "fused_remarks":  2,
+                              "insufficient_reuse_remarks":  0,
+                              "ll_sha256":  "FBCB21EA1BC625999839184BDE2777FA5FB5CD9CE23A2B9EEC2E9B9324856C39",
+                              "asm_sha256":  "D4DCDEA151E4609ABDC58C0E3BB115A4E8CB7603F1465D09F075F29222B2EDF0",
+                              "exe_sha256":  "C5598B1A24454DE3F19CBA5C37DC4A6936FD511049D411B8049252CBD24E549E",
+                              "obj_size":  40350,
+                              "asm_size":  125268
+                          },
+                    "D":  {
+                              "fusion_flags":  [
+                                                   "-enable-loopfusion",
+                                                   "-loop-fusion-min-reused-values=1",
+                                                   "-loop-fusion-vectorization-check"
+                                               ],
+                              "loops_after":  11,
+                              "fused_remarks":  0,
+                              "insufficient_reuse_remarks":  0,
+                              "ll_sha256":  "4CDC1C5227A5F33C89C6F3212188D4C2931CE5FD5BE30BCE455AE022A93A1E29",
+                              "asm_sha256":  "F6793773B76FD1A9DBB1CFDACA113CA2134AFB5599B1D1D561656C8BBED45F70",
+                              "exe_sha256":  "91E64BE15F9E9D36303C97A49E5220B96C49A9F172D1619C22E519D5D1C662FF",
+                              "obj_size":  40718,
+                              "asm_size":  128512
+                          }
+                },
+    "aa_control":  {
+                       "binary":  "simd_metadata.AA.exe",
+                       "sha256":  "4FB7DB1FC7810FC9AA1431A2823F93EC637637C74220BFA991B72C44A359F362",
+                       "identical_to_A":  true
+                   }
+}

@@ -1,10 +1,25 @@
 # R1 - From LLVM LoopFusion Failures to Predictive Memory-Cost Models
 
-**Status:** planned; **not started**.
+**Status:** R1-A executed; R1-B/C/D/E/F partially executed; R1-G synthesis written.
 **Purpose:** execute the next research programme after the Stage 0 harness and
 baseline. This document is a plan, not evidence.
 **Owner:** Research Lead, with on-demand LLVM Engineer, Performance Scientist,
 Applied Mathematician, Critical Reviewer and Literature Researcher.
+
+## Execution status (2026-11-07)
+
+- R1-A: matched LLVM `6f41962` campaign `EXP-20261107-R1A`; central Stage 0
+  failures reproduced qualitatively. Report: `reports/r1a_report.md`.
+- R1-B: metadata-inheritance minimal reproduction and mechanism report.
+- R1-C: partial controlled corpus only; no TSVC/PolyBench/whole-program work.
+- R1-D: in-sample simple-rule screen; no held-out families.
+- R1-E: exact finite LRU checks; no independently proved theorem and no
+  demonstrated compiler predictive value.
+- R1-F: local opt-in metadata guard prototype; not upstream-ready.
+- R1-G: synthesis at `reports/r1_report.md`; no claim promoted to `supported`.
+
+The plan below remains the specification for completing or revisiting each
+workstream; it is not a claim that every step was completed.
 
 ## 1. Starting point and non-goals
 

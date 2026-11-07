@@ -1,0 +1,180 @@
+diff --git a/llvm/lib/Transforms/Scalar/LoopFuse.cpp b/llvm/lib/Transforms/Scalar/LoopFuse.cpp
+index 4345b33d7..2e7af7aa4 100644
+--- a/llvm/lib/Transforms/Scalar/LoopFuse.cpp
++++ b/llvm/lib/Transforms/Scalar/LoopFuse.cpp
+@@ -61,6 +61,8 @@
+ #include "llvm/Analysis/ScalarEvolutionExpressions.h"
+ #include "llvm/Analysis/TargetTransformInfo.h"
+ #include "llvm/IR/Function.h"
++#include "llvm/IR/Constants.h"
++#include "llvm/IR/Metadata.h"
+ #include "llvm/IR/Verifier.h"
+ #include "llvm/Support/Debug.h"
+ #include "llvm/Support/raw_ostream.h"
+@@ -93,6 +95,8 @@ STATISTIC(
+     "Loop has a non-empty preheader with instructions that cannot be moved");
+ STATISTIC(InsufficientReuse,
+           "Fusion has insufficient cross-loop reused values");
++STATISTIC(VectorizationConflict,
++          "Fusion would inherit incompatible vectorization metadata");
+ STATISTIC(NonIdenticalGuards, "Candidates have different guards");
+ STATISTIC(NonEmptyExitBlock, "Candidate has a non-empty exit block with "
+                              "instructions that cannot be moved");
+@@ -684,6 +688,68 @@ private:
+     return ReusedValueCount >= Opts.loop_fusion_min_reused_values;
+   }
+ 
++  /// Explicit vectorization hints attached to a loop, if any.  LoopFusion
++  /// rewires the fused loop to the second candidate's latch, so the second
++  /// loop's metadata wins; a conflict can silently discard an explicit request
++  /// from the first loop.
++  struct VectorizationHint {
++    bool Enable = false;
++    bool Disable = false;
++    bool HasWidth = false;
++    unsigned Width = 0;
++
++    bool requestsVectorization() const {
++      return Enable || (HasWidth && Width > 1);
++    }
++    bool blocksVectorization() const {
++      return Disable || (HasWidth && Width == 1);
++    }
++  };
++
++  static VectorizationHint getVectorizationHint(const Loop &L) {
++    VectorizationHint Hint;
++    MDNode *LoopID = L.getLoopID();
++    if (!LoopID)
++      return Hint;
++    for (unsigned I = 1, E = LoopID->getNumOperands(); I < E; ++I) {
++      auto *Property = dyn_cast<MDNode>(LoopID->getOperand(I));
++      if (!Property || Property->getNumOperands() == 0)
++        continue;
++      auto *Name = dyn_cast<MDString>(Property->getOperand(0));
++      if (!Name)
++        continue;
++      StringRef Key = Name->getString();
++      if (Key == "llvm.loop.vectorize.enable")
++        Hint.Enable = true;
++      else if (Key == "llvm.loop.vectorize.disable")
++        Hint.Disable = true;
++      else if (Key == "llvm.loop.vectorize.width" &&
++               Property->getNumOperands() > 1) {
++        if (auto *Width = mdconst::dyn_extract<ConstantInt>(
++                Property->getOperand(1))) {
++          Hint.HasWidth = true;
++          Hint.Width = unsigned(Width->getZExtValue());
++        }
++      }
++    }
++    return Hint;
++  }
++
++  /// A conservative metadata-only conflict check.  It deliberately does not
++  /// try to predict whether either loop will actually vectorize: it only
++  /// rejects an explicit request on the first loop that the second loop would
++  /// explicitly block or narrow.
++  bool hasVectorizationConflict(const FusionCandidate &FC0,
++                                const FusionCandidate &FC1) const {
++    VectorizationHint H0 = getVectorizationHint(*FC0.L);
++    VectorizationHint H1 = getVectorizationHint(*FC1.L);
++    if (!H0.requestsVectorization())
++      return false;
++    if (H1.blocksVectorization())
++      return true;
++    return H0.HasWidth && H1.HasWidth && H1.Width < H0.Width;
++  }
++
+   /// Computes the integer difference in trip counts:
+   /// TripCount(FC0) - TripCount(FC1).
+   ///
+@@ -968,6 +1034,15 @@ private:
+           continue;
+         }
+ 
++        if (Opts.loop_fusion_vectorization_check &&
++            hasVectorizationConflict(FC0, FC1)) {
++          ++VectorizationConflict;
++          reportLoopFusion<OptimizationRemarkMissed>(
++              FC0, FC1, "VectorizationConflict",
++              "Fusion would inherit incompatible vectorization metadata");
++          continue;
++        }
++
+         // All analysis has completed and has determined that fusion is legal
+         // and profitable. At this point, start transforming the code and
+         // perform fusion.
+diff --git a/llvm/lib/Transforms/Scalar/ScalarOptions.td b/llvm/lib/Transforms/Scalar/ScalarOptions.td
+index af2e39a90..6aad02291 100644
+--- a/llvm/lib/Transforms/Scalar/ScalarOptions.td
++++ b/llvm/lib/Transforms/Scalar/ScalarOptions.td
+@@ -263,6 +263,8 @@ defm : ValueField<"loop-fusion-min-reused-values", "unsigned", "1",
+   "Minimum number of distinct values reused across fused loops">;
+ defm : BoolField<"loop-fusion-disable-cost-model", "false",
+   "Do not apply cost model when deciding whether to fuse loops">;
++defm : BoolField<"loop-fusion-vectorization-check", "false",
++  "Reject fusion when the first loop explicitly requests vectorization and the second loop explicitly disables or narrows it">;
+ let Condition = AssertsOnly in
+ defm : BoolField<"loop-fusion-verbose-debug", "false",
+   "Enable verbose debugging for Loop Fusion">;
+diff --git a/llvm/test/Transforms/LoopFusion/vectorization-metadata-conflict.ll b/llvm/test/Transforms/LoopFusion/vectorization-metadata-conflict.ll
+new file mode 100644
+index 000000000..509acd734
+--- /dev/null
++++ b/llvm/test/Transforms/LoopFusion/vectorization-metadata-conflict.ll
+@@ -0,0 +1,54 @@
++; RUN: opt -passes=loop-fusion -loop-fusion-min-reused-values=0 -loop-fusion-vectorization-check -pass-remarks=loop-fusion -pass-remarks-missed=loop-fusion -disable-output < %s 2>&1 | FileCheck %s --check-prefix=CHECK
++; RUN: opt -passes=loop-fusion -loop-fusion-min-reused-values=0 -pass-remarks=loop-fusion -pass-remarks-missed=loop-fusion -disable-output < %s 2>&1 | FileCheck %s --check-prefix=NOCHECK
++
++; CHECK: Fusion would inherit incompatible vectorization metadata
++; CHECK-NOT: Loops fused
++; NOCHECK: Loops fused
++
++target datalayout = "e-m:w-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
++target triple = "x86_64-pc-windows-msvc"
++
++define void @meta_min(ptr noalias %A, ptr noalias %B, ptr noalias %C, i64 %n) {
++entry:
++  %zero = icmp eq i64 %n, 0
++  br i1 %zero, label %exit, label %l1
++
++l1:
++  %i = phi i64 [ 0, %entry ], [ %i.next, %l1.latch ]
++  %pa = getelementptr inbounds double, ptr %A, i64 %i
++  %va = load double, ptr %pa, align 8
++  %pb = getelementptr inbounds double, ptr %B, i64 %i
++  %vb = fmul double %va, 2.000000e+00
++  store double %vb, ptr %pb, align 8
++  br label %l1.latch
++
++l1.latch:
++  %i.next = add nuw nsw i64 %i, 1
++  %c1 = icmp eq i64 %i.next, %n
++  br i1 %c1, label %l2.preheader, label %l1, !llvm.loop !1
++
++l2.preheader:
++  br label %l2
++
++l2:
++  %j = phi i64 [ 0, %l2.preheader ], [ %j.next, %l2.latch ]
++  %pc = getelementptr inbounds double, ptr %A, i64 %j
++  %vc = load double, ptr %pc, align 8
++  %pd = getelementptr inbounds double, ptr %C, i64 %j
++  %vd = fmul double %vc, 3.000000e+00
++  store double %vd, ptr %pd, align 8
++  br label %l2.latch
++
++l2.latch:
++  %j.next = add nuw nsw i64 %j, 1
++  %c2 = icmp eq i64 %j.next, %n
++  br i1 %c2, label %exit, label %l2, !llvm.loop !2
++
++exit:
++  ret void
++}
++
++!1 = distinct !{!1, !3}
++!2 = distinct !{!2, !4}
++!3 = !{!"llvm.loop.vectorize.enable"}
++!4 = !{!"llvm.loop.vectorize.disable"}

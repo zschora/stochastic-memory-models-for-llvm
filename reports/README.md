@@ -3,6 +3,10 @@
 | Report | Status |
 | --- | --- |
 | [Stage 0: LLVM LoopFusion profitability](stage0_report.md) | Completed baseline study; Go for a narrow engineering Stage 1, No-Go for a new scientific claim from the current evidence. |
+| [R1-A: matched-toolchain validation](r1a_report.md) | Completed self-reviewed campaign; central Stage 0 failures reproduced qualitatively. |
+| [R1-C: corpus status](r1c_corpus.md) | Partial: 10 controlled kernels, 41 size points; no real-workload corpus. |
+| [R1-F: metadata-guard prototype](r1f_patch.md) | Local prototype; removes L1/L2 metadata regression, not upstream-ready. |
+| [R1 synthesis](r1_report.md) | Campaign summary, proof status, novelty assessment and next steps. |
 
 Stage 0 is an empirical study of LLVM's initial exact-reuse profitability gate.
 It compares fusion off, unrestricted fusion and the current model on a pinned

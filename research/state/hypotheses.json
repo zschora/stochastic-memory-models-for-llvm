@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_utc": "2026-11-07T00:00:00Z",
+  "updated_utc": "2026-11-07T04:30:00Z",
   "hypotheses": [
     {
       "id": "H-LF-001",
@@ -25,14 +25,17 @@
       ],
       "status": "analyzed",
       "evidence_links": [
+        "reports/r1a_report.md",
         "reports/stage0_report.md",
+        "research/runs/EXP-20261107-R1A/manifest.json",
         "results/artifacts/simd_metadata/",
+        "results/r1/EXP-20261107-R1A/campaign_summary.json",
         "results/summary_simd_metadata.csv"
       ],
       "review_status": "model-assisted-self-review",
-      "review_note": "Stage 0 analysis is self-review only; no independent audit yet.",
-      "decision": "Retain as an engineering hypothesis; do not promote to supported before R1-A.",
-      "next_action": "Repeat the metadata contrast on a matched clang/LLVM revision."
+      "review_note": "R1-A reproduced the qualitative effect on matched LLVM 6f41962 with native clang IR; no independent review.",
+      "decision": "Retain as a reproduced engineering finding; exact magnitudes remain host-specific.",
+      "next_action": "Request independent review; evaluate the mechanism on the broader corpus before any upstream proposal."
     },
     {
       "id": "H-LF-002",
@@ -57,14 +60,17 @@
       ],
       "status": "analyzed",
       "evidence_links": [
+        "benchmarks/shifted_reuse.cpp",
+        "reports/r1a_report.md",
         "reports/stage0_report.md",
-        "results/summary_shifted_reuse.csv",
-        "benchmarks/shifted_reuse.cpp"
+        "research/runs/EXP-20261107-R1A/manifest.json",
+        "results/r1/EXP-20261107-R1A/campaign_summary.json",
+        "results/summary_shifted_reuse.csv"
       ],
       "review_status": "model-assisted-self-review",
-      "review_note": "Stage 0 result is self-review only.",
-      "decision": "Retain as a candidate false negative; test broader stencil patterns before proposing a patch.",
-      "next_action": "Add shifted stencil cases to the R1 corpus and rerun on a matched toolchain."
+      "review_note": "R1-A reproduced the qualitative effect on matched LLVM 6f41962 with native clang IR; no independent review.",
+      "decision": "Retain as a reproduced engineering finding; exact magnitudes remain host-specific.",
+      "next_action": "Request independent review; evaluate the mechanism on the broader corpus before any upstream proposal."
     },
     {
       "id": "H-LF-003",
@@ -90,14 +96,17 @@
       ],
       "status": "analyzed",
       "evidence_links": [
+        "benchmarks/read_read.cpp",
+        "reports/r1a_report.md",
         "reports/stage0_report.md",
-        "results/summary_read_read.csv",
-        "benchmarks/read_read.cpp"
+        "research/runs/EXP-20261107-R1A/manifest.json",
+        "results/r1/EXP-20261107-R1A/campaign_summary.json",
+        "results/summary_read_read.csv"
       ],
       "review_status": "model-assisted-self-review",
-      "review_note": "No hardware counters; cache attribution remains an inference.",
-      "decision": "Retain as a predictive feature candidate; requires counters or stronger controls.",
-      "next_action": "Test a cache-footprint rule against held-out benchmark families."
+      "review_note": "R1-A reproduced the qualitative effect on matched LLVM 6f41962 with native clang IR; no independent review.",
+      "decision": "Retain as a reproduced engineering finding; exact magnitudes remain host-specific.",
+      "next_action": "Request independent review; evaluate the mechanism on the broader corpus before any upstream proposal."
     },
     {
       "id": "H-LF-004",
@@ -121,14 +130,17 @@
       ],
       "status": "analyzed",
       "evidence_links": [
-        "reports/stage0_report.md",
         "benchmarks/producer_consumer.cpp",
-        "benchmarks/producer_consumer_split.ll"
+        "benchmarks/producer_consumer_split.ll",
+        "reports/r1a_report.md",
+        "reports/stage0_report.md",
+        "research/runs/EXP-20261107-R1A/manifest.json",
+        "results/r1/EXP-20261107-R1A/campaign_summary.json"
       ],
       "review_status": "model-assisted-self-review",
-      "review_note": "Legality/DA diagnosis is self-review only.",
-      "decision": "Retain as a compiler-legality finding; separate from profitability.",
-      "next_action": "Reduce to a minimal canonical/split pair and check LLVM source behavior."
+      "review_note": "R1-A reproduced the qualitative effect on matched LLVM 6f41962 with native clang IR; no independent review.",
+      "decision": "Retain as a reproduced engineering finding; exact magnitudes remain host-specific.",
+      "next_action": "Request independent review; evaluate the mechanism on the broader corpus before any upstream proposal."
     },
     {
       "id": "H-LF-005",
@@ -152,14 +164,16 @@
       ],
       "status": "inconclusive",
       "evidence_links": [
+        "reports/r1a_report.md",
         "reports/stage0_report.md",
+        "results/r1/EXP-20261107-R1A/ts_known/meta.json",
         "results/raw/ts_known_v1.csv",
         "results/raw/ts_known_v2.csv"
       ],
       "review_status": "model-assisted-self-review",
-      "review_note": "Absence of reproduction on one machine is not a refutation of the RFC.",
-      "decision": "Do not use the 6.52% number as a fixed target or sole motivation.",
-      "next_action": "Reproduce on a matched toolchain and, if possible, an AVX-512 host."
+      "review_note": "R1-A native pipeline exposed no exact-benchmark fusion candidate; A/B/C were neutral. This neither reproduces nor refutes the RFC.",
+      "decision": "Keep inconclusive; do not use the 6.52% number as a fixed target.",
+      "next_action": "If a defensible inlining-prepared pipeline is specified, rerun the exact benchmark; otherwise keep as not-testable."
     },
     {
       "id": "H-R1-001",
@@ -180,15 +194,18 @@
       "planned_experiments": [
         "R1-A"
       ],
-      "status": "planned",
+      "status": "analyzed",
       "evidence_links": [
-        "reports/stage0_report.md",
-        "research/harness/plans/r1-research-program.md"
+        "reports/r1a_report.md",
+        "research/runs/EXP-20261107-R1A/manifest.json",
+        "results/r1/EXP-20261107-R1A/campaign_summary.json",
+        "results/r1/EXP-20261107-R1A/analysis.json",
+        "research/harness/toolchains/llvm-24.0.0git-6f41962.json"
       ],
-      "review_status": "not-reviewed",
-      "review_note": "No R1 evidence yet.",
-      "decision": "First R1 workstream; blocks mechanism and predictor work.",
-      "next_action": "Create an R1-A run record with a matched toolchain manifest."
+      "review_status": "model-assisted-self-review",
+      "review_note": "R1-A campaign completed on a matched revision without ir_compat.py; self-reviewed only.",
+      "decision": "Qualitative reproduction: metadata, shifted reuse, cache trend, canonical-loop legality and the SIMD-difference counterexample all survived matched tools.",
+      "next_action": "Independent review of the R1-A evidence, then a broader held-out corpus and a two-signal predictor evaluation."
     },
     {
       "id": "H-HARNESS-001",
@@ -210,14 +227,16 @@
       ],
       "status": "analyzed",
       "evidence_links": [
-        "research/runs/SIM-0001-handoff-smoke/manifest.json",
+        "reports/r1a_report.md",
+        "research/runs/EXP-20261107-R1A/manifest.json",
         "research/runs/SIM-0001-handoff-smoke/brief.md",
+        "research/runs/SIM-0001-handoff-smoke/manifest.json",
         "research/runs/SIM-0001-handoff-smoke/review.md"
       ],
       "review_status": "model-assisted-self-review",
-      "review_note": "Infrastructure smoke test only; not independent validation.",
+      "review_note": "The harness was used for a real campaign; friction was found and fixed, but review remains self-review.",
       "decision": "Provisional acceptance of the harness structure; collect real-run feedback.",
-      "next_action": "Use the harness for R1-A and record any friction."
+      "next_action": "Collect independent-run feedback; no further structural change without a concrete failure."
     },
     {
       "id": "H-R1-E1",
@@ -275,6 +294,130 @@
       "review_note": "Four toy posets only; no compiler connection.",
       "decision": "Exploratory; no predictive claim yet.",
       "next_action": "Define a schedule distribution tied to loop fusion and test it against measured cases."
+    },
+    {
+      "id": "H-R1-B1",
+      "title": "LoopFusion inherits the second loop's metadata",
+      "statement": "At revision 6f41962, fusing two adjacent loops makes the fused backedge carry the second loop's llvm.loop metadata; an explicit vectorize-enable request on the first loop can be discarded.",
+      "motivation": "R1-A measured a large metadata-conflict regression and the fused loop lost all SIMD.",
+      "competing_explanations": [
+        "fused-body overhead",
+        "cache effects",
+        "measurement noise"
+      ],
+      "evidence_required": [
+        "minimal IR reproducer",
+        "metadata and vectorizer remarks",
+        "assembly contrast",
+        "runtime control"
+      ],
+      "falsification": "The fused loop retains the first loop's metadata, or the regression remains without metadata loss.",
+      "planned_experiments": [
+        "EXP-20261107-R1A",
+        "EXP-20261107-R1F-patch"
+      ],
+      "status": "analyzed",
+      "evidence_links": [
+        "results/r1/EXP-20261107-R1B-min/README.md",
+        "results/r1/EXP-20261107-R1A/analysis.json",
+        "reports/r1a_report.md",
+        "reports/r1f_patch.md"
+      ],
+      "review_status": "model-assisted-self-review",
+      "review_note": "Direct IR/remark evidence, but no independent review and no hardware counters.",
+      "decision": "Mechanism confirmed for this revision and explicit-metadata shape; not a general vectorization model.",
+      "next_action": "Evaluate the opt-in metadata guard on held-out families and measure compile-time cost."
+    },
+    {
+      "id": "H-R1-C1",
+      "title": "Failure classes recur across a controlled kernel corpus",
+      "statement": "The metadata false positive, shifted-reuse false negative, canonical-loop legality failure and SIMD-difference counterexample appear across 10 controlled kernels and 41 size points.",
+      "motivation": "A single Stage 0 kernel is not enough to justify a cost-model change.",
+      "competing_explanations": [
+        "the corpus is too small or too synthetic",
+        "size points are not independent families"
+      ],
+      "evidence_required": [
+        "classified corpus",
+        "raw timings and remarks",
+        "held-out real workloads"
+      ],
+      "falsification": "The effects vanish on independent kernels or whole programs.",
+      "planned_experiments": [
+        "EXP-20261107-R1A"
+      ],
+      "status": "analyzed",
+      "evidence_links": [
+        "reports/r1c_corpus.md",
+        "results/r1/EXP-20261107-R1A/table.md",
+        "results/r1/EXP-20261107-R1A/analysis.json"
+      ],
+      "review_status": "model-assisted-self-review",
+      "review_note": "Only 10 controlled kernels; no TSVC/PolyBench or whole-program results.",
+      "decision": "Partial R1-C: useful classification, insufficient breadth for prevalence claims.",
+      "next_action": "Add held-out real kernels and record legality/vectorization decisions before timing."
+    },
+    {
+      "id": "H-R1-D1",
+      "title": "A cheap two-signal rule can beat exact reuse alone",
+      "statement": "On the R1-A legal points, a footprint threshold or a combined vectorization/footprint rule has lower in-sample runtime-weighted regret than the current exact-reuse gate.",
+      "motivation": "The current model accepts the metadata false positive and rejects profitable shifted reuse.",
+      "competing_explanations": [
+        "in-sample overfitting",
+        "oracle labels from one machine",
+        "small kernel count"
+      ],
+      "evidence_required": [
+        "held-out families",
+        "compile-time cost",
+        "static feature extraction",
+        "uncertainty"
+      ],
+      "falsification": "The rule loses its advantage on held-out families or costs too much compile time.",
+      "planned_experiments": [
+        "EXP-20261107-R1A"
+      ],
+      "status": "inconclusive",
+      "evidence_links": [
+        "results/r1/EXP-20261107-R1A/predictor.md",
+        "results/r1/EXP-20261107-R1A/predictor.json",
+        "reports/r1_report.md"
+      ],
+      "review_status": "model-assisted-self-review",
+      "review_note": "In-sample only; no held-out family and no static implementation.",
+      "decision": "Screen only: footprint and compatibility signals are plausible, not validated.",
+      "next_action": "Hold out entire benchmark families and evaluate a static two-signal rule."
+    },
+    {
+      "id": "H-R1-F1",
+      "title": "A metadata compatibility guard removes the L1/L2 false positive",
+      "statement": "An opt-in loop-fusion check that rejects an explicit first-loop vectorization request blocked by the second loop removes the simd_metadata regression without rejecting the profitable simd_reduction case.",
+      "motivation": "R1-B confirmed metadata inheritance; a narrow guard is a testable prototype.",
+      "competing_explanations": [
+        "the guard is too conservative at DRAM",
+        "the result is local and unvalidated"
+      ],
+      "evidence_required": [
+        "patch",
+        "regression test",
+        "A/C/D measurements",
+        "compile-time data",
+        "broader corpus"
+      ],
+      "falsification": "The guard fails to remove the regression, rejects profitable cases broadly, or breaks existing tests.",
+      "planned_experiments": [
+        "EXP-20261107-R1F-patch"
+      ],
+      "status": "inconclusive",
+      "evidence_links": [
+        "research/patches/0001-loop-fusion-vectorization-metadata-check.patch",
+        "reports/r1f_patch.md",
+        "results/r1/EXP-20261107-R1F-patch/simd_metadata/meta.json"
+      ],
+      "review_status": "model-assisted-self-review",
+      "review_note": "Local prototype on a patched opt; the verified base-toolchain manifest does not cover the modified binary.",
+      "decision": "Promising local mechanism; not upstream-ready and not a complete cost model.",
+      "next_action": "Combine with a footprint exception, run the regression test in lit, and evaluate held-out families."
     }
   ]
 }

@@ -140,3 +140,20 @@ independent/human review. Self-review by the same model remains
 
 **Consequences:** More records remain `analyzed` or `under-review`; this is
 intended. A human or genuinely separate agent is still required for promotion.
+
+## D-012 - R1 evidence stays self-reviewed and provisional
+
+**Context:** R1-A reproduced the main Stage 0 effects on a matched toolchain, but
+all measurements came from one machine, without hardware counters, and were
+reviewed by the same model that produced them. The local R1-F patch modifies the
+compiler and is not covered by the verified base toolchain manifest.
+
+**Decision:** Keep R1-A, R1-C, R1-D and the mathematical claims at `analyzed`,
+`inconclusive` or `numerically-checked`/`working-proof`. Do not mark them
+`supported` or `proved`. Record the R1-F prototype as `inconclusive` because the
+patched `opt` is outside the verified provenance manifest, even though its
+measurements are preserved.
+
+**Consequences:** Reports must state the self-review and provenance limits. A
+future human or independent-reviewer pass is required before any upstream
+proposal or novelty claim. This is deliberate, not an infrastructure failure.

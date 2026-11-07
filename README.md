@@ -1,18 +1,24 @@
-# LLVM LoopFusion Profitability - Stage 0
+# LLVM LoopFusion Profitability - Stage 0 to R1
 
 Reproducible investigation of LLVM's initial LoopFusion cost model
 (`-loop-fusion-min-reused-values`, merged 2026-10-14 in LLVM commit
 `a244d7762eecc19c327ce1e65a995e466962ab05`).
 
-**Main result:** the current binary "at least one exact reuse" gate accepts a
+**Stage 0 result:** the current binary "at least one exact reuse" gate accepts a
 2x regression caused by loop-metadata/vectorization incompatibility and rejects
 a legal shifted-reuse pattern worth 17-32%. The benefit of fusion scales with
 working-set size, while the cost scales with lost vectorization / loop-level
-code quality; the model considers neither. The RFC's motivating 6.52% `uint64_t
--> uint8_t` regression did **not** reproduce with a faithful build of the exact
-llvm-test-suite microbenchmark.
+code quality; the model considers neither.
 
-Full analysis: [`reports/stage0_report.md`](reports/stage0_report.md).
+**R1-A result:** on clang/opt/llc from one revision (`6f41962`) with native IR
+and no `ir_compat.py`, the metadata false positive, shifted-reuse false
+negative, cache-residency trend, canonical-loop legality failure and the
+SIMD-difference counterexample all reproduce qualitatively. Exact magnitudes
+changed. The RFC's 6.52% `uint64_t -> uint8_t` regression remains **inconclusive
+/ not-testable** in the native pipeline; it was neither reproduced nor refuted.
+
+Full analysis: [`reports/stage0_report.md`](reports/stage0_report.md) and
+[`reports/r1_report.md`](reports/r1_report.md).
 
 ## Research scope and navigation
 
@@ -22,6 +28,10 @@ random orderings of memory accesses, and exact ideal-LRU models. This history
 motivates the work; **no stochastic cost model is yet integrated into LLVM**.
 
 - [Research notes index](research/README.md)
+- [R1 synthesis](reports/r1_report.md)
+- [R1-A matched validation](reports/r1a_report.md)
+- [R1-C corpus status](reports/r1c_corpus.md)
+- [R1-F local prototype](reports/r1f_patch.md)
 - [Portable research harness](research/harness/README.md)
 - [Research state index](research/state/index.md)
 - [Research origins and trajectory](research/origins.md)
@@ -40,13 +50,15 @@ and [research/harness/protocol.md](research/harness/protocol.md).
 
 ```powershell
 python scripts/research/doctor.py --docs-only --json
+python scripts/research/doctor.py --experiment --json --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962.json
 python scripts/research/new_run.py --hypothesis H-R1-001 --dry-run
-python scripts/research/validate_run.py research/runs/SIM-0001-handoff-smoke
+python scripts/research/validate_run.py research/runs/EXP-20261107-R1A
 python scripts/research/check_docs.py
 ```
 
-R1 has not started. Stage 0 remains a mixed-toolchain baseline and must be
-validated first; see report Section 3.4.
+R1-A is complete but self-reviewed; R1-B has mechanism evidence, R1-C is partial,
+R1-D is an in-sample rule screen, R1-E has finite mathematical checks, and R1-F
+is a local prototype. Nothing is `supported` without independent review.
 
 ## Baseline
 
@@ -54,8 +66,9 @@ validated first; see report Section 3.4.
 |---|---|
 | LLVM `main` | `6f4196219399a3502cea3beb2d0c8c28b2241649` (2026-11-07) |
 | cost-model merge | `a244d7762eecc19c327ce1e65a995e466962ab05` (PR #224626) |
-| LLVM tool build | `LLVM 24.0.0git`, Release, X86, MSVC 19.51 |
-| C++ front end | clang 23.1.5 (`392dfff97d29...`) |
+| Stage 0 LLVM tool build | `LLVM 24.0.0git`, Release, X86, MSVC 19.51 |
+| Stage 0 C++ front end | clang 23.1.5 (`392dfff97d29...`) |
+| R1 matched toolchain | clang/opt/llc from `6f41962`, Release, X86, assertions OFF |
 | llvm-test-suite | `d3f64b96fe6176716771a2e172f799caf1239b5b` |
 | CPU | Intel i5-12500H, 4 P-cores + 8 E-cores, 16 threads |
 | caches | L1d 48 KiB/P-core, L2 1.25 MiB/P-core, L3 18 MiB |
@@ -72,10 +85,10 @@ verifier; function-level `noalias` attributes remain. A/B/C use the same
 rewritten IR, so the comparison is internally consistent, but the exact results
 are baseline-specific.
 
-For Stage 1 the key findings must be re-verified on a consistent toolchain
-(clang and LLVM from the same commit) **without `ir_compat.py` and without
-changing alias-scope metadata**. See
-[`reports/stage0_report.md`](reports/stage0_report.md) Section 3.4.
+For Stage 1 the key findings were re-verified on a consistent toolchain
+(clang and LLVM from `6f41962`) **without `ir_compat.py` and without changing
+alias-scope metadata**; see [`reports/r1a_report.md`](reports/r1a_report.md).
+The Stage 0 numbers remain baseline-specific.
 
 ## Layout
 

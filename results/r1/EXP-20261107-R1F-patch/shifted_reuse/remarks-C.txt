@@ -1,0 +1,14 @@
+﻿opt.exe : remark: <unknown>:0:0: [shift_kernel]: .lr.ph.preheader and .lr.ph17.preheader: found 0 cross-loop reused val
+ues; configured minimum is 1
+C:\work\llvm-profitability-research\scripts\r1_build_case.ps1:85 знак:3
++   & $Opt @all 2>&1 | Out-File $txt -Encoding utf8
++   ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (remark: <unknow...ed minimum is 1:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+remark: <unknown>:0:0: Loop is not a candidate for fusion
+remark: <unknown>:0:0: [??$run_trials@V<lambda_0>@?0??main@@9@@bench@@YAXPEBD0_KHHV<lambda_0>@?0??main@@9@@Z]: Loop is 
+not a candidate for fusion: Loop may throw an exception
+remark: <unknown>:0:0: Loop is not a candidate for fusion
+remark: <unknown>:0:0: [??$run_trials@V<lambda_0>@?0??main@@9@@bench@@YAXPEBD0_KHHV<lambda_0>@?0??main@@9@@Z]: Loop is 
+not a candidate for fusion: Loop may throw an exception

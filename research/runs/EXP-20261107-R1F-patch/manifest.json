@@ -1,0 +1,229 @@
+{
+  "schema_version": "1.0",
+  "record_type": "experiment",
+  "run_id": "EXP-20261107-R1F-patch",
+  "hypothesis_id": "H-R1-F1",
+  "title": "R1-F metadata guard prototype evaluation",
+  "status": "inconclusive",
+  "created_utc": "2026-11-07T03:27:07Z",
+  "git": {
+    "base_commit": "6d2795f0331426307000da086db0132611fb0485",
+    "branch": "main",
+    "working_tree_dirty": true,
+    "available": true
+  },
+  "toolchain": {
+    "consistency": "unverified",
+    "llvm_revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+    "manifest_path": "research/harness/toolchains/llvm-24.0.0git-6f41962.json",
+    "clang": {
+      "version": "clang version 24.0.0git (https://github.com/llvm/llvm-project.git 6f4196219399a3502cea3beb2d0c8c28b2241649)",
+      "path": ".tools/llvm-build/bin/clang.exe",
+      "revision": "6f4196219399a3502cea3beb2d0c8c28b2241649"
+    },
+    "opt": {
+      "version": "locally patched LLVM 24.0.0git opt",
+      "path": ".tools/llvm-build/bin/opt.exe",
+      "revision": "working-tree patch"
+    },
+    "llc": {
+      "version": "LLVM version 24.0.0git",
+      "path": ".tools/llvm-build/bin/llc.exe",
+      "revision": "6f4196219399a3502cea3beb2d0c8c28b2241649"
+    },
+    "llvm_config": {
+      "version": "24.0.0git",
+      "path": ".tools/llvm-build/bin/llvm-config.exe",
+      "revision": "6f4196219399a3502cea3beb2d0c8c28b2241649"
+    },
+    "compatibility_notes": "opt was rebuilt with a local prototype patch; its hash no longer matches the verified base manifest.",
+    "baseline_caveat": true
+  },
+  "build": {
+    "configuration": "Release, X86, assertions OFF, clang enabled; opt locally patched",
+    "cmake_args": [
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DLLVM_ENABLE_PROJECTS=clang",
+      "-DLLVM_TARGETS_TO_BUILD=X86",
+      "-DLLVM_ENABLE_ASSERTIONS=OFF",
+      "-DCLANG_ENABLE_CIR=OFF"
+    ],
+    "compiler_flags": [
+      "/O2",
+      "/DNDEBUG",
+      "/EHsc"
+    ],
+    "link_flags": []
+  },
+  "host": {
+    "os": "Windows 11 (10.0.26200)",
+    "cpu": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "logical_cpus": 16,
+    "caches": "not recorded",
+    "python": "3.12.5"
+  },
+  "pipeline": {
+    "frontend_ir": "results/r1/EXP-20261107-R1F-patch/simd_metadata/simd_metadata.frontend.ll",
+    "frontend_flags": [
+      "-O0",
+      "-Xclang",
+      "-disable-O0-optnone",
+      "-march=alderlake",
+      "-std=c++17",
+      "-emit-llvm",
+      "-S"
+    ],
+    "opt_passes": [
+      "A: default<O3> -mcpu=alderlake",
+      "C: -enable-loopfusion -loop-fusion-min-reused-values=1 + default<O3>",
+      "D: C + -loop-fusion-vectorization-check",
+      "AA: identical A binary"
+    ],
+    "llc_args": [
+      "-O3",
+      "-mtriple=x86_64-pc-windows-msvc",
+      "-mcpu=alderlake"
+    ]
+  },
+  "case": {
+    "name": "R1-F metadata guard prototype",
+    "source": "benchmarks/simd_metadata.cpp",
+    "input_sizes": [
+      1024,
+      16384,
+      131072,
+      1048576,
+      8388608
+    ],
+    "seeds": [
+      12345
+    ]
+  },
+  "procedure": {
+    "configurations": [
+      "A",
+      "C",
+      "D",
+      "AA"
+    ],
+    "repetitions": 4,
+    "trials_per_process": 3,
+    "order": "randomized interleaved; logical CPU 2; high priority",
+    "timing_unit": "ns per kernel call",
+    "timing_method": "QueryPerformanceCounter, median and bootstrap CI",
+    "correctness_oracle": "per-binary VERIFY plus cross-config CHECK checksum"
+  },
+  "artifacts": {
+    "raw_timings": [
+      "results/r1/EXP-20261107-R1F-patch/shifted_reuse/raw_shifted_reuse_patch_n1048576.csv",
+      "results/r1/EXP-20261107-R1F-patch/simd_metadata/raw_simd_metadata_patch_n1024.csv",
+      "results/r1/EXP-20261107-R1F-patch/simd_metadata/raw_simd_metadata_patch_n1048576.csv",
+      "results/r1/EXP-20261107-R1F-patch/simd_metadata/raw_simd_metadata_patch_n131072.csv",
+      "results/r1/EXP-20261107-R1F-patch/simd_metadata/raw_simd_metadata_patch_n16384.csv",
+      "results/r1/EXP-20261107-R1F-patch/simd_metadata/raw_simd_metadata_patch_n8388608.csv",
+      "results/r1/EXP-20261107-R1F-patch/simd_reduction/raw_simd_reduction_patch_n1048576.csv"
+    ],
+    "ir": [
+      "results/r1/EXP-20261107-R1F-patch/shifted_reuse/shifted_reuse.A.ll",
+      "results/r1/EXP-20261107-R1F-patch/shifted_reuse/shifted_reuse.B.ll",
+      "results/r1/EXP-20261107-R1F-patch/shifted_reuse/shifted_reuse.C.ll",
+      "results/r1/EXP-20261107-R1F-patch/shifted_reuse/shifted_reuse.D.ll",
+      "results/r1/EXP-20261107-R1F-patch/shifted_reuse/shifted_reuse.frontend.ll",
+      "results/r1/EXP-20261107-R1F-patch/simd_metadata/simd_metadata.A.ll",
+      "results/r1/EXP-20261107-R1F-patch/simd_metadata/simd_metadata.B.ll",
+      "results/r1/EXP-20261107-R1F-patch/simd_metadata/simd_metadata.C.ll",
+      "results/r1/EXP-20261107-R1F-patch/simd_metadata/simd_metadata.D.ll",
+      "results/r1/EXP-20261107-R1F-patch/simd_metadata/simd_metadata.frontend.ll",
+      "results/r1/EXP-20261107-R1F-patch/simd_reduction/simd_reduction.A.ll",
+      "results/r1/EXP-20261107-R1F-patch/simd_reduction/simd_reduction.C.ll",
+      "results/r1/EXP-20261107-R1F-patch/simd_reduction/simd_reduction.D.ll",
+      "results/r1/EXP-20261107-R1F-patch/simd_reduction/simd_reduction.frontend.ll"
+    ],
+    "assembly": [
+      "results/r1/EXP-20261107-R1F-patch/shifted_reuse/shifted_reuse.A.s",
+      "results/r1/EXP-20261107-R1F-patch/shifted_reuse/shifted_reuse.B.s",
+      "results/r1/EXP-20261107-R1F-patch/shifted_reuse/shifted_reuse.C.s",
+      "results/r1/EXP-20261107-R1F-patch/shifted_reuse/shifted_reuse.D.s",
+      "results/r1/EXP-20261107-R1F-patch/simd_metadata/simd_metadata.A.s",
+      "results/r1/EXP-20261107-R1F-patch/simd_metadata/simd_metadata.B.s",
+      "results/r1/EXP-20261107-R1F-patch/simd_metadata/simd_metadata.C.s",
+      "results/r1/EXP-20261107-R1F-patch/simd_metadata/simd_metadata.D.s",
+      "results/r1/EXP-20261107-R1F-patch/simd_reduction/simd_reduction.A.s",
+      "results/r1/EXP-20261107-R1F-patch/simd_reduction/simd_reduction.C.s",
+      "results/r1/EXP-20261107-R1F-patch/simd_reduction/simd_reduction.D.s"
+    ],
+    "remarks": [
+      "results/r1/EXP-20261107-R1F-patch/shifted_reuse/remarks-A.yaml",
+      "results/r1/EXP-20261107-R1F-patch/shifted_reuse/remarks-B.yaml",
+      "results/r1/EXP-20261107-R1F-patch/shifted_reuse/remarks-C.yaml",
+      "results/r1/EXP-20261107-R1F-patch/shifted_reuse/remarks-D.yaml",
+      "results/r1/EXP-20261107-R1F-patch/simd_metadata/remarks-A.yaml",
+      "results/r1/EXP-20261107-R1F-patch/simd_metadata/remarks-B.yaml",
+      "results/r1/EXP-20261107-R1F-patch/simd_metadata/remarks-C.yaml",
+      "results/r1/EXP-20261107-R1F-patch/simd_metadata/remarks-D.yaml",
+      "results/r1/EXP-20261107-R1F-patch/simd_reduction/remarks-A.yaml",
+      "results/r1/EXP-20261107-R1F-patch/simd_reduction/remarks-C.yaml",
+      "results/r1/EXP-20261107-R1F-patch/simd_reduction/remarks-D.yaml"
+    ],
+    "analysis_script": "scripts/r1_analyze.py",
+    "analysis_script_revision": "working-tree",
+    "checksums": [
+      "results/r1/EXP-20261107-R1F-patch/shifted_reuse/meta.json",
+      "results/r1/EXP-20261107-R1F-patch/simd_metadata/meta.json",
+      "results/r1/EXP-20261107-R1F-patch/simd_reduction/meta.json"
+    ]
+  },
+  "commands": [
+    "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/r1_build_case.ps1 -Case simd_metadata -Campaign EXP-20261107-R1F-patch -Configs A,B,C,D -Force",
+    "python scripts/r1_run_case.py --case simd_metadata --campaign EXP-20261107-R1F-patch --n <n> --reps <r> --trials 3 --rounds 4 --configs A,C,D,AA --tag patch",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/r1_build_case.ps1 -Case simd_reduction -Campaign EXP-20261107-R1F-patch -Configs A,C,D -Force",
+    "python scripts/r1_run_case.py --case simd_reduction --campaign EXP-20261107-R1F-patch --n 1048576 --reps 3 --trials 3 --rounds 4 --configs A,C,D,AA --tag patch",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/r1_build_case.ps1 -Case shifted_reuse -Campaign EXP-20261107-R1F-patch -Configs A,B,C,D -Force",
+    "python scripts/r1_run_case.py --case shifted_reuse --campaign EXP-20261107-R1F-patch --n 1048576 --reps 6 --trials 3 --rounds 4 --configs A,B,C,D,AA --tag patch"
+  ],
+  "results": {
+    "summary": "Local patched-opt prototype. D rejects the explicit metadata conflict: simd_metadata C +120.5%/+120.7%/+24.8% at 1K/16K/128K becomes D +5.6%/-5.3%/-4.2%. D does not reject simd_reduction (-36.6% at 1M). D rejects the 8M metadata case where C was -12.9% profitable, and does not fix shifted reuse. The patched opt is not covered by the verified base-toolchain manifest, so this record is inconclusive, not validated.",
+    "limitations": [
+      "Patched opt is outside the verified toolchain manifest; toolchain consistency is unverified.",
+      "One machine, few sizes, 4 rounds x 3 trials, no hardware counters.",
+      "No lit/FileCheck run; the two opt invocations were checked manually.",
+      "No compile-time measurement and no upstream review."
+    ]
+  },
+  "review": {
+    "status": "model-assisted-self-review",
+    "reviewer": "same model as author",
+    "reviewer_type": "same-model",
+    "decision": "accept-with-limits",
+    "artifact": "reports/r1f_patch.md",
+    "notes": "Self-review of the local prototype; patched toolchain is unverified.",
+    "reviewed_utc": "2026-11-07T04:40:00Z"
+  },
+  "evidence": {
+    "quality": "measured",
+    "notes": "Raw CSV, IR, assembly, remarks and patch are linked; toolchain is a local patched prototype.",
+    "validation_artifacts": [
+      "research/patches/0001-loop-fusion-vectorization-metadata-check.patch",
+      "reports/r1f_patch.md",
+      "results/r1/EXP-20261107-R1F-patch/simd_metadata/meta.json"
+    ]
+  },
+  "status_history": [
+    {
+      "status": "planned",
+      "utc": "2026-11-07T04:40:00Z",
+      "reason": "record created"
+    },
+    {
+      "status": "running",
+      "utc": "2026-11-07T04:40:00Z",
+      "reason": "patched opt built and measured"
+    },
+    {
+      "status": "inconclusive",
+      "utc": "2026-11-07T04:40:00Z",
+      "reason": "promising local result, but patched opt is outside verified provenance"
+    }
+  ],
+  "next_action": "Do not promote; combine with a footprint exception and re-evaluate from a verified patched toolchain with a broader corpus."
+}
