@@ -1,101 +1,101 @@
 {
   "campaign": "EXP-20261107-R1A",
-  "points": 38,
-  "legal_points": 33,
+  "points": 50,
+  "legal_points": 45,
   "label_counts": {
-    "profitable": 20,
-    "harmful": 6,
-    "neutral": 7,
+    "profitable": 29,
+    "harmful": 7,
+    "neutral": 9,
     "illegal": 5
   },
   "rules": [
     {
       "rule": "always_legal",
-      "false_positive": 6,
+      "false_positive": 7,
       "false_negative": 0,
-      "profitable_accepted": 20,
+      "profitable_accepted": 29,
       "harmful_rejected": 0,
-      "runtime_weighted_regret_pct": 292.4
+      "runtime_weighted_regret_pct": 296.1
     },
     {
       "rule": "current_model",
       "false_positive": 6,
-      "false_negative": 3,
+      "false_negative": 12,
       "profitable_accepted": 17,
-      "harmful_rejected": 0,
-      "runtime_weighted_regret_pct": 359.7
+      "harmful_rejected": 1,
+      "runtime_weighted_regret_pct": 554.4
     },
     {
       "rule": "footprint_gt_256KiB",
       "false_positive": 2,
       "false_negative": 4,
-      "profitable_accepted": 16,
-      "harmful_rejected": 4,
+      "profitable_accepted": 25,
+      "harmful_rejected": 5,
       "runtime_weighted_regret_pct": 74.2
     },
     {
       "rule": "footprint_gt_1MiB",
       "false_positive": 0,
-      "false_negative": 8,
-      "profitable_accepted": 12,
-      "harmful_rejected": 6,
-      "runtime_weighted_regret_pct": 111.2
+      "false_negative": 11,
+      "profitable_accepted": 18,
+      "harmful_rejected": 7,
+      "runtime_weighted_regret_pct": 156.1
     },
     {
       "rule": "footprint_gt_8MiB",
       "false_positive": 0,
-      "false_negative": 14,
-      "profitable_accepted": 6,
-      "harmful_rejected": 6,
-      "runtime_weighted_regret_pct": 239.4
+      "false_negative": 20,
+      "profitable_accepted": 9,
+      "harmful_rejected": 7,
+      "runtime_weighted_regret_pct": 339.2
     },
     {
       "rule": "vectorization_compatible",
-      "false_positive": 3,
+      "false_positive": 4,
       "false_negative": 5,
-      "profitable_accepted": 15,
+      "profitable_accepted": 24,
       "harmful_rejected": 3,
-      "runtime_weighted_regret_pct": 138.0
+      "runtime_weighted_regret_pct": 141.8
     },
     {
       "rule": "compatible_or_gt_8MiB",
-      "false_positive": 3,
+      "false_positive": 4,
       "false_negative": 3,
-      "profitable_accepted": 17,
+      "profitable_accepted": 26,
       "harmful_rejected": 3,
-      "runtime_weighted_regret_pct": 95.2
+      "runtime_weighted_regret_pct": 99.0
     },
     {
       "rule": "current_plus_shifted",
-      "false_positive": 6,
+      "false_positive": 7,
       "false_negative": 0,
-      "profitable_accepted": 20,
+      "profitable_accepted": 29,
       "harmful_rejected": 0,
-      "runtime_weighted_regret_pct": 292.4
+      "runtime_weighted_regret_pct": 296.1
     },
     {
       "rule": "shifted_and_compatible_or_large",
-      "false_positive": 3,
+      "false_positive": 4,
       "false_negative": 7,
-      "profitable_accepted": 13,
+      "profitable_accepted": 22,
       "harmful_rejected": 3,
-      "runtime_weighted_regret_pct": 184.2
+      "runtime_weighted_regret_pct": 187.9
     },
     {
       "rule": "two_signal_256KiB",
       "false_positive": 1,
       "false_negative": 6,
-      "profitable_accepted": 14,
-      "harmful_rejected": 5,
+      "profitable_accepted": 23,
+      "harmful_rejected": 6,
       "runtime_weighted_regret_pct": 86.9
     },
     {
       "rule": "two_signal_1MiB",
       "false_positive": 0,
-      "false_negative": 10,
-      "profitable_accepted": 10,
-      "harmful_rejected": 6,
-      "runtime_weighted_regret_pct": 147.5
+      "false_negative": 13,
+      "profitable_accepted": 16,
+      "harmful_rejected": 7,
+      "runtime_weighted_regret_pct": 192.4
     }
   ],
   "current_plus_shifted_per_case": {
@@ -309,6 +309,84 @@
         "label": "profitable",
         "fuse": true,
         "b_delta": -28.4
+      }
+    ],
+    "shifted_reuse_k2": [
+      {
+        "n": 16384,
+        "label": "neutral",
+        "fuse": true,
+        "b_delta": 1.3
+      },
+      {
+        "n": 131072,
+        "label": "profitable",
+        "fuse": true,
+        "b_delta": -15.6
+      },
+      {
+        "n": 1048576,
+        "label": "profitable",
+        "fuse": true,
+        "b_delta": -20.1
+      },
+      {
+        "n": 8388608,
+        "label": "profitable",
+        "fuse": true,
+        "b_delta": -32.1
+      }
+    ],
+    "shifted_reuse_k4": [
+      {
+        "n": 16384,
+        "label": "harmful",
+        "fuse": true,
+        "b_delta": 3.7
+      },
+      {
+        "n": 131072,
+        "label": "profitable",
+        "fuse": true,
+        "b_delta": -14.2
+      },
+      {
+        "n": 1048576,
+        "label": "profitable",
+        "fuse": true,
+        "b_delta": -18.5
+      },
+      {
+        "n": 8388608,
+        "label": "profitable",
+        "fuse": true,
+        "b_delta": -32.0
+      }
+    ],
+    "shifted_reuse_k8": [
+      {
+        "n": 16384,
+        "label": "neutral",
+        "fuse": true,
+        "b_delta": 4.2
+      },
+      {
+        "n": 131072,
+        "label": "profitable",
+        "fuse": true,
+        "b_delta": -15.2
+      },
+      {
+        "n": 1048576,
+        "label": "profitable",
+        "fuse": true,
+        "b_delta": -16.2
+      },
+      {
+        "n": 8388608,
+        "label": "profitable",
+        "fuse": true,
+        "b_delta": -30.8
       }
     ]
   },
