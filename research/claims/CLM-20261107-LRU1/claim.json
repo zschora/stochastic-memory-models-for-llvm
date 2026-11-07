@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "record_type": "math-claim",
+  "claim_id": "CLM-20261107-LRU1",
+  "hypothesis_id": "H-R1-E1",
+  "title": "Capacity-one expected LRU misses equal 1 + N - sum(n_i^2)/N",
+  "status": "working-proof",
+  "created_utc": "2026-11-07T00:00:00Z",
+  "author": "research-lead (model-assisted)",
+  "model_assumptions": [
+    "The trace is a uniformly random distinct permutation of a fixed multiset with counts n_i and total N.",
+    "Every distinct label sequence is equally likely; equal labels are indistinguishable.",
+    "The cache is ideal LRU with capacity exactly one and starts empty.",
+    "M counts compulsory misses, including the first access.",
+    "No prefetching, associativity, bandwidth or hardware replacement is modelled."
+  ],
+  "claim": "For N >= 1, E[M] = 1 + N - (sum_i n_i^2)/N.",
+  "proof_status": "working-proof",
+  "proof_notes": "Elementary first-moment calculation by linearity over adjacent label-change indicators; complete derivation in proof.md. It has not been independently reviewed and the classical prior-art reference has not yet been recorded.",
+  "proof_artifact": "research/claims/CLM-20261107-LRU1/proof.md",
+  "numerical_checks": [
+    "All count vectors with at most three labels and seven accesses were enumerated; the formula matched the exact DP and brute force on every vector."
+  ],
+  "check_artifacts": [
+    "research/claims/CLM-20261107-LRU1/checks.json"
+  ],
+  "counterexamples": [],
+  "counterexample_artifacts": [],
+  "prior_art": [
+    "Expected runs in a random word with fixed letter frequencies is a classical runs statistic; this record claims no novelty."
+  ],
+  "unresolved_obligations": [
+    "Obtain independent review of the derivation.",
+    "Record a precise primary reference for the classical runs formula."
+  ],
+  "review": {
+    "status": "not-reviewed",
+    "reviewer": "",
+    "reviewer_type": "unknown",
+    "decision": "not-reviewed",
+    "artifact": "",
+    "notes": "No independent or human review yet."
+  },
+  "artifacts": [
+    "research/theory/lru-multiset-exact.md",
+    "research/theory/code/lru_exact.py"
+  ],
+  "limitations": [
+    "Ideal LRU capacity one only; no hardware or compiler measurement.",
+    "The formula concerns random words, not real program access orders.",
+    "No compiler cost model follows from this result."
+  ],
+  "next_action": "Request independent review and literature confirmation; keep this as a mathematical baseline, not an LLVM predictor."
+}

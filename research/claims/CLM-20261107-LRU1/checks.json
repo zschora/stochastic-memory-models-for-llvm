@@ -1,0 +1,225 @@
+{
+  "status": "ok",
+  "checked_vectors": 45,
+  "failures": [],
+  "capacity_one_examples": [
+    {
+      "counts": [
+        7
+      ],
+      "capacity_one_formula": "1",
+      "capacity_one_dp": "1"
+    },
+    {
+      "counts": [
+        0,
+        7
+      ],
+      "capacity_one_formula": "1",
+      "capacity_one_dp": "1"
+    },
+    {
+      "counts": [
+        1,
+        6
+      ],
+      "capacity_one_formula": "19/7",
+      "capacity_one_dp": "19/7"
+    },
+    {
+      "counts": [
+        2,
+        5
+      ],
+      "capacity_one_formula": "27/7",
+      "capacity_one_dp": "27/7"
+    },
+    {
+      "counts": [
+        3,
+        4
+      ],
+      "capacity_one_formula": "31/7",
+      "capacity_one_dp": "31/7"
+    },
+    {
+      "counts": [
+        4,
+        3
+      ],
+      "capacity_one_formula": "31/7",
+      "capacity_one_dp": "31/7"
+    },
+    {
+      "counts": [
+        5,
+        2
+      ],
+      "capacity_one_formula": "27/7",
+      "capacity_one_dp": "27/7"
+    },
+    {
+      "counts": [
+        6,
+        1
+      ],
+      "capacity_one_formula": "19/7",
+      "capacity_one_dp": "19/7"
+    },
+    {
+      "counts": [
+        7,
+        0
+      ],
+      "capacity_one_formula": "1",
+      "capacity_one_dp": "1"
+    },
+    {
+      "counts": [
+        0,
+        0,
+        7
+      ],
+      "capacity_one_formula": "1",
+      "capacity_one_dp": "1"
+    },
+    {
+      "counts": [
+        0,
+        1,
+        6
+      ],
+      "capacity_one_formula": "19/7",
+      "capacity_one_dp": "19/7"
+    },
+    {
+      "counts": [
+        0,
+        2,
+        5
+      ],
+      "capacity_one_formula": "27/7",
+      "capacity_one_dp": "27/7"
+    },
+    {
+      "counts": [
+        0,
+        3,
+        4
+      ],
+      "capacity_one_formula": "31/7",
+      "capacity_one_dp": "31/7"
+    },
+    {
+      "counts": [
+        0,
+        4,
+        3
+      ],
+      "capacity_one_formula": "31/7",
+      "capacity_one_dp": "31/7"
+    },
+    {
+      "counts": [
+        0,
+        5,
+        2
+      ],
+      "capacity_one_formula": "27/7",
+      "capacity_one_dp": "27/7"
+    },
+    {
+      "counts": [
+        0,
+        6,
+        1
+      ],
+      "capacity_one_formula": "19/7",
+      "capacity_one_dp": "19/7"
+    },
+    {
+      "counts": [
+        0,
+        7,
+        0
+      ],
+      "capacity_one_formula": "1",
+      "capacity_one_dp": "1"
+    },
+    {
+      "counts": [
+        1,
+        0,
+        6
+      ],
+      "capacity_one_formula": "19/7",
+      "capacity_one_dp": "19/7"
+    },
+    {
+      "counts": [
+        1,
+        1,
+        5
+      ],
+      "capacity_one_formula": "29/7",
+      "capacity_one_dp": "29/7"
+    },
+    {
+      "counts": [
+        1,
+        2,
+        4
+      ],
+      "capacity_one_formula": "5",
+      "capacity_one_dp": "5"
+    }
+  ],
+  "dag_examples": {
+    "chain_abab": {
+      "orders": 1,
+      "min": 4,
+      "max": 4,
+      "mean": "4",
+      "histogram": {
+        "4": 1
+      }
+    },
+    "two_chains": {
+      "orders": 6,
+      "min": 2,
+      "max": 4,
+      "mean": "8/3",
+      "histogram": {
+        "2": 4,
+        "4": 2
+      }
+    },
+    "diamond": {
+      "orders": 2,
+      "min": 2,
+      "max": 4,
+      "mean": "3",
+      "histogram": {
+        "2": 1,
+        "4": 1
+      }
+    },
+    "swap_pair": {
+      "orders": 24,
+      "min": 2,
+      "max": 4,
+      "mean": "3",
+      "histogram": {
+        "2": 8,
+        "3": 8,
+        "4": 8
+      }
+    }
+  },
+  "notes": [
+    "Each distinct label sequence is equally likely; labels of equal counts are indistinguishable.",
+    "The DP state is (remaining counts, LRU->MRU cache); it is exact.",
+    "DAG statistics enumerate every linear extension for the small cases.",
+    "This is an ideal-LRU model, not a hardware or compiler measurement."
+  ]
+}

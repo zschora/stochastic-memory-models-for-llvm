@@ -19,7 +19,10 @@
         "reproduction on a consistent toolchain without ir_compat.py"
       ],
       "falsification": "The regression disappears when the metadata conflict is removed, or it cannot be reproduced on a matched toolchain.",
-      "planned_experiments": ["R1-A", "R1-B"],
+      "planned_experiments": [
+        "R1-A",
+        "R1-B"
+      ],
       "status": "analyzed",
       "evidence_links": [
         "reports/stage0_report.md",
@@ -47,7 +50,11 @@
         "held-out stencil cases"
       ],
       "falsification": "Shifted RAR fusion is not legal, is incorrect, or does not reproduce a gain on a matched toolchain and broader corpus.",
-      "planned_experiments": ["R1-A", "R1-B", "R1-C"],
+      "planned_experiments": [
+        "R1-A",
+        "R1-B",
+        "R1-C"
+      ],
       "status": "analyzed",
       "evidence_links": [
         "reports/stage0_report.md",
@@ -76,7 +83,11 @@
         "reproduction on other targets and with counters where available"
       ],
       "falsification": "Benefit is independent of footprint, or the apparent trend is explained by a confounder.",
-      "planned_experiments": ["R1-A", "R1-C", "R1-D"],
+      "planned_experiments": [
+        "R1-A",
+        "R1-C",
+        "R1-D"
+      ],
       "status": "analyzed",
       "evidence_links": [
         "reports/stage0_report.md",
@@ -104,7 +115,10 @@
         "matched-toolchain reproduction"
       ],
       "falsification": "A minimal canonical clang loop is accepted or the split form is rejected for an unrelated legality reason.",
-      "planned_experiments": ["R1-A", "R1-B"],
+      "planned_experiments": [
+        "R1-A",
+        "R1-B"
+      ],
       "status": "analyzed",
       "evidence_links": [
         "reports/stage0_report.md",
@@ -133,7 +147,9 @@
         "code-generation comparison with the RFC setup"
       ],
       "falsification": "A matched-toolchain rerun reproduces a stable regression with a concrete codegen cause.",
-      "planned_experiments": ["R1-A"],
+      "planned_experiments": [
+        "R1-A"
+      ],
       "status": "inconclusive",
       "evidence_links": [
         "reports/stage0_report.md",
@@ -161,7 +177,9 @@
         "IR/assembly/remarks and correctness checks"
       ],
       "falsification": "A key finding disappears or reverses under matched tools.",
-      "planned_experiments": ["R1-A"],
+      "planned_experiments": [
+        "R1-A"
+      ],
       "status": "planned",
       "evidence_links": [
         "reports/stage0_report.md",
@@ -187,7 +205,9 @@
         "later real-run usability feedback"
       ],
       "falsification": "A fresh session cannot complete the workflow without hidden context.",
-      "planned_experiments": ["SIM-0001"],
+      "planned_experiments": [
+        "SIM-0001"
+      ],
       "status": "analyzed",
       "evidence_links": [
         "research/runs/SIM-0001-handoff-smoke/manifest.json",
@@ -198,6 +218,63 @@
       "review_note": "Infrastructure smoke test only; not independent validation.",
       "decision": "Provisional acceptance of the harness structure; collect real-run feedback.",
       "next_action": "Use the harness for R1-A and record any friction."
+    },
+    {
+      "id": "H-R1-E1",
+      "title": "Exact LRU distribution for fixed-frequency traces",
+      "statement": "For a uniformly random permutation of a fixed multiset, the finite-state DP over remaining counts and LRU cache contents gives the exact miss-count distribution; for capacity one the expected misses equal 1 + N - sum(n_i^2)/N.",
+      "motivation": "Provide an exact mathematical baseline before claiming any compiler relevance.",
+      "competing_explanations": [
+        "The DP may be numerically correct but irrelevant to hardware or LLVM."
+      ],
+      "evidence_required": [
+        "independent enumeration of small cases",
+        "proof of the recurrence and capacity-one formula",
+        "prior-art audit"
+      ],
+      "falsification": "A counterexample where the recurrence or formula disagrees with exhaustive enumeration, or a proof gap.",
+      "planned_experiments": [
+        "CLM-20261107-LRU1",
+        "CLM-20261107-LRUK"
+      ],
+      "status": "analyzed",
+      "evidence_links": [
+        "research/claims/CLM-20261107-LRU1/claim.json",
+        "research/claims/CLM-20261107-LRUK/claim.json",
+        "research/theory/lru-multiset-exact.md",
+        "research/theory/code/lru_exact.py"
+      ],
+      "review_status": "model-assisted-self-review",
+      "review_note": "Exact rational checks pass, but no independent review or complete prior-art audit.",
+      "decision": "Retain as a mathematical baseline; do not claim novelty or compiler predictive value.",
+      "next_action": "Seek independent review and test incremental predictive value on held-out static features."
+    },
+    {
+      "id": "H-R1-E2",
+      "title": "Partial orders change achievable LRU miss statistics",
+      "statement": "For small labeled posets, uniform linear extensions can change the mean and range of LRU misses relative to unconstrained multiset permutations.",
+      "motivation": "Compiler fusion changes the legal interleaving of accesses; a partial-order model may describe the feasible schedules.",
+      "competing_explanations": [
+        "The effect is an artifact of toy posets or the uniform-extension assumption."
+      ],
+      "evidence_required": [
+        "exact enumeration of multiple posets",
+        "a realistic schedule distribution",
+        "held-out predictive evaluation"
+      ],
+      "falsification": "No poset-derived statistic predicts anything beyond simpler static features, or the distribution assumption is unjustified.",
+      "planned_experiments": [
+        "CLM-20261107-DAG1"
+      ],
+      "status": "analyzed",
+      "evidence_links": [
+        "research/claims/CLM-20261107-DAG1/claim.json",
+        "research/theory/lru-multiset-exact.md"
+      ],
+      "review_status": "model-assisted-self-review",
+      "review_note": "Four toy posets only; no compiler connection.",
+      "decision": "Exploratory; no predictive claim yet.",
+      "next_action": "Define a schedule distribution tied to loop fusion and test it against measured cases."
     }
   ]
 }

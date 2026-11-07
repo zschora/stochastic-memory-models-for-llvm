@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "record_type": "math-claim",
+  "claim_id": "CLM-20261107-LRUK",
+  "hypothesis_id": "H-R1-E1",
+  "title": "Finite-state DP is exact for LRU miss distributions on fixed-frequency traces",
+  "status": "numerically-checked",
+  "created_utc": "2026-11-07T00:00:00Z",
+  "author": "research-lead (model-assisted)",
+  "model_assumptions": [
+    "The trace is a uniformly random distinct permutation of a fixed multiset with counts n_i and total N.",
+    "The cache is ideal LRU with capacity k >= 1 and starts empty.",
+    "The state is (remaining counts, cache contents ordered LRU to MRU).",
+    "The recurrence conditions on the next label with probability remaining_i / remaining_total.",
+    "No hardware effects are modelled."
+  ],
+  "claim": "The finite-state recurrence in research/theory/lru-multiset-exact.md yields the exact miss-count distribution, and its expectation and distribution match independent exhaustive enumeration on every checked instance with at most three labels, seven accesses and capacity at most three.",
+  "proof_status": "numerically-checked",
+  "proof_notes": "The recurrence follows from the law of total probability and an exact LRU update. The implementation was compared against a separately written brute-force enumerator using exact rational arithmetic on 45 count vectors and three capacities.",
+  "proof_artifact": "",
+  "numerical_checks": [
+    "45 count vectors x capacities 1,2,3: DP distribution equals brute-force distribution exactly.",
+    "Capacity-one formula equals DP expectation on every vector.",
+    "Four labeled posets: every linear extension enumerated for the DAG examples."
+  ],
+  "check_artifacts": [
+    "research/claims/CLM-20261107-LRUK/checks.json"
+  ],
+  "counterexamples": [],
+  "counterexample_artifacts": [],
+  "prior_art": [
+    "Finite-state Markov and LRU analyses are classical; this record claims no novelty."
+  ],
+  "unresolved_obligations": [
+    "A general proof of the recurrence is straightforward but has not been independently audited as a theorem.",
+    "Literature review for prior exact DP formulations is incomplete."
+  ],
+  "review": {
+    "status": "not-reviewed",
+    "reviewer": "",
+    "reviewer_type": "unknown",
+    "decision": "not-reviewed",
+    "artifact": "",
+    "notes": "No independent or human review yet."
+  },
+  "artifacts": [
+    "research/theory/lru-multiset-exact.md",
+    "research/theory/code/lru_exact.py"
+  ],
+  "limitations": [
+    "Finite instances only; state growth limits large traces.",
+    "No connection to measured cache behavior is established."
+  ],
+  "next_action": "Use the exact model as an offline baseline; do not present it as an LLVM predictor."
+}

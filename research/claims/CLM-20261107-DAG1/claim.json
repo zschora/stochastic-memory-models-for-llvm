@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "record_type": "math-claim",
+  "claim_id": "CLM-20261107-DAG1",
+  "hypothesis_id": "H-R1-E2",
+  "title": "Partial order changes achievable LRU miss statistics in small labeled posets",
+  "status": "numerically-checked",
+  "created_utc": "2026-11-07T00:00:00Z",
+  "author": "research-lead (model-assisted)",
+  "model_assumptions": [
+    "Positions carry fixed labels and a finite acyclic precedence relation.",
+    "The schedule distribution is uniform over all linear extensions of the poset.",
+    "The cache is ideal LRU with capacity one in the reported examples.",
+    "All linear extensions are enumerated; no sampling is used.",
+    "No hardware or compiler measurement is involved."
+  ],
+  "claim": "For the four enumerated labeled posets, the set of achievable LRU miss counts under uniform linear extensions differs from the unconstrained multiset-permutation distribution; specifically, two_chains has mean 8/3 with misses in {2,4}, while the unconstrained swap_pair has mean 3 and misses in {2,3,4}.",
+  "proof_status": "numerically-checked",
+  "proof_notes": "Exact enumeration of every linear extension for four small posets; see checks.json and notes.md.",
+  "proof_artifact": "",
+  "numerical_checks": [
+    "chain_abab: 1 extension, misses 4.",
+    "two_chains: 6 extensions, misses {2,4}, mean 8/3.",
+    "diamond: 2 extensions, misses {2,4}, mean 3.",
+    "swap_pair: 24 permutations, misses {2,3,4}, mean 3."
+  ],
+  "check_artifacts": [
+    "research/claims/CLM-20261107-DAG1/checks.json"
+  ],
+  "counterexamples": [],
+  "counterexample_artifacts": [],
+  "prior_art": [
+    "Cache behavior under constrained schedules is related to classical locality and scheduling work; no novelty is claimed and a full prior-art audit is pending."
+  ],
+  "unresolved_obligations": [
+    "Extend beyond four toy posets.",
+    "Specify and justify a distribution over schedules for any compiler connection.",
+    "Audit prior art on locality under partial orders."
+  ],
+  "review": {
+    "status": "not-reviewed",
+    "reviewer": "",
+    "reviewer_type": "unknown",
+    "decision": "not-reviewed",
+    "artifact": "",
+    "notes": "No independent or human review yet."
+  },
+  "artifacts": [
+    "research/theory/lru-multiset-exact.md",
+    "research/theory/code/lru_exact.py",
+    "research/claims/CLM-20261107-DAG1/notes.md"
+  ],
+  "limitations": [
+    "Toy posets only; enumeration does not scale.",
+    "Uniform linear extensions are an assumption, not a fact about compilers or programs.",
+    "No measured runtime or LLVM transformation is involved."
+  ],
+  "next_action": "State a realistic schedule distribution and test whether any poset-derived bound adds predictive value over simple static features."
+}
