@@ -16,5 +16,7 @@ requires the key findings to be re-verified on a consistent toolchain without
 proposed next experiment is in Section 10.
 
 - [LoopFusion research notes](../research/loopfusion/README.md)
+- [Portable research harness](../research/harness/README.md)
+- [Research state index](../research/state/index.md)
 - [Raw evidence](../results/)
 - [Contribution and evidence conventions](../CONTRIBUTING.md)

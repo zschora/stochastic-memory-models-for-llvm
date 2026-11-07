@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "record_type": "simulation",
+  "simulation_id": "SIM-0001-handoff-smoke",
+  "title": "Documentation-only handoff and review smoke test",
+  "status": "completed",
+  "created_utc": "2026-11-07T00:00:00Z",
+  "git": {
+    "base_commit": "f828d8ecb30caff405872f619d98827b04cc6dec",
+    "branch": "chore/research-harness",
+    "working_tree_dirty": true,
+    "available": true
+  },
+  "hypothesis_id": "H-HARNESS-001",
+  "roles": ["research-lead", "critical-reviewer"],
+  "question": "Can a fresh session use only repository files to select a hypothesis, produce a bounded handoff and record a review without the original conversation?",
+  "protocol_steps": [
+    "Load AGENTS.md, CONTRIBUTING.md and research/state/index.md.",
+    "Select H-HARNESS-001 and read the harness README/protocol only.",
+    "Assign a documentation-only task to the lead and a claim-only review to the critical reviewer.",
+    "Record the handoff and the reviewer verdict in this directory.",
+    "Validate the record and update the research state index."
+  ],
+  "review": {
+    "status": "model-assisted-self-review",
+    "reviewer": "same model as author",
+    "reviewer_type": "same-model",
+    "decision": "accept-with-limits",
+    "artifact": "research/runs/SIM-0001-handoff-smoke/review.md",
+    "notes": "The reviewer checked the handoff and validator behavior, but this is not independent verification.",
+    "reviewed_utc": "2026-11-07T00:00:00Z"
+  },
+  "outcome": "accept-with-limits: the protocol is usable without a transcript, but it has not been tested on a real R1 campaign or by an independent agent.",
+  "limitations": [
+    "No compiler was built and no code was executed.",
+    "No runtime, IR, assembly or mathematical evidence is present.",
+    "The author and reviewer are the same model; this is a smoke test only."
+  ],
+  "artifacts": [
+    "research/runs/SIM-0001-handoff-smoke/brief.md",
+    "research/runs/SIM-0001-handoff-smoke/review.md"
+  ],
+  "next_action": "Use the harness for R1-A and record real handoff friction; request an independent or human review before promoting the protocol claim."
+}
