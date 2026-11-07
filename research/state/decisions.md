@@ -186,3 +186,20 @@ are an in-sample screen, not a deployable model.
 
 **Consequences:** Some predictors are unevaluable until static extraction is
 stronger, and the R1 two-signal numbers cannot be reused as validation.
+
+## D-015 - Baseline roles and memory-size provenance
+
+**Context:** R1.1 predictor selection could substitute R1-F patched-opt points
+for baseline points, and "footprint_bytes" described one array stream while the
+reports often called it the working set.
+
+**Decision:** Baseline evaluation accepts only explicitly baseline-eligible
+campaigns with verified unpatched provenance; R1-F is a separate experimental
+role. Evidence labels come directly from `r1_stats`. Memory features distinguish
+element count, bytes per stream, distinct stream count, allocation (unknown),
+unique touched bytes (unknown) and a multi-stream footprint proxy. No allocation
+or cache-working-set value is inferred from `n` alone.
+
+**Consequences:** The three historical SIMD points are restored; R1-F cannot
+contaminate baseline metrics; footprint rules must be described as scenario
+proxies. Predictor v3 is versioned beside the historical v2 output.

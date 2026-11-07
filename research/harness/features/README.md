@@ -24,6 +24,10 @@ The extractor is [`../../../scripts/r1_features.py`](../../../scripts/r1_feature
   calls. `known_vec` modes are selected by the mode name.
 - Extracts explicit vectorization metadata, a metadata-conflict flag, element
   size, a conservative exact/shifted/unknown reuse label, and a trip-count hint.
+- Records memory sizes separately: element count, bytes per memory stream,
+  distinct stream count, `footprint_proxy_bytes = n * element_bytes * streams`,
+  and reused bytes. It does **not** claim bytes allocated, unique touched bytes
+  or a cache working set; those remain `unknown` unless independently known.
 - Marks unsupported facts as `unknown`; it never invents them.
 
 ## Limitations

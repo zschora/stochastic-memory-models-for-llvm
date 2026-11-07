@@ -49,6 +49,10 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def jsonable_sets(mapping: dict[str, set[str]]) -> dict[str, list[str]]:
+    return {key: sorted(values) for key, values in mapping.items()}
+
+
 def parse_output(text: str) -> tuple[list[tuple[int, float]], list[str], str | None, dict]:
     trials, checks, verify, meta = [], [], None, {}
     for line in text.splitlines():
@@ -118,21 +122,9 @@ def measurement_directory(campaign_dir: Path, case: str, mode: str, n: int,
 
 
 def validate_existing(directory: Path, parameters: dict) -> bool:
-    if not r1_stats.validate_completed_measurement(directory, parameters):
-        return False
-    try:
-        summary = json.loads((directory / "summary.json").read_text(encoding="utf-8"))
-        rows = r1_stats.read_raw_csv(directory / "raw.csv")
-        observations = r1_stats.process_observations(rows, parameters["configs"])
-        if len(observations) != parameters["blocks"]:
-            return False
-        if summary.get("parameters") != parameters:
-            return False
-        if summary.get("point_id") != r1_stats.point_id(parameters):
-            return False
-    except Exception:
-        return False
-    return summary.get("status") == "complete"
+    ok, _ = r1_stats.validate_measurement_artifacts(
+        directory, parameters, root=ROOT)
+    return ok
 
 
 def main() -> int:
@@ -185,7 +177,7 @@ def main() -> int:
         / "llvm-24.0.0git-6f41962-v2.json")
     manifest_path = manifest_path if manifest_path.is_absolute() else root / manifest_path
     toolchain = load_toolchain(manifest_path)
-    toolchain_sha = sha256_file(manifest_path)
+    toolchain_sha = r1_stats.sha256_text_file(manifest_path)
 
     parameters = r1_stats.measurement_parameters(
         args.campaign, args.case, args.mode, args.n, configs, args.reps,
@@ -263,9 +255,10 @@ def main() -> int:
                 entry["status"] = "failed"
                 entry["error"] = f"timeout after {args.timeout}s"
                 r1_stats.atomic_write_json(directory / "failure.json", {
-                    "block": entry, "command": cmd,
+                    "reason": entry["error"], "block": entry, "command": cmd,
                     "stdout": (exc.stdout or "")[-4000:],
                     "stderr": (exc.stderr or "")[-4000:],
+                    "schedule": schedule,
                 })
                 r1_stats.atomic_write_json(directory / "schedule.json", {
                     "seed": args.seed, "blocks": args.blocks, "configs": configs,
@@ -288,7 +281,8 @@ def main() -> int:
                 entry["status"] = "failed"
                 r1_stats.atomic_write_json(directory / "failure.json", {
                     "block": entry, "stdout": proc.stdout, "stderr": proc.stderr,
-                    "command": cmd,
+                    "command": cmd, "schedule": schedule,
+                    "reason": f"process returned {proc.returncode}",
                 })
                 r1_stats.atomic_write_json(directory / "schedule.json", {
                     "seed": args.seed, "blocks": args.blocks, "configs": configs,
@@ -336,7 +330,7 @@ def main() -> int:
         measurement["error"] = f"checksum mismatch: {checks}"
         r1_stats.atomic_write_json(directory / "measurement.json", measurement)
         r1_stats.atomic_write_json(directory / "failure.json", {
-            "reason": "checksum mismatch", "checks": checks,
+            "reason": "checksum mismatch", "checks": jsonable_sets(checks),
             "schedule": schedule,
         })
         raise SystemExit(f"CHECKSUM MISMATCH across configurations: {checks}")
@@ -345,7 +339,7 @@ def main() -> int:
         measurement["error"] = f"verify failure: {verifies}"
         r1_stats.atomic_write_json(directory / "measurement.json", measurement)
         r1_stats.atomic_write_json(directory / "failure.json", {
-            "reason": "verify failure", "verify": verifies,
+            "reason": "verify failure", "verify": jsonable_sets(verifies),
             "schedule": schedule,
         })
         raise SystemExit(f"VERIFY failure: {verifies}")
@@ -386,6 +380,9 @@ def main() -> int:
     measurement["status"] = "complete"
     measurement["completed_utc"] = now_utc()
     measurement["raw_csv"] = summary["raw_csv"]
+    measurement["raw_sha256"] = r1_stats.sha256_text_file(directory / "raw.csv")
+    measurement["summary_sha256"] = r1_stats.sha256_text_file(directory / "summary.json")
+    measurement["schedule_sha256"] = r1_stats.sha256_text_file(directory / "schedule.json")
     r1_stats.atomic_write_json(directory / "measurement.json", measurement)
     print(json.dumps(summary, indent=2) if args.json else
           f"measurement complete: {directory}")

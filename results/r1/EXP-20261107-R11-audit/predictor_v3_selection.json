@@ -1,0 +1,657 @@
+{
+  "policy": "baseline-eligible verified campaigns only; explicit priority; stable key",
+  "selected": [
+    {
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "known_vec",
+      "mode": "body",
+      "n": 10000,
+      "point_id": "m-3a37203853e592ff",
+      "priority": 30
+    },
+    {
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "known_vec",
+      "mode": "hot",
+      "n": 10000,
+      "point_id": "m-75a84c56039d8152",
+      "priority": 30
+    },
+    {
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "known_vec",
+      "mode": "setup",
+      "n": 10000,
+      "point_id": "m-a8fd83ec6f809d36",
+      "priority": 30
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "producer_consumer",
+      "mode": "",
+      "n": 1024,
+      "point_id": "",
+      "priority": 10
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "producer_consumer",
+      "mode": "",
+      "n": 16384,
+      "point_id": "",
+      "priority": 10
+    },
+    {
+      "campaign": "EXP-20261107-R11-followup",
+      "case": "producer_consumer",
+      "mode": "",
+      "n": 131072,
+      "point_id": "m-29603f290e893881",
+      "priority": 25
+    },
+    {
+      "campaign": "EXP-20261107-R11-followup",
+      "case": "producer_consumer",
+      "mode": "",
+      "n": 1048576,
+      "point_id": "m-62a8876a315ad8ff",
+      "priority": 25
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "producer_consumer",
+      "mode": "",
+      "n": 8388608,
+      "point_id": "",
+      "priority": 10
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "producer_consumer_split",
+      "mode": "",
+      "n": 1024,
+      "point_id": "",
+      "priority": 10
+    },
+    {
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "producer_consumer_split",
+      "mode": "",
+      "n": 16384,
+      "point_id": "m-d7e928956fe7c02e",
+      "priority": 30
+    },
+    {
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "producer_consumer_split",
+      "mode": "",
+      "n": 131072,
+      "point_id": "m-963e961e40410906",
+      "priority": 30
+    },
+    {
+      "campaign": "EXP-20261107-R11-followup",
+      "case": "producer_consumer_split",
+      "mode": "",
+      "n": 1048576,
+      "point_id": "m-39e122e6864764a2",
+      "priority": 25
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "producer_consumer_split",
+      "mode": "",
+      "n": 8388608,
+      "point_id": "",
+      "priority": 10
+    },
+    {
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "read_read",
+      "mode": "",
+      "n": 1024,
+      "point_id": "m-764adbb10b455d9f",
+      "priority": 30
+    },
+    {
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "read_read",
+      "mode": "",
+      "n": 16384,
+      "point_id": "m-1dc0558802a83c47",
+      "priority": 30
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "read_read",
+      "mode": "",
+      "n": 131072,
+      "point_id": "",
+      "priority": 10
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "read_read",
+      "mode": "",
+      "n": 1048576,
+      "point_id": "",
+      "priority": 10
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "read_read",
+      "mode": "",
+      "n": 8388608,
+      "point_id": "",
+      "priority": 10
+    },
+    {
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "read_read_offset",
+      "mode": "",
+      "n": 1024,
+      "point_id": "m-3b3fdfac94f25ca1",
+      "priority": 30
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "read_read_offset",
+      "mode": "",
+      "n": 16384,
+      "point_id": "",
+      "priority": 10
+    },
+    {
+      "campaign": "EXP-20261107-R11-followup",
+      "case": "read_read_offset",
+      "mode": "",
+      "n": 131072,
+      "point_id": "m-3aed875b0bc49947",
+      "priority": 25
+    },
+    {
+      "campaign": "EXP-20261107-R11-followup",
+      "case": "read_read_offset",
+      "mode": "",
+      "n": 1048576,
+      "point_id": "m-47e7944378e1a29e",
+      "priority": 25
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "read_read_offset",
+      "mode": "",
+      "n": 8388608,
+      "point_id": "",
+      "priority": 10
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "shifted_reuse",
+      "mode": "",
+      "n": 1024,
+      "point_id": "",
+      "priority": 10
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "shifted_reuse",
+      "mode": "",
+      "n": 16384,
+      "point_id": "",
+      "priority": 10
+    },
+    {
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "shifted_reuse",
+      "mode": "",
+      "n": 131072,
+      "point_id": "m-7ee7ffc54a89b7fb",
+      "priority": 30
+    },
+    {
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "shifted_reuse",
+      "mode": "",
+      "n": 1048576,
+      "point_id": "m-f72f458050c25ffd",
+      "priority": 30
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "shifted_reuse",
+      "mode": "",
+      "n": 8388608,
+      "point_id": "",
+      "priority": 10
+    },
+    {
+      "campaign": "EXP-20261107-R1C-offsets",
+      "case": "shifted_reuse_k2",
+      "mode": "",
+      "n": 16384,
+      "point_id": "",
+      "priority": 11
+    },
+    {
+      "campaign": "EXP-20261107-R1C-offsets",
+      "case": "shifted_reuse_k2",
+      "mode": "",
+      "n": 131072,
+      "point_id": "",
+      "priority": 11
+    },
+    {
+      "campaign": "EXP-20261107-R1C-offsets",
+      "case": "shifted_reuse_k2",
+      "mode": "",
+      "n": 1048576,
+      "point_id": "",
+      "priority": 11
+    },
+    {
+      "campaign": "EXP-20261107-R1C-offsets",
+      "case": "shifted_reuse_k2",
+      "mode": "",
+      "n": 8388608,
+      "point_id": "",
+      "priority": 11
+    },
+    {
+      "campaign": "EXP-20261107-R1C-offsets",
+      "case": "shifted_reuse_k4",
+      "mode": "",
+      "n": 16384,
+      "point_id": "",
+      "priority": 11
+    },
+    {
+      "campaign": "EXP-20261107-R1C-offsets",
+      "case": "shifted_reuse_k4",
+      "mode": "",
+      "n": 131072,
+      "point_id": "",
+      "priority": 11
+    },
+    {
+      "campaign": "EXP-20261107-R1C-offsets",
+      "case": "shifted_reuse_k4",
+      "mode": "",
+      "n": 1048576,
+      "point_id": "",
+      "priority": 11
+    },
+    {
+      "campaign": "EXP-20261107-R1C-offsets",
+      "case": "shifted_reuse_k4",
+      "mode": "",
+      "n": 8388608,
+      "point_id": "",
+      "priority": 11
+    },
+    {
+      "campaign": "EXP-20261107-R1C-offsets",
+      "case": "shifted_reuse_k8",
+      "mode": "",
+      "n": 16384,
+      "point_id": "",
+      "priority": 11
+    },
+    {
+      "campaign": "EXP-20261107-R1C-offsets",
+      "case": "shifted_reuse_k8",
+      "mode": "",
+      "n": 131072,
+      "point_id": "",
+      "priority": 11
+    },
+    {
+      "campaign": "EXP-20261107-R1C-offsets",
+      "case": "shifted_reuse_k8",
+      "mode": "",
+      "n": 1048576,
+      "point_id": "",
+      "priority": 11
+    },
+    {
+      "campaign": "EXP-20261107-R1C-offsets",
+      "case": "shifted_reuse_k8",
+      "mode": "",
+      "n": 8388608,
+      "point_id": "",
+      "priority": 11
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "simd_metadata",
+      "mode": "",
+      "n": 1024,
+      "point_id": "",
+      "priority": 10
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "simd_metadata",
+      "mode": "",
+      "n": 16384,
+      "point_id": "",
+      "priority": 10
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "simd_metadata",
+      "mode": "",
+      "n": 131072,
+      "point_id": "",
+      "priority": 10
+    },
+    {
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "simd_metadata",
+      "mode": "",
+      "n": 1048576,
+      "point_id": "m-2bffc5a5ad9e964a",
+      "priority": 30
+    },
+    {
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "simd_metadata",
+      "mode": "",
+      "n": 8388608,
+      "point_id": "m-293bdcacd3201147",
+      "priority": 30
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "simd_metadata_scalar",
+      "mode": "",
+      "n": 1024,
+      "point_id": "",
+      "priority": 10
+    },
+    {
+      "campaign": "EXP-20261107-R11-audit",
+      "case": "simd_metadata_scalar",
+      "mode": "",
+      "n": 16384,
+      "point_id": "m-f5a34a5fc3d5ff66",
+      "priority": 30
+    },
+    {
+      "campaign": "EXP-20261107-R11-followup",
+      "case": "simd_metadata_scalar",
+      "mode": "",
+      "n": 131072,
+      "point_id": "m-27be369ed33d11f4",
+      "priority": 25
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "simd_metadata_scalar",
+      "mode": "",
+      "n": 1048576,
+      "point_id": "",
+      "priority": 10
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "simd_metadata_scalar",
+      "mode": "",
+      "n": 8388608,
+      "point_id": "",
+      "priority": 10
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "simd_reduction",
+      "mode": "",
+      "n": 16384,
+      "point_id": "",
+      "priority": 10
+    },
+    {
+      "campaign": "EXP-20261107-R11-followup",
+      "case": "simd_reduction",
+      "mode": "",
+      "n": 1048576,
+      "point_id": "m-60729f44d25f6811",
+      "priority": 25
+    },
+    {
+      "campaign": "EXP-20261107-R11-followup",
+      "case": "simd_reduction",
+      "mode": "",
+      "n": 8388608,
+      "point_id": "m-0c6e19239379bb6e",
+      "priority": 25
+    }
+  ],
+  "excluded": [
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "simd_reduction",
+      "mode": "",
+      "n": 8388608,
+      "reason": "superseded by EXP-20261107-R11-followup (explicit priority)"
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "simd_reduction",
+      "mode": "",
+      "n": 1048576,
+      "reason": "superseded by EXP-20261107-R11-followup (explicit priority)"
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "simd_metadata_scalar",
+      "mode": "",
+      "n": 131072,
+      "reason": "superseded by EXP-20261107-R11-followup (explicit priority)"
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "simd_metadata_scalar",
+      "mode": "",
+      "n": 16384,
+      "reason": "superseded by EXP-20261107-R11-audit (explicit priority)"
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "simd_metadata",
+      "mode": "",
+      "n": 8388608,
+      "reason": "superseded by EXP-20261107-R11-audit (explicit priority)"
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "simd_metadata",
+      "mode": "",
+      "n": 1048576,
+      "reason": "superseded by EXP-20261107-R11-audit (explicit priority)"
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "shifted_reuse",
+      "mode": "",
+      "n": 1048576,
+      "reason": "superseded by EXP-20261107-R11-audit (explicit priority)"
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "shifted_reuse",
+      "mode": "",
+      "n": 131072,
+      "reason": "superseded by EXP-20261107-R11-audit (explicit priority)"
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "read_read_offset",
+      "mode": "",
+      "n": 1048576,
+      "reason": "superseded by EXP-20261107-R11-followup (explicit priority)"
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "read_read_offset",
+      "mode": "",
+      "n": 131072,
+      "reason": "superseded by EXP-20261107-R11-followup (explicit priority)"
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "read_read_offset",
+      "mode": "",
+      "n": 1024,
+      "reason": "superseded by EXP-20261107-R11-audit (explicit priority)"
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "read_read",
+      "mode": "",
+      "n": 16384,
+      "reason": "superseded by EXP-20261107-R11-audit (explicit priority)"
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "read_read",
+      "mode": "",
+      "n": 1024,
+      "reason": "superseded by EXP-20261107-R11-audit (explicit priority)"
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "producer_consumer_split",
+      "mode": "",
+      "n": 1048576,
+      "reason": "superseded by EXP-20261107-R11-followup (explicit priority)"
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "producer_consumer_split",
+      "mode": "",
+      "n": 131072,
+      "reason": "superseded by EXP-20261107-R11-audit (explicit priority)"
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "producer_consumer_split",
+      "mode": "",
+      "n": 16384,
+      "reason": "superseded by EXP-20261107-R11-audit (explicit priority)"
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "producer_consumer",
+      "mode": "",
+      "n": 1048576,
+      "reason": "superseded by EXP-20261107-R11-followup (explicit priority)"
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "producer_consumer",
+      "mode": "",
+      "n": 131072,
+      "reason": "superseded by EXP-20261107-R11-followup (explicit priority)"
+    },
+    {
+      "campaign": "EXP-20261107-R1A",
+      "case": "known_vec",
+      "mode": "body",
+      "n": 10000,
+      "reason": "superseded by EXP-20261107-R11-audit (explicit priority)"
+    },
+    {
+      "campaign": "EXP-20261107-R1F-patch",
+      "case": "simd_reduction",
+      "mode": "",
+      "n": 1048576,
+      "reason": "campaign role patched_experimental is not baseline-eligible"
+    },
+    {
+      "campaign": "EXP-20261107-R1F-patch",
+      "case": "simd_metadata",
+      "mode": "",
+      "n": 8388608,
+      "reason": "campaign role patched_experimental is not baseline-eligible"
+    },
+    {
+      "campaign": "EXP-20261107-R1F-patch",
+      "case": "simd_metadata",
+      "mode": "",
+      "n": 1048576,
+      "reason": "campaign role patched_experimental is not baseline-eligible"
+    },
+    {
+      "campaign": "EXP-20261107-R1F-patch",
+      "case": "simd_metadata",
+      "mode": "",
+      "n": 131072,
+      "reason": "campaign role patched_experimental is not baseline-eligible"
+    },
+    {
+      "campaign": "EXP-20261107-R1F-patch",
+      "case": "simd_metadata",
+      "mode": "",
+      "n": 16384,
+      "reason": "campaign role patched_experimental is not baseline-eligible"
+    },
+    {
+      "campaign": "EXP-20261107-R1F-patch",
+      "case": "simd_metadata",
+      "mode": "",
+      "n": 1024,
+      "reason": "campaign role patched_experimental is not baseline-eligible"
+    },
+    {
+      "campaign": "EXP-20261107-R1F-patch",
+      "case": "shifted_reuse",
+      "mode": "",
+      "n": 1048576,
+      "reason": "campaign role patched_experimental is not baseline-eligible"
+    }
+  ],
+  "campaign_roles": {
+    "EXP-20261107-R1A": {
+      "role": "baseline_historical",
+      "baseline_eligible": true,
+      "priority": 10,
+      "toolchain": "v1 historical manifest",
+      "notes": "unpatched LLVM 6f41962; native clang IR; historical five-block campaign"
+    },
+    "EXP-20261107-R1C-offsets": {
+      "role": "baseline_historical",
+      "baseline_eligible": true,
+      "priority": 11,
+      "toolchain": "v1 historical manifest",
+      "notes": "unpatched LLVM 6f41962; shifted-offset family"
+    },
+    "EXP-20261107-R11-audit": {
+      "role": "baseline_remeasurement",
+      "baseline_eligible": true,
+      "priority": 30,
+      "toolchain": "v2 verified manifest",
+      "notes": "randomized complete blocks; seven/nine blocks; corrected runner"
+    },
+    "EXP-20261107-R11-followup": {
+      "role": "baseline_remeasurement",
+      "baseline_eligible": true,
+      "priority": 25,
+      "toolchain": "v2 verified manifest",
+      "notes": "randomized complete blocks; seven blocks; follow-up points"
+    },
+    "EXP-20261107-R1F-patch": {
+      "role": "patched_experimental",
+      "baseline_eligible": false,
+      "priority": 0,
+      "toolchain": "locally patched opt; unverified",
+      "notes": "must never enter baseline profitability evaluation"
+    },
+    "EXP-20261107-R1B-min": {
+      "role": "diagnostic_only",
+      "baseline_eligible": false,
+      "priority": 0,
+      "toolchain": "diagnostic",
+      "notes": "minimal IR mechanism evidence"
+    }
+  }
+}

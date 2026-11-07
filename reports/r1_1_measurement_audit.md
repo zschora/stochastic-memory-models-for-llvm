@@ -1,5 +1,12 @@
 # R1.1 - Measurement Integrity and Statistical Audit
 
+> **R1.1.1 erratum (2026-11-07):** the `n` values below are element counts, not
+> MiB. The R1.1 predictor used a one-stream footprint proxy and the R1.1
+> predictor selection could be contaminated by R1-F. The corrected dataset,
+> memory accounting and predictor v3 are in
+> [`r1_1_1_evidence_integrity.md`](r1_1_1_evidence_integrity.md). Original
+> measurements and this report are retained as historical evidence.
+
 - Date: 2026-11-07
 - Branch: `fix/r1-measurement-integrity`
 - Baseline `main` reviewed: `d48d090b723e080fe35360a9622c87cc7a461a43`

@@ -32,18 +32,36 @@
         "reuse_kind": {"enum": ["exact", "shifted", "unknown"]},
         "element_bytes": {"type": ["integer", "null"]},
         "trip_count": {"type": "string"},
+        "memory": {
+          "type": "object",
+          "required": ["n_elements", "element_bytes", "streams",
+                       "bytes_per_stream", "footprint_proxy_bytes",
+                       "reused_bytes", "bytes_allocated",
+                       "unique_bytes_touched", "working_set_estimate",
+                       "footprint_definition", "aliasing", "bounds"]
+        },
         "feature_confidence": {"type": "string"},
         "unknowns": {"type": "array", "items": {"type": "string"}}
       }
     },
     "scenario": {
       "type": "object",
-      "required": ["n", "footprint_bytes", "l3_bytes", "fits_l3", "source"],
+      "required": ["n", "n_elements", "element_bytes", "bytes_per_stream",
+                   "streams", "footprint_proxy_bytes", "reused_bytes",
+                   "bytes_allocated", "working_set_estimate", "l3_bytes",
+                   "fits_l3_proxy", "source"],
       "properties": {
         "n": {"type": ["integer", "null"]},
-        "footprint_bytes": {"type": ["integer", "null"]},
+        "n_elements": {"type": ["integer", "null"]},
+        "element_bytes": {"type": ["integer", "null"]},
+        "bytes_per_stream": {"type": ["integer", "null"]},
+        "streams": {"type": ["integer", "null"]},
+        "footprint_proxy_bytes": {"type": ["integer", "null"]},
+        "reused_bytes": {"type": ["integer", "null"]},
+        "bytes_allocated": {"type": ["string", "integer", "null"]},
+        "working_set_estimate": {"type": ["string", "integer", "null"]},
         "l3_bytes": {"type": ["integer", "null"]},
-        "fits_l3": {"type": "boolean"},
+        "fits_l3_proxy": {"type": "boolean"},
         "source": {"type": "string"}
       }
     },
