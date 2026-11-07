@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.1",
+  "record_type": "r1-measurement",
+  "campaign": "EXP-20261107-R12-tsvc-pinned",
+  "case": "tsvc_s2233",
+  "mode": "",
+  "n": 256,
+  "point_id": "m-a5fff5bf7ab3986b",
+  "attempt": 1,
+  "status": "complete",
+  "created_utc": "2026-11-07T09:19:49Z",
+  "parameters": {
+    "campaign": "EXP-20261107-R12-tsvc-pinned",
+    "case": "tsvc_s2233",
+    "mode": "",
+    "n": 256,
+    "configs": [
+      "A",
+      "B",
+      "C",
+      "AA"
+    ],
+    "reps": 1,
+    "trials": 5,
+    "blocks": 15,
+    "seed": 20261110,
+    "exe_sha256": {
+      "A": "3a7bb0abc67f99237e0e16e226194f6600aed64850c7c484cb87eee85ba906d5",
+      "AA": "3a7bb0abc67f99237e0e16e226194f6600aed64850c7c484cb87eee85ba906d5",
+      "B": "2158a17ac294bee261655f2b05fbc7d0bae278c43b5dc7e40387b297d66df0cd",
+      "C": "c7ead3bbf6e7924ee5a0d3efc3b31586f6c3dde5e364ef62c204cf904e80596a"
+    },
+    "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+  },
+  "toolchain": {
+    "manifest_path": "research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json",
+    "manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900",
+    "llvm_revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+    "toolchain_id": "TC-llvm-24.0.0git-6f41962-v2",
+    "consistency": "verified"
+  },
+  "host": {
+    "os": "Windows 11 (10.0.26200)",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "logical_cpus": 16,
+    "python": "3.12.5",
+    "caches": {
+      "L2_mb_per_pcore": 1.25,
+      "L1d_kb_per_pcore": 48,
+      "L3_mb": 18
+    }
+  },
+  "timing_unit": "ns per kernel call",
+  "warmup_policy": "benchmark-specific warmup in benchmarks/harness.hpp before trials",
+  "affinity": "requested logical CPU 2 and HIGH_PRIORITY_CLASS; harness reports failures on stderr",
+  "environment": {
+    "warnings": []
+  },
+  "schedule_seed": 20261110,
+  "schedule_json": "schedule.json",
+  "exe_sha256": {
+    "A": "3a7bb0abc67f99237e0e16e226194f6600aed64850c7c484cb87eee85ba906d5",
+    "B": "2158a17ac294bee261655f2b05fbc7d0bae278c43b5dc7e40387b297d66df0cd",
+    "C": "c7ead3bbf6e7924ee5a0d3efc3b31586f6c3dde5e364ef62c204cf904e80596a",
+    "AA": "3a7bb0abc67f99237e0e16e226194f6600aed64850c7c484cb87eee85ba906d5"
+  },
+  "configs": [
+    "A",
+    "B",
+    "C",
+    "AA"
+  ],
+  "completed_utc": "2026-11-07T09:20:10Z",
+  "raw_csv": "results/r1/EXP-20261107-R12-tsvc-pinned/measurements/tsvc_s2233/mode-default/n-256/m-a5fff5bf7ab3986b/attempt-01/raw.csv",
+  "raw_sha256": "74cba18e236b89fcbfab2c6c952d85df06f72d2cdc5e8d829923b59f5c32a042",
+  "summary_sha256": "1e1410e961cf2fcb888872857e1372de2b8109b944ec4773981d476b27a03167",
+  "schedule_sha256": "e526454cbfacbd98f5f306c5ddf6b1f0ccd2e123ac17f4de999d61275a716bfd"
+}

@@ -1,0 +1,672 @@
+﻿opt.exe : Loop info for function 'main':
+C:\work\llvm-profitability-research\scripts\r1_build_case.ps1:95 знак:3
++   & $Opt -passes="print<loops>" -disable-output $ll 2>&1 | Out-File $ ...
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Loop info for function 'main'::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Loop at depth 1 containing: %.lr.ph.us<header>,%34,%._crit_edge.us<latch><exiting>
+    Loop at depth 2 containing: %34<header><latch><exiting>
+Loop at depth 1 containing: %.lr.ph28.split<header><latch><exiting>
+Loop info for function '?hash_bytes@@YA_KPEBX_K@Z':
+Loop at depth 1 containing: %2<header><latch><exiting>
+Loop info for function 'printf':
+Loop info for function '?now@steady_clock@chrono@std@@SA?AV?$time_point@Usteady_clock@chrono@std@@V?$duration@_JU?$rati
+o@$00$0DLJKMKAA@@std@@@23@@23@XZ':
+Loop info for function '??$?GUsteady_clock@chrono@std@@V?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@12@V312@@chrono@std@
+@YA?AV?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@01@AEBV?$time_point@Usteady_clock@chrono@std@@V?$duration@_JU?$ratio@$
+00$0DLJKMKAA@@std@@@23@@01@0@Z':
+Loop info for function '??$?0_JU?$ratio@$00$0DLJKMKAA@@std@@$0A@@?$duration@NU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@
+QEAA@AEBV?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@12@@Z':
+Loop info for function '?count@?$duration@NU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@QEBANXZ':
+Loop info for function '??$duration_cast@V?$duration@NU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@_JU?$ratio@$00$0DLJKMKA
+A@@3@$0A@@chrono@std@@YA?AV?$duration@NU?$ratio@$00$0DLJKMKAA@@std@@@01@AEBV?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@
+01@@Z':
+Loop info for function '?count@?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@QEBA_JXZ':
+Loop info for function '??$?0N$0A@@?$duration@NU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@QEAA@AEBN@Z':
+Loop info for function '?time_since_epoch@?$time_point@Usteady_clock@chrono@std@@V?$duration@_JU?$ratio@$00$0DLJKMKAA@@
+std@@@23@@chrono@std@@QEBA?AV?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@23@XZ':
+Loop info for function '??$?G_JU?$ratio@$00$0DLJKMKAA@@std@@_JU01@@chrono@std@@YA?AV?$duration@_JU?$ratio@$00$0DLJKMKAA
+@@std@@@01@AEBV201@0@Z':
+Loop info for function '??$?0_J$0A@@?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@QEAA@AEB_J@Z':
+Loop info for function '??0?$time_point@Usteady_clock@chrono@std@@V?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@23@@chron
+o@std@@QEAA@AEBV?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@12@@Z':
+Loop info for function '_vfprintf_l':
+Loop info for function '__local_stdio_printf_options':
+Loop info for function 'set1d':
+Loop at depth 1 containing: %.preheader<header><latch><exiting>
+Loop at depth 1 containing: %vector.body40<header><latch><exiting>
+Loop at depth 1 containing: %vector.body<header><latch><exiting>
+Loop info for function 'set1ds':
+Loop at depth 1 containing: %.preheader<header><latch><exiting>
+Loop at depth 1 containing: %vector.body40<header><latch><exiting>
+Loop at depth 1 containing: %vector.body<header><latch><exiting>
+Loop info for function 'set2d':
+Loop at depth 1 containing: %.preheader<header>,%140,%.preheader.1,%147,%152<latch><exiting>
+    Loop at depth 2 containing: %140<header><latch><exiting>
+    Loop at depth 2 containing: %147<header><latch><exiting>
+Loop at depth 1 containing: %.preheader34<header><latch><exiting>
+Loop at depth 1 containing: %.preheader37<header><latch><exiting>
+Loop info for function 'sum1d':
+Loop at depth 1 containing: %2<header><latch><exiting>
+Loop info for function 'check':
+Loop at depth 1 containing: %.preheader<header><latch><exiting>
+Loop at depth 1 containing: %.preheader86<header>,%24,%46<latch><exiting>
+    Loop at depth 2 containing: %24<header><latch><exiting>
+Loop at depth 1 containing: %2<header><latch><exiting>
+Loop info for function 'init':
+Loop at depth 1 containing: %vector.body<header><latch><exiting>
+Loop info for function 's000':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 'dummy':
+Loop info for function 's111':
+Loop at depth 1 containing: %.preheader<header>,%3,%17<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's1111':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's112':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%vector.body.1,%scalar.ph<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><exiting>,%vector.body.1<latch>
+Loop info for function 's1112':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's113':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%vector.body.1,%scalar.ph<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><exiting>,%vector.body.1<latch>
+Loop info for function 's1113':
+Loop at depth 1 containing: %.preheader<header>,%3,%14<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's114':
+Loop at depth 1 containing: %.preheader18<header>,%.preheader,%.lr.ph,%.lr.ph.new,%6,%._crit_edge.loopexit.unr-lcssa,%.
+epil.preheader,%._crit_edge,%22<latch><exiting>
+    Loop at depth 2 containing: %.preheader<header>,%.lr.ph,%.lr.ph.new,%6,%._crit_edge.loopexit.unr-lcssa,%.epil.prehe
+ader,%._crit_edge<latch><exiting>
+        Loop at depth 3 containing: %6<header><latch><exiting>
+Loop info for function 's115':
+Loop at depth 1 containing: %.preheader<header>,%3,%.lr.ph,%vector.ph,%vector.body,%middle.block,%scalar.ph.preheader,%
+scalar.ph,%.loopexit,%27<latch><exiting>
+    Loop at depth 2 containing: %3<header>,%.lr.ph,%vector.ph,%vector.body,%middle.block,%scalar.ph.preheader,%scalar.p
+h,%.loopexit<latch><exiting>
+        Loop at depth 3 containing: %vector.body<header><latch><exiting>
+        Loop at depth 3 containing: %scalar.ph<header><latch><exiting>
+Loop info for function 's1115':
+Loop at depth 1 containing: %.preheader19<header>,%.preheader,%vector.body,%middle.block,%43<latch><exiting>
+    Loop at depth 2 containing: %.preheader<header>,%vector.body,%middle.block<latch><exiting>
+        Loop at depth 3 containing: %vector.body<header><latch><exiting>
+Loop info for function 's116':
+Loop at depth 1 containing: %.preheader<header>,%3,%17,%29<latch><exiting>
+    Loop at depth 2 containing: %3<header><exiting>,%17<latch>
+Loop info for function 's118':
+Loop at depth 1 containing: %.preheader17<header>,%.preheader,%.preheader.new,%6,%.unr-lcssa,%.epil.preheader,%24,%25<l
+atch><exiting>
+    Loop at depth 2 containing: %.preheader<header>,%.preheader.new,%6,%.unr-lcssa,%.epil.preheader,%24<latch><exiting>
+        Loop at depth 3 containing: %6<header><latch><exiting>
+Loop info for function 's119':
+Loop at depth 1 containing: %.preheader17<header>,%.preheader,%vector.body,%vector.body.1,%scalar.ph,%66<latch><exiting
+>
+    Loop at depth 2 containing: %.preheader<header>,%vector.body,%vector.body.1,%scalar.ph<latch><exiting>
+        Loop at depth 3 containing: %vector.body<header><exiting>,%vector.body.1<latch>
+Loop info for function 's1119':
+Loop at depth 1 containing: %.preheader17<header>,%.preheader,%vector.body,%middle.block,%23<latch><exiting>
+    Loop at depth 2 containing: %.preheader<header>,%vector.body,%middle.block<latch><exiting>
+        Loop at depth 3 containing: %vector.body<header><latch><exiting>
+Loop info for function 's121':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%vector.body.1,%scalar.ph<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><exiting>,%vector.body.1<latch>
+Loop info for function 's122':
+Loop at depth 1 containing: %.lr.ph<header>,%7,%._crit_edge<latch><exiting>
+    Loop at depth 2 containing: %7<header><latch><exiting>
+Loop info for function 's123':
+Loop at depth 1 containing: %.preheader<header>,%3,%17,%22,%23<latch><exiting>
+    Loop at depth 2 containing: %3<header>,%17,%22<latch><exiting>
+Loop info for function 's124':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's125':
+Loop at depth 1 containing: %.preheader20<header>,%.preheader,%vector.ph,%vector.body,%scalar.ph,%middle.block,%43<latc
+h><exiting>
+    Loop at depth 2 containing: %.preheader<header>,%vector.ph,%vector.body,%scalar.ph,%middle.block<latch><exiting>
+        Loop at depth 3 containing: %vector.body<header><latch><exiting>
+        Loop at depth 3 containing: %scalar.ph<header><latch><exiting>
+Loop info for function 's126':
+Loop at depth 1 containing: %.preheader<header>,%2,%.preheader.1,%15,%.preheader.2,%28,%.preheader.3,%41,%.preheader.4,
+%54,%.preheader.5,%67,%.preheader.6,%80,%.preheader.7,%93,%.preheader.8,%106,%.preheader.9,%119,%132<latch><exiting>
+    Loop at depth 2 containing: %2<header><latch><exiting>
+    Loop at depth 2 containing: %15<header><latch><exiting>
+    Loop at depth 2 containing: %28<header><latch><exiting>
+    Loop at depth 2 containing: %41<header><latch><exiting>
+    Loop at depth 2 containing: %54<header><latch><exiting>
+    Loop at depth 2 containing: %67<header><latch><exiting>
+    Loop at depth 2 containing: %80<header><latch><exiting>
+    Loop at depth 2 containing: %93<header><latch><exiting>
+    Loop at depth 2 containing: %106<header><latch><exiting>
+    Loop at depth 2 containing: %119<header><latch><exiting>
+Loop info for function 's127':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's128':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%scalar.ph<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's131':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%vector.body.1,%scalar.ph<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><exiting>,%vector.body.1<latch>
+Loop info for function 's132':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%scalar.ph<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's141':
+Loop at depth 1 containing: %.preheader<header>,%3,%.prol.loopexit.unr-lcssa,%.prol.loopexit,%.new,%.loopexit,%31<latch
+><exiting>
+    Loop at depth 2 containing: %3<header>,%.prol.loopexit.unr-lcssa,%.prol.loopexit,%.new,%.loopexit<latch><exiting>
+        Loop at depth 3 containing: %.new<header><latch><exiting>
+Loop info for function 's151s':
+Loop at depth 1 containing: %scalar.ph<header><latch><exiting>
+Loop at depth 1 containing: %vector.body<header><exiting>,%vector.body.1<latch>
+Loop info for function 's151':
+Loop at depth 1 containing: %3<header><latch><exiting>
+Loop info for function 's152s':
+Loop info for function 's152':
+Loop at depth 1 containing: %.preheader<header>,%3,%12<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's161':
+Loop at depth 1 containing: %.preheader<header>,%3,%9,%16,%22,%23<latch><exiting>
+    Loop at depth 2 containing: %3<header>,%9,%16,%22<latch><exiting>
+Loop info for function 's1161':
+Loop at depth 1 containing: %.preheader<header>,%3,%7,%13,%19,%21<latch><exiting>
+    Loop at depth 2 containing: %3<header>,%7,%13,%19<latch><exiting>
+Loop info for function 's162':
+Loop at depth 1 containing: %vector.scevcheck<header>,%vector.body,%scalar.ph.preheader,%scalar.ph,%.loopexit<latch><ex
+iting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+    Loop at depth 2 containing: %scalar.ph<header><latch><exiting>
+Loop info for function 's171':
+Loop at depth 1 containing: %vector.scevcheck<header>,%scalar.ph,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %scalar.ph<header><latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's172':
+Loop at depth 1 containing: %.lr.ph<header>,%7,%._crit_edge,%._crit_edge.1<latch><exiting>
+    Loop at depth 2 containing: %7<header><latch><exiting>
+    Loop at depth 2 containing: %._crit_edge<header><latch><exiting>
+Loop info for function 's173':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's174':
+Loop at depth 1 containing: %.preheader<header>,%vector.body,%middle.block,%scalar.ph.preheader,%scalar.ph.prol,%scalar
+.ph.prol.loopexit,%scalar.ph,%._crit_edge<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+    Loop at depth 2 containing: %scalar.ph<header><latch><exiting>
+Loop info for function 's175':
+Loop at depth 1 containing: %.preheader<header>,%4,%15<latch><exiting>
+    Loop at depth 2 containing: %4<header><latch><exiting>
+Loop info for function 's176':
+Loop info for function 's211':
+Loop at depth 1 containing: %.preheader<header>,%3,%17<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's212':
+Loop at depth 1 containing: %.preheader<header>,%3,%16<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's1213':
+Loop at depth 1 containing: %.preheader<header>,%3,%14<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's221':
+Loop at depth 1 containing: %.preheader<header>,%3,%14<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's1221':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%vector.body.1,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><exiting>,%vector.body.1<latch>
+Loop info for function 's222':
+Loop at depth 1 containing: %.preheader<header>,%3,%15<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's231':
+Loop at depth 1 containing: %.preheader17<header>,%.preheader,%3,%25,%26<latch><exiting>
+    Loop at depth 2 containing: %.preheader<header>,%3,%25<latch><exiting>
+        Loop at depth 3 containing: %3<header><latch><exiting>
+Loop info for function 's232':
+Loop at depth 1 containing: %.preheader20<header>,%.preheader,%.preheader.new,%7,%.unr-lcssa,%.epil.preheader,%24,%.epi
+log-lcssa,%29<latch><exiting>
+    Loop at depth 2 containing: %.preheader<header>,%.preheader.new,%7,%.unr-lcssa,%.epil.preheader,%24,%.epilog-lcssa<
+latch><exiting>
+        Loop at depth 3 containing: %7<header><latch><exiting>
+        Loop at depth 3 containing: %24<header><latch><exiting>
+Loop info for function 's1232':
+Loop at depth 1 containing: %.preheader18<header>,%.preheader,%.prol.loopexit.unr-lcssa,%.prol.loopexit,%.preheader.new
+,%.unr-lcssa,%13<latch><exiting>
+    Loop at depth 2 containing: %.preheader<header>,%.prol.loopexit.unr-lcssa,%.prol.loopexit,%.preheader.new,%.unr-lcs
+sa<latch><exiting>
+        Loop at depth 3 containing: %.preheader.new<header><latch><exiting>
+Loop info for function 's233':
+Loop at depth 1 containing: %.preheader27<header>,%.preheader26,%3,%15,%16<latch><exiting>
+    Loop at depth 2 containing: %.preheader26<header>,%3,%15<latch><exiting>
+        Loop at depth 3 containing: %3<header><latch><exiting>
+Loop info for function 's2233':
+Loop at depth 1 containing: %.preheader27<header>,%.preheader26,%6,%20,%21<latch><exiting>
+    Loop at depth 2 containing: %.preheader26<header>,%6,%20<latch><exiting>
+        Loop at depth 3 containing: %6<header><latch><exiting>
+Loop info for function 's235':
+Loop at depth 1 containing: %.preheader<header>,%3,%11,%19,%27,%28<latch><exiting>
+    Loop at depth 2 containing: %3<header>,%11,%19,%27<latch><exiting>
+        Loop at depth 3 containing: %11<header><exiting>,%19<latch>
+Loop info for function 's241':
+Loop at depth 1 containing: %.preheader<header>,%3,%17<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's242':
+Loop at depth 1 containing: %.preheader<header>,%5,%18<latch><exiting>
+    Loop at depth 2 containing: %5<header><latch><exiting>
+Loop info for function 's243':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%scalar.ph<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's244':
+Loop at depth 1 containing: %.preheader<header>,%3,%21<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's1244':
+Loop at depth 1 containing: %.preheader<header>,%3,%16<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's2244':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%scalar.ph<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's251':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's1251':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's2251':
+Loop at depth 1 containing: %.preheader<header>,%3,%16<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's3251':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%scalar.ph<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's252':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's253':
+Loop at depth 1 containing: %.preheader<header>,%3,%9,%17,%18<latch><exiting>
+    Loop at depth 2 containing: %3<header>,%9,%17<latch><exiting>
+Loop info for function 's254':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's255':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's256':
+Loop at depth 1 containing: %.preheader.9<header>,%74,%81<latch><exiting>
+    Loop at depth 2 containing: %74<header><latch><exiting>
+Loop at depth 1 containing: %.preheader.8<header>,%66,%73<latch><exiting>
+    Loop at depth 2 containing: %66<header><latch><exiting>
+Loop at depth 1 containing: %.preheader.7<header>,%58,%65<latch><exiting>
+    Loop at depth 2 containing: %58<header><latch><exiting>
+Loop at depth 1 containing: %.preheader.6<header>,%50,%57<latch><exiting>
+    Loop at depth 2 containing: %50<header><latch><exiting>
+Loop at depth 1 containing: %.preheader.5<header>,%42,%49<latch><exiting>
+    Loop at depth 2 containing: %42<header><latch><exiting>
+Loop at depth 1 containing: %.preheader.4<header>,%34,%41<latch><exiting>
+    Loop at depth 2 containing: %34<header><latch><exiting>
+Loop at depth 1 containing: %.preheader.3<header>,%26,%33<latch><exiting>
+    Loop at depth 2 containing: %26<header><latch><exiting>
+Loop at depth 1 containing: %.preheader.2<header>,%18,%25<latch><exiting>
+    Loop at depth 2 containing: %18<header><latch><exiting>
+Loop at depth 1 containing: %.preheader.1<header>,%10,%17<latch><exiting>
+    Loop at depth 2 containing: %10<header><latch><exiting>
+Loop at depth 1 containing: %.preheader<header>,%2,%9<latch><exiting>
+    Loop at depth 2 containing: %2<header><latch><exiting>
+Loop info for function 's257':
+Loop at depth 1 containing: %.preheader.9<header>,%122,%131<latch><exiting>
+    Loop at depth 2 containing: %122<header><latch><exiting>
+Loop at depth 1 containing: %.preheader.8<header>,%109,%118<latch><exiting>
+    Loop at depth 2 containing: %109<header><latch><exiting>
+Loop at depth 1 containing: %.preheader.7<header>,%96,%105<latch><exiting>
+    Loop at depth 2 containing: %96<header><latch><exiting>
+Loop at depth 1 containing: %.preheader.6<header>,%83,%92<latch><exiting>
+    Loop at depth 2 containing: %83<header><latch><exiting>
+Loop at depth 1 containing: %.preheader.5<header>,%70,%79<latch><exiting>
+    Loop at depth 2 containing: %70<header><latch><exiting>
+Loop at depth 1 containing: %.preheader.4<header>,%57,%66<latch><exiting>
+    Loop at depth 2 containing: %57<header><latch><exiting>
+Loop at depth 1 containing: %.preheader.3<header>,%44,%53<latch><exiting>
+    Loop at depth 2 containing: %44<header><latch><exiting>
+Loop at depth 1 containing: %.preheader.2<header>,%31,%40<latch><exiting>
+    Loop at depth 2 containing: %31<header><latch><exiting>
+Loop at depth 1 containing: %.preheader.1<header>,%18,%27<latch><exiting>
+    Loop at depth 2 containing: %18<header><latch><exiting>
+Loop at depth 1 containing: %.preheader<header>,%5,%14<latch><exiting>
+    Loop at depth 2 containing: %5<header><latch><exiting>
+Loop info for function 's258':
+Loop at depth 1 containing: %.preheader<header>,%._crit_edge,%18<latch><exiting>
+    Loop at depth 2 containing: %._crit_edge<header><latch><exiting>
+Loop info for function 's261':
+Loop at depth 1 containing: %.preheader<header>,%3,%15<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's271':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%pred.store.if,%pred.store.continue,%pred.store.if20,%pred.
+store.continue21,%pred.store.if22,%pred.store.continue23,%pred.store.if24,%pred.store.continue25,%middle.block<latch><e
+xiting>
+    Loop at depth 2 containing: %vector.body<header>,%pred.store.if,%pred.store.continue,%pred.store.if20,%pred.store.c
+ontinue21,%pred.store.if22,%pred.store.continue23,%pred.store.if24,%pred.store.continue25<latch><exiting>
+Loop info for function 's272':
+Loop at depth 1 containing: %.preheader<header>,%4,%8,%19,%20<latch><exiting>
+    Loop at depth 2 containing: %4<header>,%8,%19<latch><exiting>
+Loop info for function 's273':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%pred.store.if,%pred.store.continue,%pred.store.if25,%pred.
+store.continue26,%pred.store.if27,%pred.store.continue28,%pred.store.if29,%pred.store.continue30,%middle.block<latch><e
+xiting>
+    Loop at depth 2 containing: %vector.body<header>,%pred.store.if,%pred.store.continue,%pred.store.if25,%pred.store.c
+ontinue26,%pred.store.if27,%pred.store.continue28,%pred.store.if29,%pred.store.continue30<latch><exiting>
+Loop info for function 's274':
+Loop at depth 1 containing: %.preheader<header>,%3,%17,%13,%19,%20<latch><exiting>
+    Loop at depth 2 containing: %3<header>,%17,%13,%19<latch><exiting>
+Loop info for function 's275':
+Loop at depth 1 containing: %2<header>,%.preheader,%6,%15,%.loopexit,%.preheader.1,%27,%36,%.loopexit.1,%.preheader.2,%
+48,%57,%.loopexit.2,%.preheader.3,%69,%78,%.loopexit.3,%.preheader.4,%90,%99,%.loopexit.4,%.preheader.5,%111,%120,%.loo
+pexit.5,%.preheader.6,%132,%141,%.loopexit.6,%.preheader.7,%153,%162,%.loopexit.7,%.preheader.8,%174,%183,%.loopexit.8,
+%.preheader.9,%195,%204,%.loopexit.9<latch><exiting>
+    Loop at depth 2 containing: %6<header><exiting>,%15<latch>
+    Loop at depth 2 containing: %27<header><exiting>,%36<latch>
+    Loop at depth 2 containing: %48<header><exiting>,%57<latch>
+    Loop at depth 2 containing: %69<header><exiting>,%78<latch>
+    Loop at depth 2 containing: %90<header><exiting>,%99<latch>
+    Loop at depth 2 containing: %111<header><exiting>,%120<latch>
+    Loop at depth 2 containing: %132<header><exiting>,%141<latch>
+    Loop at depth 2 containing: %153<header><exiting>,%162<latch>
+    Loop at depth 2 containing: %174<header><exiting>,%183<latch>
+    Loop at depth 2 containing: %195<header><exiting>,%204<latch>
+Loop info for function 's2275':
+Loop at depth 1 containing: %.preheader23<header>,%.preheader,%3,%12,%21<latch><exiting>
+    Loop at depth 2 containing: %.preheader<header>,%3,%12<latch><exiting>
+        Loop at depth 3 containing: %3<header><latch><exiting>
+Loop info for function 's276':
+Loop at depth 1 containing: %.preheader<header>,%3,%20<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's277':
+Loop at depth 1 containing: %.preheader<header>,%3,%7,%15,%._crit_edge,%21,%22<latch><exiting>
+    Loop at depth 2 containing: %3<header>,%7,%15,%._crit_edge,%21<latch><exiting>
+Loop info for function 's278':
+Loop at depth 1 containing: %.preheader<header>,%3,%11,%16,%21,%25<latch><exiting>
+    Loop at depth 2 containing: %3<header>,%11,%16,%21<latch><exiting>
+Loop info for function 's279':
+Loop at depth 1 containing: %.preheader<header>,%3,%7,%._crit_edge,%15,%21,%28,%33<latch><exiting>
+    Loop at depth 2 containing: %3<header>,%7,%._crit_edge,%15,%21,%28<latch><exiting>
+Loop info for function 's1279':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%pred.store.if,%pred.store.continue,%pred.store.if29,%pred.
+store.continue30,%pred.store.if31,%pred.store.continue32,%pred.store.if33,%pred.store.continue34,%pred.store.if35,%pred
+.store.continue36,%pred.store.if37,%pred.store.continue38,%pred.store.if39,%pred.store.continue40,%pred.store.if41,%pre
+d.store.continue42,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header>,%pred.store.if,%pred.store.continue,%pred.store.if29,%pred.store.c
+ontinue30,%pred.store.if31,%pred.store.continue32,%pred.store.if33,%pred.store.continue34,%pred.store.if35,%pred.store.
+continue36,%pred.store.if37,%pred.store.continue38,%pred.store.if39,%pred.store.continue40,%pred.store.if41,%pred.store
+.continue42<latch><exiting>
+Loop info for function 's2710':
+Loop at depth 1 containing: %.preheader.us<header>,%5,%11,%19,%26,%.split.us.us<latch><exiting>
+    Loop at depth 2 containing: %5<header>,%11,%19,%26<latch><exiting>
+Loop at depth 1 containing: %.preheader<header>,%28,%41,%35,%52,%.split<latch><exiting>
+    Loop at depth 2 containing: %28<header>,%41,%35,%52<latch><exiting>
+Loop info for function 's2711':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%pred.store.if,%pred.store.continue,%pred.store.if20,%pred.
+store.continue21,%pred.store.if22,%pred.store.continue23,%pred.store.if24,%pred.store.continue25,%middle.block<latch><e
+xiting>
+    Loop at depth 2 containing: %vector.body<header>,%pred.store.if,%pred.store.continue,%pred.store.if20,%pred.store.c
+ontinue21,%pred.store.if22,%pred.store.continue23,%pred.store.if24,%pred.store.continue25<latch><exiting>
+Loop info for function 's2712':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%pred.store.if,%pred.store.continue,%pred.store.if23,%pred.
+store.continue24,%pred.store.if25,%pred.store.continue26,%pred.store.if27,%pred.store.continue28,%middle.block<latch><e
+xiting>
+    Loop at depth 2 containing: %vector.body<header>,%pred.store.if,%pred.store.continue,%pred.store.if23,%pred.store.c
+ontinue24,%pred.store.if25,%pred.store.continue26,%pred.store.if27,%pred.store.continue28<latch><exiting>
+Loop info for function 's281':
+Loop at depth 1 containing: %.preheader<header>,%3,%14<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's1281':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's291':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's292':
+Loop at depth 1 containing: %.preheader<header>,%3,%23<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's293':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's2101':
+Loop at depth 1 containing: %.preheader<header>,%3,%24<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's2102':
+Loop at depth 1 containing: %.preheader15<header>,%.preheader,%3,%7,%10<latch><exiting>
+    Loop at depth 2 containing: %.preheader<header>,%3,%7<latch><exiting>
+        Loop at depth 3 containing: %3<header><latch><exiting>
+Loop info for function 's2111':
+Loop at depth 1 containing: %.preheader<header>,%36,%69<latch><exiting>
+    Loop at depth 2 containing: %36<header><latch><exiting>
+Loop at depth 1 containing: %.preheader26<header>,%.preheader25,%5,%26,%27<latch><exiting>
+    Loop at depth 2 containing: %.preheader25<header>,%5,%26<latch><exiting>
+        Loop at depth 3 containing: %5<header><latch><exiting>
+Loop info for function 's311':
+Loop info for function 'test':
+Loop info for function 's31111':
+Loop info for function 's312':
+Loop at depth 1 containing: %.preheader<header>,%3,%23<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's313':
+Loop at depth 1 containing: %.preheader<header>,%3,%14<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's314':
+Loop at depth 1 containing: %4<header>,%5,%13<latch><exiting>
+    Loop at depth 2 containing: %5<header><latch><exiting>
+Loop info for function 's315':
+Loop at depth 1 containing: %8<header>,%9,%18<latch><exiting>
+    Loop at depth 2 containing: %9<header><latch><exiting>
+Loop at depth 1 containing: %vector.body<header><latch><exiting>
+Loop info for function 's316':
+Loop at depth 1 containing: %4<header>,%5,%9,%13<latch><exiting>
+    Loop at depth 2 containing: %5<header><exiting>,%9<latch>
+Loop info for function 's317':
+Parallel Loop at depth 1 containing: %.preheader<header>,%3,%15<latch><exiting>
+    Parallel Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's318':
+Loop at depth 1 containing: %8<header>,%9,%19<latch><exiting>
+    Loop at depth 2 containing: %9<header><latch><exiting>
+Loop info for function 's319':
+Loop at depth 1 containing: %.preheader<header>,%3,%16<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's3110':
+Loop at depth 1 containing: %4<header>,%.preheader,%7,%17,%18<latch><exiting>
+    Loop at depth 2 containing: %.preheader<header>,%7,%17<latch><exiting>
+        Loop at depth 3 containing: %7<header><latch><exiting>
+Loop info for function 's13110':
+Loop at depth 1 containing: %4<header>,%.preheader,%6,%22,%23<latch><exiting>
+    Loop at depth 2 containing: %.preheader<header>,%6,%22<latch><exiting>
+        Loop at depth 3 containing: %6<header><latch><exiting>
+Loop info for function 's3111':
+Loop at depth 1 containing: %.preheader<header>,%3,%13<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's3112':
+Loop at depth 1 containing: %.preheader<header>,%3,%12<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's3113':
+Loop at depth 1 containing: %7<header>,%8,%22<latch><exiting>
+    Loop at depth 2 containing: %8<header><latch><exiting>
+Loop info for function 's321':
+Loop at depth 1 containing: %.preheader<header>,%3,%9,%15<latch><exiting>
+    Loop at depth 2 containing: %3<header><exiting>,%9<latch>
+Loop info for function 's322':
+Loop at depth 1 containing: %.preheader<header>,%3,%14<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's323':
+Loop at depth 1 containing: %.preheader<header>,%3,%14<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's331':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 'tsvc_max':
+Loop info for function 's332':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%vector.body.interim,%vector.body.interim.1,%vector.early.e
+xit,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><exiting>,%vector.body.interim<exiting>,%vector.body.interim.1<latc
+h><exiting>
+Loop info for function 's341':
+Loop at depth 1 containing: %.preheader<header>,%4,%8,%12,%17,%21,%22<latch><exiting>
+    Loop at depth 2 containing: %4<header>,%8,%12,%17,%21<latch><exiting>
+Loop info for function 's342':
+Loop at depth 1 containing: %.preheader<header>,%4,%8,%13,%18,%23,%24<latch><exiting>
+    Loop at depth 2 containing: %4<header>,%8,%13,%18,%23<latch><exiting>
+Loop info for function 's343':
+Loop at depth 1 containing: %.preheader.9<header>,%165,%168,%173,%176,%181,%182<latch><exiting>
+    Loop at depth 2 containing: %165<header>,%168,%173,%176,%181<latch><exiting>
+Loop at depth 1 containing: %.preheader.8<header>,%147,%150,%155,%158,%163,%164<latch><exiting>
+    Loop at depth 2 containing: %147<header>,%150,%155,%158,%163<latch><exiting>
+Loop at depth 1 containing: %.preheader.7<header>,%129,%132,%137,%140,%145,%146<latch><exiting>
+    Loop at depth 2 containing: %129<header>,%132,%137,%140,%145<latch><exiting>
+Loop at depth 1 containing: %.preheader.6<header>,%111,%114,%119,%122,%127,%128<latch><exiting>
+    Loop at depth 2 containing: %111<header>,%114,%119,%122,%127<latch><exiting>
+Loop at depth 1 containing: %.preheader.5<header>,%93,%96,%101,%104,%109,%110<latch><exiting>
+    Loop at depth 2 containing: %93<header>,%96,%101,%104,%109<latch><exiting>
+Loop at depth 1 containing: %.preheader.4<header>,%75,%78,%83,%86,%91,%92<latch><exiting>
+    Loop at depth 2 containing: %75<header>,%78,%83,%86,%91<latch><exiting>
+Loop at depth 1 containing: %.preheader.3<header>,%57,%60,%65,%68,%73,%74<latch><exiting>
+    Loop at depth 2 containing: %57<header>,%60,%65,%68,%73<latch><exiting>
+Loop at depth 1 containing: %.preheader.2<header>,%39,%42,%47,%50,%55,%56<latch><exiting>
+    Loop at depth 2 containing: %39<header>,%42,%47,%50,%55<latch><exiting>
+Loop at depth 1 containing: %.preheader.1<header>,%21,%24,%29,%32,%37,%38<latch><exiting>
+    Loop at depth 2 containing: %21<header>,%24,%29,%32,%37<latch><exiting>
+Loop at depth 1 containing: %.preheader<header>,%3,%6,%11,%14,%19,%20<latch><exiting>
+    Loop at depth 2 containing: %3<header>,%6,%11,%14,%19<latch><exiting>
+Loop info for function 's351':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's1351':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's352':
+Loop at depth 1 containing: %.preheader<header>,%4,%35<latch><exiting>
+    Loop at depth 2 containing: %4<header><latch><exiting>
+Loop info for function 's353':
+Loop at depth 1 containing: %.preheader<header>,%8,%49<latch><exiting>
+    Loop at depth 2 containing: %8<header><latch><exiting>
+Loop info for function 's421':
+Loop at depth 1 containing: %34<header><latch><exiting>
+Loop at depth 1 containing: %5<header>,%7,%16,%25<latch><exiting>
+    Loop at depth 2 containing: %7<header><exiting>,%16<latch>
+Loop info for function 's1421':
+Loop at depth 1 containing: %30<header><latch><exiting>
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's422':
+Loop at depth 1 containing: %30<header><latch><exiting>
+Loop at depth 1 containing: %.preheader<header>,%4,%21<latch><exiting>
+    Loop at depth 2 containing: %4<header><latch><exiting>
+Loop info for function 's423':
+Loop at depth 1 containing: %51<header><latch><exiting>
+Loop at depth 1 containing: %vector.memcheck<header>,%vector.body,%vector.body.1,%scalar.ph.prol,%scalar.ph,%.unr-lcssa
+<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><exiting>,%vector.body.1<latch>
+    Loop at depth 2 containing: %scalar.ph<header><latch><exiting>
+Loop info for function 's424':
+Loop at depth 1 containing: %29<header><latch><exiting>
+Loop at depth 1 containing: %.preheader<header>,%4,%12,%20<latch><exiting>
+    Loop at depth 2 containing: %4<header><exiting>,%12<latch>
+Loop info for function 's431':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's441':
+Loop at depth 1 containing: %.preheader<header>,%3,%15,%23,%19,%7,%27,%28<latch><exiting>
+    Loop at depth 2 containing: %3<header>,%15,%23,%19,%7,%27<latch><exiting>
+Loop info for function 's442':
+Loop at depth 1 containing: %.preheader<header>,%3,%switch.lookup,%10,%14<latch><exiting>
+    Loop at depth 2 containing: %3<header>,%switch.lookup,%10<latch><exiting>
+Loop info for function 's443':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's451':
+Loop at depth 1 containing: %.preheader<header>,%3,%20<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's452':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's453':
+Loop at depth 1 containing: %.preheader<header>,%3,%14<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 's471':
+Loop at depth 1 containing: %26<header><latch><exiting>
+Loop at depth 1 containing: %.preheader<header>,%4,%18<latch><exiting>
+    Loop at depth 2 containing: %4<header><latch><exiting>
+Loop info for function 's471s':
+Loop info for function 's481':
+Loop at depth 1 containing: %.preheader<header>,%3<exiting>,%8,%16<latch><exiting>
+    Loop at depth 2 containing: %3<header><exiting>,%8<latch><exiting>
+Loop info for function 's482':
+Loop at depth 1 containing: %.preheader<header>,%3,%13<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 'tsvc_min':
+Loop info for function 's491':
+Loop at depth 1 containing: %.preheader<header>,%4,%27<latch><exiting>
+    Loop at depth 2 containing: %4<header><latch><exiting>
+Loop info for function 's4112':
+Loop at depth 1 containing: %.preheader<header>,%5,%22<latch><exiting>
+    Loop at depth 2 containing: %5<header><latch><exiting>
+Loop info for function 's4113':
+Loop at depth 1 containing: %.preheader<header>,%4,%23<latch><exiting>
+    Loop at depth 2 containing: %4<header><latch><exiting>
+Loop info for function 's4114':
+Loop at depth 1 containing: %.lr.ph<header>,%8,%._crit_edge<latch><exiting>
+    Loop at depth 2 containing: %8<header><latch><exiting>
+Loop info for function 's4115':
+Loop at depth 1 containing: %.preheader<header>,%4,%21<latch><exiting>
+    Loop at depth 2 containing: %4<header><latch><exiting>
+Loop info for function 's4116':
+Loop at depth 1 containing: %.preheader<header>,%9,%21,%33<latch><exiting>
+    Loop at depth 2 containing: %9<header><exiting>,%21<latch>
+Loop info for function 's4117':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 's4121':
+Loop at depth 1 containing: %.preheader<header>,%3,%12<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 'f':
+Loop info for function 'va':
+Loop at depth 1 containing: %.preheader<header><latch><exiting>
+Loop info for function 'vag':
+Loop at depth 1 containing: %.preheader<header>,%4,%17<latch><exiting>
+    Loop at depth 2 containing: %4<header><latch><exiting>
+Loop info for function 'vas':
+Loop at depth 1 containing: %.preheader<header>,%4,%17<latch><exiting>
+    Loop at depth 2 containing: %4<header><latch><exiting>
+Loop info for function 'vif':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%pred.store.if,%pred.store.continue,%pred.store.if18,%pred.
+store.continue19,%pred.store.if20,%pred.store.continue21,%pred.store.if22,%pred.store.continue23,%pred.store.if24,%pred
+.store.continue25,%pred.store.if26,%pred.store.continue27,%pred.store.if28,%pred.store.continue29,%pred.store.if30,%pre
+d.store.continue31,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header>,%pred.store.if,%pred.store.continue,%pred.store.if18,%pred.store.c
+ontinue19,%pred.store.if20,%pred.store.continue21,%pred.store.if22,%pred.store.continue23,%pred.store.if24,%pred.store.
+continue25,%pred.store.if26,%pred.store.continue27,%pred.store.if28,%pred.store.continue29,%pred.store.if30,%pred.store
+.continue31<latch><exiting>
+Loop info for function 'vpv':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 'vtv':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 'vpvtv':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 'vpvts':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 'vpvpv':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 'vtvtv':
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 'vsumr':
+Loop info for function 'vdotr':
+Loop at depth 1 containing: %.preheader<header>,%3,%14<latch><exiting>
+    Loop at depth 2 containing: %3<header><latch><exiting>
+Loop info for function 'vbor':
+Loop at depth 1 containing: %51<header><latch><exiting>
+Loop at depth 1 containing: %vector.ph<header>,%vector.body,%middle.block<latch><exiting>
+    Loop at depth 2 containing: %vector.body<header><latch><exiting>
+Loop info for function 'set':
+Loop at depth 1 containing: %vector.body<header><latch><exiting>
+Loop at depth 1 containing: %5<header><latch><exiting>
+Loop info for function 'tsvc_memalign':
+Loop info for function 'tsvc_original_main':
