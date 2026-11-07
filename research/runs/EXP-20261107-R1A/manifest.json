@@ -276,7 +276,7 @@
       "results/r1/EXP-20261107-R1B-min/remarks-C.yaml"
     ],
     "analysis_script": "scripts/r1_analyze.py",
-    "analysis_script_revision": "6d2795f",
+    "analysis_script_revision": "f210bb6",
     "checksums": [
       "results/r1/EXP-20261107-R1A/known_vec/meta.json",
       "results/r1/EXP-20261107-R1A/producer_consumer/meta.json",
