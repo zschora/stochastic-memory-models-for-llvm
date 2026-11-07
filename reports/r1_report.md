@@ -55,6 +55,11 @@ metadata rewriting:
    but fuses profitably: **-13.4% at 16 KiB, -27.9% at 1 MiB, -33.2% at 8 MiB**.
    Any rule that rejects whenever vectorization differs is contradicted.
 
+A post-fusion CSE opportunity was observed but not measured: the fused
+`read_read` vector body keeps two copies of the same `A` loads. No controlled
+pass-order experiment was completed, so this remains an engineering lead, not a
+performance result.
+
 ## 3. What changed, failed or is inconclusive
 
 - **Exact VW16 test-suite regression:** not-testable with the native matched

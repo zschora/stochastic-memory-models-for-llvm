@@ -134,6 +134,17 @@ small sizes, so the comparison is about legality and large-size locality.
 loop overlaps the reduction latency and halves the memory pass. Any predictor
 that rejects on "vectorization differs" alone is contradicted by this case.
 
+### 5.5 Post-fusion duplicate loads (observation only)
+
+The fused `read_read.C.ll` vector body contains two copies of the `A` loads:
+`%wide.load`/`%wide.load20` for the first loop and `%wide.load21`/`%wide.load22`
+for the second, both from the same pointer. The vectorizer did not merge them.
+This is direct evidence that fusion can expose redundant loads at the vector
+level. It is **not** evidence that a post-fusion CSE would improve runtime: no
+controlled pass-order experiment was completed, and the load may be served from
+the same cache line anyway. The observation motivates a separate R1-B/CSE study;
+it does not enter the cost-model claim.
+
 ## 6. Exact VW16 test-suite benchmark
 
 The matched native build (`-O0 -disable-O0-optnone`, no compatibility rewrite)
