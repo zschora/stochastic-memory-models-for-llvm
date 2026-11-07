@@ -1,0 +1,203 @@
+{
+  "schema_version": "1.0",
+  "updated_utc": "2026-11-07T00:00:00Z",
+  "hypotheses": [
+    {
+      "id": "H-LF-001",
+      "title": "Loop metadata inheritance can destroy vectorization",
+      "statement": "When the second fusion candidate carries vectorize(disable) or narrower vectorization metadata, the fused loop inherits FC1's llvm.loop metadata and can lose FC0's vectorization. The exact-reuse gate accepts the fusion even when the resulting scalar loop is much slower in cache-resident regimes.",
+      "motivation": "Stage 0 measured a roughly 2x regression for a metadata conflict; this is a concrete false positive of the current profitability gate.",
+      "competing_explanations": [
+        "fused-body size or unroll-factor loss",
+        "cache stream conflicts",
+        "measurement noise or code layout",
+        "front-end/IR compatibility shim effects"
+      ],
+      "evidence_required": [
+        "matched IR and assembly for fusion on/off",
+        "scalar control isolating vectorization loss",
+        "reproduction on a consistent toolchain without ir_compat.py"
+      ],
+      "falsification": "The regression disappears when the metadata conflict is removed, or it cannot be reproduced on a matched toolchain.",
+      "planned_experiments": ["R1-A", "R1-B"],
+      "status": "analyzed",
+      "evidence_links": [
+        "reports/stage0_report.md",
+        "results/artifacts/simd_metadata/",
+        "results/summary_simd_metadata.csv"
+      ],
+      "review_status": "model-assisted-self-review",
+      "review_note": "Stage 0 analysis is self-review only; no independent audit yet.",
+      "decision": "Retain as an engineering hypothesis; do not promote to supported before R1-A.",
+      "next_action": "Repeat the metadata contrast on a matched clang/LLVM revision."
+    },
+    {
+      "id": "H-LF-002",
+      "title": "Exact-affine RAR rejects profitable shifted reuse",
+      "statement": "The exact (start, step) RAR key rejects legal reuse when the second loop reads A[i+k] for a small constant k != 0, even though fusion can reduce a full memory pass and is profitable for large working sets.",
+      "motivation": "Stage 0 measured 17-32% gains from forced fusion of A[i] and A[i+1] while the current model rejected it.",
+      "competing_explanations": [
+        "shifted accesses may be unaligned or cross cache lines",
+        "fusion may hurt at cache-resident sizes",
+        "the benefit may not generalize beyond this kernel"
+      ],
+      "evidence_required": [
+        "correctness and legality check of the shifted fusion",
+        "size sweep across cache regimes",
+        "held-out stencil cases"
+      ],
+      "falsification": "Shifted RAR fusion is not legal, is incorrect, or does not reproduce a gain on a matched toolchain and broader corpus.",
+      "planned_experiments": ["R1-A", "R1-B", "R1-C"],
+      "status": "analyzed",
+      "evidence_links": [
+        "reports/stage0_report.md",
+        "results/summary_shifted_reuse.csv",
+        "benchmarks/shifted_reuse.cpp"
+      ],
+      "review_status": "model-assisted-self-review",
+      "review_note": "Stage 0 result is self-review only.",
+      "decision": "Retain as a candidate false negative; test broader stencil patterns before proposing a patch.",
+      "next_action": "Add shifted stencil cases to the R1 corpus and rerun on a matched toolchain."
+    },
+    {
+      "id": "H-LF-003",
+      "title": "Fusion benefit depends on working-set residency",
+      "statement": "For exact read-read reuse, the benefit of fusion grows with the reused stream footprint relative to cache capacity, approaching zero when the second pass would already hit in cache.",
+      "motivation": "Stage 0 measured a monotonic increase from roughly 0% at L1/L2 to about 31% at DRAM for aligned read-read.",
+      "competing_explanations": [
+        "loop overhead and unrolling",
+        "load elimination or its absence",
+        "prefetcher and memory-level parallelism effects",
+        "allocator/layout artifacts"
+      ],
+      "evidence_required": [
+        "size sweep with cache-size boundaries",
+        "A/A and repeated campaigns",
+        "reproduction on other targets and with counters where available"
+      ],
+      "falsification": "Benefit is independent of footprint, or the apparent trend is explained by a confounder.",
+      "planned_experiments": ["R1-A", "R1-C", "R1-D"],
+      "status": "analyzed",
+      "evidence_links": [
+        "reports/stage0_report.md",
+        "results/summary_read_read.csv",
+        "benchmarks/read_read.cpp"
+      ],
+      "review_status": "model-assisted-self-review",
+      "review_note": "No hardware counters; cache attribution remains an inference.",
+      "decision": "Retain as a predictive feature candidate; requires counters or stronger controls.",
+      "next_action": "Test a cache-footprint rule against held-out benchmark families."
+    },
+    {
+      "id": "H-LF-004",
+      "title": "Canonical rotated loops are rejected by DA/latch mapping",
+      "statement": "Clang-style rotated loops with the body in the header/latch block are rejected for RAW reuse fusion because DependenceAnalysis does not produce the fused-level direction, while a hand-written separate-latch form is accepted.",
+      "motivation": "Stage 0 found InvalidDependencies for a normal producer-consumer C++ kernel but a 12-32% win for an equivalent separate-latch IR kernel.",
+      "competing_explanations": [
+        "the canonical loop is not actually legal to fuse",
+        "the split IR changes more than the latch structure",
+        "the profitability filter, not legality, is responsible"
+      ],
+      "evidence_required": [
+        "minimal pair differing only in latch/body structure",
+        "DA output for both forms",
+        "matched-toolchain reproduction"
+      ],
+      "falsification": "A minimal canonical clang loop is accepted or the split form is rejected for an unrelated legality reason.",
+      "planned_experiments": ["R1-A", "R1-B"],
+      "status": "analyzed",
+      "evidence_links": [
+        "reports/stage0_report.md",
+        "benchmarks/producer_consumer.cpp",
+        "benchmarks/producer_consumer_split.ll"
+      ],
+      "review_status": "model-assisted-self-review",
+      "review_note": "Legality/DA diagnosis is self-review only.",
+      "decision": "Retain as a compiler-legality finding; separate from profitability.",
+      "next_action": "Reduce to a minimal canonical/split pair and check LLVM source behavior."
+    },
+    {
+      "id": "H-LF-005",
+      "title": "The RFC 6.52% VW16 regression is not reproducible here",
+      "statement": "On the pinned Stage 0 machine and build, the exact llvm-test-suite VW16 uint64-to-uint8 benchmark does not show the RFC's 6.52% regression; the effect is within campaign noise.",
+      "motivation": "Two exact benchmark campaigns gave -2.6%/+2.7% for unrestricted fusion, with no stable sign.",
+      "competing_explanations": [
+        "different CPU or AVX-512 code generation",
+        "different fusion order or inlining",
+        "five-run medians without intervals in the RFC",
+        "measurement noise"
+      ],
+      "evidence_required": [
+        "matched toolchain and exact benchmark",
+        "more repetitions and confidence intervals",
+        "code-generation comparison with the RFC setup"
+      ],
+      "falsification": "A matched-toolchain rerun reproduces a stable regression with a concrete codegen cause.",
+      "planned_experiments": ["R1-A"],
+      "status": "inconclusive",
+      "evidence_links": [
+        "reports/stage0_report.md",
+        "results/raw/ts_known_v1.csv",
+        "results/raw/ts_known_v2.csv"
+      ],
+      "review_status": "model-assisted-self-review",
+      "review_note": "Absence of reproduction on one machine is not a refutation of the RFC.",
+      "decision": "Do not use the 6.52% number as a fixed target or sole motivation.",
+      "next_action": "Reproduce on a matched toolchain and, if possible, an AVX-512 host."
+    },
+    {
+      "id": "H-R1-001",
+      "title": "Key Stage 0 findings survive a matched toolchain",
+      "statement": "The metadata, shifted-reuse, cache-residency and canonical-loop findings reproduce qualitatively when clang and LLVM come from one pinned revision and no ir_compat.py metadata transformation is used.",
+      "motivation": "Stage 0 mixed clang 23.1.5 with LLVM 24.0.0git and removed alias-scope constructs; independent validation is required before R1.",
+      "competing_explanations": [
+        "the compatibility shim changed the phenomenon",
+        "the effect is specific to the Stage 0 binaries",
+        "the exact benchmark result was noise"
+      ],
+      "evidence_required": [
+        "matched-toolchain build",
+        "rerun of the five Stage 0 examples",
+        "IR/assembly/remarks and correctness checks"
+      ],
+      "falsification": "A key finding disappears or reverses under matched tools.",
+      "planned_experiments": ["R1-A"],
+      "status": "planned",
+      "evidence_links": [
+        "reports/stage0_report.md",
+        "research/harness/plans/r1-research-program.md"
+      ],
+      "review_status": "not-reviewed",
+      "review_note": "No R1 evidence yet.",
+      "decision": "First R1 workstream; blocks mechanism and predictor work.",
+      "next_action": "Create an R1-A run record with a matched toolchain manifest."
+    },
+    {
+      "id": "H-HARNESS-001",
+      "title": "The protocol can be followed without the original transcript",
+      "statement": "A fresh session can read the state index, activate the correct role, produce a handoff, and record a review using only repository files.",
+      "motivation": "The harness must survive context resets and multiple agent runtimes.",
+      "competing_explanations": [
+        "the simulation was authored by the same model that designed the harness",
+        "a real experiment may reveal missing fields or ambiguous steps"
+      ],
+      "evidence_required": [
+        "documentation-only simulation",
+        "role/handoff/review artifacts",
+        "later real-run usability feedback"
+      ],
+      "falsification": "A fresh session cannot complete the workflow without hidden context.",
+      "planned_experiments": ["SIM-0001"],
+      "status": "analyzed",
+      "evidence_links": [
+        "research/runs/SIM-0001-handoff-smoke/manifest.json",
+        "research/runs/SIM-0001-handoff-smoke/brief.md",
+        "research/runs/SIM-0001-handoff-smoke/review.md"
+      ],
+      "review_status": "model-assisted-self-review",
+      "review_note": "Infrastructure smoke test only; not independent validation.",
+      "decision": "Provisional acceptance of the harness structure; collect real-run feedback.",
+      "next_action": "Use the harness for R1-A and record any friction."
+    }
+  ]
+}

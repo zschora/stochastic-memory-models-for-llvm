@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/zschora/stochastic-memory-models-for-llvm/research/harness/schemas/hypotheses.schema.json",
+  "title": "Research hypothesis ledger",
+  "type": "object",
+  "required": ["schema_version", "updated_utc", "hypotheses"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "updated_utc": {"type": "string", "format": "date-time"},
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id", "title", "statement", "motivation", "competing_explanations",
+          "evidence_required", "falsification", "planned_experiments", "status",
+          "evidence_links", "review_status", "review_note", "decision",
+          "next_action"
+        ],
+        "properties": {
+          "id": {"type": "string", "pattern": "^H-[A-Z0-9-]+$"},
+          "title": {"type": "string", "minLength": 1},
+          "statement": {"type": "string", "minLength": 1},
+          "motivation": {"type": "string", "minLength": 1},
+          "competing_explanations": {"type": "array", "items": {"type": "string"}},
+          "evidence_required": {"type": "array", "items": {"type": "string"}},
+          "falsification": {"type": "string", "minLength": 1},
+          "planned_experiments": {"type": "array", "items": {"type": "string"}},
+          "status": {
+            "enum": ["proposed", "planned", "running", "analyzed",
+                     "under-review", "supported", "refuted", "inconclusive",
+                     "archived"]
+          },
+          "evidence_links": {"type": "array", "items": {"type": "string"}},
+          "review_status": {
+            "enum": ["not-reviewed", "model-assisted-self-review",
+                     "independent-review", "human-review"]
+          },
+          "review_note": {"type": "string"},
+          "decision": {"type": "string"},
+          "next_action": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

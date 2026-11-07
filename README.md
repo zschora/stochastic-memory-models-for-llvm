@@ -22,11 +22,31 @@ random orderings of memory accesses, and exact ideal-LRU models. This history
 motivates the work; **no stochastic cost model is yet integrated into LLVM**.
 
 - [Research notes index](research/README.md)
+- [Portable research harness](research/harness/README.md)
+- [Research state index](research/state/index.md)
 - [Research origins and trajectory](research/origins.md)
 - [LLVM LoopFusion notes](research/loopfusion/README.md)
 - [Mathematical notes and formulas](research/theory/README.md)
 - [Paper drafts and manuscripts](research/papers/README.md)
 - [Git workflow and contribution guide](CONTRIBUTING.md)
+
+## Research workflow
+
+A new session starts at [research/state/index.md](research/state/index.md), picks
+one hypothesis, loads one role and one skill on demand, and records work under
+`research/runs/` or `research/claims/`. The harness protocol, handoff format and
+review gates are documented in [research/harness/README.md](research/harness/README.md)
+and [research/harness/protocol.md](research/harness/protocol.md).
+
+```powershell
+python scripts/research/doctor.py --docs-only --json
+python scripts/research/new_run.py --hypothesis H-R1-001 --dry-run
+python scripts/research/validate_run.py research/runs/SIM-0001-handoff-smoke
+python scripts/research/check_docs.py
+```
+
+R1 has not started. Stage 0 remains a mixed-toolchain baseline and must be
+validated first; see report Section 3.4.
 
 ## Baseline
 
@@ -64,6 +84,10 @@ benchmarks/   minimal kernels + harness + patched upstream test-suite file
 scripts/      build/run/analyze scripts
 results/      raw measurements, summaries, IR/asm/remarks artifacts
 research/     origins, LoopFusion notes, theory/ and papers/
+  harness/    portable roles, skills, protocol, schemas and R1 plan
+  state/      short session index and hypothesis ledger
+  runs/       experiment and simulation records
+  claims/     mathematical claim records
   loopfusion/ LLVM baseline, literature and Stage 0 navigation
   theory/     mathematical notes and proof-status labels
   papers/     article-length manuscripts and templates

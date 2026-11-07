@@ -14,6 +14,8 @@ model.
   new engineering observations.
 - [Research origins](../origins.md) - why random sequences and ideal-LRU models
   motivated the compiler question.
+- [Research state index](../state/index.md) and [portable harness](../harness/README.md)
+  - how a session resumes and records work.
 
 ## Evidence status
 

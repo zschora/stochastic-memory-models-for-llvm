@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/zschora/stochastic-memory-models-for-llvm/research/harness/schemas/simulation.schema.json",
+  "title": "Documentation-only protocol simulation",
+  "type": "object",
+  "required": [
+    "schema_version", "record_type", "simulation_id", "title", "status",
+    "created_utc", "git", "roles", "question", "protocol_steps", "review",
+    "outcome", "limitations", "artifacts", "next_action"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "record_type": {"const": "simulation"},
+    "simulation_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,63}$"},
+    "title": {"type": "string", "minLength": 1},
+    "status": {"enum": ["planned", "completed", "inconclusive"]},
+    "created_utc": {"type": "string", "format": "date-time"},
+    "git": {
+      "type": "object",
+      "required": ["base_commit", "branch", "working_tree_dirty"],
+      "properties": {
+        "base_commit": {"type": "string", "pattern": "^[0-9a-f]{7,40}$"},
+        "branch": {"type": "string", "minLength": 1},
+        "working_tree_dirty": {"type": "boolean"}
+      }
+    },
+    "roles": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "question": {"type": "string", "minLength": 1},
+    "protocol_steps": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "review": {
+      "type": "object",
+      "required": ["status", "reviewer", "notes"],
+      "properties": {
+        "status": {"enum": ["not-reviewed", "model-assisted-self-review",
+                             "independent-review", "human-review"]},
+        "reviewer": {"type": "string"},
+        "notes": {"type": "string"}
+      }
+    },
+    "outcome": {"type": "string", "minLength": 1},
+    "limitations": {"type": "array", "items": {"type": "string"}},
+    "artifacts": {"type": "array", "items": {"type": "string"}},
+    "next_action": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": true
+}

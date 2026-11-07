@@ -1,6 +1,6 @@
 # Agent guidance
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md), [research/origins.md](research/origins.md) and the current [Stage 0 report](reports/stage0_report.md) before substantial changes.
+Read [CONTRIBUTING.md](CONTRIBUTING.md), [research/origins.md](research/origins.md) and the current [Stage 0 report](reports/stage0_report.md) before substantial changes. For research work, also read [research/state/index.md](research/state/index.md) and [research/harness/README.md](research/harness/README.md).
 
 - Keep experiments narrow, reproducible and motivated by concrete observed failures.
 - Follow English Conventional Commits: `type(scope): imperative summary`.

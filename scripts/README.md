@@ -16,6 +16,11 @@ and `.work/` directories.
 | `analyze_remarks.py` | Extract per-function `FuseCounter`/`InsufficientReuse` events from remarks YAML. |
 | `make_tables.py` | Build `results/tables.md` from the summary CSVs. |
 | `ascii_normalize.py` | Utility that normalizes the documentation files to ASCII. |
+| `research/doctor.py` | Environment and documentation readiness; `--docs-only` works without LLVM, `--experiment` requires a matched toolchain. |
+| `research/new_run.py` | Create a non-overwriting experiment, mathematical or simulation record. |
+| `research/validate_run.py` | Validate manifest schema, provenance, artifact paths, statuses, review gates and duplicate IDs. |
+| `research/check_docs.py` | Offline Markdown link, role, skill, schema and state-index checks. |
+| `research/tests/test_harness.py` | Fast unittest suite for the harness tools and invalid manifests. |
 
 ## Order
 

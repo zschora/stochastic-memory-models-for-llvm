@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/zschora/stochastic-memory-models-for-llvm/research/harness/schemas/math-claim.schema.json",
+  "title": "Mathematical claim record",
+  "type": "object",
+  "required": [
+    "schema_version", "record_type", "claim_id", "title", "status",
+    "created_utc", "model_assumptions", "claim", "proof_status", "proof_notes",
+    "numerical_checks", "counterexamples", "prior_art", "unresolved_obligations",
+    "review", "limitations", "next_action"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "record_type": {"const": "math-claim"},
+    "claim_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,63}$"},
+    "title": {"type": "string", "minLength": 1},
+    "status": {
+      "enum": ["proposed", "working-proof", "numerically-checked",
+               "proved", "conjecture", "known-prior-art", "refuted", "archived"]
+    },
+    "created_utc": {"type": "string", "format": "date-time"},
+    "model_assumptions": {"type": "array", "items": {"type": "string"}},
+    "claim": {"type": "string", "minLength": 1},
+    "proof_status": {
+      "enum": ["proved", "working-proof", "numerically-checked",
+               "conjecture", "known-prior-art", "refuted"]
+    },
+    "proof_notes": {"type": "string"},
+    "numerical_checks": {"type": "array", "items": {"type": "string"}},
+    "counterexamples": {"type": "array", "items": {"type": "string"}},
+    "prior_art": {"type": "array", "items": {"type": "string"}},
+    "unresolved_obligations": {"type": "array", "items": {"type": "string"}},
+    "review": {
+      "type": "object",
+      "required": ["status", "reviewer", "notes"],
+      "properties": {
+        "status": {"enum": ["not-reviewed", "model-assisted-self-review",
+                             "independent-review", "human-review"]},
+        "reviewer": {"type": "string"},
+        "notes": {"type": "string"}
+      }
+    },
+    "artifacts": {"type": "array", "items": {"type": "string"}},
+    "limitations": {"type": "array", "items": {"type": "string"}},
+    "next_action": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/zschora/stochastic-memory-models-for-llvm/research/harness/schemas/experiment-run.schema.json",
+  "title": "Physical experiment run manifest",
+  "type": "object",
+  "required": [
+    "schema_version", "record_type", "run_id", "hypothesis_id", "title",
+    "status", "created_utc", "git", "toolchain", "build", "host", "pipeline",
+    "case", "procedure", "artifacts", "commands", "results", "review",
+    "evidence", "next_action"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "record_type": {"const": "experiment"},
+    "run_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,63}$"},
+    "hypothesis_id": {"type": "string", "pattern": "^H-[A-Z0-9-]+$"},
+    "title": {"type": "string", "minLength": 1},
+    "status": {
+      "enum": ["proposed", "planned", "running", "analyzed", "under-review",
+               "supported", "refuted", "inconclusive", "archived"]
+    },
+    "created_utc": {"type": "string", "format": "date-time"},
+    "git": {
+      "type": "object",
+      "required": ["base_commit", "branch", "working_tree_dirty"],
+      "properties": {
+        "base_commit": {"type": "string", "pattern": "^[0-9a-f]{7,40}$"},
+        "branch": {"type": "string", "minLength": 1},
+        "working_tree_dirty": {"type": "boolean"}
+      }
+    },
+    "toolchain": {
+      "type": "object",
+      "required": ["consistency", "llvm_revision", "clang", "opt", "llc", "llvm_config"],
+      "properties": {
+        "consistency": {"enum": ["matched", "mixed", "unknown"]},
+        "llvm_revision": {"type": "string"},
+        "clang": {"$ref": "#/$defs/tool"},
+        "opt": {"$ref": "#/$defs/tool"},
+        "llc": {"$ref": "#/$defs/tool"},
+        "llvm_config": {"$ref": "#/$defs/tool"},
+        "compatibility_notes": {"type": "string"},
+        "baseline_caveat": {"type": "boolean"}
+      }
+    },
+    "build": {
+      "type": "object",
+      "required": ["configuration", "cmake_args", "compiler_flags", "link_flags"],
+      "properties": {
+        "configuration": {"type": "string", "minLength": 1},
+        "cmake_args": {"type": "array", "items": {"type": "string"}},
+        "compiler_flags": {"type": "array", "items": {"type": "string"}},
+        "link_flags": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "host": {
+      "type": "object",
+      "required": ["os", "cpu", "logical_cpus", "caches", "python"],
+      "properties": {
+        "os": {"type": "string", "minLength": 1},
+        "cpu": {"type": "string", "minLength": 1},
+        "logical_cpus": {"type": "integer", "minimum": 0},
+        "caches": {"type": "string"},
+        "python": {"type": "string"}
+      }
+    },
+    "pipeline": {
+      "type": "object",
+      "required": ["frontend_ir", "frontend_flags", "opt_passes", "llc_args"],
+      "properties": {
+        "frontend_ir": {"type": "string"},
+        "frontend_flags": {"type": "array", "items": {"type": "string"}},
+        "opt_passes": {"type": "array", "items": {"type": "string"}},
+        "llc_args": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "case": {
+      "type": "object",
+      "required": ["name", "source", "input_sizes", "seeds"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "source": {"type": "string"},
+        "input_sizes": {"type": "array", "items": {"type": "integer"}},
+        "seeds": {"type": "array", "items": {"type": "integer"}}
+      }
+    },
+    "procedure": {
+      "type": "object",
+      "required": ["configurations", "repetitions", "trials_per_process",
+                   "order", "timing_unit", "timing_method", "correctness_oracle"],
+      "properties": {
+        "configurations": {"type": "array", "items": {"type": "string"}},
+        "repetitions": {"type": "integer", "minimum": 0},
+        "trials_per_process": {"type": "integer", "minimum": 0},
+        "order": {"type": "string"},
+        "timing_unit": {"type": "string"},
+        "timing_method": {"type": "string"},
+        "correctness_oracle": {"type": "string"}
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "required": ["raw_timings", "ir", "assembly", "remarks", "analysis_script",
+                   "analysis_script_revision"],
+      "properties": {
+        "raw_timings": {"type": "array", "items": {"type": "string"}},
+        "ir": {"type": "array", "items": {"type": "string"}},
+        "assembly": {"type": "array", "items": {"type": "string"}},
+        "remarks": {"type": "array", "items": {"type": "string"}},
+        "analysis_script": {"type": "string"},
+        "analysis_script_revision": {"type": "string"}
+      }
+    },
+    "commands": {"type": "array", "items": {"type": "string"}},
+    "results": {
+      "type": "object",
+      "required": ["summary", "limitations"],
+      "properties": {
+        "summary": {"type": "string"},
+        "limitations": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "review": {
+      "type": "object",
+      "required": ["status", "reviewer", "notes"],
+      "properties": {
+        "status": {"enum": ["not-reviewed", "model-assisted-self-review",
+                             "independent-review", "human-review"]},
+        "reviewer": {"type": "string"},
+        "notes": {"type": "string"}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["quality", "notes"],
+      "properties": {
+        "quality": {"enum": ["none", "preliminary", "measured", "validated"]},
+        "notes": {"type": "string"}
+      }
+    },
+    "next_action": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "tool": {
+      "type": "object",
+      "required": ["version", "path"],
+      "properties": {
+        "version": {"type": "string"},
+        "path": {"type": "string"},
+        "revision": {"type": "string"}
+      }
+    }
+  },
+  "additionalProperties": true
+}
