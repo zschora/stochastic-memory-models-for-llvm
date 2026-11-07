@@ -50,6 +50,10 @@ No deployable new model is supported.
 
 - Metadata/SIMD conflict is real on controlled kernels, but no explicit metadata
   conflict appeared in the two real TSVC candidates.
+- **Fusion can destroy vectorization in a real legal case.** For `s2233`, A and C
+  keep the vectorized forms of both loops, while unrestricted B fusion removes
+  every `vector.body` marker and regresses by 136%. This is static IR evidence,
+  not a counter-based proof.
 - Shifted/transposed reuse appears in `s2233` as a **harmful** legal fusion that
   the exact-reuse gate correctly rejects; this is not a missed opportunity.
 - Cache-footprint intuition is not directly usable: the static multi-stream

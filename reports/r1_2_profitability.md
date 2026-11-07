@@ -53,7 +53,32 @@ the current policy generalizes. It does show that "all rejected fusions are
 missed opportunities" is false: `s2233` is a legal fusion that should be
 rejected, and the current reuse gate rejects it correctly.
 
-## 3. Feature availability
+## 3. Mechanism evidence from static IR
+
+The committed IR for the final campaign shows a consistent code-shape change.
+Counts below are static instructions/loop markers in the `s2233`/`s233` function
+bodies, not runtime events.
+
+| Case | Config | loads | stores | `vector.body` markers | measured effect vs A |
+| --- | --- | ---: | ---: | ---: | ---: |
+| `s2233` | A (no fusion) | 28 | 14 | 9 | baseline |
+| `s2233` | B (unrestricted fusion) | 4 | 2 | **0** | **+136.0%** |
+| `s2233` | C (current model) | 28 | 14 | 9 | -0.1% |
+| `s233` | A (no fusion) | 12 | 6 | 0 | baseline |
+| `s233` | B (unrestricted fusion) | 4 | 2 | 0 | -9.3% |
+| `s233` | C (current model) | 4 | 2 | 0 | **-9.4%** |
+
+For `s2233`, A and C are structurally identical and vectorized; B fuses the two
+loops and the fused function contains no vector loop at all. That is a concrete
+explanation for the large B regression: fusion removed the vectorization that
+each loop received separately. For `s233`, B and C are identical fused shapes
+with fewer static memory operations than A; both are profitable.
+
+This is static code-shape evidence, not a hardware-counter proof. It does not
+separate cache locality from vectorization loss, and it does not establish that
+the same mechanism explains other workloads.
+
+## 4. Feature availability
 
 | Feature | `s233` | `s2233` |
 | --- | --- | --- |
@@ -69,7 +94,7 @@ The extractor does not recover the transposed reuse relation reliably, so
 `s2233` remains `unknown` for reuse kind. That is a feature-coverage limitation,
 not a fabricated signal.
 
-## 4. R1.2 answer to the central question
+## 5. R1.2 answer to the central question
 
 > Can we reliably identify profitable/harmful legal LoopFusion transformations
 > across diverse unseen numerical workloads using pre-decision information?
@@ -79,7 +104,7 @@ The current model handled both, but two cases cannot establish generalization.
 The broader result is that legal LoopFusion opportunities are rare in the
 selected TSVC/PolyBench pipelines.
 
-## 5. Negative and inconclusive results
+## 6. Negative and inconclusive results
 
 - PolyBench: 28 analysed functions, 0 legal opportunities, 28 legality/form
   rejections.
@@ -89,7 +114,7 @@ selected TSVC/PolyBench pipelines.
   weighting artifact.
 - No evidence supports a deployable two-signal model.
 
-## 6. Recommendation
+## 7. Recommendation
 
 Do not build a new LLVM cost model from R1.2. Before any R1.3 cost-model work,
 investigate whether a different but defensible pipeline (loop distribution,
