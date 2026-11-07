@@ -12,6 +12,7 @@ LoopFusion profitability switch differs.
 | `read_read.cpp` | Exact aligned read-read reuse (`A[i]` in both loops). Size sweep from L1 to DRAM. |
 | `read_read_offset.cpp` | Diagnostic variant with B/C offset by one cache line; used only for the unexplained scalar slowdown control. |
 | `shifted_reuse.cpp` | Legal shifted read-read reuse (`A[i]` vs `A[i+1]`); a false negative of the exact-affine key. |
+| `shifted_reuse_k2/k4/k8.cpp` | Offset variants used to separate alignment/offset from cache-capacity effects. |
 | `simd_metadata.cpp` | Loop 1 has a wide-vector pragma, loop 2 is scalar; measures the metadata/vectorization false positive. |
 | `simd_metadata_scalar.cpp` | Both loops explicitly scalar; isolates vectorization loss from fusion overhead. |
 | `simd_reduction.cpp` | Vectorizable loop plus an FP-reduction loop; a negative result where fusion is still profitable. |

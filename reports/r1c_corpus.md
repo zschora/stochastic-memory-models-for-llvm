@@ -7,8 +7,8 @@
 
 ## 1. What was measured
 
-Ten kernels, 41 measured size/mode points, all on the matched LLVM 24 revision
-`6f41962` with native clang IR:
+Ten base kernels plus three shifted-offset variants, 53 measured size/mode
+points, all on the matched LLVM 24 revision `6f41962` with native clang IR:
 
 | kernel | legal fusion? | policy outcome | measured result |
 | --- | --- | --- | --- |
@@ -29,7 +29,30 @@ harmful and 7 neutral legal outcomes, plus 5 illegal points. These counts are
 not independent benchmark families: they are mostly the same kernels at
 different working-set sizes.
 
-## 2. Classification
+## 2. Shifted-offset family
+
+A second campaign (`EXP-20261107-R1C-offsets`) adds `A[i+k]` variants with
+`k = 2, 4, 8` elements. Fusion is legal and B fuses; C reports
+`InsufficientReuse` for every variant.
+
+| kernel | n | B vs A | C vs A | AA vs A |
+| --- | ---: | ---: | ---: | ---: |
+| `shifted_reuse_k2` | 131,072 | -15.6% | +2.1% | +3.2% |
+| `shifted_reuse_k2` | 1,048,576 | -20.1% | +6.1% | -1.4% |
+| `shifted_reuse_k2` | 8,388,608 | -32.1% | -0.9% | +0.3% |
+| `shifted_reuse_k4` | 131,072 | -14.2% | +1.3% | +3.3% |
+| `shifted_reuse_k4` | 1,048,576 | -18.5% | +8.3% | -0.2% |
+| `shifted_reuse_k4` | 8,388,608 | -32.0% | +1.5% | +6.0% |
+| `shifted_reuse_k8` | 131,072 | -15.2% | +1.3% | +1.1% |
+| `shifted_reuse_k8` | 1,048,576 | -16.2% | +1.2% | -1.9% |
+| `shifted_reuse_k8` | 8,388,608 | -30.8% | -0.8% | -0.8% |
+
+The effect is not specific to an offset of one element or to one cache-line
+alignment. The exact `(start, step)` affine key rejects the whole family. This
+strengthens the false-negative finding and makes "changed alignment caused the
+benefit" an implausible explanation for these variants.
+
+## 3. Classification
 
 - **Legal, accepted, profitable:** `read_read`, `read_read_offset`,
   `simd_reduction`, `producer_consumer_split`, `known_vec` setup.
@@ -40,7 +63,7 @@ different working-set sizes.
 - **Neutral within noise:** `known_vec` hot/body, several small-size points.
 - **Not-testable:** exact VW16 test-suite benchmark under the native pipeline.
 
-## 3. Coverage limitations
+## 4. Coverage limitations
 
 This is not the requested 20-30 diverse real workloads. The repository contains
 the llvm-test-suite MicroBenchmarks subtree but not TSVC or PolyBench, and no
@@ -49,7 +72,7 @@ isolates legality, profitability, vectorization metadata, shifted reuse, cache
 residency and a SIMD-looking counterexample. It cannot estimate how often these
 failure classes occur in real C++ programs.
 
-## 4. Reproduction
+## 5. Reproduction
 
 ```powershell
 python scripts/research/doctor.py --experiment --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962.json
@@ -61,7 +84,7 @@ python scripts/r1_analyze.py --campaign EXP-20261107-R1A
 
 The campaign directory is immutable; use a new campaign ID for new measurements.
 
-## 5. Next step
+## 6. Next step
 
 Add independent kernels from TSVC/PolyBench or small real numerical programs,
 record legality/vectorization/fusion decisions before timing, and evaluate the

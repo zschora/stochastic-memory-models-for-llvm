@@ -64,12 +64,14 @@
         "reports/r1a_report.md",
         "reports/stage0_report.md",
         "research/runs/EXP-20261107-R1A/manifest.json",
+        "research/runs/EXP-20261107-R1C-offsets/manifest.json",
         "results/r1/EXP-20261107-R1A/campaign_summary.json",
+        "results/r1/EXP-20261107-R1C-offsets/table.md",
         "results/summary_shifted_reuse.csv"
       ],
       "review_status": "model-assisted-self-review",
       "review_note": "R1-A reproduced the qualitative effect on matched LLVM 6f41962 with native clang IR; no independent review.",
-      "decision": "Retain as a reproduced engineering finding; exact magnitudes remain host-specific.",
+      "decision": "Reproduced for k=1,2,4,8 elements; exact affine RAR rejects the family.",
       "next_action": "Request independent review; evaluate the mechanism on the broader corpus before any upstream proposal."
     },
     {
@@ -331,7 +333,7 @@
     {
       "id": "H-R1-C1",
       "title": "Failure classes recur across a controlled kernel corpus",
-      "statement": "The metadata false positive, shifted-reuse false negative, canonical-loop legality failure and SIMD-difference counterexample appear across 10 controlled kernels and 41 size points.",
+      "statement": "The metadata false positive, shifted-reuse false negative (k=1,2,4,8), canonical-loop legality failure and SIMD-difference counterexample appear across 13 controlled kernels and 53 size points.",
       "motivation": "A single Stage 0 kernel is not enough to justify a cost-model change.",
       "competing_explanations": [
         "the corpus is too small or too synthetic",
@@ -349,8 +351,10 @@
       "status": "analyzed",
       "evidence_links": [
         "reports/r1c_corpus.md",
+        "research/runs/EXP-20261107-R1C-offsets/manifest.json",
+        "results/r1/EXP-20261107-R1A/analysis.json",
         "results/r1/EXP-20261107-R1A/table.md",
-        "results/r1/EXP-20261107-R1A/analysis.json"
+        "results/r1/EXP-20261107-R1C-offsets/table.md"
       ],
       "review_status": "model-assisted-self-review",
       "review_note": "Only 10 controlled kernels; no TSVC/PolyBench or whole-program results.",
@@ -379,9 +383,10 @@
       ],
       "status": "inconclusive",
       "evidence_links": [
-        "results/r1/EXP-20261107-R1A/predictor.md",
+        "reports/r1_report.md",
         "results/r1/EXP-20261107-R1A/predictor.json",
-        "reports/r1_report.md"
+        "results/r1/EXP-20261107-R1A/predictor.md",
+        "results/r1/EXP-20261107-R1C-offsets/table.md"
       ],
       "review_status": "model-assisted-self-review",
       "review_note": "In-sample only; no held-out family and no static implementation.",

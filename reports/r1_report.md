@@ -5,6 +5,7 @@
 - R1 matched toolchain: LLVM `6f4196219399a3502cea3beb2d0c8c28b2241649`
   (clang, opt, llc built/recorded from the same revision)
 - Main campaign: `EXP-20261107-R1A` (41 measured points)
+- Shifted-offset campaign: `EXP-20261107-R1C-offsets` (12 points, k=2/4/8)
 - Patch campaign: `EXP-20261107-R1F-patch`
 - Mathematical claims: `CLM-20261107-LRU1`, `CLM-20261107-LRUK`,
   `CLM-20261107-DAG1`
@@ -40,8 +41,9 @@ metadata rewriting:
    confirmed engineering false positive, not a universal rule.
 2. **Shifted-reuse false negative.** `shifted_reuse` is legal and B fuses; C
    reports `InsufficientReuse`. B is **-16.8% at 128 KiB, -22.7% at 1 MiB,
-   -27.8% at 8 MiB**; C is within noise of A. Confirmed profitability false
-   negative.
+   -27.8% at 8 MiB**; C is within noise of A. The `k = 2, 4, 8` offset variants
+   reproduce the same pattern (-14 to -32% under B, C rejects), so this is not a
+   one-element or cache-line-alignment accident.
 3. **Cache-residency trend.** `read_read` is neutral at 1 KiB, -8.4% at 16 KiB,
    **-17.6% at 128 KiB, -20.7% at 1 MiB, -27.0% at 8 MiB**. The direction and
    approximate magnitude agree with Stage 0.
@@ -76,22 +78,22 @@ metadata rewriting:
 
 ## 4. Predictive rules (in-sample only)
 
-Using the measured unrestricted-fusion outcome as the oracle on 33 legal points
-(20 profitable, 6 harmful, 7 neutral):
+Using the measured unrestricted-fusion outcome as the oracle on 45 legal points
+(29 profitable, 7 harmful, 9 neutral; 5 illegal points from `producer_consumer`):
 
 | rule | false positives | false negatives | runtime-weighted regret |
 | --- | ---: | ---: | ---: |
-| current model (exact reuse only) | 6 | 3 | 359.7% |
-| always fuse legal candidates | 6 | 0 | 292.4% |
+| current model (exact reuse only) | 6 | 12 | 554.4% |
+| always fuse legal candidates | 7 | 0 | 296.1% |
 | footprint > 256 KiB | 2 | 4 | **74.2%** |
-| footprint > 1 MiB | 0 | 8 | 111.2% |
-| vectorization compatible only | 3 | 5 | 138.0% |
-| compatible or footprint > 8 MiB | 3 | 3 | 95.2% |
+| footprint > 1 MiB | 0 | 11 | 156.1% |
+| vectorization compatible only | 4 | 5 | 141.8% |
+| compatible or footprint > 8 MiB | 4 | 3 | 99.0% |
 | two-signal 256 KiB / 8 MiB | 1 | 6 | 86.9% |
 
 The current model is **worse than unrestricted fusion** on this corpus because it
-still accepts the metadata false positive while rejecting profitable shifted
-reuse. A simple footprint threshold has the lowest in-sample regret but misses
+still accepts the metadata false positive while rejecting every shifted-reuse
+variant. A simple footprint threshold has the lowest in-sample regret but misses
 small profitable cases. No rule is validated on held-out benchmark families;
 these numbers are an engineering screen, not a deployable predictor.
 

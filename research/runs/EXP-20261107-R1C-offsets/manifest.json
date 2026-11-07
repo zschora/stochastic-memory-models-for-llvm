@@ -1,0 +1,248 @@
+{
+  "schema_version": "1.0",
+  "record_type": "experiment",
+  "run_id": "EXP-20261107-R1C-offsets",
+  "hypothesis_id": "H-LF-002",
+  "title": "Shifted affine reuse offset variants",
+  "status": "analyzed",
+  "created_utc": "2026-11-07T03:32:12Z",
+  "git": {
+    "base_commit": "55962b97e5122f29bc8c6ee18bb43e7f8d3cd549",
+    "branch": "main",
+    "working_tree_dirty": true,
+    "available": true
+  },
+  "toolchain": {
+    "consistency": "verified",
+    "llvm_revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+    "manifest_path": "research/harness/toolchains/llvm-24.0.0git-6f41962.json",
+    "clang": {
+      "version": "clang version 24.0.0git (https://github.com/llvm/llvm-project.git 6f4196219399a3502cea3beb2d0c8c28b2241649)",
+      "path": ".tools/llvm-build/bin/clang.exe",
+      "revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+      "sha256": "9477e11c9c5e4d01c4f24d50ebd25d94935529b0c67edcd252383e8dd8ef20e2"
+    },
+    "opt": {
+      "version": "LLVM version 24.0.0git",
+      "path": ".tools/llvm-build/bin/opt.exe",
+      "revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+      "sha256": "f0b20b1e3d5c800f874cb69d58c3b1b4681c2efcad313f61324e9536e1029721"
+    },
+    "llc": {
+      "version": "LLVM version 24.0.0git",
+      "path": ".tools/llvm-build/bin/llc.exe",
+      "revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+      "sha256": "f74b889f789694afda8f9059c11b44cd4b8e5e5d93150223d77f1db9801a4652"
+    },
+    "llvm_config": {
+      "version": "24.0.0git",
+      "path": ".tools/llvm-build/bin/llvm-config.exe",
+      "revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+      "sha256": "f410b8fc9663a6f22a5cae1481f21e02f25a349417a0bb82b1a82d8f330f34c2"
+    },
+    "compatibility_notes": "Provenance supplied by an explicit toolchain manifest.",
+    "baseline_caveat": false
+  },
+  "build": {
+    "configuration": "Release, X86, assertions OFF, clang enabled",
+    "cmake_args": [
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DLLVM_ENABLE_PROJECTS=clang",
+      "-DLLVM_TARGETS_TO_BUILD=X86",
+      "-DLLVM_ENABLE_ASSERTIONS=OFF",
+      "-DCLANG_ENABLE_CIR=OFF"
+    ],
+    "compiler_flags": [
+      "/O2",
+      "/DNDEBUG",
+      "/EHsc"
+    ],
+    "link_flags": []
+  },
+  "host": {
+    "os": "Windows 11 (10.0.26200)",
+    "cpu": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "logical_cpus": 16,
+    "caches": "not recorded",
+    "python": "3.12.5"
+  },
+  "pipeline": {
+    "frontend_ir": "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k2/shifted_reuse_k2.frontend.ll",
+    "frontend_flags": [
+      "-O0",
+      "-Xclang",
+      "-disable-O0-optnone",
+      "-march=alderlake",
+      "-std=c++17",
+      "-emit-llvm",
+      "-S"
+    ],
+    "opt_passes": [
+      "A: default<O3> -mcpu=alderlake",
+      "B: -enable-loopfusion -loop-fusion-min-reused-values=0 + default<O3>",
+      "C: -enable-loopfusion -loop-fusion-min-reused-values=1 + default<O3>",
+      "AA: identical A binary"
+    ],
+    "llc_args": [
+      "-O3",
+      "-mtriple=x86_64-pc-windows-msvc",
+      "-mcpu=alderlake"
+    ]
+  },
+  "case": {
+    "name": "Shifted affine reuse offsets k=2,4,8 elements",
+    "source": "results/r1/EXP-20261107-R1C-offsets/campaign_summary.json",
+    "input_sizes": [
+      16384,
+      131072,
+      1048576,
+      8388608
+    ],
+    "seeds": [
+      12345
+    ]
+  },
+  "procedure": {
+    "configurations": [
+      "A",
+      "B",
+      "C",
+      "AA"
+    ],
+    "repetitions": 5,
+    "trials_per_process": 4,
+    "order": "randomized interleaved per round; logical CPU 2; high priority",
+    "timing_unit": "ns per kernel call",
+    "timing_method": "QueryPerformanceCounter, median and bootstrap CI",
+    "correctness_oracle": "per-binary scalar VERIFY plus cross-config CHECK checksum",
+    "aa_control": "A binary copied to AA and interleaved",
+    "randomization_seed": 1
+  },
+  "artifacts": {
+    "raw_timings": [
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k2/raw_shifted_reuse_k2_r1a_n1048576.csv",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k2/raw_shifted_reuse_k2_r1a_n131072.csv",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k2/raw_shifted_reuse_k2_r1a_n16384.csv",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k2/raw_shifted_reuse_k2_r1a_n8388608.csv",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k4/raw_shifted_reuse_k4_r1a_n1048576.csv",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k4/raw_shifted_reuse_k4_r1a_n131072.csv",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k4/raw_shifted_reuse_k4_r1a_n16384.csv",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k4/raw_shifted_reuse_k4_r1a_n8388608.csv",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k8/raw_shifted_reuse_k8_r1a_n1048576.csv",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k8/raw_shifted_reuse_k8_r1a_n131072.csv",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k8/raw_shifted_reuse_k8_r1a_n16384.csv",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k8/raw_shifted_reuse_k8_r1a_n8388608.csv",
+      "results/r1/EXP-20261107-R1C-offsets/campaign_summary.json",
+      "results/r1/EXP-20261107-R1C-offsets/table.csv"
+    ],
+    "ir": [
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k2/shifted_reuse_k2.A.ll",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k2/shifted_reuse_k2.B.ll",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k2/shifted_reuse_k2.C.ll",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k2/shifted_reuse_k2.frontend.ll",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k4/shifted_reuse_k4.A.ll",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k4/shifted_reuse_k4.B.ll",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k4/shifted_reuse_k4.C.ll",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k4/shifted_reuse_k4.frontend.ll",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k8/shifted_reuse_k8.A.ll",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k8/shifted_reuse_k8.B.ll",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k8/shifted_reuse_k8.C.ll",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k8/shifted_reuse_k8.frontend.ll"
+    ],
+    "assembly": [
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k2/shifted_reuse_k2.A.s",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k2/shifted_reuse_k2.B.s",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k2/shifted_reuse_k2.C.s",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k4/shifted_reuse_k4.A.s",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k4/shifted_reuse_k4.B.s",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k4/shifted_reuse_k4.C.s",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k8/shifted_reuse_k8.A.s",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k8/shifted_reuse_k8.B.s",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k8/shifted_reuse_k8.C.s"
+    ],
+    "remarks": [
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k2/remarks-A.yaml",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k2/remarks-B.yaml",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k2/remarks-C.yaml",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k4/remarks-A.yaml",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k4/remarks-B.yaml",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k4/remarks-C.yaml",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k8/remarks-A.yaml",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k8/remarks-B.yaml",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k8/remarks-C.yaml"
+    ],
+    "analysis_script": "scripts/r1_analyze.py",
+    "analysis_script_revision": "working-tree",
+    "checksums": [
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k2/meta.json",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k4/meta.json",
+      "results/r1/EXP-20261107-R1C-offsets/shifted_reuse_k8/meta.json"
+    ]
+  },
+  "commands": [
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case shifted_reuse_k2 -Campaign EXP-20261107-R1C-offsets",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --case shifted_reuse_k2 --campaign EXP-20261107-R1C-offsets --n 16384 --reps 300 --trials 4 --rounds 5 --configs A,B,C,AA --tag r1a",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --case shifted_reuse_k2 --campaign EXP-20261107-R1C-offsets --n 131072 --reps 40 --trials 4 --rounds 5 --configs A,B,C,AA --tag r1a",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --case shifted_reuse_k2 --campaign EXP-20261107-R1C-offsets --n 1048576 --reps 6 --trials 4 --rounds 5 --configs A,B,C,AA --tag r1a",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --case shifted_reuse_k2 --campaign EXP-20261107-R1C-offsets --n 8388608 --reps 1 --trials 4 --rounds 5 --configs A,B,C,AA --tag r1a",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case shifted_reuse_k4 -Campaign EXP-20261107-R1C-offsets",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --case shifted_reuse_k4 --campaign EXP-20261107-R1C-offsets --n 16384 --reps 300 --trials 4 --rounds 5 --configs A,B,C,AA --tag r1a",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --case shifted_reuse_k4 --campaign EXP-20261107-R1C-offsets --n 131072 --reps 40 --trials 4 --rounds 5 --configs A,B,C,AA --tag r1a",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --case shifted_reuse_k4 --campaign EXP-20261107-R1C-offsets --n 1048576 --reps 6 --trials 4 --rounds 5 --configs A,B,C,AA --tag r1a",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --case shifted_reuse_k4 --campaign EXP-20261107-R1C-offsets --n 8388608 --reps 1 --trials 4 --rounds 5 --configs A,B,C,AA --tag r1a",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case shifted_reuse_k8 -Campaign EXP-20261107-R1C-offsets",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --case shifted_reuse_k8 --campaign EXP-20261107-R1C-offsets --n 16384 --reps 300 --trials 4 --rounds 5 --configs A,B,C,AA --tag r1a",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --case shifted_reuse_k8 --campaign EXP-20261107-R1C-offsets --n 131072 --reps 40 --trials 4 --rounds 5 --configs A,B,C,AA --tag r1a",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --case shifted_reuse_k8 --campaign EXP-20261107-R1C-offsets --n 1048576 --reps 6 --trials 4 --rounds 5 --configs A,B,C,AA --tag r1a",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --case shifted_reuse_k8 --campaign EXP-20261107-R1C-offsets --n 8388608 --reps 1 --trials 4 --rounds 5 --configs A,B,C,AA --tag r1a",
+    "python scripts/r1_analyze.py --campaign EXP-20261107-R1C-offsets"
+  ],
+  "results": {
+    "summary": "Offsets k=2,4,8 elements all reproduce the shifted-reuse false negative: B is -14 to -32% at 128K-8M while C rejects and stays near A. A/A controls are within about 6%. The effect is therefore not specific to an offset of one element or to a particular cache-line alignment; the exact affine RAR key rejects the whole family.",
+    "limitations": [
+      "Three kernels on one machine; no hardware counters.",
+      "C/A differences of a few percent are within the A/A noise scale.",
+      "No independent review."
+    ]
+  },
+  "review": {
+    "status": "model-assisted-self-review",
+    "reviewer": "same model as author",
+    "reviewer_type": "same-model",
+    "decision": "accept-with-limits",
+    "artifact": "reports/r1c_corpus.md",
+    "notes": "Self-review of shifted-offset measurements; not independent.",
+    "reviewed_utc": "2026-11-07T05:10:00Z"
+  },
+  "evidence": {
+    "quality": "measured",
+    "notes": "Raw CSV, IR, assembly, remarks and checksums are linked.",
+    "validation_artifacts": [
+      "results/r1/EXP-20261107-R1C-offsets/campaign_summary.json",
+      "results/r1/EXP-20261107-R1C-offsets/analysis.json",
+      "results/r1/EXP-20261107-R1C-offsets/table.md",
+      "reports/r1c_corpus.md"
+    ]
+  },
+  "status_history": [
+    {
+      "status": "planned",
+      "utc": "2026-11-07T05:10:00Z",
+      "reason": "record created"
+    },
+    {
+      "status": "running",
+      "utc": "2026-11-07T05:10:00Z",
+      "reason": "offset campaign started"
+    },
+    {
+      "status": "analyzed",
+      "utc": "2026-11-07T05:10:00Z",
+      "reason": "offset campaign completed and summarized",
+      "evidence": [
+        "results/r1/EXP-20261107-R1C-offsets/campaign_summary.json"
+      ]
+    }
+  ],
+  "next_action": "Include the offset family in a held-out predictor evaluation; keep shifted RAR as a separate patch from metadata handling."
+}

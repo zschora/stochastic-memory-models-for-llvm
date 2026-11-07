@@ -1,0 +1,935 @@
+{
+  "shifted_reuse_k2": {
+    "meta": {
+      "case": "shifted_reuse_k2",
+      "campaign": "EXP-20261107-R1C-offsets",
+      "source": "benchmarks/shifted_reuse_k2.cpp",
+      "source_sha256": "0E2FA7EBA2878D549CB9ACFE4091DBF569212AE0C1D7E09C490BC6632F86DD7B",
+      "kernel_ll": "",
+      "input_ir": "shifted_reuse_k2.frontend.ll",
+      "input_ir_sha256": "71B15114085937104A9C6ED3BE841C21AA1D9A4CBC1F9C7358120D193D33580D",
+      "clang": "clang version 24.0.0git (https://github.com/llvm/llvm-project.git 6f4196219399a3502cea3beb2d0c8c28b2241649)",
+      "opt": "LLVM (http://llvm.org/):",
+      "llc": "LLVM (http://llvm.org/):",
+      "cpu": "alderlake",
+      "configs": {
+        "A": {
+          "fusion_flags": [],
+          "loops_after": 13,
+          "fused_remarks": 0,
+          "insufficient_reuse_remarks": 0,
+          "ll_sha256": "C30EB6AEC15171F517D7A15CCD7DB6DAE970F75A00A9D55025A00796E5FA5D2B",
+          "asm_sha256": "6E3E4B6CD5D029AA05116C6DF4D3C93E32128011C0135ADE47C8F75924859A55",
+          "exe_sha256": "FAD69D7F75AFA861A605FB7EBB0195D25D564E84976D6339D806C76F8D081E1C",
+          "obj_size": 40001,
+          "asm_size": 125307
+        },
+        "B": {
+          "fusion_flags": [
+            "-enable-loopfusion",
+            "-loop-fusion-min-reused-values=0"
+          ],
+          "loops_after": 9,
+          "fused_remarks": 2,
+          "insufficient_reuse_remarks": 0,
+          "ll_sha256": "0537ED11EA7F7C1516E7A7CFE1022D08BF5AC5C7B8AA8FCED03E6C98F560BFED",
+          "asm_sha256": "F4566531E7F50F778EB5B67FFE9E47AEA36774C53D2E24EFB9D58B6292B004A7",
+          "exe_sha256": "27B40CBC1EFD4231E55E3C86D0C63D659F89DC1E08DE8D703CF8C81BA66A470D",
+          "obj_size": 39663,
+          "asm_size": 121949
+        },
+        "C": {
+          "fusion_flags": [
+            "-enable-loopfusion",
+            "-loop-fusion-min-reused-values=1"
+          ],
+          "loops_after": 13,
+          "fused_remarks": 0,
+          "insufficient_reuse_remarks": 0,
+          "ll_sha256": "C30EB6AEC15171F517D7A15CCD7DB6DAE970F75A00A9D55025A00796E5FA5D2B",
+          "asm_sha256": "272C51F6969A57D9ACC55239C92667CEF7AECAFF3582E37803D22AF7B0B9D896",
+          "exe_sha256": "5D4E8A9221B37D31DC504EF61D40633F918FD313BE50E1158B9202C53BFB1889",
+          "obj_size": 40001,
+          "asm_size": 125307
+        }
+      },
+      "aa_control": {
+        "binary": "shifted_reuse_k2.AA.exe",
+        "sha256": "FAD69D7F75AFA861A605FB7EBB0195D25D564E84976D6339D806C76F8D081E1C",
+        "identical_to_A": true
+      }
+    },
+    "configs": {
+      "A": {
+        "remarks": {
+          "events": {},
+          "per_function": {}
+        },
+        "loop_metadata": {
+          "shift_k2_kernel": [
+            {
+              "metadata_id": "17",
+              "values": {}
+            },
+            {
+              "metadata_id": "23",
+              "values": {}
+            },
+            {
+              "metadata_id": "25",
+              "values": {}
+            },
+            {
+              "metadata_id": "26",
+              "values": {}
+            },
+            {
+              "metadata_id": "27",
+              "values": {}
+            },
+            {
+              "metadata_id": "28",
+              "values": {}
+            }
+          ],
+          "main": [
+            {
+              "metadata_id": "29",
+              "values": {}
+            },
+            {
+              "metadata_id": "30",
+              "values": {}
+            },
+            {
+              "metadata_id": "31",
+              "values": {}
+            }
+          ],
+          "printf": [
+            {
+              "metadata_id": "32",
+              "values": {}
+            },
+            {
+              "metadata_id": "33",
+              "values": {
+                "llvm.loop.unroll.disable": "present"
+              }
+            },
+            {
+              "metadata_id": "35",
+              "values": {}
+            },
+            {
+              "metadata_id": "36",
+              "values": {}
+            },
+            {
+              "metadata_id": "36",
+              "values": {}
+            }
+          ]
+        },
+        "asm_counts": {
+          "ymm": 58,
+          "zmm": 0,
+          "xmm": 130,
+          "vp": 0
+        },
+        "ir_sha256": "C30EB6AEC15171F517D7A15CCD7DB6DAE970F75A00A9D55025A00796E5FA5D2B",
+        "asm_sha256": "6E3E4B6CD5D029AA05116C6DF4D3C93E32128011C0135ADE47C8F75924859A55"
+      },
+      "B": {
+        "remarks": {
+          "events": {
+            "FuseCounter": 1,
+            "InvalidCandidate": 2,
+            "MayThrowException": 2
+          },
+          "per_function": {
+            "shift_k2_kernel": {
+              "FuseCounter": 1
+            },
+            "??$run_trials@V<lambda_0>@?0??main@@9@@bench@@YAXPEBD0_KHHV<lambda_0>@?0??main@@9@@Z": {
+              "InvalidCandidate": 2,
+              "MayThrowException": 2
+            }
+          }
+        },
+        "loop_metadata": {
+          "shift_k2_kernel": [
+            {
+              "metadata_id": "17",
+              "values": {}
+            },
+            {
+              "metadata_id": "22",
+              "values": {}
+            }
+          ],
+          "main": [
+            {
+              "metadata_id": "24",
+              "values": {}
+            },
+            {
+              "metadata_id": "25",
+              "values": {}
+            },
+            {
+              "metadata_id": "26",
+              "values": {}
+            }
+          ],
+          "printf": [
+            {
+              "metadata_id": "27",
+              "values": {}
+            },
+            {
+              "metadata_id": "28",
+              "values": {
+                "llvm.loop.unroll.disable": "present"
+              }
+            },
+            {
+              "metadata_id": "30",
+              "values": {}
+            },
+            {
+              "metadata_id": "31",
+              "values": {}
+            },
+            {
+              "metadata_id": "31",
+              "values": {}
+            }
+          ]
+        },
+        "asm_counts": {
+          "ymm": 23,
+          "zmm": 0,
+          "xmm": 130,
+          "vp": 0
+        },
+        "ir_sha256": "0537ED11EA7F7C1516E7A7CFE1022D08BF5AC5C7B8AA8FCED03E6C98F560BFED",
+        "asm_sha256": "F4566531E7F50F778EB5B67FFE9E47AEA36774C53D2E24EFB9D58B6292B004A7"
+      },
+      "C": {
+        "remarks": {
+          "events": {
+            "InsufficientReuse": 1,
+            "InvalidCandidate": 2,
+            "MayThrowException": 2
+          },
+          "per_function": {
+            "shift_k2_kernel": {
+              "InsufficientReuse": 1
+            },
+            "??$run_trials@V<lambda_0>@?0??main@@9@@bench@@YAXPEBD0_KHHV<lambda_0>@?0??main@@9@@Z": {
+              "InvalidCandidate": 2,
+              "MayThrowException": 2
+            }
+          }
+        },
+        "loop_metadata": {
+          "shift_k2_kernel": [
+            {
+              "metadata_id": "17",
+              "values": {}
+            },
+            {
+              "metadata_id": "23",
+              "values": {}
+            },
+            {
+              "metadata_id": "25",
+              "values": {}
+            },
+            {
+              "metadata_id": "26",
+              "values": {}
+            },
+            {
+              "metadata_id": "27",
+              "values": {}
+            },
+            {
+              "metadata_id": "28",
+              "values": {}
+            }
+          ],
+          "main": [
+            {
+              "metadata_id": "29",
+              "values": {}
+            },
+            {
+              "metadata_id": "30",
+              "values": {}
+            },
+            {
+              "metadata_id": "31",
+              "values": {}
+            }
+          ],
+          "printf": [
+            {
+              "metadata_id": "32",
+              "values": {}
+            },
+            {
+              "metadata_id": "33",
+              "values": {
+                "llvm.loop.unroll.disable": "present"
+              }
+            },
+            {
+              "metadata_id": "35",
+              "values": {}
+            },
+            {
+              "metadata_id": "36",
+              "values": {}
+            },
+            {
+              "metadata_id": "36",
+              "values": {}
+            }
+          ]
+        },
+        "asm_counts": {
+          "ymm": 58,
+          "zmm": 0,
+          "xmm": 130,
+          "vp": 0
+        },
+        "ir_sha256": "C30EB6AEC15171F517D7A15CCD7DB6DAE970F75A00A9D55025A00796E5FA5D2B",
+        "asm_sha256": "272C51F6969A57D9ACC55239C92667CEF7AECAFF3582E37803D22AF7B0B9D896"
+      }
+    }
+  },
+  "shifted_reuse_k4": {
+    "meta": {
+      "case": "shifted_reuse_k4",
+      "campaign": "EXP-20261107-R1C-offsets",
+      "source": "benchmarks/shifted_reuse_k4.cpp",
+      "source_sha256": "A67468656F216785650C22A3482B8CCEB111479EC6EC5A2C27099AE0C919E22D",
+      "kernel_ll": "",
+      "input_ir": "shifted_reuse_k4.frontend.ll",
+      "input_ir_sha256": "26F440419F3475D3A5C2BCEC983F95F3F2DD43A38E79329AB16662A4F29473DE",
+      "clang": "clang version 24.0.0git (https://github.com/llvm/llvm-project.git 6f4196219399a3502cea3beb2d0c8c28b2241649)",
+      "opt": "LLVM (http://llvm.org/):",
+      "llc": "LLVM (http://llvm.org/):",
+      "cpu": "alderlake",
+      "configs": {
+        "A": {
+          "fusion_flags": [],
+          "loops_after": 13,
+          "fused_remarks": 0,
+          "insufficient_reuse_remarks": 0,
+          "ll_sha256": "767B766E3D63C2473E2D8B0EABB774D20564497EAB07D142ADFEDF79C6C1C355",
+          "asm_sha256": "488AA714C56FDC78E945B20AE5EEC25E0913C9EF36CA596E3E293F097F09F0BD",
+          "exe_sha256": "C66D8787930C118322F8CFCA98088D893CB669DAC224ADE499C419BB10C038DA",
+          "obj_size": 40001,
+          "asm_size": 125307
+        },
+        "B": {
+          "fusion_flags": [
+            "-enable-loopfusion",
+            "-loop-fusion-min-reused-values=0"
+          ],
+          "loops_after": 9,
+          "fused_remarks": 2,
+          "insufficient_reuse_remarks": 0,
+          "ll_sha256": "EF33C354C4BB69E311F1345A9FFF5B247305039758A5C84FAAFEA7CD2C82D049",
+          "asm_sha256": "1E26B767A900E600F25DECA4A60AEE7C4D98FE9CFE27DB7317CCB3686D5C00EF",
+          "exe_sha256": "A3839B64CA1DA1EE9829414F90448B134606A26EB0DD79713FE0786CB710870F",
+          "obj_size": 39663,
+          "asm_size": 121949
+        },
+        "C": {
+          "fusion_flags": [
+            "-enable-loopfusion",
+            "-loop-fusion-min-reused-values=1"
+          ],
+          "loops_after": 13,
+          "fused_remarks": 0,
+          "insufficient_reuse_remarks": 0,
+          "ll_sha256": "767B766E3D63C2473E2D8B0EABB774D20564497EAB07D142ADFEDF79C6C1C355",
+          "asm_sha256": "CCF1122EB40A922E8EAB829351872FDD91E58984E9D2E28C61CA963EC68E9D3F",
+          "exe_sha256": "2D3B8FE2065175C8D1951FDE2BBEB6F10927C1B38387D97A5D58CCA149248E2E",
+          "obj_size": 40001,
+          "asm_size": 125307
+        }
+      },
+      "aa_control": {
+        "binary": "shifted_reuse_k4.AA.exe",
+        "sha256": "C66D8787930C118322F8CFCA98088D893CB669DAC224ADE499C419BB10C038DA",
+        "identical_to_A": true
+      }
+    },
+    "configs": {
+      "A": {
+        "remarks": {
+          "events": {},
+          "per_function": {}
+        },
+        "loop_metadata": {
+          "shift_k4_kernel": [
+            {
+              "metadata_id": "17",
+              "values": {}
+            },
+            {
+              "metadata_id": "23",
+              "values": {}
+            },
+            {
+              "metadata_id": "25",
+              "values": {}
+            },
+            {
+              "metadata_id": "26",
+              "values": {}
+            },
+            {
+              "metadata_id": "27",
+              "values": {}
+            },
+            {
+              "metadata_id": "28",
+              "values": {}
+            }
+          ],
+          "main": [
+            {
+              "metadata_id": "29",
+              "values": {}
+            },
+            {
+              "metadata_id": "30",
+              "values": {}
+            },
+            {
+              "metadata_id": "31",
+              "values": {}
+            }
+          ],
+          "printf": [
+            {
+              "metadata_id": "32",
+              "values": {}
+            },
+            {
+              "metadata_id": "33",
+              "values": {
+                "llvm.loop.unroll.disable": "present"
+              }
+            },
+            {
+              "metadata_id": "35",
+              "values": {}
+            },
+            {
+              "metadata_id": "36",
+              "values": {}
+            },
+            {
+              "metadata_id": "36",
+              "values": {}
+            }
+          ]
+        },
+        "asm_counts": {
+          "ymm": 58,
+          "zmm": 0,
+          "xmm": 130,
+          "vp": 0
+        },
+        "ir_sha256": "767B766E3D63C2473E2D8B0EABB774D20564497EAB07D142ADFEDF79C6C1C355",
+        "asm_sha256": "488AA714C56FDC78E945B20AE5EEC25E0913C9EF36CA596E3E293F097F09F0BD"
+      },
+      "B": {
+        "remarks": {
+          "events": {
+            "FuseCounter": 1,
+            "InvalidCandidate": 2,
+            "MayThrowException": 2
+          },
+          "per_function": {
+            "shift_k4_kernel": {
+              "FuseCounter": 1
+            },
+            "??$run_trials@V<lambda_0>@?0??main@@9@@bench@@YAXPEBD0_KHHV<lambda_0>@?0??main@@9@@Z": {
+              "InvalidCandidate": 2,
+              "MayThrowException": 2
+            }
+          }
+        },
+        "loop_metadata": {
+          "shift_k4_kernel": [
+            {
+              "metadata_id": "17",
+              "values": {}
+            },
+            {
+              "metadata_id": "22",
+              "values": {}
+            }
+          ],
+          "main": [
+            {
+              "metadata_id": "24",
+              "values": {}
+            },
+            {
+              "metadata_id": "25",
+              "values": {}
+            },
+            {
+              "metadata_id": "26",
+              "values": {}
+            }
+          ],
+          "printf": [
+            {
+              "metadata_id": "27",
+              "values": {}
+            },
+            {
+              "metadata_id": "28",
+              "values": {
+                "llvm.loop.unroll.disable": "present"
+              }
+            },
+            {
+              "metadata_id": "30",
+              "values": {}
+            },
+            {
+              "metadata_id": "31",
+              "values": {}
+            },
+            {
+              "metadata_id": "31",
+              "values": {}
+            }
+          ]
+        },
+        "asm_counts": {
+          "ymm": 23,
+          "zmm": 0,
+          "xmm": 130,
+          "vp": 0
+        },
+        "ir_sha256": "EF33C354C4BB69E311F1345A9FFF5B247305039758A5C84FAAFEA7CD2C82D049",
+        "asm_sha256": "1E26B767A900E600F25DECA4A60AEE7C4D98FE9CFE27DB7317CCB3686D5C00EF"
+      },
+      "C": {
+        "remarks": {
+          "events": {
+            "InsufficientReuse": 1,
+            "InvalidCandidate": 2,
+            "MayThrowException": 2
+          },
+          "per_function": {
+            "shift_k4_kernel": {
+              "InsufficientReuse": 1
+            },
+            "??$run_trials@V<lambda_0>@?0??main@@9@@bench@@YAXPEBD0_KHHV<lambda_0>@?0??main@@9@@Z": {
+              "InvalidCandidate": 2,
+              "MayThrowException": 2
+            }
+          }
+        },
+        "loop_metadata": {
+          "shift_k4_kernel": [
+            {
+              "metadata_id": "17",
+              "values": {}
+            },
+            {
+              "metadata_id": "23",
+              "values": {}
+            },
+            {
+              "metadata_id": "25",
+              "values": {}
+            },
+            {
+              "metadata_id": "26",
+              "values": {}
+            },
+            {
+              "metadata_id": "27",
+              "values": {}
+            },
+            {
+              "metadata_id": "28",
+              "values": {}
+            }
+          ],
+          "main": [
+            {
+              "metadata_id": "29",
+              "values": {}
+            },
+            {
+              "metadata_id": "30",
+              "values": {}
+            },
+            {
+              "metadata_id": "31",
+              "values": {}
+            }
+          ],
+          "printf": [
+            {
+              "metadata_id": "32",
+              "values": {}
+            },
+            {
+              "metadata_id": "33",
+              "values": {
+                "llvm.loop.unroll.disable": "present"
+              }
+            },
+            {
+              "metadata_id": "35",
+              "values": {}
+            },
+            {
+              "metadata_id": "36",
+              "values": {}
+            },
+            {
+              "metadata_id": "36",
+              "values": {}
+            }
+          ]
+        },
+        "asm_counts": {
+          "ymm": 58,
+          "zmm": 0,
+          "xmm": 130,
+          "vp": 0
+        },
+        "ir_sha256": "767B766E3D63C2473E2D8B0EABB774D20564497EAB07D142ADFEDF79C6C1C355",
+        "asm_sha256": "CCF1122EB40A922E8EAB829351872FDD91E58984E9D2E28C61CA963EC68E9D3F"
+      }
+    }
+  },
+  "shifted_reuse_k8": {
+    "meta": {
+      "case": "shifted_reuse_k8",
+      "campaign": "EXP-20261107-R1C-offsets",
+      "source": "benchmarks/shifted_reuse_k8.cpp",
+      "source_sha256": "3E5B5A6FC3772F00F96F1CA27C14324FC78B66546603A8EF586676D391FA01F6",
+      "kernel_ll": "",
+      "input_ir": "shifted_reuse_k8.frontend.ll",
+      "input_ir_sha256": "7E57121BD5FCCB94E367EEF434060B8D7D23A220CE3227C98548C3837E558ADA",
+      "clang": "clang version 24.0.0git (https://github.com/llvm/llvm-project.git 6f4196219399a3502cea3beb2d0c8c28b2241649)",
+      "opt": "LLVM (http://llvm.org/):",
+      "llc": "LLVM (http://llvm.org/):",
+      "cpu": "alderlake",
+      "configs": {
+        "A": {
+          "fusion_flags": [],
+          "loops_after": 13,
+          "fused_remarks": 0,
+          "insufficient_reuse_remarks": 0,
+          "ll_sha256": "232E0FE68BCCDF115F67D25CC3E76EE2E93E873EA8F9EEA20F84F0175889F349",
+          "asm_sha256": "D19B1D94EB732E614AB684B7015DC803E7A1C8DEBE44F933ED8B3574637081F4",
+          "exe_sha256": "8D15C6D3605A2144921E993D1C7E208967FF610687B37DB11E846FE35AD060A2",
+          "obj_size": 40001,
+          "asm_size": 125308
+        },
+        "B": {
+          "fusion_flags": [
+            "-enable-loopfusion",
+            "-loop-fusion-min-reused-values=0"
+          ],
+          "loops_after": 9,
+          "fused_remarks": 2,
+          "insufficient_reuse_remarks": 0,
+          "ll_sha256": "B44910B4AD0CCB8B4E8D060360D20D5EAFD79D2AED3313259272322DC50615AE",
+          "asm_sha256": "EF55E242D76D071A229A9E801961A88C02067181E41AD60E10E341E40589A0C7",
+          "exe_sha256": "D021645A3AA607FA1B05F05306EE63191B43D928A11659F04161678795A2AF73",
+          "obj_size": 39663,
+          "asm_size": 121949
+        },
+        "C": {
+          "fusion_flags": [
+            "-enable-loopfusion",
+            "-loop-fusion-min-reused-values=1"
+          ],
+          "loops_after": 13,
+          "fused_remarks": 0,
+          "insufficient_reuse_remarks": 0,
+          "ll_sha256": "232E0FE68BCCDF115F67D25CC3E76EE2E93E873EA8F9EEA20F84F0175889F349",
+          "asm_sha256": "C45F4B10B8AA06114AE27C15D08D98D3BD8DE765D9A72A453C38F5444920E7B6",
+          "exe_sha256": "9164D7EE433A71D5B9402858C5F558DAFF4A358E82A39C9B59B5BFBD162747BF",
+          "obj_size": 40001,
+          "asm_size": 125308
+        }
+      },
+      "aa_control": {
+        "binary": "shifted_reuse_k8.AA.exe",
+        "sha256": "8D15C6D3605A2144921E993D1C7E208967FF610687B37DB11E846FE35AD060A2",
+        "identical_to_A": true
+      }
+    },
+    "configs": {
+      "A": {
+        "remarks": {
+          "events": {},
+          "per_function": {}
+        },
+        "loop_metadata": {
+          "shift_k8_kernel": [
+            {
+              "metadata_id": "17",
+              "values": {}
+            },
+            {
+              "metadata_id": "23",
+              "values": {}
+            },
+            {
+              "metadata_id": "25",
+              "values": {}
+            },
+            {
+              "metadata_id": "26",
+              "values": {}
+            },
+            {
+              "metadata_id": "27",
+              "values": {}
+            },
+            {
+              "metadata_id": "28",
+              "values": {}
+            }
+          ],
+          "main": [
+            {
+              "metadata_id": "29",
+              "values": {}
+            },
+            {
+              "metadata_id": "30",
+              "values": {}
+            },
+            {
+              "metadata_id": "31",
+              "values": {}
+            }
+          ],
+          "printf": [
+            {
+              "metadata_id": "32",
+              "values": {}
+            },
+            {
+              "metadata_id": "33",
+              "values": {
+                "llvm.loop.unroll.disable": "present"
+              }
+            },
+            {
+              "metadata_id": "35",
+              "values": {}
+            },
+            {
+              "metadata_id": "36",
+              "values": {}
+            },
+            {
+              "metadata_id": "36",
+              "values": {}
+            }
+          ]
+        },
+        "asm_counts": {
+          "ymm": 58,
+          "zmm": 0,
+          "xmm": 130,
+          "vp": 0
+        },
+        "ir_sha256": "232E0FE68BCCDF115F67D25CC3E76EE2E93E873EA8F9EEA20F84F0175889F349",
+        "asm_sha256": "D19B1D94EB732E614AB684B7015DC803E7A1C8DEBE44F933ED8B3574637081F4"
+      },
+      "B": {
+        "remarks": {
+          "events": {
+            "FuseCounter": 1,
+            "InvalidCandidate": 2,
+            "MayThrowException": 2
+          },
+          "per_function": {
+            "shift_k8_kernel": {
+              "FuseCounter": 1
+            },
+            "??$run_trials@V<lambda_0>@?0??main@@9@@bench@@YAXPEBD0_KHHV<lambda_0>@?0??main@@9@@Z": {
+              "InvalidCandidate": 2,
+              "MayThrowException": 2
+            }
+          }
+        },
+        "loop_metadata": {
+          "shift_k8_kernel": [
+            {
+              "metadata_id": "17",
+              "values": {}
+            },
+            {
+              "metadata_id": "22",
+              "values": {}
+            }
+          ],
+          "main": [
+            {
+              "metadata_id": "24",
+              "values": {}
+            },
+            {
+              "metadata_id": "25",
+              "values": {}
+            },
+            {
+              "metadata_id": "26",
+              "values": {}
+            }
+          ],
+          "printf": [
+            {
+              "metadata_id": "27",
+              "values": {}
+            },
+            {
+              "metadata_id": "28",
+              "values": {
+                "llvm.loop.unroll.disable": "present"
+              }
+            },
+            {
+              "metadata_id": "30",
+              "values": {}
+            },
+            {
+              "metadata_id": "31",
+              "values": {}
+            },
+            {
+              "metadata_id": "31",
+              "values": {}
+            }
+          ]
+        },
+        "asm_counts": {
+          "ymm": 23,
+          "zmm": 0,
+          "xmm": 130,
+          "vp": 0
+        },
+        "ir_sha256": "B44910B4AD0CCB8B4E8D060360D20D5EAFD79D2AED3313259272322DC50615AE",
+        "asm_sha256": "EF55E242D76D071A229A9E801961A88C02067181E41AD60E10E341E40589A0C7"
+      },
+      "C": {
+        "remarks": {
+          "events": {
+            "InsufficientReuse": 1,
+            "InvalidCandidate": 2,
+            "MayThrowException": 2
+          },
+          "per_function": {
+            "shift_k8_kernel": {
+              "InsufficientReuse": 1
+            },
+            "??$run_trials@V<lambda_0>@?0??main@@9@@bench@@YAXPEBD0_KHHV<lambda_0>@?0??main@@9@@Z": {
+              "InvalidCandidate": 2,
+              "MayThrowException": 2
+            }
+          }
+        },
+        "loop_metadata": {
+          "shift_k8_kernel": [
+            {
+              "metadata_id": "17",
+              "values": {}
+            },
+            {
+              "metadata_id": "23",
+              "values": {}
+            },
+            {
+              "metadata_id": "25",
+              "values": {}
+            },
+            {
+              "metadata_id": "26",
+              "values": {}
+            },
+            {
+              "metadata_id": "27",
+              "values": {}
+            },
+            {
+              "metadata_id": "28",
+              "values": {}
+            }
+          ],
+          "main": [
+            {
+              "metadata_id": "29",
+              "values": {}
+            },
+            {
+              "metadata_id": "30",
+              "values": {}
+            },
+            {
+              "metadata_id": "31",
+              "values": {}
+            }
+          ],
+          "printf": [
+            {
+              "metadata_id": "32",
+              "values": {}
+            },
+            {
+              "metadata_id": "33",
+              "values": {
+                "llvm.loop.unroll.disable": "present"
+              }
+            },
+            {
+              "metadata_id": "35",
+              "values": {}
+            },
+            {
+              "metadata_id": "36",
+              "values": {}
+            },
+            {
+              "metadata_id": "36",
+              "values": {}
+            }
+          ]
+        },
+        "asm_counts": {
+          "ymm": 58,
+          "zmm": 0,
+          "xmm": 130,
+          "vp": 0
+        },
+        "ir_sha256": "232E0FE68BCCDF115F67D25CC3E76EE2E93E873EA8F9EEA20F84F0175889F349",
+        "asm_sha256": "C45F4B10B8AA06114AE27C15D08D98D3BD8DE765D9A72A453C38F5444920E7B6"
+      }
+    }
+  }
+}

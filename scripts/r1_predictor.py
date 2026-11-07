@@ -16,6 +16,9 @@ KERNELS = {
     "read_read": "rr_kernel",
     "read_read_offset": "rr_offset_kernel",
     "shifted_reuse": "shift_kernel",
+    "shifted_reuse_k2": "shift_k2_kernel",
+    "shifted_reuse_k4": "shift_k4_kernel",
+    "shifted_reuse_k8": "shift_k8_kernel",
     "simd_metadata": "simd_meta_kernel",
     "simd_metadata_scalar": "simd_meta_scalar_kernel",
     "simd_reduction": "simd_kernel",
@@ -26,6 +29,9 @@ REUSE = {
     "read_read": "exact",
     "read_read_offset": "exact",
     "shifted_reuse": "shifted",
+    "shifted_reuse_k2": "shifted",
+    "shifted_reuse_k4": "shifted",
+    "shifted_reuse_k8": "shifted",
     "simd_metadata": "exact",
     "simd_metadata_scalar": "exact",
     "simd_reduction": "exact",
@@ -54,11 +60,22 @@ def main() -> int:
     ap.add_argument("--campaign", default="EXP-20261107-R1A")
     args = ap.parse_args()
     base = ROOT / "results" / "r1" / args.campaign
-    campaign = json.loads((base / "campaign_summary.json").read_text(encoding="utf-8"))
-    analysis = json.loads((base / "analysis.json").read_text(encoding="utf-8"))
+    campaign_dirs = [base]
+    offset_dir = ROOT / "results" / "r1" / "EXP-20261107-R1C-offsets"
+    if offset_dir.is_dir() and offset_dir != base:
+        campaign_dirs.append(offset_dir)
+    results = []
+    analysis = {}
+    for directory in campaign_dirs:
+        summary_path = directory / "campaign_summary.json"
+        if summary_path.is_file():
+            results.extend(json.loads(summary_path.read_text(encoding="utf-8"))["results"])
+        analysis_path = directory / "analysis.json"
+        if analysis_path.is_file():
+            analysis.update(json.loads(analysis_path.read_text(encoding="utf-8")))
 
     points = []
-    for result in campaign["results"]:
+    for result in results:
         case = result["case"]
         if case not in KERNELS or result.get("mode"):
             continue
