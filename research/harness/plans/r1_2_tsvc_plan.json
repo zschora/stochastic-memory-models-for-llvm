@@ -1,0 +1,14 @@
+{
+  "campaign": "EXP-20261107-R12-tsvc",
+  "seed": 20261109,
+  "toolchain_manifest": "research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json",
+  "defaults": {
+    "trials": 5,
+    "configs": ["A", "B", "C", "AA"]
+  },
+  "rationale": "Pre-registered after static discovery but before the 9-block measurements. TSVC s233 has a legal fused pair in B/C; TSVC s2233 has a legal B fusion rejected by C. Nine complete blocks (five internal trials) are used because these are new real-workload families and the 5-block pilot showed both a beneficial and a large harmful outcome. ntimes is reduced to 256 as a documented measurement adaptation; each wrapper call runs the original kernel with that reduced outer repetition count.",
+  "points": [
+    {"case": "tsvc_s233", "n": 256, "reps": 1, "blocks": 9},
+    {"case": "tsvc_s2233", "n": 256, "reps": 1, "blocks": 9}
+  ]
+}

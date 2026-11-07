@@ -1,0 +1,4493 @@
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        _vfprintf_l
+Args:
+  - Callee:          __stdio_common_vfprintf
+  - String:          ' will not be inlined into '
+  - Caller:          _vfprintf_l
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        _vfprintf_l
+Args:
+  - String:          ''''
+  - Callee:          __local_stdio_printf_options
+  - String:          ''' not inlined into '''
+  - Caller:          _vfprintf_l
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        _vfprintf_l
+Args:
+  - String:          'load of type '
+  - Type:            i64
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     call
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        fprintf
+Args:
+  - String:          ''''
+  - Callee:          _vfprintf_l
+  - String:          ''' not inlined into '''
+  - Caller:          fprintf
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        fprintf
+Args:
+  - String:          'load of type '
+  - Type:            ptr
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     call llvm.va_start.p0
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        init_array
+Args:
+  - String:          'hoisting '
+  - Inst:            zext
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        init_array
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        init_array
+Args:
+  - String:          'hoisting '
+  - Inst:            zext
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        init_array
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        init_array
+Args:
+  - String:          'hoisting '
+  - Inst:            zext
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        init_array
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        init_array
+Args:
+  - String:          'hoisting '
+  - Inst:            zext
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        init_array
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Passed
+Pass:            loop-unroll
+Name:            FullyUnrolled
+Function:        init_array
+Args:
+  - String:          'completely unrolled loop with '
+  - UnrollCount:     '20'
+  - String:          ' iterations'
+...
+--- !Passed
+Pass:            loop-unroll
+Name:            FullyUnrolled
+Function:        init_array
+Args:
+  - String:          'completely unrolled loop with '
+  - UnrollCount:     '18'
+  - String:          ' iterations'
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            PromoteLoopAccessesToScalar
+Function:        kernel_3mm
+Args:
+  - String:          Moving accesses to memory location out of the loop
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            zext
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            PromoteLoopAccessesToScalar
+Function:        kernel_3mm
+Args:
+  - String:          Moving accesses to memory location out of the loop
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            zext
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            PromoteLoopAccessesToScalar
+Function:        kernel_3mm
+Args:
+  - String:          Moving accesses to memory location out of the loop
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            zext
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Passed
+Pass:            loop-unroll
+Name:            FullyUnrolled
+Function:        kernel_3mm
+Args:
+  - String:          'completely unrolled loop with '
+  - UnrollCount:     '20'
+  - String:          ' iterations'
+...
+--- !Passed
+Pass:            loop-unroll
+Name:            FullyUnrolled
+Function:        kernel_3mm
+Args:
+  - String:          'completely unrolled loop with '
+  - UnrollCount:     '24'
+  - String:          ' iterations'
+...
+--- !Passed
+Pass:            loop-unroll
+Name:            FullyUnrolled
+Function:        kernel_3mm
+Args:
+  - String:          'completely unrolled loop with '
+  - UnrollCount:     '18'
+  - String:          ' iterations'
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_3mm
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          __acrt_iob_func
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          fwrite
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          __acrt_iob_func
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          __acrt_iob_func
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          fputc
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          __acrt_iob_func
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          __acrt_iob_func
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          __acrt_iob_func
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          fwrite
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        print_array
+Args:
+  - String:          ''''
+  - Callee:          fprintf
+  - String:          ''' not inlined into '''
+  - Caller:          print_array
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        print_array
+Args:
+  - String:          ''''
+  - Callee:          fprintf
+  - String:          ''' not inlined into '''
+  - Caller:          print_array
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        print_array
+Args:
+  - String:          ''''
+  - Callee:          fprintf
+  - String:          ''' not inlined into '''
+  - Caller:          print_array
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        print_array
+Args:
+  - String:          'hoisting '
+  - Inst:            mul
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        print_array
+Args:
+  - String:          'hoisting '
+  - Inst:            zext
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        print_array
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Passed
+Pass:            TTI
+Name:            DontUnroll
+Function:        print_array
+Args:
+  - String:          'advising against unrolling the loop because it contains a '
+  - Call:            call
+...
+--- !Passed
+Pass:            TTI
+Name:            DontUnroll
+Function:        print_array
+Args:
+  - String:          'advising against unrolling the loop because it contains a '
+  - Call:            call
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        print_array
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     call
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        print_array
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     call
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          polybench_alloc_data
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          polybench_alloc_data
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          polybench_alloc_data
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          polybench_alloc_data
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          polybench_alloc_data
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          polybench_alloc_data
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          polybench_alloc_data
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        main
+Args:
+  - String:          ''''
+  - Callee:          init_array
+  - String:          ''' not inlined into '''
+  - Caller:          main
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        main
+Args:
+  - String:          ''''
+  - Callee:          kernel_3mm
+  - String:          ''' not inlined into '''
+  - Caller:          main
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        main
+Args:
+  - String:          ''''
+  - Callee:          print_array
+  - String:          ''' not inlined into '''
+  - Caller:          main
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ptr
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     call
+...
+--- !Passed
+Pass:            deadargelim
+Name:            ArgumentRemoved
+Function:        init_array
+Args:
+  - String:          'eliminating argument '
+  - ArgName:         ''
+  - String:          '('
+  - ArgIndex:        '0'
+  - String:          ')'
+...
+--- !Passed
+Pass:            deadargelim
+Name:            ArgumentRemoved
+Function:        init_array
+Args:
+  - String:          'eliminating argument '
+  - ArgName:         ''
+  - String:          '('
+  - ArgIndex:        '1'
+  - String:          ')'
+...
+--- !Passed
+Pass:            deadargelim
+Name:            ArgumentRemoved
+Function:        init_array
+Args:
+  - String:          'eliminating argument '
+  - ArgName:         ''
+  - String:          '('
+  - ArgIndex:        '2'
+  - String:          ')'
+...
+--- !Passed
+Pass:            deadargelim
+Name:            ArgumentRemoved
+Function:        init_array
+Args:
+  - String:          'eliminating argument '
+  - ArgName:         ''
+  - String:          '('
+  - ArgIndex:        '3'
+  - String:          ')'
+...
+--- !Passed
+Pass:            deadargelim
+Name:            ArgumentRemoved
+Function:        init_array
+Args:
+  - String:          'eliminating argument '
+  - ArgName:         ''
+  - String:          '('
+  - ArgIndex:        '4'
+  - String:          ')'
+...
+--- !Passed
+Pass:            deadargelim
+Name:            ArgumentRemoved
+Function:        kernel_3mm
+Args:
+  - String:          'eliminating argument '
+  - ArgName:         ''
+  - String:          '('
+  - ArgIndex:        '0'
+  - String:          ')'
+...
+--- !Passed
+Pass:            deadargelim
+Name:            ArgumentRemoved
+Function:        kernel_3mm
+Args:
+  - String:          'eliminating argument '
+  - ArgName:         ''
+  - String:          '('
+  - ArgIndex:        '1'
+  - String:          ')'
+...
+--- !Passed
+Pass:            deadargelim
+Name:            ArgumentRemoved
+Function:        kernel_3mm
+Args:
+  - String:          'eliminating argument '
+  - ArgName:         ''
+  - String:          '('
+  - ArgIndex:        '2'
+  - String:          ')'
+...
+--- !Passed
+Pass:            deadargelim
+Name:            ArgumentRemoved
+Function:        kernel_3mm
+Args:
+  - String:          'eliminating argument '
+  - ArgName:         ''
+  - String:          '('
+  - ArgIndex:        '3'
+  - String:          ')'
+...
+--- !Passed
+Pass:            deadargelim
+Name:            ArgumentRemoved
+Function:        kernel_3mm
+Args:
+  - String:          'eliminating argument '
+  - ArgName:         ''
+  - String:          '('
+  - ArgIndex:        '4'
+  - String:          ')'
+...
+--- !Passed
+Pass:            deadargelim
+Name:            ArgumentRemoved
+Function:        print_array
+Args:
+  - String:          'eliminating argument '
+  - ArgName:         ''
+  - String:          '('
+  - ArgIndex:        '0'
+  - String:          ')'
+...
+--- !Passed
+Pass:            deadargelim
+Name:            ArgumentRemoved
+Function:        print_array
+Args:
+  - String:          'eliminating argument '
+  - ArgName:         ''
+  - String:          '('
+  - ArgIndex:        '1'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            loop-interchange
+Name:            Dependence
+Function:        init_array
+Args:
+  - String:          Computed dependence info, invoking the transform.
+...
+--- !Analysis
+Pass:            loop-interchange
+Name:            Dependence
+Function:        init_array
+Args:
+  - String:          Computed dependence info, invoking the transform.
+...
+--- !Analysis
+Pass:            loop-interchange
+Name:            Dependence
+Function:        init_array
+Args:
+  - String:          Computed dependence info, invoking the transform.
+...
+--- !Missed
+Pass:            loop-interchange
+Name:            InterchangeNotProfitable
+Function:        init_array
+Args:
+  - String:          Insufficient information to calculate the cost of loop for interchange.
+...
+--- !Analysis
+Pass:            loop-interchange
+Name:            Dependence
+Function:        init_array
+Args:
+  - String:          Computed dependence info, invoking the transform.
+...
+--- !Missed
+Pass:            loop-interchange
+Name:            InterchangeNotProfitable
+Function:        init_array
+Args:
+  - String:          Insufficient information to calculate the cost of loop for interchange.
+...
+--- !Missed
+Pass:            loop-fusion
+Name:            NonEqualTripCount
+Function:        init_array
+Args:
+  - String:          '['
+  - String:          init_array
+  - String:          ']: '
+  - Cand1:           ''
+  - String:          ' and '
+  - Cand2:           .preheader61.preheader
+  - String:          ': '
+  - String:          Loop trip counts are not the same
+...
+--- !Missed
+Pass:            loop-fusion
+Name:            NonEqualTripCount
+Function:        init_array
+Args:
+  - String:          '['
+  - String:          init_array
+  - String:          ']: '
+  - Cand1:           .preheader61.preheader
+  - String:          ' and '
+  - Cand2:           .preheader59.preheader
+  - String:          ': '
+  - String:          Loop trip counts are not the same
+...
+--- !Missed
+Pass:            loop-fusion
+Name:            NonEqualTripCount
+Function:        init_array
+Args:
+  - String:          '['
+  - String:          init_array
+  - String:          ']: '
+  - Cand1:           .preheader59.preheader
+  - String:          ' and '
+  - Cand2:           .preheader.preheader
+  - String:          ': '
+  - String:          Loop trip counts are not the same
+...
+--- !Missed
+Pass:            loop-vectorize
+Name:            VectorizationNotBeneficial
+Function:        init_array
+Args:
+  - String:          the cost-model indicates that vectorization is not beneficial
+...
+--- !Missed
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficial
+Function:        init_array
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficial
+Function:        init_array
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+Function:        init_array
+Args:
+  - String:          'vectorized '
+  - String:          ''
+  - String:          'loop (vectorization width: '
+  - VectorizationFactor: '2'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '1'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficial
+Function:        init_array
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+Function:        init_array
+Args:
+  - String:          'vectorized '
+  - String:          ''
+  - String:          'loop (vectorization width: '
+  - VectorizationFactor: '2'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '1'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficial
+Function:        init_array
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+Function:        init_array
+Args:
+  - String:          'vectorized '
+  - String:          ''
+  - String:          'loop (vectorization width: '
+  - VectorizationFactor: '2'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '1'
+  - String:          ')'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-10'
+  - String:          ' and with tree size '
+  - TreeSize:        '2'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-20'
+  - String:          ' and with tree size '
+  - TreeSize:        '2'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-20'
+  - String:          ' and with tree size '
+  - TreeSize:        '2'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-20'
+  - String:          ' and with tree size '
+  - TreeSize:        '2'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-20'
+  - String:          ' and with tree size '
+  - TreeSize:        '2'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-20'
+  - String:          ' and with tree size '
+  - TreeSize:        '2'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-20'
+  - String:          ' and with tree size '
+  - TreeSize:        '2'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-20'
+  - String:          ' and with tree size '
+  - TreeSize:        '2'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-20'
+  - String:          ' and with tree size '
+  - TreeSize:        '2'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-10'
+  - String:          ' and with tree size '
+  - TreeSize:        '2'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-112'
+  - String:          ' and with tree size '
+  - TreeSize:        '9'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-112'
+  - String:          ' and with tree size '
+  - TreeSize:        '11'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-112'
+  - String:          ' and with tree size '
+  - TreeSize:        '14'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-112'
+  - String:          ' and with tree size '
+  - TreeSize:        '11'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-112'
+  - String:          ' and with tree size '
+  - TreeSize:        '14'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-112'
+  - String:          ' and with tree size '
+  - TreeSize:        '14'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-112'
+  - String:          ' and with tree size '
+  - TreeSize:        '14'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-112'
+  - String:          ' and with tree size '
+  - TreeSize:        '12'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        init_array
+Args:
+  - String:          'Cannot SLP vectorize list: only 2 elements of buildvector, trying reduction first.'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotBeneficial
+Function:        init_array
+Args:
+  - String:          'List vectorization was possible but not beneficial with cost '
+  - Cost:            '0'
+  - String:          ' >= '
+  - Treshold:        '0'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        init_array
+Args:
+  - String:          'Cannot SLP vectorize list: only 2 elements of buildvector, trying reduction first.'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotBeneficial
+Function:        init_array
+Args:
+  - String:          'List vectorization was possible but not beneficial with cost '
+  - Cost:            '0'
+  - String:          ' >= '
+  - Treshold:        '0'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        init_array
+Args:
+  - String:          'Cannot SLP vectorize list: only 2 elements of buildvector, trying reduction first.'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotBeneficial
+Function:        init_array
+Args:
+  - String:          'List vectorization was possible but not beneficial with cost '
+  - Cost:            '0'
+  - String:          ' >= '
+  - Treshold:        '0'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        init_array
+Args:
+  - String:          'Cannot SLP vectorize list: only 2 elements of buildvector, trying reduction first.'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotBeneficial
+Function:        init_array
+Args:
+  - String:          'List vectorization was possible but not beneficial with cost '
+  - Cost:            '0'
+  - String:          ' >= '
+  - Treshold:        '0'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        init_array
+Args:
+  - String:          'Cannot SLP vectorize list: only 2 elements of buildvector, trying reduction first.'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotBeneficial
+Function:        init_array
+Args:
+  - String:          'List vectorization was possible but not beneficial with cost '
+  - Cost:            '0'
+  - String:          ' >= '
+  - Treshold:        '0'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        init_array
+Args:
+  - String:          'Cannot SLP vectorize list: only 2 elements of buildvector, trying reduction first.'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotBeneficial
+Function:        init_array
+Args:
+  - String:          'List vectorization was possible but not beneficial with cost '
+  - Cost:            '0'
+  - String:          ' >= '
+  - Treshold:        '0'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        init_array
+Args:
+  - String:          'Cannot SLP vectorize list: only 2 elements of buildvector, trying reduction first.'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotBeneficial
+Function:        init_array
+Args:
+  - String:          'List vectorization was possible but not beneficial with cost '
+  - Cost:            '0'
+  - String:          ' >= '
+  - Treshold:        '0'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        init_array
+Args:
+  - String:          'Cannot SLP vectorize list: only 2 elements of buildvector, trying reduction first.'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotBeneficial
+Function:        init_array
+Args:
+  - String:          'List vectorization was possible but not beneficial with cost '
+  - Cost:            '0'
+  - String:          ' >= '
+  - Treshold:        '0'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            VectorizedList
+Function:        init_array
+Args:
+  - String:          'SLP vectorized with cost '
+  - Cost:            '-80'
+  - String:          ' and with tree size '
+  - TreeSize:        '11'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        init_array
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotBeneficial
+Function:        init_array
+Args:
+  - String:          'List vectorization was possible but not beneficial with cost '
+  - Cost:            '0'
+  - String:          ' >= '
+  - Treshold:        '0'
+...
+--- !Passed
+Pass:            loop-unroll
+Name:            FullyUnrolled
+Function:        init_array
+Args:
+  - String:          'completely unrolled vectorized loop with '
+  - UnrollCount:     '10'
+  - String:          ' iterations'
+...
+--- !Passed
+Pass:            loop-unroll
+Name:            FullyUnrolled
+Function:        init_array
+Args:
+  - String:          'completely unrolled vectorized loop with '
+  - UnrollCount:     '12'
+  - String:          ' iterations'
+...
+--- !Passed
+Pass:            loop-unroll
+Name:            FullyUnrolled
+Function:        init_array
+Args:
+  - String:          'completely unrolled vectorized loop with '
+  - UnrollCount:     '11'
+  - String:          ' iterations'
+...
+--- !Analysis
+Pass:            loop-interchange
+Name:            Dependence
+Function:        kernel_3mm
+Args:
+  - String:          Computed dependence info, invoking the transform.
+...
+--- !Missed
+Pass:            loop-interchange
+Name:            UnsupportedLoop
+Function:        kernel_3mm
+Args:
+  - String:          'Number of loads/stores exceeded, the supported maximum can be increased with option -loop-interchange-max-mem-instr-ratio.'
+...
+--- !Analysis
+Pass:            loop-interchange
+Name:            Dependence
+Function:        kernel_3mm
+Args:
+  - String:          Computed dependence info, invoking the transform.
+...
+--- !Missed
+Pass:            loop-interchange
+Name:            UnsupportedLoop
+Function:        kernel_3mm
+Args:
+  - String:          'Number of loads/stores exceeded, the supported maximum can be increased with option -loop-interchange-max-mem-instr-ratio.'
+...
+--- !Analysis
+Pass:            loop-interchange
+Name:            Dependence
+Function:        kernel_3mm
+Args:
+  - String:          Computed dependence info, invoking the transform.
+...
+--- !Missed
+Pass:            loop-interchange
+Name:            UnsupportedLoop
+Function:        kernel_3mm
+Args:
+  - String:          'Number of loads/stores exceeded, the supported maximum can be increased with option -loop-interchange-max-mem-instr-ratio.'
+...
+--- !Missed
+Pass:            loop-fusion
+Name:            NonEqualTripCount
+Function:        kernel_3mm
+Args:
+  - String:          '['
+  - String:          kernel_3mm
+  - String:          ']: '
+  - Cand1:           ''
+  - String:          ' and '
+  - Cand2:           .preheader60.preheader
+  - String:          ': '
+  - String:          Loop trip counts are not the same
+...
+--- !Missed
+Pass:            loop-fusion
+Name:            NonEqualTripCount
+Function:        kernel_3mm
+Args:
+  - String:          '['
+  - String:          kernel_3mm
+  - String:          ']: '
+  - Cand1:           .preheader60.preheader
+  - String:          ' and '
+  - Cand2:           .preheader.preheader
+  - String:          ': '
+  - String:          Loop trip counts are not the same
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficial
+Function:        kernel_3mm
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+Function:        kernel_3mm
+Args:
+  - String:          'vectorized '
+  - String:          ''
+  - String:          'loop (vectorization width: '
+  - VectorizationFactor: '2'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '1'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficial
+Function:        kernel_3mm
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+Function:        kernel_3mm
+Args:
+  - String:          'vectorized '
+  - String:          ''
+  - String:          'loop (vectorization width: '
+  - VectorizationFactor: '2'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '1'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficial
+Function:        kernel_3mm
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+Function:        kernel_3mm
+Args:
+  - String:          'vectorized '
+  - String:          ''
+  - String:          'loop (vectorization width: '
+  - VectorizationFactor: '2'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '1'
+  - String:          ')'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        kernel_3mm
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            VectorizedHorizontalReduction
+Function:        kernel_3mm
+Args:
+  - String:          'Vectorized horizontal reduction with cost '
+  - Cost:            '-26'
+  - String:          ' and with tree size '
+  - TreeSize:        '9'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        kernel_3mm
+Args:
+  - String:          'Cannot SLP vectorize list: only 2 elements of buildvector, trying reduction first.'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        kernel_3mm
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        kernel_3mm
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            VectorizedHorizontalReduction
+Function:        kernel_3mm
+Args:
+  - String:          'Vectorized horizontal reduction with cost '
+  - Cost:            '-30'
+  - String:          ' and with tree size '
+  - TreeSize:        '9'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        kernel_3mm
+Args:
+  - String:          'Cannot SLP vectorize list: only 2 elements of buildvector, trying reduction first.'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        kernel_3mm
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        kernel_3mm
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            VectorizedHorizontalReduction
+Function:        kernel_3mm
+Args:
+  - String:          'Vectorized horizontal reduction with cost '
+  - Cost:            '-26'
+  - String:          ' and with tree size '
+  - TreeSize:        '9'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        kernel_3mm
+Args:
+  - String:          'Cannot SLP vectorize list: only 2 elements of buildvector, trying reduction first.'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        kernel_3mm
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            icmp
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            icmp
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            and
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            bitcast
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            icmp
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            icmp
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            icmp
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            and
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            bitcast
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            icmp
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_3mm
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            icmp
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            icmp
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            and
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            bitcast
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_3mm
+Args:
+  - String:          'hoisting '
+  - Inst:            icmp
+...
+--- !Analysis
+Pass:            loop-interchange
+Name:            Dependence
+Function:        print_array
+Args:
+  - String:          Computed dependence info, invoking the transform.
+...
+--- !Missed
+Pass:            loop-interchange
+Name:            UnsafeInst
+Function:        print_array
+Args:
+  - String:          Cannot interchange loops due to instruction that is potentially unsafe to interchange.
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            NoCFGForSelect
+Function:        print_array
+Args:
+  - String:          'loop not vectorized: '
+  - String:          Control flow cannot be substituted for a select
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeLibcall
+Function:        print_array
+Args:
+  - String:          'loop not vectorized: '
+  - String:          call instruction cannot be vectorized
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeLibcall
+Function:        print_array
+Args:
+  - String:          'loop not vectorized: '
+  - String:          call instruction cannot be vectorized
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeLibcall
+Function:        print_array
+Args:
+  - String:          'loop not vectorized: '
+  - String:          call instruction cannot be vectorized
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeLibcall
+Function:        print_array
+Args:
+  - String:          'loop not vectorized: '
+  - String:          call instruction cannot be vectorized
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeInstruction
+Function:        print_array
+Args:
+  - String:          'loop not vectorized: '
+  - String:          instruction cannot be vectorized
+...
+--- !Missed
+Pass:            loop-vectorize
+Name:            MissedDetails
+Function:        print_array
+Args:
+  - String:          loop not vectorized
+...
+--- !Passed
+Pass:            TTI
+Name:            DontUnroll
+Function:        print_array
+Args:
+  - String:          'advising against unrolling the loop because it contains a '
+  - Call:            call
+...
+--- !Passed
+Pass:            TTI
+Name:            DontUnroll
+Function:        print_array
+Args:
+  - String:          'advising against unrolling the loop because it contains a '
+  - Call:            call
+...

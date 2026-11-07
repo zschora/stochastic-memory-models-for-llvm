@@ -1,0 +1,971 @@
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        _vfprintf_l
+Args:
+  - Callee:          __stdio_common_vfprintf
+  - String:          ' will not be inlined into '
+  - Caller:          _vfprintf_l
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        _vfprintf_l
+Args:
+  - String:          ''''
+  - Callee:          __local_stdio_printf_options
+  - String:          ''' not inlined into '''
+  - Caller:          _vfprintf_l
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        _vfprintf_l
+Args:
+  - String:          'load of type '
+  - Type:            i64
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     call
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        fprintf
+Args:
+  - String:          ''''
+  - Callee:          _vfprintf_l
+  - String:          ''' not inlined into '''
+  - Caller:          fprintf
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        fprintf
+Args:
+  - String:          'load of type '
+  - Type:            ptr
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     call llvm.va_start.p0
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        init_array
+Args:
+  - String:          'hoisting '
+  - Inst:            zext
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        init_array
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Passed
+Pass:            loop-unroll
+Name:            FullyUnrolled
+Function:        init_array
+Args:
+  - String:          'completely unrolled loop with '
+  - UnrollCount:     '60'
+  - String:          ' iterations'
+...
+--- !Passed
+Pass:            loop-idiom
+Name:            ProcessLoopStridedStore
+Function:        init_array
+Args:
+  - String:          'Transformed loop-strided store in '
+  - Function:        init_array
+  - String:          ' function into a call to '
+  - NewFunction:     llvm.memset.p0.i64
+  - String:          '() intrinsic'
+  - FromBlock:       ''
+  - ToBlock:         .preheader
+...
+--- !Passed
+Pass:            loop-delete
+Name:            Invariant
+Function:        init_array
+Args:
+  - String:          Loop deleted because it is invariant
+...
+--- !Passed
+Pass:            loop-idiom
+Name:            ProcessLoopStridedStore
+Function:        init_array
+Args:
+  - String:          'Transformed loop-strided store in '
+  - Function:        init_array
+  - String:          ' function into a call to '
+  - NewFunction:     llvm.memset.p0.i64
+  - String:          '() intrinsic'
+  - FromBlock:       .preheader
+  - ToBlock:         .preheader.preheader
+...
+--- !Passed
+Pass:            loop-delete
+Name:            Invariant
+Function:        init_array
+Args:
+  - String:          Loop deleted because it is invariant
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            zext
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            zext
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_nussinov
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            PromoteLoopAccessesToScalar
+Function:        kernel_nussinov
+Args:
+  - String:          Moving accesses to memory location out of the loop
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            zext
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            zext
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            zext
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            zext
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            zext
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            zext
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            zext
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_nussinov
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            zext
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Passed
+Pass:            gvn
+Name:            LoadElim
+Function:        kernel_nussinov
+Args:
+  - String:          'load of type '
+  - Type:            i32
+  - String:          ' eliminated'
+  - String:          ' in favor of '
+  - InfavorOfValue:  call llvm.smax.i32
+...
+--- !Passed
+Pass:            gvn
+Name:            LoadElim
+Function:        kernel_nussinov
+Args:
+  - String:          'load of type '
+  - Type:            i32
+  - String:          ' eliminated'
+  - String:          ' in favor of '
+  - InfavorOfValue:  call llvm.smax.i32
+...
+--- !Passed
+Pass:            gvn
+Name:            LoadElim
+Function:        kernel_nussinov
+Args:
+  - String:          'load of type '
+  - Type:            i32
+  - String:          ' eliminated'
+  - String:          ' in favor of '
+  - InfavorOfValue:  call llvm.smax.i32
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_nussinov
+Args:
+  - String:          'load of type '
+  - Type:            i8
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_nussinov
+Args:
+  - String:          'load of type '
+  - Type:            i8
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Passed
+Pass:            gvn
+Name:            LoadElim
+Function:        kernel_nussinov
+Args:
+  - String:          'load of type '
+  - Type:            i32
+  - String:          ' eliminated'
+  - String:          ' in favor of '
+  - InfavorOfValue:  phi
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_nussinov
+Args:
+  - String:          'load of type '
+  - Type:            i8
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_nussinov
+Args:
+  - String:          'load of type '
+  - Type:            i8
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_nussinov
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          __acrt_iob_func
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          fwrite
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          __acrt_iob_func
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          __acrt_iob_func
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          fputc
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          __acrt_iob_func
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          __acrt_iob_func
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          __acrt_iob_func
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          fwrite
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        print_array
+Args:
+  - String:          ''''
+  - Callee:          fprintf
+  - String:          ''' not inlined into '''
+  - Caller:          print_array
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        print_array
+Args:
+  - String:          ''''
+  - Callee:          fprintf
+  - String:          ''' not inlined into '''
+  - Caller:          print_array
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        print_array
+Args:
+  - String:          ''''
+  - Callee:          fprintf
+  - String:          ''' not inlined into '''
+  - Caller:          print_array
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        print_array
+Args:
+  - String:          'hoisting '
+  - Inst:            zext
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        print_array
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Passed
+Pass:            TTI
+Name:            DontUnroll
+Function:        print_array
+Args:
+  - String:          'advising against unrolling the loop because it contains a '
+  - Call:            call
+...
+--- !Passed
+Pass:            TTI
+Name:            DontUnroll
+Function:        print_array
+Args:
+  - String:          'advising against unrolling the loop because it contains a '
+  - Call:            call
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        print_array
+Args:
+  - String:          'load of type '
+  - Type:            i32
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     call
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          polybench_alloc_data
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          polybench_alloc_data
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        main
+Args:
+  - String:          ''''
+  - Callee:          init_array
+  - String:          ''' not inlined into '''
+  - Caller:          main
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        main
+Args:
+  - String:          ''''
+  - Callee:          kernel_nussinov
+  - String:          ''' not inlined into '''
+  - Caller:          main
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        main
+Args:
+  - String:          ''''
+  - Callee:          print_array
+  - String:          ''' not inlined into '''
+  - Caller:          main
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ptr
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     call
+...
+--- !Passed
+Pass:            deadargelim
+Name:            ArgumentRemoved
+Function:        init_array
+Args:
+  - String:          'eliminating argument '
+  - ArgName:         ''
+  - String:          '('
+  - ArgIndex:        '0'
+  - String:          ')'
+...
+--- !Passed
+Pass:            deadargelim
+Name:            ArgumentRemoved
+Function:        kernel_nussinov
+Args:
+  - String:          'eliminating argument '
+  - ArgName:         ''
+  - String:          '('
+  - ArgIndex:        '0'
+  - String:          ')'
+...
+--- !Passed
+Pass:            deadargelim
+Name:            ArgumentRemoved
+Function:        print_array
+Args:
+  - String:          'eliminating argument '
+  - ArgName:         ''
+  - String:          '('
+  - ArgIndex:        '0'
+  - String:          ')'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-14'
+  - String:          ' and with tree size '
+  - TreeSize:        '2'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-14'
+  - String:          ' and with tree size '
+  - TreeSize:        '2'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-14'
+  - String:          ' and with tree size '
+  - TreeSize:        '2'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-6'
+  - String:          ' and with tree size '
+  - TreeSize:        '2'
+...
+--- !Passed
+Pass:            slp-vectorizer
+Name:            StoresVectorized
+Function:        init_array
+Args:
+  - String:          'Stores SLP vectorized with cost '
+  - Cost:            '-2'
+  - String:          ' and with tree size '
+  - TreeSize:        '2'
+...
+--- !Analysis
+Pass:            loop-interchange
+Name:            Dependence
+Function:        kernel_nussinov
+Args:
+  - String:          Computed dependence info, invoking the transform.
+...
+--- !Missed
+Pass:            loop-interchange
+Name:            Dependence
+Function:        kernel_nussinov
+Args:
+  - String:          All loops have dependencies in all directions.
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            UnsafeDep
+Function:        kernel_nussinov
+Args:
+  - String:          'loop not vectorized: '
+  - String:          'unsafe dependent memory operations in loop. Use #pragma clang loop distribute(enable) to allow loop distribution to attempt to isolate the offending operations into a separate loop'
+  - String:          "\nUnknown data dependence."
+...
+--- !Missed
+Pass:            loop-vectorize
+Name:            MissedDetails
+Function:        kernel_nussinov
+Args:
+  - String:          loop not vectorized
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        kernel_nussinov
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        kernel_nussinov
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        kernel_nussinov
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        kernel_nussinov
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        kernel_nussinov
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Passed
+Pass:            loop-unroll
+Name:            PartialUnrolled
+Function:        kernel_nussinov
+Args:
+  - String:          'unrolled loop by a factor of '
+  - UnrollCount:     '2'
+  - String:          ' with run-time trip count'
+  - String:          ''
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_nussinov
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_nussinov
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_nussinov
+Args:
+  - String:          'hoisting '
+  - Inst:            add
+...
+--- !Analysis
+Pass:            loop-interchange
+Name:            Dependence
+Function:        print_array
+Args:
+  - String:          Computed dependence info, invoking the transform.
+...
+--- !Missed
+Pass:            loop-interchange
+Name:            UnsafeInst
+Function:        print_array
+Args:
+  - String:          Cannot interchange loops due to instruction that is potentially unsafe to interchange.
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            NoCFGForSelect
+Function:        print_array
+Args:
+  - String:          'loop not vectorized: '
+  - String:          Control flow cannot be substituted for a select
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeLibcall
+Function:        print_array
+Args:
+  - String:          'loop not vectorized: '
+  - String:          call instruction cannot be vectorized
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeLibcall
+Function:        print_array
+Args:
+  - String:          'loop not vectorized: '
+  - String:          call instruction cannot be vectorized
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeLibcall
+Function:        print_array
+Args:
+  - String:          'loop not vectorized: '
+  - String:          call instruction cannot be vectorized
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeLibcall
+Function:        print_array
+Args:
+  - String:          'loop not vectorized: '
+  - String:          call instruction cannot be vectorized
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeInstruction
+Function:        print_array
+Args:
+  - String:          'loop not vectorized: '
+  - String:          instruction cannot be vectorized
+...
+--- !Missed
+Pass:            loop-vectorize
+Name:            MissedDetails
+Function:        print_array
+Args:
+  - String:          loop not vectorized
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        print_array
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        print_array
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Passed
+Pass:            TTI
+Name:            DontUnroll
+Function:        print_array
+Args:
+  - String:          'advising against unrolling the loop because it contains a '
+  - Call:            call
+...
+--- !Passed
+Pass:            TTI
+Name:            DontUnroll
+Function:        print_array
+Args:
+  - String:          'advising against unrolling the loop because it contains a '
+  - Call:            call
+...

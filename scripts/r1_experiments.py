@@ -54,6 +54,27 @@ CAMPAIGN_ROLES = {
         "toolchain": "diagnostic",
         "notes": "minimal IR mechanism evidence",
     },
+    "EXP-20261107-R12-corpus": {
+        "role": "measurement_pilot",
+        "baseline_eligible": False,
+        "priority": 0,
+        "toolchain": "v2 verified manifest",
+        "notes": "TSVC five-block pilot before affinity pinning; high-noise, historical only",
+    },
+    "EXP-20261107-R12-tsvc": {
+        "role": "measurement_pilot",
+        "baseline_eligible": False,
+        "priority": 0,
+        "toolchain": "v2 verified manifest",
+        "notes": "TSVC nine-block pilot before affinity pinning; high A/A drift, historical only",
+    },
+    "EXP-20261107-R12-tsvc-pinned": {
+        "role": "real_workload_case_study",
+        "baseline_eligible": False,
+        "priority": 0,
+        "toolchain": "v2 verified manifest",
+        "notes": "final TSVC 15-block case study; held-out evidence, not development baseline",
+    },
 }
 
 ALLOWED_BASELINE_ROLES = {"baseline_historical", "baseline_remeasurement"}

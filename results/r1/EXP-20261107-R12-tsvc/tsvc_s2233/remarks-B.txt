@@ -1,0 +1,91 @@
+﻿opt.exe : remark: <unknown>:0:0: Loop is not a candidate for fusion
+C:\work\llvm-profitability-research\scripts\r1_build_case.ps1:85 знак:3
++   & $Opt @all 2>&1 | Out-File $txt -Encoding utf8
++   ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (remark: <unknow...date for fusion:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+remark: <unknown>:0:0: [main]: Loop is not a candidate for fusion: Loop may throw an exception
+remark: <unknown>:0:0: Loop is not a candidate for fusion
+remark: <unknown>:0:0: [main]: Loop is not a candidate for fusion: Loop may throw an exception
+remark: <unknown>:0:0: Loop is not a candidate for fusion
+remark: <unknown>:0:0: [set1d]: Loop is not a candidate for fusion: Loop has unknown trip count
+remark: <unknown>:0:0: Loop is not a candidate for fusion
+remark: <unknown>:0:0: [set1ds]: Loop is not a candidate for fusion: Loop has unknown trip count
+remark: <unknown>:0:0: [check]:  and .preheader87: Loop trip counts are not the same
+remark: <unknown>:0:0: [check]: .preheader87 and .preheader: Loop trip counts are not the same
+remark: <unknown>:0:0: [s126]: .preheader21 and .preheader.1.preheader: Loops fused
+remark: <unknown>:0:0: [s126]: .preheader21 and .preheader.2.preheader: Loops fused
+remark: <unknown>:0:0: [s126]: .preheader21 and .preheader.3.preheader: Loops fused
+remark: <unknown>:0:0: [s126]: .preheader21 and .preheader.4.preheader: Loops fused
+remark: <unknown>:0:0: [s126]: .preheader21 and .preheader.5.preheader: Loops fused
+remark: <unknown>:0:0: [s126]: .preheader21 and .preheader.6.preheader: Loops fused
+remark: <unknown>:0:0: [s126]: .preheader21 and .preheader.7.preheader: Loops fused
+remark: <unknown>:0:0: [s126]: .preheader21 and .preheader.8.preheader: Loops fused
+remark: <unknown>:0:0: [s126]: .preheader21 and .preheader.9.preheader: Loops fused
+remark: <unknown>:0:0: [s126]: .preheader and .preheader.1: Dependencies prevent fusion
+remark: <unknown>:0:0: [s126]: .preheader.1 and .preheader.2: Dependencies prevent fusion
+remark: <unknown>:0:0: [s126]: .preheader.2 and .preheader.3: Dependencies prevent fusion
+remark: <unknown>:0:0: [s126]: .preheader.3 and .preheader.4: Dependencies prevent fusion
+remark: <unknown>:0:0: [s126]: .preheader.4 and .preheader.5: Dependencies prevent fusion
+remark: <unknown>:0:0: [s126]: .preheader.5 and .preheader.6: Dependencies prevent fusion
+remark: <unknown>:0:0: [s126]: .preheader.6 and .preheader.7: Dependencies prevent fusion
+remark: <unknown>:0:0: [s126]: .preheader.7 and .preheader.8: Dependencies prevent fusion
+remark: <unknown>:0:0: [s126]: .preheader.8 and .preheader.9: Dependencies prevent fusion
+remark: <unknown>:0:0: [s233]: .preheader26 and .preheader: Loops fused
+remark: <unknown>:0:0: [s2233]: .preheader26 and .preheader: Loops fused
+remark: <unknown>:0:0: [s256]: .preheader19 and .preheader.1.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s256]: .preheader.1.preheader and .preheader.2.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s256]: .preheader.2.preheader and .preheader.3.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s256]: .preheader.3.preheader and .preheader.4.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s256]: .preheader.4.preheader and .preheader.5.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s256]: .preheader.5.preheader and .preheader.6.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s256]: .preheader.6.preheader and .preheader.7.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s256]: .preheader.7.preheader and .preheader.8.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s256]: .preheader.8.preheader and .preheader.9.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s257]: .preheader20 and .preheader.1.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s257]: .preheader.1.preheader and .preheader.2.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s257]: .preheader.2.preheader and .preheader.3.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s257]: .preheader.3.preheader and .preheader.4.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s257]: .preheader.4.preheader and .preheader.5.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s257]: .preheader.5.preheader and .preheader.6.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s257]: .preheader.6.preheader and .preheader.7.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s257]: .preheader.7.preheader and .preheader.8.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s257]: .preheader.8.preheader and .preheader.9.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s275]: .preheader20 and .preheader20.1.preheader: Loops fused
+remark: <unknown>:0:0: [s275]: .preheader20 and .preheader20.2.preheader: Loops fused
+remark: <unknown>:0:0: [s275]: .preheader20 and .preheader20.3.preheader: Loops fused
+remark: <unknown>:0:0: [s275]: .preheader20 and .preheader20.4.preheader: Loops fused
+remark: <unknown>:0:0: [s275]: .preheader20 and .preheader20.5.preheader: Loops fused
+remark: <unknown>:0:0: [s275]: .preheader20 and .preheader20.6.preheader: Loops fused
+remark: <unknown>:0:0: [s275]: .preheader20 and .preheader20.7.preheader: Loops fused
+remark: <unknown>:0:0: [s275]: .preheader20 and .preheader20.8.preheader: Loops fused
+remark: <unknown>:0:0: [s275]: .preheader20 and .preheader20.9.preheader: Loops fused
+remark: <unknown>:0:0: [s275]: .preheader and .preheader.1: Candidates have different guards
+remark: <unknown>:0:0: [s275]: .preheader.1 and .preheader.2: Candidates have different guards
+remark: <unknown>:0:0: [s275]: .preheader.2 and .preheader.3: Candidates have different guards
+remark: <unknown>:0:0: [s275]: .preheader.3 and .preheader.4: Candidates have different guards
+remark: <unknown>:0:0: [s275]: .preheader.4 and .preheader.5: Candidates have different guards
+remark: <unknown>:0:0: [s275]: .preheader.5 and .preheader.6: Candidates have different guards
+remark: <unknown>:0:0: [s275]: .preheader.6 and .preheader.7: Candidates have different guards
+remark: <unknown>:0:0: [s275]: .preheader.7 and .preheader.8: Candidates have different guards
+remark: <unknown>:0:0: [s275]: .preheader.8 and .preheader.9: Candidates have different guards
+remark: <unknown>:0:0: [s2111]:  and : Loop trip counts are not the same
+remark: <unknown>:0:0: [s315]:  and : Loop trip counts are not the same
+remark: <unknown>:0:0: [s343]: .preheader18 and .preheader.1.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s343]: .preheader.1.preheader and .preheader.2.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s343]: .preheader.2.preheader and .preheader.3.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s343]: .preheader.3.preheader and .preheader.4.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s343]: .preheader.4.preheader and .preheader.5.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s343]: .preheader.5.preheader and .preheader.6.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s343]: .preheader.6.preheader and .preheader.7.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s343]: .preheader.7.preheader and .preheader.8.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s343]: .preheader.8.preheader and .preheader.9.preheader: Dependencies prevent fusion
+remark: <unknown>:0:0: [s421]:  and : Loop trip counts are not the same
+remark: <unknown>:0:0: [s1421]:  and : Loop trip counts are not the same
+remark: <unknown>:0:0: [s422]:  and : Loop trip counts are not the same
+remark: <unknown>:0:0: [s423]:  and : Loop trip counts are not the same
+remark: <unknown>:0:0: [s424]:  and : Loop trip counts are not the same
+remark: <unknown>:0:0: [s471]:  and : Loop trip counts are not the same
+remark: <unknown>:0:0: [vbor]:  and : Loop trip counts are not the same
+remark: <unknown>:0:0: [set]:  and : Loop trip counts are not the same

@@ -1,0 +1,954 @@
+{
+  "schema_version": "1.0",
+  "record_type": "r1.2-discovery",
+  "sources": {
+    "polybench": {
+      "path": ".tools/corpus/PolyBench",
+      "revision": "3e872547cef7e5c9909422ef1e6af03cf4e56072",
+      "dataset": "MINI_DATASET"
+    },
+    "tsvc": {
+      "path": ".tools/corpus/TSVC/TSVC",
+      "revision": "f2d53d51d9cd60c5612cf34c1e70215c6907f787",
+      "license": "TSVC license retained"
+    }
+  },
+  "cases": [
+    {
+      "source": "polybench",
+      "family": "datamining",
+      "case": "correlation",
+      "path": "datamining/correlation/correlation.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\correlation\\frontend.ll",
+      "functions": {
+        "kernel_correlation": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "InvalidDependencies": 1,
+            "NonEqualTripCount": 2
+          },
+          "c_events": {
+            "InvalidDependencies": 1,
+            "NonEqualTripCount": 2
+          },
+          "c_rejections": [
+            "InvalidDependencies",
+            "NonEqualTripCount"
+          ],
+          "b_legality": [
+            "InvalidDependencies",
+            "NonEqualTripCount"
+          ]
+        }
+      }
+    },
+    {
+      "source": "polybench",
+      "family": "datamining",
+      "case": "covariance",
+      "path": "datamining/covariance/covariance.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\covariance\\frontend.ll",
+      "functions": {
+        "kernel_covariance": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "NonEqualTripCount": 2
+          },
+          "c_events": {
+            "NonEqualTripCount": 2
+          },
+          "c_rejections": [
+            "NonEqualTripCount"
+          ],
+          "b_legality": [
+            "NonEqualTripCount"
+          ]
+        }
+      }
+    },
+    {
+      "source": "polybench",
+      "family": "linear-algebra",
+      "case": "gemm",
+      "path": "linear-algebra/blas/gemm/gemm.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\gemm\\frontend.ll",
+      "functions": {
+        "init_array": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "InvalidDependencies": 1,
+            "NonEqualTripCount": 1
+          },
+          "c_events": {
+            "InvalidDependencies": 1,
+            "NonEqualTripCount": 1
+          },
+          "c_rejections": [
+            "InvalidDependencies",
+            "NonEqualTripCount"
+          ],
+          "b_legality": [
+            "InvalidDependencies",
+            "NonEqualTripCount"
+          ]
+        }
+      }
+    },
+    {
+      "source": "polybench",
+      "family": "linear-algebra",
+      "case": "gemver",
+      "path": "linear-algebra/blas/gemver/gemver.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\gemver\\frontend.ll",
+      "functions": {
+        "kernel_gemver": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "InvalidDependencies": 2
+          },
+          "c_events": {
+            "InvalidDependencies": 2
+          },
+          "c_rejections": [
+            "InvalidDependencies"
+          ],
+          "b_legality": [
+            "InvalidDependencies"
+          ]
+        }
+      }
+    },
+    {
+      "source": "polybench",
+      "family": "linear-algebra",
+      "case": "gesummv",
+      "path": "linear-algebra/blas/gesummv/gesummv.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\gesummv\\frontend.ll",
+      "functions": {}
+    },
+    {
+      "source": "polybench",
+      "family": "linear-algebra",
+      "case": "symm",
+      "path": "linear-algebra/blas/symm/symm.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\symm\\frontend.ll",
+      "functions": {
+        "init_array": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "InvalidDependencies": 1,
+            "NonEqualTripCount": 1
+          },
+          "c_events": {
+            "InvalidDependencies": 1,
+            "NonEqualTripCount": 1
+          },
+          "c_rejections": [
+            "InvalidDependencies",
+            "NonEqualTripCount"
+          ],
+          "b_legality": [
+            "InvalidDependencies",
+            "NonEqualTripCount"
+          ]
+        }
+      }
+    },
+    {
+      "source": "polybench",
+      "family": "linear-algebra",
+      "case": "syr2k",
+      "path": "linear-algebra/blas/syr2k/syr2k.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\syr2k\\frontend.ll",
+      "functions": {
+        "init_array": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "InvalidDependencies": 1
+          },
+          "c_events": {
+            "InvalidDependencies": 1
+          },
+          "c_rejections": [
+            "InvalidDependencies"
+          ],
+          "b_legality": [
+            "InvalidDependencies"
+          ]
+        },
+        "kernel_syr2k": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_rejections": [
+            "NonEqualTripCount"
+          ],
+          "b_legality": [
+            "NonEqualTripCount"
+          ]
+        }
+      }
+    },
+    {
+      "source": "polybench",
+      "family": "linear-algebra",
+      "case": "syrk",
+      "path": "linear-algebra/blas/syrk/syrk.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\syrk\\frontend.ll",
+      "functions": {
+        "init_array": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "InvalidDependencies": 1
+          },
+          "c_events": {
+            "InvalidDependencies": 1
+          },
+          "c_rejections": [
+            "InvalidDependencies"
+          ],
+          "b_legality": [
+            "InvalidDependencies"
+          ]
+        },
+        "kernel_syrk": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "InvalidDependencies": 20
+          },
+          "c_events": {
+            "InvalidDependencies": 20
+          },
+          "c_rejections": [
+            "InvalidDependencies"
+          ],
+          "b_legality": [
+            "InvalidDependencies"
+          ]
+        }
+      }
+    },
+    {
+      "source": "polybench",
+      "family": "linear-algebra",
+      "case": "trmm",
+      "path": "linear-algebra/blas/trmm/trmm.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\trmm\\frontend.ll",
+      "functions": {
+        "init_array": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_rejections": [
+            "NonEqualTripCount"
+          ],
+          "b_legality": [
+            "NonEqualTripCount"
+          ]
+        }
+      }
+    },
+    {
+      "source": "polybench",
+      "family": "linear-algebra",
+      "case": "2mm",
+      "path": "linear-algebra/kernels/2mm/2mm.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\2mm\\frontend.ll",
+      "functions": {
+        "init_array": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "NonEqualTripCount": 3
+          },
+          "c_events": {
+            "NonEqualTripCount": 3
+          },
+          "c_rejections": [
+            "NonEqualTripCount"
+          ],
+          "b_legality": [
+            "NonEqualTripCount"
+          ]
+        },
+        "kernel_2mm": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "InvalidDependencies": 1
+          },
+          "c_events": {
+            "InvalidDependencies": 1
+          },
+          "c_rejections": [
+            "InvalidDependencies"
+          ],
+          "b_legality": [
+            "InvalidDependencies"
+          ]
+        }
+      }
+    },
+    {
+      "source": "polybench",
+      "family": "linear-algebra",
+      "case": "3mm",
+      "path": "linear-algebra/kernels/3mm/3mm.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\3mm\\frontend.ll",
+      "functions": {
+        "init_array": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "NonEqualTripCount": 3
+          },
+          "c_events": {
+            "NonEqualTripCount": 3
+          },
+          "c_rejections": [
+            "NonEqualTripCount"
+          ],
+          "b_legality": [
+            "NonEqualTripCount"
+          ]
+        },
+        "kernel_3mm": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "NonEqualTripCount": 2
+          },
+          "c_events": {
+            "NonEqualTripCount": 2
+          },
+          "c_rejections": [
+            "NonEqualTripCount"
+          ],
+          "b_legality": [
+            "NonEqualTripCount"
+          ]
+        }
+      }
+    },
+    {
+      "source": "polybench",
+      "family": "linear-algebra",
+      "case": "atax",
+      "path": "linear-algebra/kernels/atax/atax.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\atax\\frontend.ll",
+      "functions": {}
+    },
+    {
+      "source": "polybench",
+      "family": "linear-algebra",
+      "case": "bicg",
+      "path": "linear-algebra/kernels/bicg/bicg.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\bicg\\frontend.ll",
+      "functions": {}
+    },
+    {
+      "source": "polybench",
+      "family": "linear-algebra",
+      "case": "doitgen",
+      "path": "linear-algebra/kernels/doitgen/doitgen.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\doitgen\\frontend.ll",
+      "functions": {
+        "init_array": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_rejections": [
+            "NonEqualTripCount"
+          ],
+          "b_legality": [
+            "NonEqualTripCount"
+          ]
+        }
+      }
+    },
+    {
+      "source": "polybench",
+      "family": "linear-algebra",
+      "case": "mvt",
+      "path": "linear-algebra/kernels/mvt/mvt.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\mvt\\frontend.ll",
+      "functions": {
+        "kernel_mvt": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "InvalidDependencies": 1
+          },
+          "c_events": {
+            "InvalidDependencies": 1
+          },
+          "c_rejections": [
+            "InvalidDependencies"
+          ],
+          "b_legality": [
+            "InvalidDependencies"
+          ]
+        }
+      }
+    },
+    {
+      "source": "polybench",
+      "family": "linear-algebra",
+      "case": "cholesky",
+      "path": "linear-algebra/solvers/cholesky/cholesky.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\cholesky\\frontend.ll",
+      "functions": {
+        "init_array": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "InvalidDependencies": 2
+          },
+          "c_events": {
+            "InvalidDependencies": 2
+          },
+          "c_rejections": [
+            "InvalidDependencies"
+          ],
+          "b_legality": [
+            "InvalidDependencies"
+          ]
+        },
+        "kernel_cholesky": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "InvalidDependencies": 1
+          },
+          "c_events": {
+            "InvalidDependencies": 1
+          },
+          "c_rejections": [
+            "InvalidDependencies"
+          ],
+          "b_legality": [
+            "InvalidDependencies"
+          ]
+        }
+      }
+    },
+    {
+      "source": "polybench",
+      "family": "linear-algebra",
+      "case": "durbin",
+      "path": "linear-algebra/solvers/durbin/durbin.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\durbin\\frontend.ll",
+      "functions": {
+        "kernel_durbin": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "NonEmptyPreheader": 1
+          },
+          "c_events": {
+            "NonEmptyPreheader": 1
+          },
+          "c_rejections": [
+            "NonEmptyPreheader"
+          ],
+          "b_legality": [
+            "NonEmptyPreheader"
+          ]
+        }
+      }
+    },
+    {
+      "source": "polybench",
+      "family": "linear-algebra",
+      "case": "gramschmidt",
+      "path": "linear-algebra/solvers/gramschmidt/gramschmidt.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\gramschmidt\\frontend.ll",
+      "functions": {}
+    },
+    {
+      "source": "polybench",
+      "family": "linear-algebra",
+      "case": "lu",
+      "path": "linear-algebra/solvers/lu/lu.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\lu\\frontend.ll",
+      "functions": {
+        "init_array": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "InvalidDependencies": 2
+          },
+          "c_events": {
+            "InvalidDependencies": 2
+          },
+          "c_rejections": [
+            "InvalidDependencies"
+          ],
+          "b_legality": [
+            "InvalidDependencies"
+          ]
+        },
+        "kernel_lu": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_rejections": [
+            "NonEqualTripCount"
+          ],
+          "b_legality": [
+            "NonEqualTripCount"
+          ]
+        }
+      }
+    },
+    {
+      "source": "polybench",
+      "family": "linear-algebra",
+      "case": "ludcmp",
+      "path": "linear-algebra/solvers/ludcmp/ludcmp.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\ludcmp\\frontend.ll",
+      "functions": {
+        "init_array": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "InvalidDependencies": 3
+          },
+          "c_events": {
+            "InvalidDependencies": 3
+          },
+          "c_rejections": [
+            "InvalidDependencies"
+          ],
+          "b_legality": [
+            "InvalidDependencies"
+          ]
+        },
+        "kernel_ludcmp": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "InvalidDependencies": 2,
+            "NonEqualTripCount": 1
+          },
+          "c_events": {
+            "InvalidDependencies": 2,
+            "NonEqualTripCount": 1
+          },
+          "c_rejections": [
+            "InvalidDependencies",
+            "NonEqualTripCount"
+          ],
+          "b_legality": [
+            "InvalidDependencies",
+            "NonEqualTripCount"
+          ]
+        }
+      }
+    },
+    {
+      "source": "polybench",
+      "family": "linear-algebra",
+      "case": "trisolv",
+      "path": "linear-algebra/solvers/trisolv/trisolv.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\trisolv\\frontend.ll",
+      "functions": {}
+    },
+    {
+      "source": "polybench",
+      "family": "medley",
+      "case": "deriche",
+      "path": "medley/deriche/deriche.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\deriche\\frontend.ll",
+      "functions": {
+        "kernel_deriche": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "InvalidDependencies": 5
+          },
+          "c_events": {
+            "InvalidDependencies": 5
+          },
+          "c_rejections": [
+            "InvalidDependencies"
+          ],
+          "b_legality": [
+            "InvalidDependencies"
+          ]
+        }
+      }
+    },
+    {
+      "source": "polybench",
+      "family": "medley",
+      "case": "floyd-warshall",
+      "path": "medley/floyd-warshall/floyd-warshall.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\floyd-warshall\\frontend.ll",
+      "functions": {}
+    },
+    {
+      "source": "polybench",
+      "family": "medley",
+      "case": "nussinov",
+      "path": "medley/nussinov/nussinov.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\nussinov\\frontend.ll",
+      "functions": {}
+    },
+    {
+      "source": "polybench",
+      "family": "stencils",
+      "case": "adi",
+      "path": "stencils/adi/adi.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\adi\\frontend.ll",
+      "functions": {
+        "kernel_adi": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "InvalidDependencies": 1
+          },
+          "c_events": {
+            "InvalidDependencies": 1
+          },
+          "c_rejections": [
+            "InvalidDependencies"
+          ],
+          "b_legality": [
+            "InvalidDependencies"
+          ]
+        }
+      }
+    },
+    {
+      "source": "polybench",
+      "family": "stencils",
+      "case": "fdtd-2d",
+      "path": "stencils/fdtd-2d/fdtd-2d.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\fdtd-2d\\frontend.ll",
+      "functions": {
+        "kernel_fdtd_2d": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "NonEqualTripCount": 2
+          },
+          "c_events": {
+            "NonEqualTripCount": 2
+          },
+          "c_rejections": [
+            "NonEqualTripCount"
+          ],
+          "b_legality": [
+            "NonEqualTripCount"
+          ]
+        }
+      }
+    },
+    {
+      "source": "polybench",
+      "family": "stencils",
+      "case": "heat-3d",
+      "path": "stencils/heat-3d/heat-3d.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\heat-3d\\frontend.ll",
+      "functions": {
+        "kernel_heat_3d": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "InvalidDependencies": 1
+          },
+          "c_events": {
+            "InvalidDependencies": 1
+          },
+          "c_rejections": [
+            "InvalidDependencies"
+          ],
+          "b_legality": [
+            "InvalidDependencies"
+          ]
+        }
+      }
+    },
+    {
+      "source": "polybench",
+      "family": "stencils",
+      "case": "jacobi-1d",
+      "path": "stencils/jacobi-1d/jacobi-1d.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\jacobi-1d\\frontend.ll",
+      "functions": {}
+    },
+    {
+      "source": "polybench",
+      "family": "stencils",
+      "case": "jacobi-2d",
+      "path": "stencils/jacobi-2d/jacobi-2d.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\jacobi-2d\\frontend.ll",
+      "functions": {
+        "kernel_jacobi_2d": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "InvalidDependencies": 1
+          },
+          "c_events": {
+            "InvalidDependencies": 1
+          },
+          "c_rejections": [
+            "InvalidDependencies"
+          ],
+          "b_legality": [
+            "InvalidDependencies"
+          ]
+        }
+      }
+    },
+    {
+      "source": "polybench",
+      "family": "stencils",
+      "case": "seidel-2d",
+      "path": "stencils/seidel-2d/seidel-2d.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\polybench\\seidel-2d\\frontend.ll",
+      "functions": {}
+    },
+    {
+      "source": "tsvc",
+      "family": "tsvc",
+      "case": "tsvc",
+      "path": "TSVC/TSVC/tsc.c",
+      "ir": "results\\r1\\EXP-20261107-R12-discovery\\tsvc\\frontend.ll",
+      "functions": {
+        "s1421": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_rejections": [
+            "NonEqualTripCount"
+          ],
+          "b_legality": [
+            "NonEqualTripCount"
+          ]
+        },
+        "s2111": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_rejections": [
+            "NonEqualTripCount"
+          ],
+          "b_legality": [
+            "NonEqualTripCount"
+          ]
+        },
+        "s2233": {
+          "b_fused": 1,
+          "c_fused": 0,
+          "classification": "legal_but_rejected",
+          "b_events": {
+            "FuseCounter": 1
+          },
+          "c_events": {
+            "InsufficientReuse": 1
+          },
+          "c_rejections": [
+            "InsufficientReuse"
+          ],
+          "b_legality": []
+        },
+        "s233": {
+          "b_fused": 1,
+          "c_fused": 1,
+          "classification": "legal_and_fused",
+          "b_events": {
+            "FuseCounter": 1
+          },
+          "c_events": {
+            "FuseCounter": 1
+          },
+          "c_rejections": [],
+          "b_legality": []
+        },
+        "s315": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_rejections": [
+            "NonEqualTripCount"
+          ],
+          "b_legality": [
+            "NonEqualTripCount"
+          ]
+        },
+        "s421": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_rejections": [
+            "NonEqualTripCount"
+          ],
+          "b_legality": [
+            "NonEqualTripCount"
+          ]
+        },
+        "s422": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_rejections": [
+            "NonEqualTripCount"
+          ],
+          "b_legality": [
+            "NonEqualTripCount"
+          ]
+        },
+        "s423": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_rejections": [
+            "NonEqualTripCount"
+          ],
+          "b_legality": [
+            "NonEqualTripCount"
+          ]
+        },
+        "s424": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_rejections": [
+            "NonEqualTripCount"
+          ],
+          "b_legality": [
+            "NonEqualTripCount"
+          ]
+        },
+        "s471": {
+          "b_fused": 0,
+          "c_fused": 0,
+          "classification": "illegal",
+          "b_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_events": {
+            "NonEqualTripCount": 1
+          },
+          "c_rejections": [
+            "NonEqualTripCount"
+          ],
+          "b_legality": [
+            "NonEqualTripCount"
+          ]
+        }
+      }
+    }
+  ],
+  "summary": {
+    "polybench_cases": 30,
+    "tsvc_cases": 1,
+    "function_classes": {
+      "illegal": 36,
+      "legal_but_rejected": 1,
+      "legal_and_fused": 1
+    },
+    "total_functions_examined": 38
+  }
+}

@@ -1,0 +1,854 @@
+{
+  "schema_version": "1.1",
+  "campaign": "EXP-20261107-R12-tsvc-pinned",
+  "status": "complete",
+  "spec_path": "research/harness/plans/r1_2_tsvc_pinned.json",
+  "spec_sha256": "1782a2f7d6319ae2a03e6f0b82e462890b123233e328f012b665272fb8b83bc4",
+  "rationale": "Follow-up after the first 9-block TSVC campaign showed a large A/A drift (s233 AA -7.6%, s2233 AA +5.1%). The wrappers now call the same logical-CPU-2/high-priority pinning used by the established harness; 15 complete blocks are pre-registered before observing this follow-up to reduce block-level scheduling noise. This is a methodological correction, not a favorable-result rerun; the original 9-block campaign remains unchanged.",
+  "seed": 20261110,
+  "toolchain_manifest": "research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json",
+  "started_utc": "2026-11-07T09:18:25Z",
+  "updated_utc": "2026-11-07T09:20:10Z",
+  "results": [
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R12-tsvc-pinned",
+      "case": "tsvc_s233",
+      "mode": "",
+      "n": 256,
+      "point_id": "m-ff4989878de07e31",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R12-tsvc-pinned/measurements/tsvc_s233/mode-default/n-256/m-ff4989878de07e31/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R12-tsvc-pinned/measurements/tsvc_s233/mode-default/n-256/m-ff4989878de07e31/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R12-tsvc-pinned/measurements/tsvc_s233/mode-default/n-256/m-ff4989878de07e31/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "a1800f0392f62804",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 45670100.0,
+          "B": 41410700.0,
+          "C": 41351600.0,
+          "AA": 45942700.0
+        },
+        "1": {
+          "A": 45729000.0,
+          "B": 41365800.0,
+          "C": 41677500.0,
+          "AA": 45876600.0
+        },
+        "2": {
+          "A": 45694600.0,
+          "B": 41527100.0,
+          "C": 41422200.0,
+          "AA": 45989100.0
+        },
+        "3": {
+          "A": 45714900.0,
+          "B": 41292000.0,
+          "C": 41412400.0,
+          "AA": 45906400.0
+        },
+        "4": {
+          "A": 45789600.0,
+          "B": 41295300.0,
+          "C": 41296200.0,
+          "AA": 45620500.0
+        },
+        "5": {
+          "A": 45621900.0,
+          "B": 41351400.0,
+          "C": 41308800.0,
+          "AA": 45577000.0
+        },
+        "6": {
+          "A": 45568100.0,
+          "B": 41273500.0,
+          "C": 41313500.0,
+          "AA": 45637500.0
+        },
+        "7": {
+          "A": 45560400.0,
+          "B": 41798700.0,
+          "C": 41299000.0,
+          "AA": 45567400.0
+        },
+        "8": {
+          "A": 45674200.0,
+          "B": 41447100.0,
+          "C": 41354600.0,
+          "AA": 45703900.0
+        },
+        "9": {
+          "A": 45649900.0,
+          "B": 41848900.0,
+          "C": 41504000.0,
+          "AA": 45870400.0
+        },
+        "10": {
+          "A": 45623800.0,
+          "B": 41325700.0,
+          "C": 41321000.0,
+          "AA": 45530200.0
+        },
+        "11": {
+          "A": 45525700.0,
+          "B": 41223300.0,
+          "C": 41242500.0,
+          "AA": 45626100.0
+        },
+        "12": {
+          "A": 45610800.0,
+          "B": 41624600.0,
+          "C": 41490900.0,
+          "AA": 45562000.0
+        },
+        "13": {
+          "A": 45594100.0,
+          "B": 41337800.0,
+          "C": 41444700.0,
+          "AA": 45989000.0
+        },
+        "14": {
+          "A": 45611200.0,
+          "B": 41408600.0,
+          "C": 41460900.0,
+          "AA": 45682600.0
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 15,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "block_ratios": [
+            0.906735479011432,
+            0.9045857114741193,
+            0.9087966630630315,
+            0.903250362573253,
+            0.901848891451334,
+            0.9063936398966286,
+            0.9057542447457761,
+            0.9174348776569126,
+            0.90745103362511,
+            0.9167358526524703,
+            0.9057925907092351,
+            0.9054951379111139,
+            0.9126040323782963,
+            0.9066480092819027,
+            0.9078603500894518
+          ],
+          "median_ratio": 0.9066480092819027,
+          "geometric_mean_ratio": 0.9078154992213768,
+          "ci95_median_ratio": [
+            0.9057542447457761,
+            0.9078603500894518
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.905785239852777,
+            0.9101336660140132
+          ],
+          "median_delta_pct": -9.335199071809729,
+          "geometric_mean_delta_pct": -9.218450077862316,
+          "ci95_median_delta_pct": [
+            -9.424575525422386,
+            -9.213964991054823
+          ],
+          "improvement_blocks": 15,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 15,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "block_ratios": [
+            0.9054414157183803,
+            0.9114019549957357,
+            0.9065009869875215,
+            0.9058840771827129,
+            0.9018685465695268,
+            0.9054598778218356,
+            0.9066320518081729,
+            0.9064670196047445,
+            0.9054258202661459,
+            0.9091805239441927,
+            0.9056895743011323,
+            0.9059168777196177,
+            0.9096727090952142,
+            0.9089926108860577,
+            0.909006998281124
+          ],
+          "median_ratio": 0.9064670196047445,
+          "geometric_mean_ratio": 0.9068998861170594,
+          "ci95_median_ratio": [
+            0.9054598778218356,
+            0.9089926108860577
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9057554064435577,
+            0.9080380795096692
+          ],
+          "median_delta_pct": -9.353298039525548,
+          "geometric_mean_delta_pct": -9.31001138829406,
+          "ci95_median_delta_pct": [
+            -9.454012217816443,
+            -9.100738911394235
+          ],
+          "improvement_blocks": 15,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 15,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "block_ratios": [
+            1.0059688943094058,
+            1.003227711080496,
+            1.0064449628621326,
+            1.004189006210229,
+            0.9963070216817793,
+            0.9990158235408871,
+            1.0015229952532583,
+            1.0001536421980493,
+            1.000650257694716,
+            1.0048302405919838,
+            0.9979484391918253,
+            1.0022053477486343,
+            0.998930077963991,
+            1.008661208358099,
+            1.0015654049882485
+          ],
+          "median_ratio": 1.0015654049882485,
+          "geometric_mean_ratio": 1.0021025210258814,
+          "ci95_median_ratio": [
+            0.9990158235408871,
+            1.004189006210229
+          ],
+          "ci95_geometric_mean_ratio": [
+            1.000425214569908,
+            1.0037781201365994
+          ],
+          "median_delta_pct": 0.1565404988248531,
+          "geometric_mean_delta_pct": 0.21025210258813765,
+          "ci95_median_delta_pct": [
+            -0.09841764591128621,
+            0.4189006210228996
+          ],
+          "improvement_blocks": 4,
+          "degradation_blocks": 11,
+          "tie_blocks": 0,
+          "sign_consistency": 0.7333333333333333
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "confirmed_profitable",
+          "reasons": [
+            "median ratio 0.9066, 95% CI [0.9058, 0.9079], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "confirmed_profitable",
+          "reasons": [
+            "median ratio 0.9065, 95% CI [0.9055, 0.9090], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "neutral",
+          "reasons": [
+            "median ratio 1.0016, 95% CI [0.9990, 1.0042], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R12-tsvc-pinned",
+        "case": "tsvc_s233",
+        "mode": "",
+        "n": 256,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 1,
+        "trials": 5,
+        "blocks": 15,
+        "seed": 20261110,
+        "exe_sha256": {
+          "A": "77d9bae3499f3ad779008278192bc8eda117c605d013ba4be1a77ef9769bf348",
+          "AA": "77d9bae3499f3ad779008278192bc8eda117c605d013ba4be1a77ef9769bf348",
+          "B": "b158fde615467ad611d7f55ec1ab68be17ab5c746b4260849df32cf305ec938b",
+          "C": "aa9ca8cb4ae0ec2622f4cc1bd99c2c4def0a57dcff710c786d2f72840c6c4c75"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233\\tsvc_s233.AA.exe AA 256 1 5"
+      ]
+    },
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R12-tsvc-pinned",
+      "case": "tsvc_s2233",
+      "mode": "",
+      "n": 256,
+      "point_id": "m-a5fff5bf7ab3986b",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R12-tsvc-pinned/measurements/tsvc_s2233/mode-default/n-256/m-a5fff5bf7ab3986b/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R12-tsvc-pinned/measurements/tsvc_s2233/mode-default/n-256/m-a5fff5bf7ab3986b/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R12-tsvc-pinned/measurements/tsvc_s2233/mode-default/n-256/m-a5fff5bf7ab3986b/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "c290cd190b243383",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 22989200.0,
+          "B": 56186500.0,
+          "C": 22962400.0,
+          "AA": 22878300.0
+        },
+        "1": {
+          "A": 22995100.0,
+          "B": 54230200.0,
+          "C": 22936700.0,
+          "AA": 23255000.0
+        },
+        "2": {
+          "A": 22928100.0,
+          "B": 54221200.0,
+          "C": 23024600.0,
+          "AA": 23194800.0
+        },
+        "3": {
+          "A": 22877700.0,
+          "B": 54088300.0,
+          "C": 23017300.0,
+          "AA": 22978900.0
+        },
+        "4": {
+          "A": 22922500.0,
+          "B": 54069700.0,
+          "C": 22899600.0,
+          "AA": 22882700.0
+        },
+        "5": {
+          "A": 22853500.0,
+          "B": 53956000.0,
+          "C": 22866700.0,
+          "AA": 22856800.0
+        },
+        "6": {
+          "A": 22854200.0,
+          "B": 53998900.0,
+          "C": 22869700.0,
+          "AA": 22908500.0
+        },
+        "7": {
+          "A": 22847900.0,
+          "B": 53875500.0,
+          "C": 22897500.0,
+          "AA": 22903800.0
+        },
+        "8": {
+          "A": 22989700.0,
+          "B": 53961000.0,
+          "C": 22959200.0,
+          "AA": 22879100.0
+        },
+        "9": {
+          "A": 22908800.0,
+          "B": 54074600.0,
+          "C": 22892600.0,
+          "AA": 22858900.0
+        },
+        "10": {
+          "A": 22900500.0,
+          "B": 54041700.0,
+          "C": 22837900.0,
+          "AA": 22875300.0
+        },
+        "11": {
+          "A": 22926000.0,
+          "B": 54036900.0,
+          "C": 22890500.0,
+          "AA": 22852200.0
+        },
+        "12": {
+          "A": 22922900.0,
+          "B": 53844000.0,
+          "C": 22863700.0,
+          "AA": 22952000.0
+        },
+        "13": {
+          "A": 22856000.0,
+          "B": 54225500.0,
+          "C": 22880100.0,
+          "AA": 22871200.0
+        },
+        "14": {
+          "A": 22917200.0,
+          "B": 54054100.0,
+          "C": 23008100.0,
+          "AA": 22882600.0
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 15,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "block_ratios": [
+            2.4440389400240115,
+            2.3583372109710328,
+            2.364836161740397,
+            2.3642367895374097,
+            2.3588046679027155,
+            2.36095127660971,
+            2.3627560798452802,
+            2.358006643936642,
+            2.3471815639177547,
+            2.36042918005308,
+            2.35984803825244,
+            2.3570138707144728,
+            2.348917458087764,
+            2.3724842492124605,
+            2.3586694709650393
+          ],
+          "median_ratio": 2.35984803825244,
+          "geometric_mean_ratio": 2.365001383095814,
+          "ci95_median_ratio": [
+            2.3583372109710328,
+            2.3627560798452802
+          ],
+          "ci95_geometric_mean_ratio": [
+            2.3571981722119424,
+            2.37753285992001
+          ],
+          "median_delta_pct": 135.98480382524397,
+          "geometric_mean_delta_pct": 136.50013830958142,
+          "ci95_median_delta_pct": [
+            135.83372109710328,
+            136.27560798452802
+          ],
+          "improvement_blocks": 0,
+          "degradation_blocks": 15,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 15,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "block_ratios": [
+            0.9988342352060968,
+            0.9974603285047684,
+            1.0042088092776986,
+            1.006102012002955,
+            0.9990009815683281,
+            1.0005775920537336,
+            1.0006782123198361,
+            1.0021708778487302,
+            0.998673318921082,
+            0.9992928481631512,
+            0.9972664352306718,
+            0.9984515397365437,
+            0.9974174297318402,
+            1.001054427721386,
+            1.0039664531443633
+          ],
+          "median_ratio": 0.9992928481631512,
+          "geometric_mean_ratio": 1.000340268015406,
+          "ci95_median_ratio": [
+            0.998673318921082,
+            1.0021708778487302
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.999088152746686,
+            1.0017709892326883
+          ],
+          "median_delta_pct": -0.07071518368487739,
+          "geometric_mean_delta_pct": 0.034026801540609775,
+          "ci95_median_delta_pct": [
+            -0.13266810789179795,
+            0.21708778487301572
+          ],
+          "improvement_blocks": 8,
+          "degradation_blocks": 7,
+          "tie_blocks": 0,
+          "sign_consistency": 0.5333333333333333
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 15,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "block_ratios": [
+            0.9951759956849303,
+            1.0113024079042927,
+            1.0116320148638571,
+            1.0044235215952653,
+            0.998263714690806,
+            1.0001443980134335,
+            1.0023759309011036,
+            1.0024466143496777,
+            0.9951891499236615,
+            0.9978217977371141,
+            0.9988995873452545,
+            0.9967809473959697,
+            1.0012694728851934,
+            1.0006650332516627,
+            0.9984902169549509
+          ],
+          "median_ratio": 1.0001443980134335,
+          "geometric_mean_ratio": 1.0009804518388792,
+          "ci95_median_ratio": [
+            0.998263714690806,
+            1.0024466143496777
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.998740118130981,
+            1.0035820942537559
+          ],
+          "median_delta_pct": 0.014439801343346659,
+          "geometric_mean_delta_pct": 0.09804518388791816,
+          "ci95_median_delta_pct": [
+            -0.17362853091940078,
+            0.24466143496777448
+          ],
+          "improvement_blocks": 7,
+          "degradation_blocks": 8,
+          "tie_blocks": 0,
+          "sign_consistency": 0.5333333333333333
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "confirmed_harmful",
+          "reasons": [
+            "median ratio 2.3598, 95% CI [2.3583, 2.3628], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "neutral",
+          "reasons": [
+            "median ratio 0.9993, 95% CI [0.9987, 1.0022], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "neutral",
+          "reasons": [
+            "median ratio 1.0001, 95% CI [0.9983, 1.0024], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R12-tsvc-pinned",
+        "case": "tsvc_s2233",
+        "mode": "",
+        "n": 256,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 1,
+        "trials": 5,
+        "blocks": 15,
+        "seed": 20261110,
+        "exe_sha256": {
+          "A": "3a7bb0abc67f99237e0e16e226194f6600aed64850c7c484cb87eee85ba906d5",
+          "AA": "3a7bb0abc67f99237e0e16e226194f6600aed64850c7c484cb87eee85ba906d5",
+          "B": "2158a17ac294bee261655f2b05fbc7d0bae278c43b5dc7e40387b297d66df0cd",
+          "C": "c7ead3bbf6e7924ee5a0d3efc3b31586f6c3dde5e364ef62c204cf904e80596a"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.AA.exe AA 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.B.exe B 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.C.exe C 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.A.exe A 256 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233\\tsvc_s2233.AA.exe AA 256 1 5"
+      ]
+    }
+  ],
+  "failures": [],
+  "commands": [
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case tsvc_s233 -Campaign EXP-20261107-R12-tsvc-pinned -OutRoot results/r1 -Configs A,B,C -Force -KernelLl C:\\work\\llvm-profitability-research\\.work\\r1_2\\tsvc_measure.ll",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R12-tsvc-pinned --case tsvc_s233 --n 256 --reps 1 --blocks 15 --trials 5 --configs A,B,C,AA --seed 20261110 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233 --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned --json --resume --attempt 1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case tsvc_s2233 -Campaign EXP-20261107-R12-tsvc-pinned -OutRoot results/r1 -Configs A,B,C -Force -KernelLl C:\\work\\llvm-profitability-research\\.work\\r1_2\\tsvc_measure.ll",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R12-tsvc-pinned --case tsvc_s2233 --n 256 --reps 1 --blocks 15 --trials 5 --configs A,B,C,AA --seed 20261110 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233 --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned --json --resume --attempt 1"
+  ],
+  "finished_utc": "2026-11-07T09:20:10Z"
+}

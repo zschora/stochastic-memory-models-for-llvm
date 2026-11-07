@@ -1,0 +1,691 @@
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        _vfprintf_l
+Args:
+  - Callee:          __stdio_common_vfprintf
+  - String:          ' will not be inlined into '
+  - Caller:          _vfprintf_l
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        _vfprintf_l
+Args:
+  - String:          ''''
+  - Callee:          __local_stdio_printf_options
+  - String:          ''' not inlined into '''
+  - Caller:          _vfprintf_l
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        _vfprintf_l
+Args:
+  - String:          'load of type '
+  - Type:            i64
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     call
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        fprintf
+Args:
+  - String:          ''''
+  - Callee:          _vfprintf_l
+  - String:          ''' not inlined into '''
+  - Caller:          fprintf
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        fprintf
+Args:
+  - String:          'load of type '
+  - Type:            ptr
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     call llvm.va_start.p0
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        init_array
+Args:
+  - String:          'hoisting '
+  - Inst:            add
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        init_array
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_trisolv
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressCondExecuted
+Function:        kernel_trisolv
+Args:
+  - String:          failed to hoist load with loop-invariant address because load is conditionally executed
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+Function:        kernel_trisolv
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+...
+--- !Missed
+Pass:            licm
+Name:            LoadWithLoopInvariantAddressInvalidated
+Function:        kernel_trisolv
+Args:
+  - String:          failed to move load with loop-invariant address because the loop may invalidate its value
+...
+--- !Passed
+Pass:            licm
+Name:            PromoteLoopAccessesToScalar
+Function:        kernel_trisolv
+Args:
+  - String:          Moving accesses to memory location out of the loop
+...
+--- !Missed
+Pass:            loop-idiom
+Name:            LoopMayAccessStore
+Function:        kernel_trisolv
+Args:
+  - Inst:            load and store
+  - String:          ' in '
+  - Function:        kernel_trisolv
+  - String:          ' function will not be hoisted: '
+  - Reason:          The loop may access store location
+...
+--- !Passed
+Pass:            gvn
+Name:            LoadElim
+Function:        kernel_trisolv
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' eliminated'
+  - String:          ' in favor of '
+  - InfavorOfValue:  load
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_trisolv
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_trisolv
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Passed
+Pass:            gvn
+Name:            LoadElim
+Function:        kernel_trisolv
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' eliminated'
+  - String:          ' in favor of '
+  - InfavorOfValue:  phi
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_trisolv
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_trisolv
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_trisolv
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_trisolv
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_trisolv
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        kernel_trisolv
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          __acrt_iob_func
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          fwrite
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          __acrt_iob_func
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          __acrt_iob_func
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          __acrt_iob_func
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          fputc
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          __acrt_iob_func
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          __acrt_iob_func
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        print_array
+Args:
+  - Callee:          fwrite
+  - String:          ' will not be inlined into '
+  - Caller:          print_array
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        print_array
+Args:
+  - String:          ''''
+  - Callee:          fprintf
+  - String:          ''' not inlined into '''
+  - Caller:          print_array
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        print_array
+Args:
+  - String:          ''''
+  - Callee:          fprintf
+  - String:          ''' not inlined into '''
+  - Caller:          print_array
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        print_array
+Args:
+  - String:          ''''
+  - Callee:          fprintf
+  - String:          ''' not inlined into '''
+  - Caller:          print_array
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Passed
+Pass:            TTI
+Name:            DontUnroll
+Function:        print_array
+Args:
+  - String:          'advising against unrolling the loop because it contains a '
+  - Call:            call
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        print_array
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     call
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        print_array
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     call
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          polybench_alloc_data
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          polybench_alloc_data
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          polybench_alloc_data
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+Function:        main
+Args:
+  - Callee:          free
+  - String:          ' will not be inlined into '
+  - Caller:          main
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        main
+Args:
+  - String:          ''''
+  - Callee:          init_array
+  - String:          ''' not inlined into '''
+  - Caller:          main
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        main
+Args:
+  - String:          ''''
+  - Callee:          kernel_trisolv
+  - String:          ''' not inlined into '''
+  - Caller:          main
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        main
+Args:
+  - String:          ''''
+  - Callee:          print_array
+  - String:          ''' not inlined into '''
+  - Caller:          main
+  - String:          ''' because it should never be inlined '
+  - String:          '(cost=never)'
+  - String:          ': '
+  - Reason:          noinline function attribute
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+Function:        main
+Args:
+  - String:          'load of type '
+  - Type:            ptr
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     call
+...
+--- !Passed
+Pass:            deadargelim
+Name:            ArgumentRemoved
+Function:        init_array
+Args:
+  - String:          'eliminating argument '
+  - ArgName:         ''
+  - String:          '('
+  - ArgIndex:        '0'
+  - String:          ')'
+...
+--- !Passed
+Pass:            deadargelim
+Name:            ArgumentRemoved
+Function:        kernel_trisolv
+Args:
+  - String:          'eliminating argument '
+  - ArgName:         ''
+  - String:          '('
+  - ArgIndex:        '0'
+  - String:          ')'
+...
+--- !Passed
+Pass:            deadargelim
+Name:            ArgumentRemoved
+Function:        print_array
+Args:
+  - String:          'eliminating argument '
+  - ArgName:         ''
+  - String:          '('
+  - ArgIndex:        '0'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            loop-interchange
+Name:            Dependence
+Function:        init_array
+Args:
+  - String:          Computed dependence info, invoking the transform.
+...
+--- !Missed
+Pass:            loop-interchange
+Name:            Dependence
+Function:        init_array
+Args:
+  - String:          All loops have dependencies in all directions.
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficial
+Function:        init_array
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+Function:        init_array
+Args:
+  - String:          'vectorized '
+  - String:          ''
+  - String:          'loop (vectorization width: '
+  - VectorizationFactor: '2'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '1'
+  - String:          ')'
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+Function:        init_array
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Analysis
+Pass:            loop-interchange
+Name:            Dependence
+Function:        kernel_trisolv
+Args:
+  - String:          Computed dependence info, invoking the transform.
+...
+--- !Missed
+Pass:            loop-interchange
+Name:            Dependence
+Function:        kernel_trisolv
+Args:
+  - String:          All loops have dependencies in all directions.
+...
+--- !AnalysisFPCommute
+Pass:            loop-vectorize
+Name:            CantReorderFPOps
+Function:        kernel_trisolv
+Args:
+  - String:          'loop not vectorized: cannot prove it is safe to reorder floating-point operations'
+...
+--- !Missed
+Pass:            loop-vectorize
+Name:            MissedDetails
+Function:        kernel_trisolv
+Args:
+  - String:          loop not vectorized
+...
+--- !Passed
+Pass:            loop-unroll
+Name:            PartialUnrolled
+Function:        kernel_trisolv
+Args:
+  - String:          'unrolled loop by a factor of '
+  - UnrollCount:     '2'
+  - String:          ' with run-time trip count'
+  - String:          ''
+...
+--- !Analysis
+Pass:            loop-interchange
+Name:            Dependence
+Function:        print_array
+Args:
+  - String:          Computed dependence info, invoking the transform.
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            NoCFGForSelect
+Function:        print_array
+Args:
+  - String:          'loop not vectorized: '
+  - String:          Control flow cannot be substituted for a select
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeLibcall
+Function:        print_array
+Args:
+  - String:          'loop not vectorized: '
+  - String:          call instruction cannot be vectorized
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeLibcall
+Function:        print_array
+Args:
+  - String:          'loop not vectorized: '
+  - String:          call instruction cannot be vectorized
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeLibcall
+Function:        print_array
+Args:
+  - String:          'loop not vectorized: '
+  - String:          call instruction cannot be vectorized
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeLibcall
+Function:        print_array
+Args:
+  - String:          'loop not vectorized: '
+  - String:          call instruction cannot be vectorized
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            CantVectorizeInstruction
+Function:        print_array
+Args:
+  - String:          'loop not vectorized: '
+  - String:          instruction cannot be vectorized
+...
+--- !Missed
+Pass:            loop-vectorize
+Name:            MissedDetails
+Function:        print_array
+Args:
+  - String:          loop not vectorized
+...
+--- !Passed
+Pass:            TTI
+Name:            DontUnroll
+Function:        print_array
+Args:
+  - String:          'advising against unrolling the loop because it contains a '
+  - Call:            call
+...

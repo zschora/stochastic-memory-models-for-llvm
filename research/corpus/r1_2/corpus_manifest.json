@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "record_type": "r1.2-corpus",
+  "created_utc": "2026-11-07T00:00:00Z",
+  "sources": {
+    "polybench": {
+      "repository": "https://github.com/MatthiasJReisinger/PolyBenchC-4.2.1",
+      "revision": "3e872547cef7e5c9909422ef1e6af03cf4e56072",
+      "path": ".tools/corpus/PolyBench",
+      "license": "benchmarks/r1_2/licenses/PolyBench-LICENSE.txt",
+      "dataset": "MINI_DATASET",
+      "compiler_flags": [
+        "-O0", "-Xclang", "-disable-O0-optnone",
+        "-DMINI_DATASET", "-DPOLYBENCH_USE_SCALAR_LB"
+      ],
+      "discovery": {
+        "cases_compiled": 30,
+        "functions_examined": 28,
+        "legal_and_fused": 0,
+        "legal_but_rejected": 0,
+        "illegal": 28,
+        "unknown": 0,
+        "conclusion": "No legal LoopFusion opportunity in the kernel functions under the pinned pipeline; dependencies, trip-count mismatch or non-adjacent form dominate."
+      }
+    },
+    "tsvc": {
+      "repository": "https://github.com/PGG106/TSVC",
+      "revision": "f2d53d51d9cd60c5612cf34c1e70215c6907f787",
+      "path": ".tools/corpus/TSVC/TSVC",
+      "license": "benchmarks/r1_2/licenses/TSVC-LICENSE.txt",
+      "source_file": "tsc.c",
+      "functions_in_source": 136,
+      "functions_reaching_fusion_remarks": 10,
+      "legal_and_fused": 1,
+      "legal_but_rejected": 1,
+      "illegal": 8,
+      "measurement_adaptation": {
+        "ntimes": 256,
+        "main": "renamed to tsvc_original_main",
+        "shims": "max/min/memalign compatibility and sys/times stubs",
+        "reason": "one kernel call must be practical for repeated timing; this is a controlled adaptation, not upstream TSVC behavior"
+      },
+      "measured_cases": [
+        {
+          "case": "tsvc_s233",
+          "function": "s233",
+          "discovery_class": "legal_and_fused",
+          "wrapper": "benchmarks/tsvc_s233.cpp",
+          "campaign": "EXP-20261107-R12-tsvc-pinned",
+          "classification": "confirmed_profitable",
+          "C_vs_A": -9.4,
+          "A_A_control": 0.2
+        },
+        {
+          "case": "tsvc_s2233",
+          "function": "s2233",
+          "discovery_class": "legal_but_rejected",
+          "wrapper": "benchmarks/tsvc_s2233.cpp",
+          "campaign": "EXP-20261107-R12-tsvc-pinned",
+          "classification": "current model neutral; unrestricted fusion harmful",
+          "B_vs_A": 136.0,
+          "C_vs_A": -0.1,
+          "A_A_control": 0.0
+        }
+      ]
+    }
+  },
+  "discovery": "results/r1/EXP-20261107-R12-discovery/discovery.json",
+  "measurement_campaigns": {
+    "pilot_unpinned": "EXP-20261107-R12-corpus",
+    "nine_block_unpinned": "EXP-20261107-R12-tsvc",
+    "final_pinned": "EXP-20261107-R12-tsvc-pinned"
+  },
+  "inclusion_rules": [
+    "Prefer real source programs with documented licenses and exact revisions.",
+    "Do not modify source to manufacture a legal fusion; adaptations are limited to measurement feasibility and are recorded.",
+    "Do not count multiple input sizes of one kernel as independent families.",
+    "Record cases with no fusion or no examinable candidate rather than dropping them."
+  ]
+}

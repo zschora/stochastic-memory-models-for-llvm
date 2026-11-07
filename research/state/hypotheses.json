@@ -465,6 +465,66 @@
       "review_note": "Corrected campaign, paired-block reanalysis and feature audit are complete; no independent review.",
       "decision": "Use the corrected paired estimates and feature categories; treat small effects as inconclusive.",
       "next_action": "Independent review; then R1.2 held-out corpus."
+    },
+    {
+      "id": "H-R12-001",
+      "title": "Real-workload LoopFusion opportunities are rare and the current policy handles the TSVC candidates",
+      "statement": "Across 30 PolyBench cases and 136 TSVC functions, only two TSVC functions expose a legal LoopFusion opportunity under the pinned pipeline; the current policy accepts the profitable s233 fusion and rejects the harmful s2233 fusion.",
+      "motivation": "R1/R1.1 used controlled kernels; real-workload prevalence and generalization were unknown.",
+      "competing_explanations": [
+        "The selected pipeline or dataset hides opportunities",
+        "TSVC/PolyBench are not representative",
+        "Two cases are too few for generalization"
+      ],
+      "evidence_required": [
+        "static discovery over both suites",
+        "actual fusion remarks",
+        "paired-block measurements",
+        "held-out case study"
+      ],
+      "falsification": "More real families expose many legal opportunities that the current model mishandles, or the two measured cases do not reproduce.",
+      "planned_experiments": [
+        "EXP-20261107-R12-tsvc-pinned"
+      ],
+      "status": "analyzed",
+      "evidence_links": [
+        "research/corpus/r1_2/corpus_manifest.json",
+        "results/r1/EXP-20261107-R12-discovery/discovery.json",
+        "results/r1/EXP-20261107-R12-tsvc-pinned/heldout_eval.json"
+      ],
+      "review_status": "model-assisted-self-review",
+      "review_note": "Discovery and two measured cases; no independent review and no broad held-out corpus.",
+      "decision": "Current model looks correct on the two real TSVC candidates; no generalization claim.",
+      "next_action": "Expand real families and test whether legal opportunities are actually rare in whole programs."
+    },
+    {
+      "id": "H-R12-002",
+      "title": "PolyBench kernel loops expose no legal LoopFusion opportunities under the pinned pipeline",
+      "statement": "All 28 PolyBench kernel functions examined at revision 3e8725 are rejected by legality or form, with no legal-and-fused or legal-but-rejected case.",
+      "motivation": "PolyBench is a standard affine numerical corpus and should reveal whether realistic stencil/matrix kernels reach LoopFusion.",
+      "competing_explanations": [
+        "The missing opportunity is hidden by pass order or loop form",
+        "The mini dataset/compile flags change legality",
+        "The wrong functions were selected"
+      ],
+      "evidence_required": [
+        "per-function remarks",
+        "IR inspection",
+        "pipeline sensitivity checks"
+      ],
+      "falsification": "A PolyBench kernel becomes a legal candidate under a defensible pipeline.",
+      "planned_experiments": [
+        "EXP-20261107-R12-discovery"
+      ],
+      "status": "analyzed",
+      "evidence_links": [
+        "research/corpus/r1_2/corpus_manifest.json",
+        "results/r1/EXP-20261107-R12-discovery/discovery.json"
+      ],
+      "review_status": "model-assisted-self-review",
+      "review_note": "Static discovery only; no whole-program timing.",
+      "decision": "Negative result for PolyBench as a source of LoopFusion opportunities at this pipeline; not a claim about other compilers or transformations.",
+      "next_action": "Inspect whether loop distribution/interchange or a different pass order creates real opportunities."
     }
   ]
 }

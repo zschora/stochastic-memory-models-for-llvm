@@ -1,0 +1,61 @@
+﻿{
+    "case":  "tsvc_s2233",
+    "campaign":  "EXP-20261107-R12-corpus",
+    "source":  "benchmarks/tsvc_s2233.cpp",
+    "source_sha256":  "6343494FB48F10B9885289503281DD1C36A5F60D031724528DCBD0BDC65CA531",
+    "kernel_ll":  ".work\\r1_2\\tsvc_measure.ll",
+    "input_ir":  "tsvc_s2233.linked.ll",
+    "input_ir_sha256":  "3320546B1D5F41079A7FE44D3F670C6FD34BEA98567534A6D46BE93599042FAC",
+    "clang":  "clang version 24.0.0git (https://github.com/llvm/llvm-project.git 6f4196219399a3502cea3beb2d0c8c28b2241649)",
+    "opt":  "LLVM (http://llvm.org/):",
+    "llc":  "LLVM (http://llvm.org/):",
+    "cpu":  "alderlake",
+    "configs":  {
+                    "A":  {
+                              "fusion_flags":  [
+
+                                               ],
+                              "loops_after":  222,
+                              "fused_remarks":  0,
+                              "insufficient_reuse_remarks":  0,
+                              "ll_sha256":  "F3CA69B099BFC71DB6E76F828FC1C09EF943498B89986D9D922BE87589B7053A",
+                              "asm_sha256":  "E33914ACA5E9AAC036DCAF3BCA52E939A319A0305C0859E3D2BFF60AC6BEF05C",
+                              "exe_sha256":  "EC7E1D3545F9D967CC185472E96D4407E9F5C2F8BDC973E4EBE80283CB976AD6",
+                              "obj_size":  158308,
+                              "asm_size":  659537
+                          },
+                    "B":  {
+                              "fusion_flags":  [
+                                                   "-enable-loopfusion",
+                                                   "-loop-fusion-min-reused-values=0"
+                                               ],
+                              "loops_after":  204,
+                              "fused_remarks":  20,
+                              "insufficient_reuse_remarks":  0,
+                              "ll_sha256":  "5106288C0BB044FA419DDFDBABB5BE185EE700D33D6D349A8EA3D4429979E920",
+                              "asm_sha256":  "5A96D97C40DBA657F39D181F9BAF83C14A2622F4D8579ECCD3291886BD08ACB3",
+                              "exe_sha256":  "4A70FAEA09F90DB89981E3612CCAE1493C731432CA813DAE462675FAD2B572CE",
+                              "obj_size":  156468,
+                              "asm_size":  649108
+                          },
+                    "C":  {
+                              "fusion_flags":  [
+                                                   "-enable-loopfusion",
+                                                   "-loop-fusion-min-reused-values=1"
+                                               ],
+                              "loops_after":  204,
+                              "fused_remarks":  19,
+                              "insufficient_reuse_remarks":  1,
+                              "ll_sha256":  "964E9E46B09BBD631A9B02340CA064EF07E898D031391634402172C8D7B64753",
+                              "asm_sha256":  "EE5ADAAB6EA26346920BD988DD5D87419A9BAC0D741ABA18226AD92682626CFA",
+                              "exe_sha256":  "8F20C86988DDDCE671CE4BBB6E9E49D67CD6DF44D18259A6801A2E34113557BC",
+                              "obj_size":  156858,
+                              "asm_size":  651675
+                          }
+                },
+    "aa_control":  {
+                       "binary":  "tsvc_s2233.AA.exe",
+                       "sha256":  "EC7E1D3545F9D967CC185472E96D4407E9F5C2F8BDC973E4EBE80283CB976AD6",
+                       "identical_to_A":  true
+                   }
+}

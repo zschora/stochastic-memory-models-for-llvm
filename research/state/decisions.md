@@ -203,3 +203,22 @@ or cache-working-set value is inferred from `n` alone.
 **Consequences:** The three historical SIMD points are restored; R1-F cannot
 contaminate baseline metrics; footprint rules must be described as scenario
 proxies. Predictor v3 is versioned beside the historical v2 output.
+
+## D-016 - R1.2 real-workload corpus and evidence partition
+
+**Context:** R1/R1.1 used controlled kernels that already influenced the feature
+choices. R1.2 needed real sources and an honest distinction between development
+and held-out evidence.
+
+**Decision:** TSVC and PolyBench are included only through pinned external
+revisions with preserved licenses and a manifest. Discovery uses actual
+front-end IR and LoopFusion remarks. Controlled R1/R1.1 kernels remain the
+development corpus. The two real TSVC legal opportunities (`s233`, `s2233`) are
+a held-out case study, not a family-level validation set. Source adaptations are
+limited to measurement feasibility (`ntimes=256`, renamed `main`, portability
+shims, custom wrapper) and are recorded. No LLVM patch or cost model is added.
+
+**Consequences:** R1.2 reports opportunity rarity (PolyBench 0/28 legal; TSVC 2
+legal among 136 functions) and a two-case policy outcome. No deployable
+predictor or upstream LLVM change is justified; R1.3 is a discovery/audit stage,
+not cost-model implementation.

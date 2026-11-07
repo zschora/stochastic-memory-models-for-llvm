@@ -1,0 +1,219 @@
+{
+  "schema_version": "1.0",
+  "record_type": "experiment",
+  "run_id": "EXP-20261107-R12-tsvc-pinned",
+  "hypothesis_id": "H-R12-001",
+  "title": "R1.2 TSVC real-workload case study",
+  "status": "analyzed",
+  "created_utc": "2026-11-07T09:24:44Z",
+  "git": {
+    "base_commit": "8787be4cb0033193e2e17e41274c40e1dbb5f97c",
+    "branch": "main",
+    "working_tree_dirty": true,
+    "available": true
+  },
+  "toolchain": {
+    "consistency": "verified",
+    "llvm_revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+    "manifest_path": "research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json",
+    "clang": {
+      "version": "clang version 24.0.0git (https://github.com/llvm/llvm-project.git 6f4196219399a3502cea3beb2d0c8c28b2241649)",
+      "path": ".tools/llvm-build/bin/clang.exe",
+      "revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+      "sha256": "9477e11c9c5e4d01c4f24d50ebd25d94935529b0c67edcd252383e8dd8ef20e2"
+    },
+    "opt": {
+      "version": "LLVM version 24.0.0git",
+      "path": ".tools/llvm-build/bin/opt.exe",
+      "revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+      "sha256": "f0b20b1e3d5c800f874cb69d58c3b1b4681c2efcad313f61324e9536e1029721"
+    },
+    "llc": {
+      "version": "LLVM version 24.0.0git",
+      "path": ".tools/llvm-build/bin/llc.exe",
+      "revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+      "sha256": "f74b889f789694afda8f9059c11b44cd4b8e5e5d93150223d77f1db9801a4652"
+    },
+    "llvm_config": {
+      "version": "24.0.0git",
+      "path": ".tools/llvm-build/bin/llvm-config.exe",
+      "revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+      "sha256": "f410b8fc9663a6f22a5cae1481f21e02f25a349417a0bb82b1a82d8f330f34c2"
+    },
+    "compatibility_notes": "Provenance supplied by an explicit toolchain manifest.",
+    "baseline_caveat": false
+  },
+  "build": {
+    "configuration": "Release, X86, assertions OFF, clang enabled",
+    "cmake_args": [
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DLLVM_ENABLE_PROJECTS=clang",
+      "-DLLVM_TARGETS_TO_BUILD=X86",
+      "-DLLVM_ENABLE_ASSERTIONS=OFF",
+      "-DCLANG_ENABLE_CIR=OFF"
+    ],
+    "compiler_flags": [
+      "/O2",
+      "/DNDEBUG",
+      "/EHsc"
+    ],
+    "link_flags": []
+  },
+  "host": {
+    "os": "Windows 11 (10.0.26200)",
+    "cpu": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "logical_cpus": 16,
+    "caches": "not recorded",
+    "python": "3.12.5"
+  },
+  "pipeline": {
+    "frontend_ir": "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s233/tsvc_s233.frontend.ll",
+    "frontend_flags": [
+      "-O0",
+      "-Xclang",
+      "-disable-O0-optnone",
+      "-march=alderlake",
+      "-std=c++17",
+      "-emit-llvm",
+      "-S"
+    ],
+    "opt_passes": [
+      "A: default<O3>",
+      "B: unrestricted fusion",
+      "C: exact reuse",
+      "AA: byte-identical A"
+    ],
+    "llc_args": [
+      "-O3",
+      "-mtriple=x86_64-pc-windows-msvc",
+      "-mcpu=alderlake"
+    ]
+  },
+  "case": {
+    "name": "TSVC real-workload LoopFusion case study",
+    "source": "research/corpus/r1_2/corpus_manifest.json",
+    "input_sizes": [
+      256
+    ],
+    "seeds": [
+      20261110
+    ],
+    "mandatory": true
+  },
+  "procedure": {
+    "configurations": [
+      "A",
+      "B",
+      "C",
+      "AA"
+    ],
+    "repetitions": 15,
+    "trials_per_process": 5,
+    "order": "randomized complete blocks; seed/schedule preserved; logical CPU 2; high priority",
+    "timing_unit": "ns per TSVC kernel call",
+    "timing_method": "steady_clock around the kernel wrapper; process median per block; paired block bootstrap",
+    "correctness_oracle": "cross-config aa/bb/cc FNV checksum plus TSVC check()",
+    "aa_control": "byte-identical A/AA binaries",
+    "randomization_seed": 20261110
+  },
+  "artifacts": {
+    "raw_timings": [
+      "results/r1/EXP-20261107-R12-tsvc-pinned/measurements/tsvc_s2233/mode-default/n-256/m-a5fff5bf7ab3986b/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/measurements/tsvc_s233/mode-default/n-256/m-ff4989878de07e31/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/campaign_summary.json",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/heldout_eval.json"
+    ],
+    "ir": [
+      "results/r1/EXP-20261107-R12-tsvc-pinned/features/tsvc_s2233.early.ll",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/features/tsvc_s233.early.ll",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s2233/tsvc_s2233.A.ll",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s2233/tsvc_s2233.B.ll",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s2233/tsvc_s2233.C.ll",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s2233/tsvc_s2233.frontend.ll",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s2233/tsvc_s2233.linked.ll",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s233/tsvc_s233.A.ll",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s233/tsvc_s233.B.ll",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s233/tsvc_s233.C.ll",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s233/tsvc_s233.frontend.ll",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s233/tsvc_s233.linked.ll"
+    ],
+    "assembly": [
+      "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s2233/tsvc_s2233.A.s",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s2233/tsvc_s2233.B.s",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s2233/tsvc_s2233.C.s",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s233/tsvc_s233.A.s",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s233/tsvc_s233.B.s",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s233/tsvc_s233.C.s"
+    ],
+    "remarks": [
+      "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s2233/remarks-A.yaml",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s2233/remarks-B.yaml",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s2233/remarks-C.yaml",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s233/remarks-A.yaml",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s233/remarks-B.yaml",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/tsvc_s233/remarks-C.yaml"
+    ],
+    "analysis_script": "scripts/r1_2_evaluate.py",
+    "analysis_script_revision": "working-tree",
+    "checksums": [
+      "results/r1/EXP-20261107-R12-tsvc-pinned/heldout_eval.json"
+    ]
+  },
+  "commands": [
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case tsvc_s233 -Campaign EXP-20261107-R12-tsvc-pinned -OutRoot results/r1 -Configs A,B,C -Force -KernelLl C:\\work\\llvm-profitability-research\\.work\\r1_2\\tsvc_measure.ll",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R12-tsvc-pinned --case tsvc_s233 --n 256 --reps 1 --blocks 15 --trials 5 --configs A,B,C,AA --seed 20261110 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s233 --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned --json --resume --attempt 1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case tsvc_s2233 -Campaign EXP-20261107-R12-tsvc-pinned -OutRoot results/r1 -Configs A,B,C -Force -KernelLl C:\\work\\llvm-profitability-research\\.work\\r1_2\\tsvc_measure.ll",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R12-tsvc-pinned --case tsvc_s2233 --n 256 --reps 1 --blocks 15 --trials 5 --configs A,B,C,AA --seed 20261110 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned\\tsvc_s2233 --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R12-tsvc-pinned --json --resume --attempt 1",
+    "python scripts/r1_2_tsvc_ir.py",
+    "python scripts/r1_2_evaluate.py"
+  ],
+  "results": {
+    "summary": "Two real TSVC legal opportunities measured with 15 randomized blocks. s233: C -9.4% (confirmed profitable), A/A +0.2%. s2233: B +136.0% harmful, C -0.1% neutral (current model correctly rejects), A/A 0.0%. PolyBench discovery found 0 legal opportunities among 28 analysed functions. The result supports opportunity rarity and a two-case case study, not broad predictor generalization.",
+    "limitations": [
+      "Only two measured real cases; no broad held-out family set.",
+      "TSVC source adaptation: ntimes=256, renamed main, compatibility shims, custom wrapper.",
+      "Mini PolyBench dataset; no whole-program timing.",
+      "One machine; no hardware counters; model-assisted self-review only."
+    ]
+  },
+  "review": {
+    "status": "model-assisted-self-review",
+    "reviewer": "same model as author",
+    "reviewer_type": "same-model",
+    "decision": "accept-with-limits",
+    "artifact": "reports/r1_2_review.md",
+    "notes": "Adversarial self-review found no basis for broad generalization; provisional acceptance of rarity and two-case findings.",
+    "reviewed_utc": "2026-11-07T08:30:00Z"
+  },
+  "evidence": {
+    "quality": "measured",
+    "notes": "Raw CSVs, schedules, IR, assembly, remarks and held-out evaluation are linked.",
+    "validation_artifacts": [
+      "results/r1/EXP-20261107-R12-tsvc-pinned/campaign_summary.json",
+      "results/r1/EXP-20261107-R12-tsvc-pinned/heldout_eval.json",
+      "research/corpus/r1_2/corpus_manifest.json",
+      "reports/r1_2_corpus.md",
+      "reports/r1_2_profitability.md",
+      "reports/r1_2_review.md",
+      "reports/r1_2_final.md"
+    ]
+  },
+  "status_history": [
+    {
+      "status": "planned",
+      "utc": "2026-11-07T08:30:00Z",
+      "reason": "TSVC plan pre-registered"
+    },
+    {
+      "status": "running",
+      "utc": "2026-11-07T08:30:00Z",
+      "reason": "pinned 15-block campaign executed"
+    },
+    {
+      "status": "analyzed",
+      "utc": "2026-11-07T08:30:00Z",
+      "reason": "held-out case study and synthesis written"
+    }
+  ],
+  "next_action": "Broaden real families/whole-program study or audit alternative pipelines; do not build a cost model from two cases."
+}
