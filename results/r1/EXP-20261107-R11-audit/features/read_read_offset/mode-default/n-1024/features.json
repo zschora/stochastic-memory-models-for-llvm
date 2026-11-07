@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.1",
+  "record_type": "predictor-features",
+  "case": "read_read_offset",
+  "sources": {
+    "source_ir": "results/r1/EXP-20261107-R1A/read_read_offset/read_read_offset.frontend.ll",
+    "source_sha256": "dfdef893758cbb0a4266243973d01dd0d181b144af53a7842bbde027cd52f283",
+    "early_ir": "results/r1/EXP-20261107-R11-audit/features/ir/read_read_offset-default.early.ll",
+    "pipeline_stage": "early scalar pipeline (mem2reg, loop-simplify, lcssa, loop-rotate); before LoopFusion"
+  },
+  "static": {
+    "kernel_function": "rr_offset_kernel",
+    "loop_count": 2,
+    "selection_reason": "function with >=2 loops, loads and no calls",
+    "metadata_conflict": false,
+    "loop_hints": [
+      {
+        "metadata_id": "17",
+        "vectorize_enable": false,
+        "vectorize_disable": false,
+        "vectorize_width": null,
+        "requested": false,
+        "blocked": false
+      },
+      {
+        "metadata_id": "19",
+        "vectorize_enable": false,
+        "vectorize_disable": false,
+        "vectorize_width": null,
+        "requested": false,
+        "blocked": false
+      }
+    ],
+    "metadata_conflict_evidence": [],
+    "element_bytes": 8,
+    "element_types": [
+      "double",
+      "double"
+    ],
+    "trip_count": "runtime-dependent",
+    "reuse_kind": "exact",
+    "reuse_evidence": {
+      "kind": "exact",
+      "reason": "same base and normalized index",
+      "accesses": [
+        {
+          "base": "%0",
+          "index_raw": "%.012",
+          "index_normalized": "IV",
+          "load_type": "double"
+        },
+        {
+          "base": "%0",
+          "index_raw": "%.03",
+          "index_normalized": "IV",
+          "load_type": "double"
+        }
+      ]
+    },
+    "loop_body_instruction_count": 39,
+    "feature_confidence": "partial",
+    "unknowns": []
+  },
+  "scenario": {
+    "n": 1024,
+    "footprint_bytes": 8192,
+    "l3_bytes": 18874368,
+    "fits_l3": true,
+    "source": "benchmark driver input size; not generally compile-time available"
+  },
+  "diagnostic": {
+    "note": "not populated by this extractor; predictor evaluation keeps post-optimisation facts separate"
+  }
+}

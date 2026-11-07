@@ -1,0 +1,319 @@
+{
+  "schema_version": "1.0",
+  "record_type": "experiment",
+  "run_id": "EXP-20261107-R11-audit",
+  "hypothesis_id": "H-R1-AUDIT",
+  "title": "R1.1 measurement integrity audit",
+  "status": "analyzed",
+  "created_utc": "2026-11-07T08:10:00Z",
+  "git": {
+    "base_commit": "d48d090b723e080fe35360a9622c87cc7a461a43",
+    "branch": "fix/r1-measurement-integrity",
+    "working_tree_dirty": true,
+    "available": true
+  },
+  "toolchain": {
+    "consistency": "verified",
+    "llvm_revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+    "manifest_path": "research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json",
+    "clang": {
+      "version": "clang version 24.0.0git (https://github.com/llvm/llvm-project.git 6f4196219399a3502cea3beb2d0c8c28b2241649)",
+      "path": ".tools/llvm-build/bin/clang.exe",
+      "revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+      "sha256": "9477e11c9c5e4d01c4f24d50ebd25d94935529b0c67edcd252383e8dd8ef20e2"
+    },
+    "opt": {
+      "version": "LLVM version 24.0.0git",
+      "path": ".tools/llvm-build/bin/opt.exe",
+      "revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+      "sha256": "f0b20b1e3d5c800f874cb69d58c3b1b4681c2efcad313f61324e9536e1029721"
+    },
+    "llc": {
+      "version": "LLVM version 24.0.0git",
+      "path": ".tools/llvm-build/bin/llc.exe",
+      "revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+      "sha256": "f74b889f789694afda8f9059c11b44cd4b8e5e5d93150223d77f1db9801a4652"
+    },
+    "llvm_config": {
+      "version": "24.0.0git",
+      "path": ".tools/llvm-build/bin/llvm-config.exe",
+      "revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+      "sha256": "f410b8fc9663a6f22a5cae1481f21e02f25a349417a0bb82b1a82d8f330f34c2"
+    },
+    "compatibility_notes": "Provenance supplied by an explicit toolchain manifest.",
+    "baseline_caveat": false
+  },
+  "build": {
+    "configuration": "Release, X86, assertions OFF, clang enabled",
+    "cmake_args": [
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DLLVM_ENABLE_PROJECTS=clang",
+      "-DLLVM_TARGETS_TO_BUILD=X86",
+      "-DLLVM_ENABLE_ASSERTIONS=OFF",
+      "-DCLANG_ENABLE_CIR=OFF"
+    ],
+    "compiler_flags": [
+      "/O2",
+      "/DNDEBUG",
+      "/EHsc"
+    ],
+    "link_flags": []
+  },
+  "host": {
+    "os": "Windows 11 (10.0.26200)",
+    "cpu": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "logical_cpus": 16,
+    "caches": "not recorded",
+    "python": "3.12.5"
+  },
+  "pipeline": {
+    "frontend_ir": "results/r1/EXP-20261107-R11-audit/read_read/read_read.frontend.ll",
+    "frontend_flags": [
+      "-O0",
+      "-Xclang",
+      "-disable-O0-optnone",
+      "-march=alderlake",
+      "-std=c++17",
+      "-emit-llvm",
+      "-S"
+    ],
+    "opt_passes": [
+      "A: default<O3> -mcpu=alderlake",
+      "B: -enable-loopfusion -loop-fusion-min-reused-values=0 + default<O3>",
+      "C: -enable-loopfusion -loop-fusion-min-reused-values=1 + default<O3>",
+      "AA: byte-identical A binary"
+    ],
+    "llc_args": [
+      "-O3",
+      "-mtriple=x86_64-pc-windows-msvc",
+      "-mcpu=alderlake"
+    ]
+  },
+  "case": {
+    "name": "R1.1 measurement integrity audit",
+    "source": "results/r1/EXP-20261107-R11-audit/campaign_summary.json",
+    "input_sizes": [
+      1024,
+      16384,
+      131072,
+      1048576,
+      8388608,
+      10000
+    ],
+    "seeds": [
+      20261107
+    ],
+    "mandatory": true
+  },
+  "procedure": {
+    "configurations": [
+      "A",
+      "B",
+      "C",
+      "AA"
+    ],
+    "repetitions": 9,
+    "trials_per_process": 5,
+    "order": "randomized complete blocks; A/B/C/AA each once per block; seed and schedule preserved",
+    "timing_unit": "ns per kernel call",
+    "timing_method": "QueryPerformanceCounter, process median per block, paired block bootstrap",
+    "correctness_oracle": "per-binary VERIFY plus cross-config CHECK checksum",
+    "aa_control": "byte-identical A/AA binaries; paired ratio noise gate",
+    "randomization_seed": 20261107
+  },
+  "artifacts": {
+    "raw_timings": [
+      "results/r1/EXP-20261107-R11-audit/measurements/known_vec/mode-body/n-10000/m-3a37203853e592ff/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R11-audit/measurements/known_vec/mode-hot/n-10000/m-75a84c56039d8152/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R11-audit/measurements/known_vec/mode-setup/n-10000/m-a8fd83ec6f809d36/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R11-audit/measurements/producer_consumer_split/mode-default/n-131072/m-963e961e40410906/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R11-audit/measurements/producer_consumer_split/mode-default/n-16384/m-d7e928956fe7c02e/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R11-audit/measurements/read_read/mode-default/n-1024/m-764adbb10b455d9f/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R11-audit/measurements/read_read/mode-default/n-16384/m-1dc0558802a83c47/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R11-audit/measurements/read_read_offset/mode-default/n-1024/m-3b3fdfac94f25ca1/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R11-audit/measurements/shifted_reuse/mode-default/n-1048576/m-f72f458050c25ffd/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R11-audit/measurements/shifted_reuse/mode-default/n-131072/m-7ee7ffc54a89b7fb/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R11-audit/measurements/simd_metadata/mode-default/n-1048576/m-2bffc5a5ad9e964a/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R11-audit/measurements/simd_metadata/mode-default/n-8388608/m-293bdcacd3201147/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R11-audit/measurements/simd_metadata_scalar/mode-default/n-16384/m-f5a34a5fc3d5ff66/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R11-audit/campaign_summary.json",
+      "results/r1/EXP-20261107-R11-audit/reanalysis/audit_stats.json"
+    ],
+    "ir": [
+      "results/r1/EXP-20261107-R11-audit/known_vec/known_vec.A.ll",
+      "results/r1/EXP-20261107-R11-audit/known_vec/known_vec.B.ll",
+      "results/r1/EXP-20261107-R11-audit/known_vec/known_vec.C.ll",
+      "results/r1/EXP-20261107-R11-audit/known_vec/known_vec.frontend.ll",
+      "results/r1/EXP-20261107-R11-audit/producer_consumer_split/producer_consumer_split.A.ll",
+      "results/r1/EXP-20261107-R11-audit/producer_consumer_split/producer_consumer_split.B.ll",
+      "results/r1/EXP-20261107-R11-audit/producer_consumer_split/producer_consumer_split.C.ll",
+      "results/r1/EXP-20261107-R11-audit/producer_consumer_split/producer_consumer_split.frontend.ll",
+      "results/r1/EXP-20261107-R11-audit/producer_consumer_split/producer_consumer_split.linked.ll",
+      "results/r1/EXP-20261107-R11-audit/read_read/read_read.A.ll",
+      "results/r1/EXP-20261107-R11-audit/read_read/read_read.B.ll",
+      "results/r1/EXP-20261107-R11-audit/read_read/read_read.C.ll",
+      "results/r1/EXP-20261107-R11-audit/read_read/read_read.frontend.ll",
+      "results/r1/EXP-20261107-R11-audit/read_read_offset/read_read_offset.A.ll",
+      "results/r1/EXP-20261107-R11-audit/read_read_offset/read_read_offset.B.ll",
+      "results/r1/EXP-20261107-R11-audit/read_read_offset/read_read_offset.C.ll",
+      "results/r1/EXP-20261107-R11-audit/read_read_offset/read_read_offset.frontend.ll",
+      "results/r1/EXP-20261107-R11-audit/shifted_reuse/shifted_reuse.A.ll",
+      "results/r1/EXP-20261107-R11-audit/shifted_reuse/shifted_reuse.B.ll",
+      "results/r1/EXP-20261107-R11-audit/shifted_reuse/shifted_reuse.C.ll",
+      "results/r1/EXP-20261107-R11-audit/shifted_reuse/shifted_reuse.frontend.ll",
+      "results/r1/EXP-20261107-R11-audit/simd_metadata/simd_metadata.A.ll",
+      "results/r1/EXP-20261107-R11-audit/simd_metadata/simd_metadata.B.ll",
+      "results/r1/EXP-20261107-R11-audit/simd_metadata/simd_metadata.C.ll",
+      "results/r1/EXP-20261107-R11-audit/simd_metadata/simd_metadata.frontend.ll",
+      "results/r1/EXP-20261107-R11-audit/simd_metadata_scalar/simd_metadata_scalar.A.ll",
+      "results/r1/EXP-20261107-R11-audit/simd_metadata_scalar/simd_metadata_scalar.B.ll",
+      "results/r1/EXP-20261107-R11-audit/simd_metadata_scalar/simd_metadata_scalar.C.ll",
+      "results/r1/EXP-20261107-R11-audit/simd_metadata_scalar/simd_metadata_scalar.frontend.ll"
+    ],
+    "assembly": [
+      "results/r1/EXP-20261107-R11-audit/known_vec/known_vec.A.s",
+      "results/r1/EXP-20261107-R11-audit/known_vec/known_vec.B.s",
+      "results/r1/EXP-20261107-R11-audit/known_vec/known_vec.C.s",
+      "results/r1/EXP-20261107-R11-audit/producer_consumer_split/producer_consumer_split.A.s",
+      "results/r1/EXP-20261107-R11-audit/producer_consumer_split/producer_consumer_split.B.s",
+      "results/r1/EXP-20261107-R11-audit/producer_consumer_split/producer_consumer_split.C.s",
+      "results/r1/EXP-20261107-R11-audit/read_read/read_read.A.s",
+      "results/r1/EXP-20261107-R11-audit/read_read/read_read.B.s",
+      "results/r1/EXP-20261107-R11-audit/read_read/read_read.C.s",
+      "results/r1/EXP-20261107-R11-audit/read_read_offset/read_read_offset.A.s",
+      "results/r1/EXP-20261107-R11-audit/read_read_offset/read_read_offset.B.s",
+      "results/r1/EXP-20261107-R11-audit/read_read_offset/read_read_offset.C.s",
+      "results/r1/EXP-20261107-R11-audit/shifted_reuse/shifted_reuse.A.s",
+      "results/r1/EXP-20261107-R11-audit/shifted_reuse/shifted_reuse.B.s",
+      "results/r1/EXP-20261107-R11-audit/shifted_reuse/shifted_reuse.C.s",
+      "results/r1/EXP-20261107-R11-audit/simd_metadata/simd_metadata.A.s",
+      "results/r1/EXP-20261107-R11-audit/simd_metadata/simd_metadata.B.s",
+      "results/r1/EXP-20261107-R11-audit/simd_metadata/simd_metadata.C.s",
+      "results/r1/EXP-20261107-R11-audit/simd_metadata_scalar/simd_metadata_scalar.A.s",
+      "results/r1/EXP-20261107-R11-audit/simd_metadata_scalar/simd_metadata_scalar.B.s",
+      "results/r1/EXP-20261107-R11-audit/simd_metadata_scalar/simd_metadata_scalar.C.s"
+    ],
+    "remarks": [
+      "results/r1/EXP-20261107-R11-audit/known_vec/remarks-A.yaml",
+      "results/r1/EXP-20261107-R11-audit/known_vec/remarks-B.yaml",
+      "results/r1/EXP-20261107-R11-audit/known_vec/remarks-C.yaml",
+      "results/r1/EXP-20261107-R11-audit/producer_consumer_split/remarks-A.yaml",
+      "results/r1/EXP-20261107-R11-audit/producer_consumer_split/remarks-B.yaml",
+      "results/r1/EXP-20261107-R11-audit/producer_consumer_split/remarks-C.yaml",
+      "results/r1/EXP-20261107-R11-audit/read_read/remarks-A.yaml",
+      "results/r1/EXP-20261107-R11-audit/read_read/remarks-B.yaml",
+      "results/r1/EXP-20261107-R11-audit/read_read/remarks-C.yaml",
+      "results/r1/EXP-20261107-R11-audit/read_read_offset/remarks-A.yaml",
+      "results/r1/EXP-20261107-R11-audit/read_read_offset/remarks-B.yaml",
+      "results/r1/EXP-20261107-R11-audit/read_read_offset/remarks-C.yaml",
+      "results/r1/EXP-20261107-R11-audit/shifted_reuse/remarks-A.yaml",
+      "results/r1/EXP-20261107-R11-audit/shifted_reuse/remarks-B.yaml",
+      "results/r1/EXP-20261107-R11-audit/shifted_reuse/remarks-C.yaml",
+      "results/r1/EXP-20261107-R11-audit/simd_metadata/remarks-A.yaml",
+      "results/r1/EXP-20261107-R11-audit/simd_metadata/remarks-B.yaml",
+      "results/r1/EXP-20261107-R11-audit/simd_metadata/remarks-C.yaml",
+      "results/r1/EXP-20261107-R11-audit/simd_metadata_scalar/remarks-A.yaml",
+      "results/r1/EXP-20261107-R11-audit/simd_metadata_scalar/remarks-B.yaml",
+      "results/r1/EXP-20261107-R11-audit/simd_metadata_scalar/remarks-C.yaml"
+    ],
+    "analysis_script": "scripts/r1_audit.py",
+    "analysis_script_revision": "356bf57",
+    "checksums": [
+      "results/r1/EXP-20261107-R11-audit/features/known_vec/mode-body/n-10000/features.json",
+      "results/r1/EXP-20261107-R11-audit/features/known_vec/mode-hot/n-10000/features.json",
+      "results/r1/EXP-20261107-R11-audit/features/known_vec/mode-setup/n-10000/features.json",
+      "results/r1/EXP-20261107-R11-audit/features/producer_consumer/mode-default/n-1024/features.json",
+      "results/r1/EXP-20261107-R11-audit/features/producer_consumer_split/mode-default/n-1024/features.json",
+      "results/r1/EXP-20261107-R11-audit/features/read_read/mode-default/n-1024/features.json",
+      "results/r1/EXP-20261107-R11-audit/features/read_read_offset/mode-default/n-1024/features.json",
+      "results/r1/EXP-20261107-R11-audit/features/shifted_reuse/mode-default/n-1024/features.json",
+      "results/r1/EXP-20261107-R11-audit/features/shifted_reuse_k2/mode-default/n-16384/features.json",
+      "results/r1/EXP-20261107-R11-audit/features/shifted_reuse_k4/mode-default/n-16384/features.json",
+      "results/r1/EXP-20261107-R11-audit/features/shifted_reuse_k8/mode-default/n-16384/features.json",
+      "results/r1/EXP-20261107-R11-audit/features/simd_metadata/mode-default/n-1024/features.json",
+      "results/r1/EXP-20261107-R11-audit/features/simd_metadata_scalar/mode-default/n-1024/features.json",
+      "results/r1/EXP-20261107-R11-audit/features/simd_reduction/mode-default/n-16384/features.json",
+      "results/r1/EXP-20261107-R11-audit/predictor_v2.json"
+    ]
+  },
+  "commands": [
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case known_vec -Campaign EXP-20261107-R11-audit -OutRoot results/r1 -Configs A,B,C -Force",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case known_vec --n 10000 --reps 200 --blocks 9 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --mode setup --attempt 1",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case known_vec --n 10000 --reps 4000 --blocks 9 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --mode hot --attempt 1",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case known_vec --n 10000 --reps 12 --blocks 9 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\known_vec --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --mode body --attempt 1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case read_read -Campaign EXP-20261107-R11-audit -OutRoot results/r1 -Configs A,B,C -Force",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case read_read --n 1024 --reps 10000 --blocks 9 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --attempt 1",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case read_read --n 16384 --reps 300 --blocks 9 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --attempt 1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case read_read_offset -Campaign EXP-20261107-R11-audit -OutRoot results/r1 -Configs A,B,C -Force",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case read_read_offset --n 1024 --reps 10000 --blocks 9 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\read_read_offset --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --attempt 1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case simd_metadata_scalar -Campaign EXP-20261107-R11-audit -OutRoot results/r1 -Configs A,B,C -Force",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case simd_metadata_scalar --n 16384 --reps 200 --blocks 9 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata_scalar --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --attempt 1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case producer_consumer_split -Campaign EXP-20261107-R11-audit -OutRoot results/r1 -Configs A,B,C -Force -KernelLl C:\\work\\llvm-profitability-research\\benchmarks\\producer_consumer_split.ll",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case producer_consumer_split --n 16384 --reps 200 --blocks 9 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --attempt 1",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case producer_consumer_split --n 131072 --reps 20 --blocks 9 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\producer_consumer_split --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --attempt 1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case simd_metadata -Campaign EXP-20261107-R11-audit -OutRoot results/r1 -Configs A,B,C -Force",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case simd_metadata --n 1048576 --reps 3 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --attempt 1",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case simd_metadata --n 8388608 --reps 1 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\simd_metadata --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --attempt 1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case shifted_reuse -Campaign EXP-20261107-R11-audit -OutRoot results/r1 -Configs A,B,C -Force",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case shifted_reuse --n 131072 --reps 40 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --attempt 1",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-audit --case shifted_reuse --n 1048576 --reps 6 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261107 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit --json --resume --attempt 1",
+    "python scripts/r1_audit.py",
+    "python scripts/r1_predictor.py"
+  ],
+  "results": {
+    "summary": "New campaign: 13 points, 7-9 randomized complete blocks, 5 trials/process, verified LLVM 6f41962 v2 manifest. known_vec setup/hot/body raw files are now separately preserved. Paired-block reanalysis confirms the large metadata regression at L1/L2 (new 16K C +36.8% scalar control; historical metadata 16K C +143.4%), shifted-reuse false negative, large-size read-read benefit, and shifted-offset family. Small read-read and some intermediate points are inconclusive. Predictor v2 removes post-treatment YMM features; the two-signal rule is in-sample overfit and is not a deployable model.",
+    "limitations": [
+      "No independent or human review of the audit.",
+      "Seven to nine blocks still give coarse intervals; no multiple-comparison adjustment.",
+      "One machine, no hardware counters.",
+      "The two-signal predictor is an in-sample screen, not held-out validation.",
+      "Historical known_vec setup/hot raw data are permanently lost; new measurements are not the same observations.",
+      "R1-F patched-opt measurements are outside the verified toolchain and have only four blocks."
+    ]
+  },
+  "review": {
+    "status": "model-assisted-self-review",
+    "reviewer": "same model as author",
+    "reviewer_type": "same-model",
+    "decision": "accept-with-limits",
+    "artifact": "reports/r1_1_measurement_audit.md",
+    "notes": "Self-audit of the corrected statistics and new campaign; not independent.",
+    "reviewed_utc": "2026-11-07T06:30:00Z"
+  },
+  "evidence": {
+    "quality": "measured",
+    "notes": "Raw CSV, schedules, measurement manifests, IR, assembly, remarks and corrected analyses are linked.",
+    "validation_artifacts": [
+      "results/r1/EXP-20261107-R11-audit/campaign_summary.json",
+      "results/r1/EXP-20261107-R11-audit/reanalysis/audit_stats.json",
+      "results/r1/EXP-20261107-R11-audit/reanalysis/audit_stats.md",
+      "results/r1/EXP-20261107-R11-audit/predictor_v2.json",
+      "results/r1/EXP-20261107-R11-audit/predictor_v2.md",
+      "reports/r1_1_measurement_audit.md",
+      "research/harness/plans/r1_1_measurement_plan.json",
+      "research/runs/EXP-20261107-R11-followup/manifest.json",
+      "results/r1/EXP-20261107-R11-followup/campaign_summary.json",
+      "research/harness/features/README.md",
+      "research/harness/schemas/predictor-feature.schema.json",
+      "research/harness/schemas/r1-measurement.schema.json"
+    ]
+  },
+  "status_history": [
+    {
+      "status": "planned",
+      "utc": "2026-11-07T06:30:00Z",
+      "reason": "R1.1 plan pre-registered"
+    },
+    {
+      "status": "running",
+      "utc": "2026-11-07T06:30:00Z",
+      "reason": "corrected campaign executed"
+    },
+    {
+      "status": "analyzed",
+      "utc": "2026-11-07T06:30:00Z",
+      "reason": "paired-block reanalysis and predictor v2 written"
+    }
+  ],
+  "next_action": "Independent review; then R1.2 held-out corpus and a static two-signal rule evaluated out of sample."
+}

@@ -1,5 +1,13 @@
 # R1-A report - Stage 0 validation on a matched LLVM toolchain
 
+> **R1.1 erratum (2026-11-07):** this report is retained as historical evidence.
+> R1.1 found that the old runner's confidence intervals were not paired-block
+> intervals, that the historical `known_vec` setup/hot raw files were overwritten,
+> and that the toolchain manifest mislabelled clang provenance. Corrected
+> estimates and new measurements are in
+> [`r1_1_measurement_audit.md`](r1_1_measurement_audit.md). The compiler facts
+> (fusion remarks, IR metadata, legality) are unchanged.
+
 - Date: 2026-11-07
 - Campaign: `EXP-20261107-R1A`
 - LLVM revision: `6f4196219399a3502cea3beb2d0c8c28b2241649` (LLVM 24.0.0git)

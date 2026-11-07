@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.1",
+  "record_type": "r1-measurement",
+  "campaign": "EXP-20261107-R11-audit",
+  "case": "simd_metadata",
+  "mode": "",
+  "n": 8388608,
+  "point_id": "m-293bdcacd3201147",
+  "attempt": 1,
+  "status": "complete",
+  "created_utc": "2026-11-07T05:47:32Z",
+  "parameters": {
+    "campaign": "EXP-20261107-R11-audit",
+    "case": "simd_metadata",
+    "mode": "",
+    "n": 8388608,
+    "configs": [
+      "A",
+      "B",
+      "C",
+      "AA"
+    ],
+    "reps": 1,
+    "trials": 5,
+    "blocks": 7,
+    "seed": 20261107,
+    "exe_sha256": {
+      "A": "dfc36952aecc3ac638585b50a47e54dbc819430254ad79180efb96723aa05581",
+      "AA": "dfc36952aecc3ac638585b50a47e54dbc819430254ad79180efb96723aa05581",
+      "B": "fd8ca614fb7f93589297fb81ed14cbeda46ec99b9556cc56fa90c983cb5628ad",
+      "C": "fd8ca614fb7f93589297fb81ed14cbeda46ec99b9556cc56fa90c983cb5628ad"
+    },
+    "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+  },
+  "toolchain": {
+    "manifest_path": "research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json",
+    "manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900",
+    "llvm_revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+    "toolchain_id": "TC-llvm-24.0.0git-6f41962-v2",
+    "consistency": "verified"
+  },
+  "host": {
+    "os": "Windows 11 (10.0.26200)",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "logical_cpus": 16,
+    "python": "3.12.5",
+    "caches": {
+      "L2_mb_per_pcore": 1.25,
+      "L1d_kb_per_pcore": 48,
+      "L3_mb": 18
+    }
+  },
+  "timing_unit": "ns per kernel call",
+  "warmup_policy": "benchmark-specific warmup in benchmarks/harness.hpp before trials",
+  "affinity": "requested logical CPU 2 and HIGH_PRIORITY_CLASS; harness reports failures on stderr",
+  "environment": {
+    "warnings": []
+  },
+  "schedule_seed": 20261107,
+  "schedule_json": "schedule.json",
+  "exe_sha256": {
+    "A": "dfc36952aecc3ac638585b50a47e54dbc819430254ad79180efb96723aa05581",
+    "B": "fd8ca614fb7f93589297fb81ed14cbeda46ec99b9556cc56fa90c983cb5628ad",
+    "C": "fd8ca614fb7f93589297fb81ed14cbeda46ec99b9556cc56fa90c983cb5628ad",
+    "AA": "dfc36952aecc3ac638585b50a47e54dbc819430254ad79180efb96723aa05581"
+  },
+  "configs": [
+    "A",
+    "B",
+    "C",
+    "AA"
+  ],
+  "completed_utc": "2026-11-07T05:47:48Z",
+  "raw_csv": "results/r1/EXP-20261107-R11-audit/measurements/simd_metadata/mode-default/n-8388608/m-293bdcacd3201147/attempt-01/raw.csv"
+}

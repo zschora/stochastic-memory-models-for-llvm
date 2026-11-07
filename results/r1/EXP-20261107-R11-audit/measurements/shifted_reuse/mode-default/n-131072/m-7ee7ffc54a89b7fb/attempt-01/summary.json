@@ -1,0 +1,288 @@
+{
+  "schema_version": "1.1",
+  "status": "complete",
+  "campaign": "EXP-20261107-R11-audit",
+  "case": "shifted_reuse",
+  "mode": "",
+  "n": 131072,
+  "point_id": "m-7ee7ffc54a89b7fb",
+  "attempt": 1,
+  "raw_csv": "results/r1/EXP-20261107-R11-audit/measurements/shifted_reuse/mode-default/n-131072/m-7ee7ffc54a89b7fb/attempt-01/raw.csv",
+  "measurement_json": "results/r1/EXP-20261107-R11-audit/measurements/shifted_reuse/mode-default/n-131072/m-7ee7ffc54a89b7fb/attempt-01/measurement.json",
+  "schedule_json": "results/r1/EXP-20261107-R11-audit/measurements/shifted_reuse/mode-default/n-131072/m-7ee7ffc54a89b7fb/attempt-01/schedule.json",
+  "configs": [
+    "A",
+    "B",
+    "C",
+    "AA"
+  ],
+  "checksum": "80c0392b735bbdb6",
+  "verify": {
+    "A": [
+      "OK"
+    ],
+    "B": [
+      "OK"
+    ],
+    "C": [
+      "OK"
+    ],
+    "AA": [
+      "OK"
+    ]
+  },
+  "process_observations": {
+    "0": {
+      "A": 117147.5,
+      "B": 85962.5,
+      "C": 108490.0,
+      "AA": 116927.5
+    },
+    "1": {
+      "A": 122885.0,
+      "B": 101855.0,
+      "C": 123790.0,
+      "AA": 111762.5
+    },
+    "2": {
+      "A": 115027.5,
+      "B": 93942.5,
+      "C": 117730.0,
+      "AA": 114070.0
+    },
+    "3": {
+      "A": 132730.0,
+      "B": 101265.0,
+      "C": 136775.0,
+      "AA": 123067.5
+    },
+    "4": {
+      "A": 122902.5,
+      "B": 103097.5,
+      "C": 131677.5,
+      "AA": 118242.5
+    },
+    "5": {
+      "A": 112122.5,
+      "B": 95682.5,
+      "C": 129010.0,
+      "AA": 126440.0
+    },
+    "6": {
+      "A": 112687.5,
+      "B": 108077.5,
+      "C": 121382.5,
+      "AA": 113770.0
+    }
+  },
+  "effects": {
+    "B": {
+      "config": "B",
+      "baseline": "A",
+      "n_blocks": 7,
+      "block_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "block_ratios": [
+        0.7337971360891185,
+        0.8288643854009846,
+        0.816696007476473,
+        0.7629398026067957,
+        0.8388560037428042,
+        0.8533746571829918,
+        0.9590904048807543
+      ],
+      "median_ratio": 0.8288643854009846,
+      "geometric_mean_ratio": 0.825032365415624,
+      "ci95_median_ratio": [
+        0.7629398026067957,
+        0.8533746571829918
+      ],
+      "ci95_geometric_mean_ratio": [
+        0.7803704989319447,
+        0.8752591168888357
+      ],
+      "median_delta_pct": -17.11356145990154,
+      "geometric_mean_delta_pct": -17.496763458437602,
+      "ci95_median_delta_pct": [
+        -23.70601973932043,
+        -14.662534281700824
+      ],
+      "improvement_blocks": 7,
+      "degradation_blocks": 0,
+      "tie_blocks": 0,
+      "sign_consistency": 1.0
+    },
+    "C": {
+      "config": "C",
+      "baseline": "A",
+      "n_blocks": 7,
+      "block_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "block_ratios": [
+        0.9260974412599501,
+        1.0073646091874517,
+        1.0234943817782705,
+        1.0304754011903865,
+        1.0713980594373589,
+        1.1506165131886998,
+        1.0771602884082085
+      ],
+      "median_ratio": 1.0304754011903865,
+      "geometric_mean_ratio": 1.0389382866562074,
+      "ci95_median_ratio": [
+        1.0073646091874517,
+        1.0771602884082085
+      ],
+      "ci95_geometric_mean_ratio": [
+        0.9911237891396603,
+        1.086914464763139
+      ],
+      "median_delta_pct": 3.0475401190386497,
+      "geometric_mean_delta_pct": 3.8938286656207355,
+      "ci95_median_delta_pct": [
+        0.7364609187451743,
+        7.716028840820854
+      ],
+      "improvement_blocks": 1,
+      "degradation_blocks": 6,
+      "tie_blocks": 0,
+      "sign_consistency": 0.8571428571428571
+    },
+    "AA": {
+      "config": "AA",
+      "baseline": "A",
+      "n_blocks": 7,
+      "block_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "block_ratios": [
+        0.9981220256514224,
+        0.9094885462017334,
+        0.9916759035882724,
+        0.9272018383183908,
+        0.9620837655865422,
+        1.127695154852951,
+        1.0096062118691072
+      ],
+      "median_ratio": 0.9916759035882724,
+      "geometric_mean_ratio": 0.9872797264494672,
+      "ci95_median_ratio": [
+        0.9272018383183908,
+        1.0096062118691072
+      ],
+      "ci95_geometric_mean_ratio": [
+        0.9458355155588217,
+        1.0397677209499392
+      ],
+      "median_delta_pct": -0.83240964117276,
+      "geometric_mean_delta_pct": -1.2720273550532846,
+      "ci95_median_delta_pct": [
+        -7.279816168160924,
+        0.9606211869107151
+      ],
+      "improvement_blocks": 5,
+      "degradation_blocks": 2,
+      "tie_blocks": 0,
+      "sign_consistency": 0.7142857142857143
+    }
+  },
+  "classifications": {
+    "B": {
+      "classification": "confirmed_profitable",
+      "reasons": [
+        "median ratio 0.8289, 95% CI [0.7629, 0.8534], practical threshold +/-5%"
+      ]
+    },
+    "C": {
+      "classification": "inconclusive",
+      "reasons": [
+        "median ratio 1.0305, 95% CI [1.0074, 1.0772], practical threshold +/-5%"
+      ]
+    },
+    "AA": {
+      "classification": "inconclusive",
+      "reasons": [
+        "median ratio 0.9917, 95% CI [0.9272, 1.0096], practical threshold +/-5%"
+      ]
+    }
+  },
+  "thresholds": {
+    "practical_relative": 0.05,
+    "aa_noise_relative": 0.05,
+    "aa_max_ci_width": 0.5,
+    "min_blocks": 5
+  },
+  "parameters": {
+    "campaign": "EXP-20261107-R11-audit",
+    "case": "shifted_reuse",
+    "mode": "",
+    "n": 131072,
+    "configs": [
+      "A",
+      "B",
+      "C",
+      "AA"
+    ],
+    "reps": 40,
+    "trials": 5,
+    "blocks": 7,
+    "seed": 20261107,
+    "exe_sha256": {
+      "A": "e492de33bf6ef249095dd5fe9955a11f8a67106031213803c89d04c8c2e6dd4b",
+      "AA": "e492de33bf6ef249095dd5fe9955a11f8a67106031213803c89d04c8c2e6dd4b",
+      "B": "f652a50749f73c308e7cc5707f0b5357cbc42ea8093e4acada947577760c51d2",
+      "C": "83cd0b2e39248e79d3cc9da6bac6447938bd6e53d08cd11777f05fb216f942fb"
+    },
+    "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+  },
+  "commands": [
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.C.exe C 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.A.exe A 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.B.exe B 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.AA.exe AA 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.A.exe A 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.AA.exe AA 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.C.exe C 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.B.exe B 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.AA.exe AA 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.C.exe C 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.A.exe A 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.B.exe B 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.B.exe B 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.AA.exe AA 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.A.exe A 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.C.exe C 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.C.exe C 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.A.exe A 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.AA.exe AA 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.B.exe B 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.AA.exe AA 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.B.exe B 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.A.exe A 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.C.exe C 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.AA.exe AA 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.A.exe A 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.C.exe C 131072 40 5",
+    "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-audit\\shifted_reuse\\shifted_reuse.B.exe B 131072 40 5"
+  ]
+}

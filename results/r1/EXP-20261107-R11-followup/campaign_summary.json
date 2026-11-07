@@ -1,0 +1,2335 @@
+{
+  "schema_version": "1.1",
+  "campaign": "EXP-20261107-R11-followup",
+  "status": "complete",
+  "spec_path": "research/harness/plans/r1_1_measurement_followup.json",
+  "spec_sha256": "3a6c2b7bd06a7cb05a6303a722677cb0da1373a36a464b5f18f0766811f766cd",
+  "rationale": "Pre-registered follow-up for points that were high-noise or absent from the first R1.1 campaign. Seven complete blocks for large/intermediate points; the canonical producer-consumer is included to verify that its old InvalidDependencies result is still the current compiler fact and that A/B/C runtime remains a no-treatment comparison. No point is selected after seeing its new result.",
+  "seed": 20261108,
+  "toolchain_manifest": "research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json",
+  "started_utc": "2026-11-07T08:11:15Z",
+  "updated_utc": "2026-11-07T08:12:24Z",
+  "results": [
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R11-followup",
+      "case": "producer_consumer",
+      "mode": "",
+      "n": 131072,
+      "point_id": "m-29603f290e893881",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R11-followup/measurements/producer_consumer/mode-default/n-131072/m-29603f290e893881/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R11-followup/measurements/producer_consumer/mode-default/n-131072/m-29603f290e893881/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R11-followup/measurements/producer_consumer/mode-default/n-131072/m-29603f290e893881/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "e7b81a74394c0d03",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 121985.0,
+          "B": 126335.0,
+          "C": 122765.0,
+          "AA": 124330.0
+        },
+        "1": {
+          "A": 137465.0,
+          "B": 122835.0,
+          "C": 128745.0,
+          "AA": 127690.0
+        },
+        "2": {
+          "A": 122420.0,
+          "B": 123840.0,
+          "C": 127395.0,
+          "AA": 124040.0
+        },
+        "3": {
+          "A": 121765.0,
+          "B": 125210.0,
+          "C": 123015.0,
+          "AA": 134595.0
+        },
+        "4": {
+          "A": 126350.0,
+          "B": 127395.0,
+          "C": 137875.0,
+          "AA": 123070.0
+        },
+        "5": {
+          "A": 135370.0,
+          "B": 133110.0,
+          "C": 133125.0,
+          "AA": 167490.0
+        },
+        "6": {
+          "A": 136435.0,
+          "B": 145755.0,
+          "C": 142300.0,
+          "AA": 137290.0
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            1.0356601221461654,
+            0.8935729094678645,
+            1.0115994118608072,
+            1.0282922021927483,
+            1.0082706766917293,
+            0.9833050158823964,
+            1.06831091728662
+          ],
+          "median_ratio": 1.0115994118608072,
+          "geometric_mean_ratio": 1.0027786052329288,
+          "ci95_median_ratio": [
+            0.9833050158823964,
+            1.0356601221461654
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9607967257119973,
+            1.0361719797854956
+          ],
+          "median_delta_pct": 1.1599411860807152,
+          "geometric_mean_delta_pct": 0.27786052329288324,
+          "ci95_median_delta_pct": [
+            -1.6694984117603617,
+            3.566012214616543
+          ],
+          "improvement_blocks": 2,
+          "degradation_blocks": 5,
+          "tie_blocks": 0,
+          "sign_consistency": 0.7142857142857143
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            1.0063942287986227,
+            0.9365656712617757,
+            1.0406387845123346,
+            1.0102656756867736,
+            1.091214879303522,
+            0.9834158232991062,
+            1.0429875032066551
+          ],
+          "median_ratio": 1.0102656756867736,
+          "geometric_mean_ratio": 1.0149019319464183,
+          "ci95_median_ratio": [
+            0.9834158232991062,
+            1.0429875032066551
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9814326947967371,
+            1.0487884528502964
+          ],
+          "median_delta_pct": 1.0265675686773612,
+          "geometric_mean_delta_pct": 1.4901931946418312,
+          "ci95_median_delta_pct": [
+            -1.658417670089385,
+            4.298750320665512
+          ],
+          "improvement_blocks": 2,
+          "degradation_blocks": 5,
+          "tie_blocks": 0,
+          "sign_consistency": 0.7142857142857143
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            1.0192236750420134,
+            0.9288909904339286,
+            1.0132331318412025,
+            1.1053668952490452,
+            0.9740403640680649,
+            1.2372756149811628,
+            1.0062667204163154
+          ],
+          "median_ratio": 1.0132331318412025,
+          "geometric_mean_ratio": 1.0365755097656368,
+          "ci95_median_ratio": [
+            0.9740403640680649,
+            1.1053668952490452
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9784245320759486,
+            1.11117066852755
+          ],
+          "median_delta_pct": 1.323313184120245,
+          "geometric_mean_delta_pct": 3.6575509765636838,
+          "ci95_median_delta_pct": [
+            -2.5959635931935066,
+            10.536689524904519
+          ],
+          "improvement_blocks": 2,
+          "degradation_blocks": 5,
+          "tie_blocks": 0,
+          "sign_consistency": 0.7142857142857143
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "neutral",
+          "reasons": [
+            "median ratio 1.0116, 95% CI [0.9833, 1.0357], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "neutral",
+          "reasons": [
+            "median ratio 1.0103, 95% CI [0.9834, 1.0430], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 1.0132, 95% CI [0.9740, 1.1054], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R11-followup",
+        "case": "producer_consumer",
+        "mode": "",
+        "n": 131072,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 20,
+        "trials": 5,
+        "blocks": 7,
+        "seed": 20261108,
+        "exe_sha256": {
+          "A": "fd08bfd54119b99a02fcbe5568dbe7380b5839f937716311f03745890c8bae11",
+          "AA": "fd08bfd54119b99a02fcbe5568dbe7380b5839f937716311f03745890c8bae11",
+          "B": "64dba32e2724686f62650132e8a933a9bdd084bf5c7561e30dbe43d7359fc39b",
+          "C": "6ad16796eff98b5877d7c4eb168de12556a312013c07aa3752356fc0bc58be56"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.AA.exe AA 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.C.exe C 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.AA.exe AA 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.C.exe C 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.C.exe C 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.AA.exe AA 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.C.exe C 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.AA.exe AA 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.AA.exe AA 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.C.exe C 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.C.exe C 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.AA.exe AA 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.AA.exe AA 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.C.exe C 131072 20 5"
+      ]
+    },
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R11-followup",
+      "case": "producer_consumer",
+      "mode": "",
+      "n": 1048576,
+      "point_id": "m-62a8876a315ad8ff",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R11-followup/measurements/producer_consumer/mode-default/n-1048576/m-62a8876a315ad8ff/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R11-followup/measurements/producer_consumer/mode-default/n-1048576/m-62a8876a315ad8ff/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R11-followup/measurements/producer_consumer/mode-default/n-1048576/m-62a8876a315ad8ff/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "45c655d82440adde",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 1573500.0,
+          "B": 1526900.0,
+          "C": 1918866.667,
+          "AA": 1475166.667
+        },
+        "1": {
+          "A": 1957033.333,
+          "B": 1558000.0,
+          "C": 1868466.667,
+          "AA": 1888666.667
+        },
+        "2": {
+          "A": 1544600.0,
+          "B": 1429166.667,
+          "C": 1573066.667,
+          "AA": 1507000.0
+        },
+        "3": {
+          "A": 1370400.0,
+          "B": 1499833.333,
+          "C": 1531500.0,
+          "AA": 1591533.333
+        },
+        "4": {
+          "A": 1503900.0,
+          "B": 2071933.333,
+          "C": 2077000.0,
+          "AA": 1835966.667
+        },
+        "5": {
+          "A": 1766900.0,
+          "B": 1828533.333,
+          "C": 1814066.667,
+          "AA": 2138333.333
+        },
+        "6": {
+          "A": 2070733.333,
+          "B": 2089833.333,
+          "C": 1822700.0,
+          "AA": 1934166.667
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.9703844931680966,
+            0.7961029450692549,
+            0.9252665201346626,
+            1.0944493089608873,
+            1.3777068508544452,
+            1.0348821851830892,
+            1.0092237854559132
+          ],
+          "median_ratio": 1.0092237854559132,
+          "geometric_mean_ratio": 1.0170549028516924,
+          "ci95_median_ratio": [
+            0.9252665201346626,
+            1.0944493089608873
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9140767097052591,
+            1.1472123144683093
+          ],
+          "median_delta_pct": 0.922378545591318,
+          "geometric_mean_delta_pct": 1.7054902851692422,
+          "ci95_median_delta_pct": [
+            -7.47334798653374,
+            9.444930896088731
+          ],
+          "improvement_blocks": 3,
+          "degradation_blocks": 4,
+          "tie_blocks": 0,
+          "sign_consistency": 0.5714285714285714
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            1.2194894610740388,
+            0.954744426420048,
+            1.018429798653373,
+            1.1175569176882663,
+            1.3810758694062104,
+            1.0266945876959646,
+            0.8802195680886351
+          ],
+          "median_ratio": 1.0266945876959646,
+          "geometric_mean_ratio": 1.074525032290335,
+          "ci95_median_ratio": [
+            0.954744426420048,
+            1.2194894610740388
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9729386918873871,
+            1.1969093111578835
+          ],
+          "median_delta_pct": 2.6694587695964556,
+          "geometric_mean_delta_pct": 7.4525032290335025,
+          "ci95_median_delta_pct": [
+            -4.525557357995202,
+            21.948946107403877
+          ],
+          "improvement_blocks": 2,
+          "degradation_blocks": 5,
+          "tie_blocks": 0,
+          "sign_consistency": 0.7142857142857143
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.937506620273276,
+            0.9650661719209459,
+            0.9756571280590444,
+            1.1613640783712786,
+            1.2208036884101336,
+            1.2102175182523063,
+            0.934049129444327
+          ],
+          "median_ratio": 0.9756571280590444,
+          "geometric_mean_ratio": 1.05081230034837,
+          "ci95_median_ratio": [
+            0.937506620273276,
+            1.2102175182523063
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9726069097622223,
+            1.1486938183291988
+          ],
+          "median_delta_pct": -2.4342871940955635,
+          "geometric_mean_delta_pct": 5.081230034837003,
+          "ci95_median_delta_pct": [
+            -6.249337972672397,
+            21.021751825230627
+          ],
+          "improvement_blocks": 4,
+          "degradation_blocks": 3,
+          "tie_blocks": 0,
+          "sign_consistency": 0.5714285714285714
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 1.0092, 95% CI [0.9253, 1.0944], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 1.0267, 95% CI [0.9547, 1.2195], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 0.9757, 95% CI [0.9375, 1.2102], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R11-followup",
+        "case": "producer_consumer",
+        "mode": "",
+        "n": 1048576,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 3,
+        "trials": 5,
+        "blocks": 7,
+        "seed": 20261108,
+        "exe_sha256": {
+          "A": "fd08bfd54119b99a02fcbe5568dbe7380b5839f937716311f03745890c8bae11",
+          "AA": "fd08bfd54119b99a02fcbe5568dbe7380b5839f937716311f03745890c8bae11",
+          "B": "64dba32e2724686f62650132e8a933a9bdd084bf5c7561e30dbe43d7359fc39b",
+          "C": "6ad16796eff98b5877d7c4eb168de12556a312013c07aa3752356fc0bc58be56"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer\\producer_consumer.C.exe C 1048576 3 5"
+      ]
+    },
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R11-followup",
+      "case": "simd_reduction",
+      "mode": "",
+      "n": 1048576,
+      "point_id": "m-60729f44d25f6811",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R11-followup/measurements/simd_reduction/mode-default/n-1048576/m-60729f44d25f6811/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R11-followup/measurements/simd_reduction/mode-default/n-1048576/m-60729f44d25f6811/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R11-followup/measurements/simd_reduction/mode-default/n-1048576/m-60729f44d25f6811/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "2ea42bcab4e4590a",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 2480866.667,
+          "B": 1683366.667,
+          "C": 1649966.667,
+          "AA": 2270266.667
+        },
+        "1": {
+          "A": 2408566.667,
+          "B": 1644533.333,
+          "C": 1707800.0,
+          "AA": 2396433.333
+        },
+        "2": {
+          "A": 2439333.333,
+          "B": 1674033.333,
+          "C": 1846766.667,
+          "AA": 2328833.333
+        },
+        "3": {
+          "A": 2905833.333,
+          "B": 1672433.333,
+          "C": 1640700.0,
+          "AA": 2825600.0
+        },
+        "4": {
+          "A": 2909400.0,
+          "B": 1761200.0,
+          "C": 1673933.333,
+          "AA": 2418666.667
+        },
+        "5": {
+          "A": 2713633.333,
+          "B": 1765566.667,
+          "C": 1735666.667,
+          "AA": 2360833.333
+        },
+        "6": {
+          "A": 2236033.333,
+          "B": 1655100.0,
+          "C": 1736833.333,
+          "AA": 2180733.333
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.6785397576547793,
+            0.6827850586541394,
+            0.6862667395034527,
+            0.5755434470404983,
+            0.6053481817556885,
+            0.6506283091120918,
+            0.7401946901119832
+          ],
+          "median_ratio": 0.6785397576547793,
+          "geometric_mean_ratio": 0.6578989896338454,
+          "ci95_median_ratio": [
+            0.6053481817556885,
+            0.6862667395034527
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.6199199925088414,
+            0.695162496494452
+          ],
+          "median_delta_pct": -32.14602423452207,
+          "geometric_mean_delta_pct": -34.210101036615455,
+          "ci95_median_delta_pct": [
+            -39.46518182443115,
+            -31.373326049654725
+          ],
+          "improvement_blocks": 7,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.6650767205459011,
+            0.7090524100489846,
+            0.7570784369714509,
+            0.5646228850662027,
+            0.5753534519144842,
+            0.639609871345872,
+            0.7767475141659707
+          ],
+          "median_ratio": 0.6650767205459011,
+          "geometric_mean_ratio": 0.6651810745797215,
+          "ci95_median_ratio": [
+            0.5753534519144842,
+            0.7570784369714509
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.6109917745402217,
+            0.7232194278326035
+          ],
+          "median_delta_pct": -33.4923279454099,
+          "geometric_mean_delta_pct": -33.48189254202785,
+          "ci95_median_delta_pct": [
+            -42.464654808551586,
+            -24.292156302854906
+          ],
+          "improvement_blocks": 7,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.915110310924259,
+            0.9949624255096445,
+            0.9547007379003417,
+            0.9723888730682407,
+            0.831328338145322,
+            0.8699898045510926,
+            0.9752687049947479
+          ],
+          "median_ratio": 0.9547007379003417,
+          "geometric_mean_ratio": 0.9287825724079459,
+          "ci95_median_ratio": [
+            0.8699898045510926,
+            0.9752687049947479
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.8848097055485936,
+            0.9685286623292169
+          ],
+          "median_delta_pct": -4.529926209965829,
+          "geometric_mean_delta_pct": -7.121742759205407,
+          "ci95_median_delta_pct": [
+            -13.001019544890735,
+            -2.4731295005252063
+          ],
+          "improvement_blocks": 7,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "confirmed_profitable",
+          "reasons": [
+            "median ratio 0.6785, 95% CI [0.6053, 0.6863], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "confirmed_profitable",
+          "reasons": [
+            "median ratio 0.6651, 95% CI [0.5754, 0.7571], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 0.9547, 95% CI [0.8700, 0.9753], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R11-followup",
+        "case": "simd_reduction",
+        "mode": "",
+        "n": 1048576,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 3,
+        "trials": 5,
+        "blocks": 7,
+        "seed": 20261108,
+        "exe_sha256": {
+          "A": "219852564c4a2a298c31548f00cc89b469170c6654bcd9308e37cc41ee9184af",
+          "AA": "219852564c4a2a298c31548f00cc89b469170c6654bcd9308e37cc41ee9184af",
+          "B": "4cdc1375ea5d8f9a03a9a476ece5e61f24779b771e05b8d35bcc395bd33dca84",
+          "C": "7d3f512c2d435a74af37088d0d6ed89f2701ce6e1495e7870cf9b87c83cf3c00"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.C.exe C 1048576 3 5"
+      ]
+    },
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R11-followup",
+      "case": "simd_reduction",
+      "mode": "",
+      "n": 8388608,
+      "point_id": "m-0c6e19239379bb6e",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R11-followup/measurements/simd_reduction/mode-default/n-8388608/m-0c6e19239379bb6e/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R11-followup/measurements/simd_reduction/mode-default/n-8388608/m-0c6e19239379bb6e/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R11-followup/measurements/simd_reduction/mode-default/n-8388608/m-0c6e19239379bb6e/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "a19c8e2f969275cd",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 24101300.0,
+          "B": 13595800.0,
+          "C": 13410600.0,
+          "AA": 21803400.0
+        },
+        "1": {
+          "A": 23242600.0,
+          "B": 13563200.0,
+          "C": 13495100.0,
+          "AA": 24262500.0
+        },
+        "2": {
+          "A": 22180400.0,
+          "B": 14044200.0,
+          "C": 13378900.0,
+          "AA": 23155400.0
+        },
+        "3": {
+          "A": 23000400.0,
+          "B": 14193200.0,
+          "C": 13673200.0,
+          "AA": 23164300.0
+        },
+        "4": {
+          "A": 23211700.0,
+          "B": 13671400.0,
+          "C": 13237000.0,
+          "AA": 22174700.0
+        },
+        "5": {
+          "A": 23737500.0,
+          "B": 13297900.0,
+          "C": 13562100.0,
+          "AA": 22506100.0
+        },
+        "6": {
+          "A": 22524400.0,
+          "B": 13465900.0,
+          "C": 13898500.0,
+          "AA": 23172900.0
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.5641106496330074,
+            0.583549172639894,
+            0.6331806459757263,
+            0.6170849202622563,
+            0.5889874502944635,
+            0.5602064244339126,
+            0.5978361243806716
+          ],
+          "median_ratio": 0.5889874502944635,
+          "geometric_mean_ratio": 0.5916298612416756,
+          "ci95_median_ratio": [
+            0.5641106496330074,
+            0.6170849202622563
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.5741887339436375,
+            0.6101305272302103
+          ],
+          "median_delta_pct": -41.10125497055365,
+          "geometric_mean_delta_pct": -40.83701387583244,
+          "ci95_median_delta_pct": [
+            -43.58893503669926,
+            -38.29150797377437
+          ],
+          "improvement_blocks": 7,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.5564264168322871,
+            0.5806192078338912,
+            0.6031856954788912,
+            0.5944766177979514,
+            0.5702727503801962,
+            0.5713364928909953,
+            0.6170419633819325
+          ],
+          "median_ratio": 0.5806192078338912,
+          "geometric_mean_ratio": 0.5844389831343014,
+          "ci95_median_ratio": [
+            0.5702727503801962,
+            0.6031856954788912
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.5706624201751609,
+            0.5989938453888748
+          ],
+          "median_delta_pct": -41.93807921661088,
+          "geometric_mean_delta_pct": -41.55610168656986,
+          "ci95_median_delta_pct": [
+            -42.97272496198038,
+            -39.681430452110874
+          ],
+          "improvement_blocks": 7,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.9046565952873912,
+            1.0438806329756567,
+            1.0439577284449333,
+            1.00712596302673,
+            0.95532425457851,
+            0.9481242759347025,
+            1.0287909999822415
+          ],
+          "median_ratio": 1.00712596302673,
+          "geometric_mean_ratio": 0.9889578668778458,
+          "ci95_median_ratio": [
+            0.9481242759347025,
+            1.0438806329756567
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9505055384156204,
+            1.0253885214840923
+          ],
+          "median_delta_pct": 0.7125963026729965,
+          "geometric_mean_delta_pct": -1.1042133122154185,
+          "ci95_median_delta_pct": [
+            -5.18757240652975,
+            4.38806329756567
+          ],
+          "improvement_blocks": 3,
+          "degradation_blocks": 4,
+          "tie_blocks": 0,
+          "sign_consistency": 0.5714285714285714
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "confirmed_profitable",
+          "reasons": [
+            "median ratio 0.5890, 95% CI [0.5641, 0.6171], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "confirmed_profitable",
+          "reasons": [
+            "median ratio 0.5806, 95% CI [0.5703, 0.6032], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 1.0071, 95% CI [0.9481, 1.0439], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R11-followup",
+        "case": "simd_reduction",
+        "mode": "",
+        "n": 8388608,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 1,
+        "trials": 5,
+        "blocks": 7,
+        "seed": 20261108,
+        "exe_sha256": {
+          "A": "219852564c4a2a298c31548f00cc89b469170c6654bcd9308e37cc41ee9184af",
+          "AA": "219852564c4a2a298c31548f00cc89b469170c6654bcd9308e37cc41ee9184af",
+          "B": "4cdc1375ea5d8f9a03a9a476ece5e61f24779b771e05b8d35bcc395bd33dca84",
+          "C": "7d3f512c2d435a74af37088d0d6ed89f2701ce6e1495e7870cf9b87c83cf3c00"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.AA.exe AA 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.A.exe A 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.B.exe B 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.C.exe C 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.AA.exe AA 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.A.exe A 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.B.exe B 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.C.exe C 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.C.exe C 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.B.exe B 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.A.exe A 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.AA.exe AA 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.C.exe C 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.B.exe B 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.AA.exe AA 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.A.exe A 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.A.exe A 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.B.exe B 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.AA.exe AA 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.C.exe C 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.C.exe C 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.B.exe B 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.A.exe A 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.AA.exe AA 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.A.exe A 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.B.exe B 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.AA.exe AA 8388608 1 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction\\simd_reduction.C.exe C 8388608 1 5"
+      ]
+    },
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R11-followup",
+      "case": "read_read_offset",
+      "mode": "",
+      "n": 131072,
+      "point_id": "m-3aed875b0bc49947",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R11-followup/measurements/read_read_offset/mode-default/n-131072/m-3aed875b0bc49947/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R11-followup/measurements/read_read_offset/mode-default/n-131072/m-3aed875b0bc49947/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R11-followup/measurements/read_read_offset/mode-default/n-131072/m-3aed875b0bc49947/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "0b81c91e2abf21db",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 133405.0,
+          "B": 113572.5,
+          "C": 112637.5,
+          "AA": 133720.0
+        },
+        "1": {
+          "A": 129572.5,
+          "B": 119935.0,
+          "C": 113577.5,
+          "AA": 132990.0
+        },
+        "2": {
+          "A": 127430.0,
+          "B": 111967.5,
+          "C": 113075.0,
+          "AA": 134102.5
+        },
+        "3": {
+          "A": 144715.0,
+          "B": 115627.5,
+          "C": 111420.0,
+          "AA": 136810.0
+        },
+        "4": {
+          "A": 139232.5,
+          "B": 117045.0,
+          "C": 110955.0,
+          "AA": 126637.5
+        },
+        "5": {
+          "A": 126535.0,
+          "B": 111932.5,
+          "C": 107912.5,
+          "AA": 133112.5
+        },
+        "6": {
+          "A": 129482.5,
+          "B": 119280.0,
+          "C": 113157.5,
+          "AA": 133605.0
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.8513361568157115,
+            0.9256207914488028,
+            0.8786588715373146,
+            0.7990014856787478,
+            0.8406442461350618,
+            0.8845971470344174,
+            0.9212055683200433
+          ],
+          "median_ratio": 0.8786588715373146,
+          "geometric_mean_ratio": 0.8705672846975492,
+          "ci95_median_ratio": [
+            0.8406442461350618,
+            0.9212055683200433
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.8401597042987119,
+            0.9007199125132938
+          ],
+          "median_delta_pct": -12.134112846268541,
+          "geometric_mean_delta_pct": -12.943271530245081,
+          "ci95_median_delta_pct": [
+            -15.935575386493817,
+            -7.87944316799567
+          ],
+          "improvement_blocks": 7,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.8443274240095948,
+            0.8765555962877926,
+            0.8873499176018206,
+            0.769927098089348,
+            0.7969044583699927,
+            0.8528272809894496,
+            0.8739211862606916
+          ],
+          "median_ratio": 0.8528272809894496,
+          "geometric_mean_ratio": 0.8421079827465753,
+          "ci95_median_ratio": [
+            0.7969044583699927,
+            0.8765555962877926
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.8106601508916538,
+            0.8707590016645992
+          ],
+          "median_delta_pct": -14.71727190105504,
+          "geometric_mean_delta_pct": -15.789201725342473,
+          "ci95_median_delta_pct": [
+            -20.309554163000733,
+            -12.344440371220744
+          ],
+          "improvement_blocks": 7,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            1.0023612308384244,
+            1.0263751953539524,
+            1.052362081142588,
+            0.9453753930138549,
+            0.9095397985384159,
+            1.0519816651519343,
+            1.0318382793041532
+          ],
+          "median_ratio": 1.0263751953539524,
+          "geometric_mean_ratio": 1.0014949699985645,
+          "ci95_median_ratio": [
+            0.9453753930138549,
+            1.0519816651519343
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9613995591637302,
+            1.037719702093462
+          ],
+          "median_delta_pct": 2.6375195353952385,
+          "geometric_mean_delta_pct": 0.1494969998564466,
+          "ci95_median_delta_pct": [
+            -5.462460698614513,
+            5.198166515193425
+          ],
+          "improvement_blocks": 2,
+          "degradation_blocks": 5,
+          "tie_blocks": 0,
+          "sign_consistency": 0.7142857142857143
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "confirmed_profitable",
+          "reasons": [
+            "median ratio 0.8787, 95% CI [0.8406, 0.9212], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "confirmed_profitable",
+          "reasons": [
+            "median ratio 0.8528, 95% CI [0.7969, 0.8766], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 1.0264, 95% CI [0.9454, 1.0520], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R11-followup",
+        "case": "read_read_offset",
+        "mode": "",
+        "n": 131072,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 40,
+        "trials": 5,
+        "blocks": 7,
+        "seed": 20261108,
+        "exe_sha256": {
+          "A": "9acad02ba86eb473e9d48888b3a081d0d52bc86bcd3252aa16165f3664861fc7",
+          "AA": "9acad02ba86eb473e9d48888b3a081d0d52bc86bcd3252aa16165f3664861fc7",
+          "B": "91447e33ee19fd54027a70f749bf77f0d61b7c9d44cde0353f5ded7437b14b04",
+          "C": "81ee9efbb7a21b18155a2258d3ca4574fd7dd5031586020c2a714cfb35039230"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.AA.exe AA 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.A.exe A 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.B.exe B 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.C.exe C 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.AA.exe AA 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.A.exe A 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.B.exe B 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.C.exe C 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.C.exe C 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.B.exe B 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.A.exe A 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.AA.exe AA 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.C.exe C 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.B.exe B 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.AA.exe AA 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.A.exe A 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.A.exe A 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.B.exe B 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.AA.exe AA 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.C.exe C 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.C.exe C 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.B.exe B 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.A.exe A 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.AA.exe AA 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.A.exe A 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.B.exe B 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.AA.exe AA 131072 40 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.C.exe C 131072 40 5"
+      ]
+    },
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R11-followup",
+      "case": "read_read_offset",
+      "mode": "",
+      "n": 1048576,
+      "point_id": "m-47e7944378e1a29e",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R11-followup/measurements/read_read_offset/mode-default/n-1048576/m-47e7944378e1a29e/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R11-followup/measurements/read_read_offset/mode-default/n-1048576/m-47e7944378e1a29e/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R11-followup/measurements/read_read_offset/mode-default/n-1048576/m-47e7944378e1a29e/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "3b8299be05e32f13",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 2157500.0,
+          "B": 1276316.667,
+          "C": 1366033.333,
+          "AA": 1912100.0
+        },
+        "1": {
+          "A": 1620583.333,
+          "B": 1405533.333,
+          "C": 1372416.667,
+          "AA": 1684983.333
+        },
+        "2": {
+          "A": 1621066.667,
+          "B": 1299750.0,
+          "C": 1324016.667,
+          "AA": 1752150.0
+        },
+        "3": {
+          "A": 1835950.0,
+          "B": 1316366.667,
+          "C": 1348283.333,
+          "AA": 1625950.0
+        },
+        "4": {
+          "A": 1691033.333,
+          "B": 1276900.0,
+          "C": 1386433.333,
+          "AA": 1662283.333
+        },
+        "5": {
+          "A": 1795216.667,
+          "B": 1289416.667,
+          "C": 1349533.333,
+          "AA": 1669350.0
+        },
+        "6": {
+          "A": 1581233.333,
+          "B": 1349100.0,
+          "C": 1387816.667,
+          "AA": 1803700.0
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.5915720356894554,
+            0.8673008690013474,
+            0.8017868891261337,
+            0.7169948348266565,
+            0.755100431837555,
+            0.7182512789137334,
+            0.8531947637610292
+          ],
+          "median_ratio": 0.755100431837555,
+          "geometric_mean_ratio": 0.7523851987149484,
+          "ci95_median_ratio": [
+            0.7169948348266565,
+            0.8531947637610292
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.6840477342348571,
+            0.8173061268613807
+          ],
+          "median_delta_pct": -24.489956816244497,
+          "geometric_mean_delta_pct": -24.761480128505163,
+          "ci95_median_delta_pct": [
+            -28.30051651733435,
+            -14.680523623897079
+          ],
+          "improvement_blocks": 7,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.633155658400927,
+            0.8468658408694123,
+            0.8167564566917346,
+            0.7343791132656119,
+            0.8198734501231739,
+            0.7517384156505272,
+            0.8776798705393847
+          ],
+          "median_ratio": 0.8167564566917346,
+          "geometric_mean_ratio": 0.778929664568419,
+          "ci95_median_ratio": [
+            0.7343791132656119,
+            0.8468658408694123
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.7181379329338811,
+            0.8339358472866442
+          ],
+          "median_delta_pct": -18.32435433082654,
+          "geometric_mean_delta_pct": -22.107033543158106,
+          "ci95_median_delta_pct": [
+            -26.56208867343881,
+            -15.313415913058769
+          ],
+          "improvement_blocks": 7,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.8862572421784473,
+            1.0397387771974576,
+            1.0808623949085248,
+            0.8856178000490209,
+            0.9829985610342785,
+            0.9298877571082622,
+            1.140691865240359
+          ],
+          "median_ratio": 0.9829985610342785,
+          "geometric_mean_ratio": 0.9881150305743894,
+          "ci95_median_ratio": [
+            0.8862572421784473,
+            1.0808623949085248
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9253125886233913,
+            1.0565777931366047
+          ],
+          "median_delta_pct": -1.7001438965721483,
+          "geometric_mean_delta_pct": -1.188496942561057,
+          "ci95_median_delta_pct": [
+            -11.374275782155275,
+            8.086239490852476
+          ],
+          "improvement_blocks": 4,
+          "degradation_blocks": 3,
+          "tie_blocks": 0,
+          "sign_consistency": 0.5714285714285714
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "confirmed_profitable",
+          "reasons": [
+            "median ratio 0.7551, 95% CI [0.7170, 0.8532], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "confirmed_profitable",
+          "reasons": [
+            "median ratio 0.8168, 95% CI [0.7344, 0.8469], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 0.9830, 95% CI [0.8863, 1.0809], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R11-followup",
+        "case": "read_read_offset",
+        "mode": "",
+        "n": 1048576,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 6,
+        "trials": 5,
+        "blocks": 7,
+        "seed": 20261108,
+        "exe_sha256": {
+          "A": "9acad02ba86eb473e9d48888b3a081d0d52bc86bcd3252aa16165f3664861fc7",
+          "AA": "9acad02ba86eb473e9d48888b3a081d0d52bc86bcd3252aa16165f3664861fc7",
+          "B": "91447e33ee19fd54027a70f749bf77f0d61b7c9d44cde0353f5ded7437b14b04",
+          "C": "81ee9efbb7a21b18155a2258d3ca4574fd7dd5031586020c2a714cfb35039230"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.AA.exe AA 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.A.exe A 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.B.exe B 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.C.exe C 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.AA.exe AA 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.A.exe A 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.B.exe B 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.C.exe C 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.C.exe C 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.B.exe B 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.A.exe A 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.AA.exe AA 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.C.exe C 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.B.exe B 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.AA.exe AA 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.A.exe A 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.A.exe A 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.B.exe B 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.AA.exe AA 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.C.exe C 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.C.exe C 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.B.exe B 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.A.exe A 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.AA.exe AA 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.A.exe A 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.B.exe B 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.AA.exe AA 1048576 6 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset\\read_read_offset.C.exe C 1048576 6 5"
+      ]
+    },
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R11-followup",
+      "case": "producer_consumer_split",
+      "mode": "",
+      "n": 1048576,
+      "point_id": "m-39e122e6864764a2",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R11-followup/measurements/producer_consumer_split/mode-default/n-1048576/m-39e122e6864764a2/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R11-followup/measurements/producer_consumer_split/mode-default/n-1048576/m-39e122e6864764a2/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R11-followup/measurements/producer_consumer_split/mode-default/n-1048576/m-39e122e6864764a2/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "ab82b63758a57947",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 1609166.667,
+          "B": 1215500.0,
+          "C": 1193933.333,
+          "AA": 1717433.333
+        },
+        "1": {
+          "A": 1721900.0,
+          "B": 1301900.0,
+          "C": 1397033.333,
+          "AA": 1738933.333
+        },
+        "2": {
+          "A": 1949966.667,
+          "B": 1299833.333,
+          "C": 1289766.667,
+          "AA": 1903033.333
+        },
+        "3": {
+          "A": 1901966.667,
+          "B": 1264866.667,
+          "C": 1301266.667,
+          "AA": 1916766.667
+        },
+        "4": {
+          "A": 1699033.333,
+          "B": 1246766.667,
+          "C": 1253333.333,
+          "AA": 1957833.333
+        },
+        "5": {
+          "A": 1756500.0,
+          "B": 1190233.333,
+          "C": 1353000.0,
+          "AA": 1777800.0
+        },
+        "6": {
+          "A": 1775700.0,
+          "B": 1387200.0,
+          "C": 1239200.0,
+          "AA": 1745800.0
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.7553599169849073,
+            0.7560833962483303,
+            0.6665925910414551,
+            0.6650309329527277,
+            0.7338094213834944,
+            0.6776164719612867,
+            0.7812130427437067
+          ],
+          "median_ratio": 0.7338094213834944,
+          "geometric_mean_ratio": 0.7179743935684886,
+          "ci95_median_ratio": [
+            0.6665925910414551,
+            0.7560833962483303
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.6862249487698044,
+            0.7498674766036642
+          ],
+          "median_delta_pct": -26.619057861650564,
+          "geometric_mean_delta_pct": -28.20256064315114,
+          "ci95_median_delta_pct": [
+            -33.340740895854495,
+            -24.391660375166968
+          ],
+          "improvement_blocks": 7,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.7419575345951409,
+            0.8113324426505605,
+            0.661430109974285,
+            0.6841690180893165,
+            0.7376743638024905,
+            0.7702818104184458,
+            0.697865630455595
+          ],
+          "median_ratio": 0.7376743638024905,
+          "geometric_mean_ratio": 0.7276628448723085,
+          "ci95_median_ratio": [
+            0.6841690180893165,
+            0.7702818104184458
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.6942379915601588,
+            0.7639701694402902
+          ],
+          "median_delta_pct": -26.232563619750948,
+          "geometric_mean_delta_pct": -27.23371551276915,
+          "ci95_median_delta_pct": [
+            -31.58309819106835,
+            -22.97181895815542
+          ],
+          "improvement_blocks": 7,
+          "degradation_blocks": 0,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            1.0672812010217958,
+            1.0098921731807888,
+            0.9759312121615873,
+            1.0077814192313603,
+            1.1523219085661105,
+            1.0121263877028182,
+            0.9831615700850369
+          ],
+          "median_ratio": 1.0098921731807888,
+          "geometric_mean_ratio": 1.0282776864097023,
+          "ci95_median_ratio": [
+            0.9831615700850369,
+            1.0672812010217958
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.9937953268889755,
+            1.0738429219176595
+          ],
+          "median_delta_pct": 0.9892173180788832,
+          "geometric_mean_delta_pct": 2.8277686409702296,
+          "ci95_median_delta_pct": [
+            -1.6838429914963093,
+            6.72812010217958
+          ],
+          "improvement_blocks": 2,
+          "degradation_blocks": 5,
+          "tie_blocks": 0,
+          "sign_consistency": 0.7142857142857143
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "confirmed_profitable",
+          "reasons": [
+            "median ratio 0.7338, 95% CI [0.6666, 0.7561], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "confirmed_profitable",
+          "reasons": [
+            "median ratio 0.7377, 95% CI [0.6842, 0.7703], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "inconclusive",
+          "reasons": [
+            "median ratio 1.0099, 95% CI [0.9832, 1.0673], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R11-followup",
+        "case": "producer_consumer_split",
+        "mode": "",
+        "n": 1048576,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 3,
+        "trials": 5,
+        "blocks": 7,
+        "seed": 20261108,
+        "exe_sha256": {
+          "A": "26a5d5d2361670600547e2f878f57fa9abb8cbced631a6f01f64afb660a85d24",
+          "AA": "26a5d5d2361670600547e2f878f57fa9abb8cbced631a6f01f64afb660a85d24",
+          "B": "580e5b040635b417d2e977193cdfaaf993ad0fd1d0c499d5eac9af130afc9166",
+          "C": "580e5b040635b417d2e977193cdfaaf993ad0fd1d0c499d5eac9af130afc9166"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.C.exe C 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.A.exe A 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.B.exe B 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.AA.exe AA 1048576 3 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split\\producer_consumer_split.C.exe C 1048576 3 5"
+      ]
+    },
+    {
+      "schema_version": "1.1",
+      "status": "complete",
+      "campaign": "EXP-20261107-R11-followup",
+      "case": "simd_metadata_scalar",
+      "mode": "",
+      "n": 131072,
+      "point_id": "m-27be369ed33d11f4",
+      "attempt": 1,
+      "raw_csv": "results/r1/EXP-20261107-R11-followup/measurements/simd_metadata_scalar/mode-default/n-131072/m-27be369ed33d11f4/attempt-01/raw.csv",
+      "measurement_json": "results/r1/EXP-20261107-R11-followup/measurements/simd_metadata_scalar/mode-default/n-131072/m-27be369ed33d11f4/attempt-01/measurement.json",
+      "schedule_json": "results/r1/EXP-20261107-R11-followup/measurements/simd_metadata_scalar/mode-default/n-131072/m-27be369ed33d11f4/attempt-01/schedule.json",
+      "configs": [
+        "A",
+        "B",
+        "C",
+        "AA"
+      ],
+      "checksum": "5fe2a039bf25b373",
+      "verify": {
+        "A": [
+          "OK"
+        ],
+        "B": [
+          "OK"
+        ],
+        "C": [
+          "OK"
+        ],
+        "AA": [
+          "OK"
+        ]
+      },
+      "process_observations": {
+        "0": {
+          "A": 152885.0,
+          "B": 174575.0,
+          "C": 175605.0,
+          "AA": 151160.0
+        },
+        "1": {
+          "A": 149330.0,
+          "B": 178215.0,
+          "C": 172605.0,
+          "AA": 150045.0
+        },
+        "2": {
+          "A": 142270.0,
+          "B": 175600.0,
+          "C": 173850.0,
+          "AA": 146875.0
+        },
+        "3": {
+          "A": 151960.0,
+          "B": 176350.0,
+          "C": 174880.0,
+          "AA": 143705.0
+        },
+        "4": {
+          "A": 140815.0,
+          "B": 174180.0,
+          "C": 176860.0,
+          "AA": 142835.0
+        },
+        "5": {
+          "A": 150260.0,
+          "B": 175715.0,
+          "C": 173225.0,
+          "AA": 150575.0
+        },
+        "6": {
+          "A": 144770.0,
+          "B": 175315.0,
+          "C": 176845.0,
+          "AA": 144140.0
+        }
+      },
+      "effects": {
+        "B": {
+          "config": "B",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            1.141871341204173,
+            1.1934306569343065,
+            1.234272861460603,
+            1.160502763885233,
+            1.2369420871356034,
+            1.1694063623053375,
+            1.2109898459625612
+          ],
+          "median_ratio": 1.1934306569343065,
+          "geometric_mean_ratio": 1.1919973553088312,
+          "ci95_median_ratio": [
+            1.160502763885233,
+            1.234272861460603
+          ],
+          "ci95_geometric_mean_ratio": [
+            1.1667021992173356,
+            1.2175662768098683
+          ],
+          "median_delta_pct": 19.34306569343065,
+          "geometric_mean_delta_pct": 19.19973553088312,
+          "ci95_median_delta_pct": [
+            16.0502763885233,
+            23.42728614606031
+          ],
+          "improvement_blocks": 0,
+          "degradation_blocks": 7,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "C": {
+          "config": "C",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            1.148608431173758,
+            1.1558628540815643,
+            1.2219723061783931,
+            1.1508291655698868,
+            1.2559741504811277,
+            1.1528350858511913,
+            1.221558333908959
+          ],
+          "median_ratio": 1.1558628540815643,
+          "geometric_mean_ratio": 1.186085754064323,
+          "ci95_median_ratio": [
+            1.1508291655698868,
+            1.2219723061783931
+          ],
+          "ci95_geometric_mean_ratio": [
+            1.160325163609979,
+            1.217005054306317
+          ],
+          "median_delta_pct": 15.586285408156431,
+          "geometric_mean_delta_pct": 18.608575406432305,
+          "ci95_median_delta_pct": [
+            15.082916556988678,
+            22.197230617839313
+          ],
+          "improvement_blocks": 0,
+          "degradation_blocks": 7,
+          "tie_blocks": 0,
+          "sign_consistency": 1.0
+        },
+        "AA": {
+          "config": "AA",
+          "baseline": "A",
+          "n_blocks": 7,
+          "block_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "block_ratios": [
+            0.9887170095169572,
+            1.0047880533047613,
+            1.0323680326140436,
+            0.9456764938141616,
+            1.0143450626708803,
+            1.0020963662984161,
+            0.9956482696691303
+          ],
+          "median_ratio": 1.0020963662984161,
+          "geometric_mean_ratio": 0.9973472497666758,
+          "ci95_median_ratio": [
+            0.9887170095169572,
+            1.0143450626708803
+          ],
+          "ci95_geometric_mean_ratio": [
+            0.977335102666335,
+            1.0147723390962367
+          ],
+          "median_delta_pct": 0.20963662984161413,
+          "geometric_mean_delta_pct": -0.26527502333242303,
+          "ci95_median_delta_pct": [
+            -1.128299048304282,
+            1.4345062670880315
+          ],
+          "improvement_blocks": 3,
+          "degradation_blocks": 4,
+          "tie_blocks": 0,
+          "sign_consistency": 0.5714285714285714
+        }
+      },
+      "classifications": {
+        "B": {
+          "classification": "confirmed_harmful",
+          "reasons": [
+            "median ratio 1.1934, 95% CI [1.1605, 1.2343], practical threshold +/-5%"
+          ]
+        },
+        "C": {
+          "classification": "confirmed_harmful",
+          "reasons": [
+            "median ratio 1.1559, 95% CI [1.1508, 1.2220], practical threshold +/-5%"
+          ]
+        },
+        "AA": {
+          "classification": "neutral",
+          "reasons": [
+            "median ratio 1.0021, 95% CI [0.9887, 1.0143], practical threshold +/-5%"
+          ]
+        }
+      },
+      "thresholds": {
+        "practical_relative": 0.05,
+        "aa_noise_relative": 0.05,
+        "aa_max_ci_width": 0.5,
+        "min_blocks": 5
+      },
+      "parameters": {
+        "campaign": "EXP-20261107-R11-followup",
+        "case": "simd_metadata_scalar",
+        "mode": "",
+        "n": 131072,
+        "configs": [
+          "A",
+          "B",
+          "C",
+          "AA"
+        ],
+        "reps": 20,
+        "trials": 5,
+        "blocks": 7,
+        "seed": 20261108,
+        "exe_sha256": {
+          "A": "6c3f5166ac07786321cccaf938e00f718585eb8e44cf76763bf3188f67d48ecd",
+          "AA": "6c3f5166ac07786321cccaf938e00f718585eb8e44cf76763bf3188f67d48ecd",
+          "B": "a9104e2acba5afa6405b515968a0f3401099f47243e46b6ef15ea3718d54f172",
+          "C": "a9104e2acba5afa6405b515968a0f3401099f47243e46b6ef15ea3718d54f172"
+        },
+        "toolchain_manifest_sha256": "866f00f63ecbea85d67a4fb645220261bfc21aca08bf7c037bd2bf44e4137900"
+      },
+      "commands": [
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.A.exe A 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.B.exe B 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.AA.exe AA 131072 20 5",
+        "C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar\\simd_metadata_scalar.C.exe C 131072 20 5"
+      ]
+    }
+  ],
+  "failures": [],
+  "commands": [
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case producer_consumer -Campaign EXP-20261107-R11-followup -OutRoot results/r1 -Configs A,B,C -Force",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-followup --case producer_consumer --n 131072 --reps 20 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261108 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup --json --resume --attempt 1",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-followup --case producer_consumer --n 1048576 --reps 3 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261108 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup --json --resume --attempt 1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case simd_reduction -Campaign EXP-20261107-R11-followup -OutRoot results/r1 -Configs A,B,C -Force",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-followup --case simd_reduction --n 1048576 --reps 3 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261108 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup --json --resume --attempt 1",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-followup --case simd_reduction --n 8388608 --reps 1 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261108 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup --json --resume --attempt 1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case read_read_offset -Campaign EXP-20261107-R11-followup -OutRoot results/r1 -Configs A,B,C -Force",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-followup --case read_read_offset --n 131072 --reps 40 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261108 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup --json --resume --attempt 1",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-followup --case read_read_offset --n 1048576 --reps 6 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261108 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup --json --resume --attempt 1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case producer_consumer_split -Campaign EXP-20261107-R11-followup -OutRoot results/r1 -Configs A,B,C -Force -KernelLl C:\\work\\llvm-profitability-research\\benchmarks\\producer_consumer_split.ll",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-followup --case producer_consumer_split --n 1048576 --reps 3 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261108 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup --json --resume --attempt 1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case simd_metadata_scalar -Campaign EXP-20261107-R11-followup -OutRoot results/r1 -Configs A,B,C -Force",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-followup --case simd_metadata_scalar --n 131072 --reps 20 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261108 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup --json --resume --attempt 1"
+  ],
+  "finished_utc": "2026-11-07T08:12:24Z"
+}

@@ -17,6 +17,9 @@ Applied Mathematician, Critical Reviewer and Literature Researcher.
   demonstrated compiler predictive value.
 - R1-F: local opt-in metadata guard prototype; not upstream-ready.
 - R1-G: synthesis at `reports/r1_report.md`; no claim promoted to `supported`.
+- R1.1: measurement integrity and statistical audit at
+  `reports/r1_1_measurement_audit.md`; new paired-block campaigns
+  `EXP-20261107-R11-audit` and `EXP-20261107-R11-followup`.
 
 The plan below remains the specification for completing or revisiting each
 workstream; it is not a claim that every step was completed.
@@ -93,7 +96,7 @@ compiler measurements remain separate evidence types.
 
 ### Exit criteria
 
-- Toolchain is matched; `doctor.py --experiment --json` exits 0.
+- Toolchain is verified; `doctor.py --experiment --json --toolchain-manifest <verified>.json` exits 0.
 - Every mandatory case has a validated run record with raw data or an explicit
   `not-testable` reason; optional cases are marked as such.
 - A reviewer has checked the reproduction table.

@@ -20,6 +20,8 @@ model.
   clang/LLVM from one revision without `ir_compat.py`.
 - [R1 synthesis](../../reports/r1_report.md) - mechanisms, predictor screen,
   mathematical status and prototype patch.
+- [R1.1 measurement audit](../../reports/r1_1_measurement_audit.md) - corrected
+  paired-block statistics and preserved raw evidence.
 
 ## Evidence status
 

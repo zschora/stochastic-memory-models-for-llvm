@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.1",
+  "record_type": "predictor-features",
+  "case": "producer_consumer_split",
+  "sources": {
+    "source_ir": "results/r1/EXP-20261107-R1A/producer_consumer_split/producer_consumer_split.linked.ll",
+    "source_sha256": "952fcb3d4649bdd3e51f61a7f5e5fa03439e924be21aeed3f66607c3abe30bc5",
+    "early_ir": "results/r1/EXP-20261107-R11-audit/features/ir/producer_consumer_split-default.early.ll",
+    "pipeline_stage": "early scalar pipeline (mem2reg, loop-simplify, lcssa, loop-rotate); before LoopFusion"
+  },
+  "static": {
+    "kernel_function": "pc_split_kernel",
+    "loop_count": 2,
+    "selection_reason": "function with >=2 loops, loads and no calls",
+    "metadata_conflict": false,
+    "loop_hints": [],
+    "metadata_conflict_evidence": [],
+    "element_bytes": 8,
+    "element_types": [
+      "double",
+      "double"
+    ],
+    "trip_count": "constant-or-mixed",
+    "reuse_kind": "unknown",
+    "reuse_evidence": {
+      "kind": "unknown",
+      "reason": "no matching read-read stream",
+      "accesses": [
+        {
+          "base": "%A",
+          "index_raw": "%i1",
+          "index_normalized": "IV",
+          "load_type": "double"
+        },
+        {
+          "base": "%T",
+          "index_raw": "%i2",
+          "index_normalized": "IV",
+          "load_type": "double"
+        }
+      ]
+    },
+    "loop_body_instruction_count": 67,
+    "feature_confidence": "partial",
+    "unknowns": [
+      "reuse_kind"
+    ]
+  },
+  "scenario": {
+    "n": 1024,
+    "footprint_bytes": 8192,
+    "l3_bytes": 18874368,
+    "fits_l3": true,
+    "source": "benchmark driver input size; not generally compile-time available"
+  },
+  "diagnostic": {
+    "note": "not populated by this extractor; predictor evaluation keeps post-optimisation facts separate"
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "schema_version": "1.0",
+  "record_type": "experiment",
+  "run_id": "EXP-20261107-R11-followup",
+  "hypothesis_id": "H-R1-AUDIT",
+  "title": "R1.1 follow-up measurements",
+  "status": "analyzed",
+  "created_utc": "2026-11-07T08:15:42Z",
+  "git": {
+    "base_commit": "d48d090b723e080fe35360a9622c87cc7a461a43",
+    "branch": "fix/r1-measurement-integrity",
+    "working_tree_dirty": true,
+    "available": true
+  },
+  "toolchain": {
+    "consistency": "verified",
+    "llvm_revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+    "manifest_path": "research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json",
+    "clang": {
+      "version": "clang version 24.0.0git (https://github.com/llvm/llvm-project.git 6f4196219399a3502cea3beb2d0c8c28b2241649)",
+      "path": ".tools/llvm-build/bin/clang.exe",
+      "revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+      "sha256": "9477e11c9c5e4d01c4f24d50ebd25d94935529b0c67edcd252383e8dd8ef20e2"
+    },
+    "opt": {
+      "version": "LLVM version 24.0.0git",
+      "path": ".tools/llvm-build/bin/opt.exe",
+      "revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+      "sha256": "f0b20b1e3d5c800f874cb69d58c3b1b4681c2efcad313f61324e9536e1029721"
+    },
+    "llc": {
+      "version": "LLVM version 24.0.0git",
+      "path": ".tools/llvm-build/bin/llc.exe",
+      "revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+      "sha256": "f74b889f789694afda8f9059c11b44cd4b8e5e5d93150223d77f1db9801a4652"
+    },
+    "llvm_config": {
+      "version": "24.0.0git",
+      "path": ".tools/llvm-build/bin/llvm-config.exe",
+      "revision": "6f4196219399a3502cea3beb2d0c8c28b2241649",
+      "sha256": "f410b8fc9663a6f22a5cae1481f21e02f25a349417a0bb82b1a82d8f330f34c2"
+    },
+    "compatibility_notes": "Provenance supplied by an explicit toolchain manifest.",
+    "baseline_caveat": false
+  },
+  "build": {
+    "configuration": "Release, X86, assertions OFF, clang enabled",
+    "cmake_args": [
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DLLVM_ENABLE_PROJECTS=clang",
+      "-DLLVM_TARGETS_TO_BUILD=X86",
+      "-DLLVM_ENABLE_ASSERTIONS=OFF",
+      "-DCLANG_ENABLE_CIR=OFF"
+    ],
+    "compiler_flags": [
+      "/O2",
+      "/DNDEBUG",
+      "/EHsc"
+    ],
+    "link_flags": []
+  },
+  "host": {
+    "os": "Windows 11 (10.0.26200)",
+    "cpu": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "logical_cpus": 16,
+    "caches": "not recorded",
+    "python": "3.12.5"
+  },
+  "pipeline": {
+    "frontend_ir": "results/r1/EXP-20261107-R11-followup/producer_consumer/producer_consumer.frontend.ll",
+    "frontend_flags": [
+      "-O0",
+      "-Xclang",
+      "-disable-O0-optnone",
+      "-march=alderlake",
+      "-std=c++17",
+      "-emit-llvm",
+      "-S"
+    ],
+    "opt_passes": [
+      "A: default<O3>",
+      "B: unrestricted fusion",
+      "C: exact reuse",
+      "AA: byte-identical A"
+    ],
+    "llc_args": [
+      "-O3",
+      "-mtriple=x86_64-pc-windows-msvc",
+      "-mcpu=alderlake"
+    ]
+  },
+  "case": {
+    "name": "R1.1 follow-up: canonical loops, reductions and intermediate sizes",
+    "source": "results/r1/EXP-20261107-R11-followup/campaign_summary.json",
+    "input_sizes": [
+      131072,
+      1048576,
+      8388608
+    ],
+    "seeds": [
+      20261108
+    ],
+    "mandatory": false
+  },
+  "procedure": {
+    "configurations": [
+      "A",
+      "B",
+      "C",
+      "AA"
+    ],
+    "repetitions": 7,
+    "trials_per_process": 5,
+    "order": "randomized complete blocks; seed and schedule preserved",
+    "timing_unit": "ns per kernel call",
+    "timing_method": "QueryPerformanceCounter, process median per block, paired block bootstrap",
+    "correctness_oracle": "per-binary VERIFY plus cross-config CHECK checksum",
+    "aa_control": "byte-identical A/AA binaries",
+    "randomization_seed": 20261108
+  },
+  "artifacts": {
+    "raw_timings": [
+      "results/r1/EXP-20261107-R11-followup/measurements/producer_consumer/mode-default/n-1048576/m-62a8876a315ad8ff/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R11-followup/measurements/producer_consumer/mode-default/n-131072/m-29603f290e893881/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R11-followup/measurements/producer_consumer_split/mode-default/n-1048576/m-39e122e6864764a2/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R11-followup/measurements/read_read_offset/mode-default/n-1048576/m-47e7944378e1a29e/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R11-followup/measurements/read_read_offset/mode-default/n-131072/m-3aed875b0bc49947/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R11-followup/measurements/simd_metadata_scalar/mode-default/n-131072/m-27be369ed33d11f4/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R11-followup/measurements/simd_reduction/mode-default/n-1048576/m-60729f44d25f6811/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R11-followup/measurements/simd_reduction/mode-default/n-8388608/m-0c6e19239379bb6e/attempt-01/raw.csv",
+      "results/r1/EXP-20261107-R11-followup/campaign_summary.json"
+    ],
+    "ir": [
+      "results/r1/EXP-20261107-R11-followup/producer_consumer/producer_consumer.A.ll",
+      "results/r1/EXP-20261107-R11-followup/producer_consumer/producer_consumer.B.ll",
+      "results/r1/EXP-20261107-R11-followup/producer_consumer/producer_consumer.C.ll",
+      "results/r1/EXP-20261107-R11-followup/producer_consumer/producer_consumer.frontend.ll",
+      "results/r1/EXP-20261107-R11-followup/producer_consumer_split/producer_consumer_split.A.ll",
+      "results/r1/EXP-20261107-R11-followup/producer_consumer_split/producer_consumer_split.B.ll",
+      "results/r1/EXP-20261107-R11-followup/producer_consumer_split/producer_consumer_split.C.ll",
+      "results/r1/EXP-20261107-R11-followup/producer_consumer_split/producer_consumer_split.frontend.ll",
+      "results/r1/EXP-20261107-R11-followup/producer_consumer_split/producer_consumer_split.linked.ll",
+      "results/r1/EXP-20261107-R11-followup/read_read_offset/read_read_offset.A.ll",
+      "results/r1/EXP-20261107-R11-followup/read_read_offset/read_read_offset.B.ll",
+      "results/r1/EXP-20261107-R11-followup/read_read_offset/read_read_offset.C.ll",
+      "results/r1/EXP-20261107-R11-followup/read_read_offset/read_read_offset.frontend.ll",
+      "results/r1/EXP-20261107-R11-followup/simd_metadata_scalar/simd_metadata_scalar.A.ll",
+      "results/r1/EXP-20261107-R11-followup/simd_metadata_scalar/simd_metadata_scalar.B.ll",
+      "results/r1/EXP-20261107-R11-followup/simd_metadata_scalar/simd_metadata_scalar.C.ll",
+      "results/r1/EXP-20261107-R11-followup/simd_metadata_scalar/simd_metadata_scalar.frontend.ll",
+      "results/r1/EXP-20261107-R11-followup/simd_reduction/simd_reduction.A.ll",
+      "results/r1/EXP-20261107-R11-followup/simd_reduction/simd_reduction.B.ll",
+      "results/r1/EXP-20261107-R11-followup/simd_reduction/simd_reduction.C.ll",
+      "results/r1/EXP-20261107-R11-followup/simd_reduction/simd_reduction.frontend.ll"
+    ],
+    "assembly": [
+      "results/r1/EXP-20261107-R11-followup/producer_consumer/producer_consumer.A.s",
+      "results/r1/EXP-20261107-R11-followup/producer_consumer/producer_consumer.B.s",
+      "results/r1/EXP-20261107-R11-followup/producer_consumer/producer_consumer.C.s",
+      "results/r1/EXP-20261107-R11-followup/producer_consumer_split/producer_consumer_split.A.s",
+      "results/r1/EXP-20261107-R11-followup/producer_consumer_split/producer_consumer_split.B.s",
+      "results/r1/EXP-20261107-R11-followup/producer_consumer_split/producer_consumer_split.C.s",
+      "results/r1/EXP-20261107-R11-followup/read_read_offset/read_read_offset.A.s",
+      "results/r1/EXP-20261107-R11-followup/read_read_offset/read_read_offset.B.s",
+      "results/r1/EXP-20261107-R11-followup/read_read_offset/read_read_offset.C.s",
+      "results/r1/EXP-20261107-R11-followup/simd_metadata_scalar/simd_metadata_scalar.A.s",
+      "results/r1/EXP-20261107-R11-followup/simd_metadata_scalar/simd_metadata_scalar.B.s",
+      "results/r1/EXP-20261107-R11-followup/simd_metadata_scalar/simd_metadata_scalar.C.s",
+      "results/r1/EXP-20261107-R11-followup/simd_reduction/simd_reduction.A.s",
+      "results/r1/EXP-20261107-R11-followup/simd_reduction/simd_reduction.B.s",
+      "results/r1/EXP-20261107-R11-followup/simd_reduction/simd_reduction.C.s"
+    ],
+    "remarks": [
+      "results/r1/EXP-20261107-R11-followup/producer_consumer/remarks-A.yaml",
+      "results/r1/EXP-20261107-R11-followup/producer_consumer/remarks-B.yaml",
+      "results/r1/EXP-20261107-R11-followup/producer_consumer/remarks-C.yaml",
+      "results/r1/EXP-20261107-R11-followup/producer_consumer_split/remarks-A.yaml",
+      "results/r1/EXP-20261107-R11-followup/producer_consumer_split/remarks-B.yaml",
+      "results/r1/EXP-20261107-R11-followup/producer_consumer_split/remarks-C.yaml",
+      "results/r1/EXP-20261107-R11-followup/read_read_offset/remarks-A.yaml",
+      "results/r1/EXP-20261107-R11-followup/read_read_offset/remarks-B.yaml",
+      "results/r1/EXP-20261107-R11-followup/read_read_offset/remarks-C.yaml",
+      "results/r1/EXP-20261107-R11-followup/simd_metadata_scalar/remarks-A.yaml",
+      "results/r1/EXP-20261107-R11-followup/simd_metadata_scalar/remarks-B.yaml",
+      "results/r1/EXP-20261107-R11-followup/simd_metadata_scalar/remarks-C.yaml",
+      "results/r1/EXP-20261107-R11-followup/simd_reduction/remarks-A.yaml",
+      "results/r1/EXP-20261107-R11-followup/simd_reduction/remarks-B.yaml",
+      "results/r1/EXP-20261107-R11-followup/simd_reduction/remarks-C.yaml"
+    ],
+    "analysis_script": "scripts/r1_audit.py",
+    "analysis_script_revision": "356bf57",
+    "checksums": [
+      "results/r1/EXP-20261107-R11-followup/campaign_summary.json"
+    ]
+  },
+  "commands": [
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case producer_consumer -Campaign EXP-20261107-R11-followup -OutRoot results/r1 -Configs A,B,C -Force",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-followup --case producer_consumer --n 131072 --reps 20 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261108 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup --json --resume --attempt 1",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-followup --case producer_consumer --n 1048576 --reps 3 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261108 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup --json --resume --attempt 1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case simd_reduction -Campaign EXP-20261107-R11-followup -OutRoot results/r1 -Configs A,B,C -Force",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-followup --case simd_reduction --n 1048576 --reps 3 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261108 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup --json --resume --attempt 1",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-followup --case simd_reduction --n 8388608 --reps 1 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261108 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_reduction --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup --json --resume --attempt 1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case read_read_offset -Campaign EXP-20261107-R11-followup -OutRoot results/r1 -Configs A,B,C -Force",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-followup --case read_read_offset --n 131072 --reps 40 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261108 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup --json --resume --attempt 1",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-followup --case read_read_offset --n 1048576 --reps 6 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261108 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\read_read_offset --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup --json --resume --attempt 1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case producer_consumer_split -Campaign EXP-20261107-R11-followup -OutRoot results/r1 -Configs A,B,C -Force -KernelLl C:\\work\\llvm-profitability-research\\benchmarks\\producer_consumer_split.ll",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-followup --case producer_consumer_split --n 1048576 --reps 3 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261108 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\producer_consumer_split --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup --json --resume --attempt 1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\work\\llvm-profitability-research\\scripts\\r1_build_case.ps1 -Case simd_metadata_scalar -Campaign EXP-20261107-R11-followup -OutRoot results/r1 -Configs A,B,C -Force",
+    "C:\\Python312\\python.exe C:\\work\\llvm-profitability-research\\scripts\\r1_run_case.py --campaign EXP-20261107-R11-followup --case simd_metadata_scalar --n 131072 --reps 20 --blocks 7 --trials 5 --configs A,B,C,AA --seed 20261108 --exe-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup\\simd_metadata_scalar --toolchain-manifest research/harness/toolchains/llvm-24.0.0git-6f41962-v2.json --campaign-dir C:\\work\\llvm-profitability-research\\results\\r1\\EXP-20261107-R11-followup --json --resume --attempt 1",
+    "python scripts/r1_audit.py"
+  ],
+  "results": {
+    "summary": "Follow-up randomized-block measurements confirm simd_reduction at 1M/8M (-33.5%/-41.9% C), read_read_offset at 128K/1M (-14.7%/-18.3%), producer_consumer_split at 1M (-26.2%), and scalar-fusion harm at 128K (+15.6%). Canonical producer_consumer remains neutral at 128K/1M, consistent with InvalidDependencies and no kernel fusion.",
+    "limitations": [
+      "Seven blocks, one machine, no counters.",
+      "Canonical producer_consumer runtime is a no-treatment control, not a fusion benefit.",
+      "No independent review."
+    ]
+  },
+  "review": {
+    "status": "model-assisted-self-review",
+    "reviewer": "same model as author",
+    "reviewer_type": "same-model",
+    "decision": "accept-with-limits",
+    "artifact": "reports/r1_1_measurement_audit.md",
+    "notes": "Self-review; not independent.",
+    "reviewed_utc": "2026-11-07T06:50:00Z"
+  },
+  "evidence": {
+    "quality": "measured",
+    "notes": "Raw CSV, schedules, IR/assembly/remarks and campaign summary are linked.",
+    "validation_artifacts": [
+      "results/r1/EXP-20261107-R11-followup/campaign_summary.json",
+      "reports/r1_1_measurement_audit.md",
+      "results/r1/EXP-20261107-R11-audit/reanalysis/audit_stats.json"
+    ]
+  },
+  "status_history": [
+    {
+      "status": "planned",
+      "utc": "2026-11-07T06:50:00Z",
+      "reason": "follow-up plan pre-registered"
+    },
+    {
+      "status": "running",
+      "utc": "2026-11-07T06:50:00Z",
+      "reason": "follow-up campaign executed"
+    },
+    {
+      "status": "analyzed",
+      "utc": "2026-11-07T06:50:00Z",
+      "reason": "follow-up results analyzed"
+    }
+  ],
+  "next_action": "Use as audit evidence only; do not promote without independent review."
+}

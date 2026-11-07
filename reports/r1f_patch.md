@@ -1,5 +1,11 @@
 # R1-F local prototype: vectorization-metadata compatibility guard
 
+> **R1.1 erratum (2026-11-07):** the patched `opt` is not covered by the verified
+> base-toolchain manifest and the original four-block measurements are below the
+> R1.1 evidence threshold. The patch remains a local prototype; corrected
+> reanalysis marks it `requires_remeasurement`. See
+> [`r1_1_measurement_audit.md`](r1_1_measurement_audit.md).
+
 - Status: local prototype, not submitted upstream.
 - Base revision: `6f4196219399a3502cea3beb2d0c8c28b2241649` (LLVM 24.0.0git)
 - Patch: [`../research/patches/0001-loop-fusion-vectorization-metadata-check.patch`](../research/patches/0001-loop-fusion-vectorization-metadata-check.patch)

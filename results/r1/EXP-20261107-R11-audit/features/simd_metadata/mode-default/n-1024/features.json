@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.1",
+  "record_type": "predictor-features",
+  "case": "simd_metadata",
+  "sources": {
+    "source_ir": "results/r1/EXP-20261107-R1A/simd_metadata/simd_metadata.frontend.ll",
+    "source_sha256": "e80ca9914fb81651ec1c9d5255b6fbbcaf7568d1a2e87d8d03618945a4b477c1",
+    "early_ir": "results/r1/EXP-20261107-R11-audit/features/ir/simd_metadata-default.early.ll",
+    "pipeline_stage": "early scalar pipeline (mem2reg, loop-simplify, lcssa, loop-rotate); before LoopFusion"
+  },
+  "static": {
+    "kernel_function": "simd_meta_kernel",
+    "loop_count": 2,
+    "selection_reason": "function with >=2 loops, loads and no calls",
+    "metadata_conflict": true,
+    "loop_hints": [
+      {
+        "metadata_id": "17",
+        "vectorize_enable": true,
+        "vectorize_disable": false,
+        "vectorize_width": 8,
+        "requested": true,
+        "blocked": false
+      },
+      {
+        "metadata_id": "23",
+        "vectorize_enable": false,
+        "vectorize_disable": true,
+        "vectorize_width": 1,
+        "requested": false,
+        "blocked": true
+      }
+    ],
+    "metadata_conflict_evidence": [
+      {
+        "first": {
+          "metadata_id": "17",
+          "vectorize_enable": true,
+          "vectorize_disable": false,
+          "vectorize_width": 8,
+          "requested": true,
+          "blocked": false
+        },
+        "second": {
+          "metadata_id": "23",
+          "vectorize_enable": false,
+          "vectorize_disable": true,
+          "vectorize_width": 1,
+          "requested": false,
+          "blocked": true
+        }
+      }
+    ],
+    "element_bytes": 8,
+    "element_types": [
+      "double",
+      "double",
+      "double"
+    ],
+    "trip_count": "runtime-dependent",
+    "reuse_kind": "exact",
+    "reuse_evidence": {
+      "kind": "exact",
+      "reason": "same base and normalized index",
+      "accesses": [
+        {
+          "base": "%0",
+          "index_raw": "%.012",
+          "index_normalized": "IV",
+          "load_type": "double"
+        },
+        {
+          "base": "%0",
+          "index_raw": "%.012",
+          "index_normalized": "IV",
+          "load_type": "double"
+        },
+        {
+          "base": "%0",
+          "index_raw": "%.03",
+          "index_normalized": "IV",
+          "load_type": "double"
+        }
+      ]
+    },
+    "loop_body_instruction_count": 43,
+    "feature_confidence": "partial",
+    "unknowns": []
+  },
+  "scenario": {
+    "n": 1024,
+    "footprint_bytes": 8192,
+    "l3_bytes": 18874368,
+    "fits_l3": true,
+    "source": "benchmark driver input size; not generally compile-time available"
+  },
+  "diagnostic": {
+    "note": "not populated by this extractor; predictor evaluation keeps post-optimisation facts separate"
+  }
+}

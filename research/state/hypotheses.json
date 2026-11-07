@@ -25,10 +25,12 @@
       ],
       "status": "analyzed",
       "evidence_links": [
+        "reports/r1_1_measurement_audit.md",
         "reports/r1a_report.md",
         "reports/stage0_report.md",
         "research/runs/EXP-20261107-R1A/manifest.json",
         "results/artifacts/simd_metadata/",
+        "results/r1/EXP-20261107-R11-audit/reanalysis/audit_stats.json",
         "results/r1/EXP-20261107-R1A/campaign_summary.json",
         "results/summary_simd_metadata.csv"
       ],
@@ -61,10 +63,12 @@
       "status": "analyzed",
       "evidence_links": [
         "benchmarks/shifted_reuse.cpp",
+        "reports/r1_1_measurement_audit.md",
         "reports/r1a_report.md",
         "reports/stage0_report.md",
         "research/runs/EXP-20261107-R1A/manifest.json",
         "research/runs/EXP-20261107-R1C-offsets/manifest.json",
+        "results/r1/EXP-20261107-R11-audit/reanalysis/audit_stats.json",
         "results/r1/EXP-20261107-R1A/campaign_summary.json",
         "results/r1/EXP-20261107-R1C-offsets/table.md",
         "results/summary_shifted_reuse.csv"
@@ -99,9 +103,11 @@
       "status": "analyzed",
       "evidence_links": [
         "benchmarks/read_read.cpp",
+        "reports/r1_1_measurement_audit.md",
         "reports/r1a_report.md",
         "reports/stage0_report.md",
         "research/runs/EXP-20261107-R1A/manifest.json",
+        "results/r1/EXP-20261107-R11-audit/reanalysis/audit_stats.json",
         "results/r1/EXP-20261107-R1A/campaign_summary.json",
         "results/summary_read_read.csv"
       ],
@@ -205,7 +211,7 @@
         "research/harness/toolchains/llvm-24.0.0git-6f41962.json"
       ],
       "review_status": "model-assisted-self-review",
-      "review_note": "R1-A campaign completed on a matched revision without ir_compat.py; self-reviewed only.",
+      "review_note": "R1.1 paired-block estimates supersede old descriptive intervals; compiler facts are unchanged.",
       "decision": "Qualitative reproduction: metadata, shifted reuse, cache trend, canonical-loop legality and the SIMD-difference counterexample all survived matched tools.",
       "next_action": "Independent review of the R1-A evidence, then a broader held-out corpus and a two-signal predictor evaluation."
     },
@@ -389,8 +395,8 @@
         "results/r1/EXP-20261107-R1C-offsets/table.md"
       ],
       "review_status": "model-assisted-self-review",
-      "review_note": "In-sample only; no held-out family and no static implementation.",
-      "decision": "Screen only: footprint and compatibility signals are plausible, not validated.",
+      "review_note": "In-sample only; two-signal rule has one false positive and three missed profitable points; no held-out families.",
+      "decision": "Old predictor invalidated by post-treatment features and percentage-sum regret; v2 is an in-sample screen, not a validated rule.",
       "next_action": "Hold out entire benchmark families and evaluate a static two-signal rule."
     },
     {
@@ -421,8 +427,41 @@
       ],
       "review_status": "model-assisted-self-review",
       "review_note": "Local prototype on a patched opt; the verified base-toolchain manifest does not cover the modified binary.",
-      "decision": "Promising local mechanism; not upstream-ready and not a complete cost model.",
+      "decision": "Requires remeasurement: four blocks and a patched opt outside the verified provenance manifest.",
       "next_action": "Combine with a footprint exception, run the regression test in lit, and evaluate held-out families."
+    },
+    {
+      "id": "H-R1-AUDIT",
+      "title": "R1 measurements are reproducible under paired-block analysis",
+      "statement": "After fixing output identity, randomized-block scheduling and paired block statistics, the central R1-A and shifted-offset effects remain directionally supported, while small/noisy points become inconclusive and the old predictor evaluation is invalidated by post-treatment feature leakage.",
+      "motivation": "An independent review found overwritten known_vec raw files, non-block statistics and diagnostic feature leakage.",
+      "competing_explanations": [
+        "The corrected analysis may weaken the effects",
+        "New measurements may differ from historical ones",
+        "Small block counts may still be too noisy"
+      ],
+      "evidence_required": [
+        "new randomized-block campaign with preserved artifacts",
+        "paired-block reanalysis of old raw data",
+        "feature-provenance audit",
+        "regression tests"
+      ],
+      "falsification": "A central effect disappears under the corrected paired analysis or the new measurements contradict it.",
+      "planned_experiments": [
+        "EXP-20261107-R11-audit"
+      ],
+      "status": "analyzed",
+      "evidence_links": [
+        "reports/r1_1_measurement_audit.md",
+        "research/runs/EXP-20261107-R11-audit/manifest.json",
+        "research/runs/EXP-20261107-R11-followup/manifest.json",
+        "results/r1/EXP-20261107-R11-audit/reanalysis/audit_stats.json",
+        "results/r1/EXP-20261107-R11-audit/predictor_v2.json"
+      ],
+      "review_status": "model-assisted-self-review",
+      "review_note": "Corrected campaign, paired-block reanalysis and feature audit are complete; no independent review.",
+      "decision": "Use the corrected paired estimates and feature categories; treat small effects as inconclusive.",
+      "next_action": "Independent review, then R1.2 held-out corpus."
     }
   ]
 }

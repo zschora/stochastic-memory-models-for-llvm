@@ -157,3 +157,32 @@ measurements are preserved.
 **Consequences:** Reports must state the self-review and provenance limits. A
 future human or independent-reviewer pass is required before any upstream
 proposal or novelty claim. This is deliberate, not an infrastructure failure.
+
+## D-013 - Randomized complete blocks and paired ratios
+
+**Context:** R1 used an unrecorded shuffled order, treated internal trials as
+independent, and compared separately bootstrapped intervals to a fixed A median.
+Some small effects were overinterpreted.
+
+**Decision:** Every new measurement is a randomized complete block: A/B/C/AA each
+appear once per block, the seed and schedule are stored, within-process trials
+are aggregated to a process median, and inference uses paired block ratios with
+a block bootstrap. A/A is a noise gate. Evidence labels are explicit and small
+effects remain provisional.
+
+**Consequences:** Small effects need more blocks or remain inconclusive. The old
+descriptive intervals remain historical artifacts, not corrected evidence.
+
+## D-014 - Predictor features are separated by availability
+
+**Context:** The R1 predictor used post-fusion YMM counts as a decision feature
+and summed absolute percentages as "runtime-weighted regret".
+
+**Decision:** Only static pre-treatment features, scenario context and the
+current compiler's own decision may enter a policy. Post-fusion assembly,
+measured runtimes and counters are diagnostic-only. Regret is absolute runtime
+above the per-point A/B oracle with explicit equal-case weighting. R1.1 results
+are an in-sample screen, not a deployable model.
+
+**Consequences:** Some predictors are unevaluable until static extraction is
+stronger, and the R1 two-signal numbers cannot be reused as validation.

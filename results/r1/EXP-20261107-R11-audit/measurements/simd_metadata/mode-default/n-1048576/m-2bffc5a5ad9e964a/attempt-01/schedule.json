@@ -1,0 +1,321 @@
+{
+  "seed": 20261107,
+  "blocks": 7,
+  "configs": [
+    "A",
+    "B",
+    "C",
+    "AA"
+  ],
+  "schedule": [
+    {
+      "block_id": 0,
+      "execution_index": 0,
+      "position": 0,
+      "config": "C",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.13628029823303223,
+      "stdout_sha256": "7d17962154b439addc222c92c8038e5f97e174d540d659eaff618f3dd803a664",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 0,
+      "execution_index": 1,
+      "position": 1,
+      "config": "A",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.1586780548095703,
+      "stdout_sha256": "88e536410dd20cc3d152b0b2d2455c68bbd2da1b85df88fac67c47b8796a98ab",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 0,
+      "execution_index": 2,
+      "position": 2,
+      "config": "B",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.1638333797454834,
+      "stdout_sha256": "ec6b21e2a3dbb2ac5cb95e1592371ff4369d0faa084042ec2aad8091f4ed8228",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 0,
+      "execution_index": 3,
+      "position": 3,
+      "config": "AA",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.17891907691955566,
+      "stdout_sha256": "362e22834709055cd5ef2a727f037af71a062f2c0c6b9167bd715a70a55c3bce",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 1,
+      "execution_index": 4,
+      "position": 0,
+      "config": "A",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.0860598087310791,
+      "stdout_sha256": "a63b4b12c5c64ee42bdb5a33cb55336a33114c8d0b4e4fd7c714ca76eb63428f",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 1,
+      "execution_index": 5,
+      "position": 1,
+      "config": "AA",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.08662843704223633,
+      "stdout_sha256": "3427de78fe8033965f22b9105c4e67f00d25e28f38078e8d181d16e146aaea29",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 1,
+      "execution_index": 6,
+      "position": 2,
+      "config": "C",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.08664703369140625,
+      "stdout_sha256": "263b1c3f9d5c92c83986a8b10e209160c19887694e3dd65c56430aeb0027c1ef",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 1,
+      "execution_index": 7,
+      "position": 3,
+      "config": "B",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.08669018745422363,
+      "stdout_sha256": "fe3fe8fc7a8c093ce1691859bda097a7e51244e99b377e4e5f5b03c26de6baf9",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 2,
+      "execution_index": 8,
+      "position": 0,
+      "config": "AA",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.0897378921508789,
+      "stdout_sha256": "eb87cfae4288b2b99e215cf5e023b00cfa454d08f43002f82b817afd89ed0fc8",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 2,
+      "execution_index": 9,
+      "position": 1,
+      "config": "C",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.08910536766052246,
+      "stdout_sha256": "d134d7ec0cedfa985762857988db29f74b066526da08279c914e195cfe4c7387",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 2,
+      "execution_index": 10,
+      "position": 2,
+      "config": "A",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.09585928916931152,
+      "stdout_sha256": "46605426013b149acf1b605d1ce590c8ab77e57b839e7ce678b21cece3550ac0",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 2,
+      "execution_index": 11,
+      "position": 3,
+      "config": "B",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.09019684791564941,
+      "stdout_sha256": "628b202eeb82f9a45a701088319270ac3dda465563af8369bcb10f381f5407dc",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 3,
+      "execution_index": 12,
+      "position": 0,
+      "config": "B",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.08939099311828613,
+      "stdout_sha256": "5cf982d0d8cd5c2c94f0b0f7a81aa636283e35c2fa52b40b767229e6b54daa3c",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 3,
+      "execution_index": 13,
+      "position": 1,
+      "config": "AA",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.09033060073852539,
+      "stdout_sha256": "9915b4f74a98705b08d0536c9dd04d95a7ff4dffb2fbb2c2f6170bb2b9490763",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 3,
+      "execution_index": 14,
+      "position": 2,
+      "config": "A",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.09548091888427734,
+      "stdout_sha256": "1a2d4c745825c487ffee2b7f887dbb347c875fc26179347ecbf0def1553aa3cc",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 3,
+      "execution_index": 15,
+      "position": 3,
+      "config": "C",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.08586883544921875,
+      "stdout_sha256": "ed4b2887217a88557cb8820fd70d1f28e97964b9a0c6f19396c06c72d0c1564e",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 4,
+      "execution_index": 16,
+      "position": 0,
+      "config": "C",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.0867319107055664,
+      "stdout_sha256": "7c55fc4ef8bc4522227eee705fc0b2c9373ab68df261c1bd7b4efe6d49f62a85",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 4,
+      "execution_index": 17,
+      "position": 1,
+      "config": "A",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.08959746360778809,
+      "stdout_sha256": "b6b482f7cc93bd47c8efaf0a3b8372020dd4835f6ce2df3ada2213eaecb29aa8",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 4,
+      "execution_index": 18,
+      "position": 2,
+      "config": "AA",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.09064054489135742,
+      "stdout_sha256": "4bbd6474b2f2e36fd1fcf1fd494fdbe4221a1de489de62e9e5eb63c38730dd13",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 4,
+      "execution_index": 19,
+      "position": 3,
+      "config": "B",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.0881955623626709,
+      "stdout_sha256": "f08a6a06e724388fd13e94565fa49aeae3a77fabd40a283200631babcd2f3fde",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 5,
+      "execution_index": 20,
+      "position": 0,
+      "config": "AA",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.08912086486816406,
+      "stdout_sha256": "ae08bd641810efdef21eed2f0ad927c6a35e847c30a231d34edaff2190c0099e",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 5,
+      "execution_index": 21,
+      "position": 1,
+      "config": "B",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.08361053466796875,
+      "stdout_sha256": "895c2a0c0af994fe5435c85befa0804163b1d48d3712e2ec1ee557d6a16ddc98",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 5,
+      "execution_index": 22,
+      "position": 2,
+      "config": "A",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.09009432792663574,
+      "stdout_sha256": "f9c2c080cbfbc382a4c731147812d72044fab923b03254369e18332ce9370246",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 5,
+      "execution_index": 23,
+      "position": 3,
+      "config": "C",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.08612227439880371,
+      "stdout_sha256": "2f247a1226fcc5aeae214b1e08a59fb2ec8abe03ffe99891965f57e4c6890730",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 6,
+      "execution_index": 24,
+      "position": 0,
+      "config": "AA",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.08948945999145508,
+      "stdout_sha256": "4249bf1ca3748b5a5ef415bd70aeca61dcec4a6c7e8c95a182724e91192b1d4d",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 6,
+      "execution_index": 25,
+      "position": 1,
+      "config": "A",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.08978867530822754,
+      "stdout_sha256": "a8d389782c0260bd6177c9b5d2652f202e6a33d9bc324b6a385a63d71a99ad9f",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 6,
+      "execution_index": 26,
+      "position": 2,
+      "config": "C",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.08811783790588379,
+      "stdout_sha256": "6c5cde4eb626315835afa3e7a28aba9ff681ce4dcb01bd6facd7ffc66f912886",
+      "trials_seen": 5
+    },
+    {
+      "block_id": 6,
+      "execution_index": 27,
+      "position": 3,
+      "config": "B",
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.08328962326049805,
+      "stdout_sha256": "5e365f86910a14f752acb71724b45cd9dfcd4a81a8206771e6e0da722e6505f9",
+      "trials_seen": 5
+    }
+  ],
+  "status": "complete"
+}
