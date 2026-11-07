@@ -16,6 +16,10 @@ model.
   motivated the compiler question.
 - [Research state index](../state/index.md) and [portable harness](../harness/README.md)
   - how a session resumes and records work.
+- [R1-A matched validation](../../reports/r1a_report.md) - Stage 0 cases rerun on
+  clang/LLVM from one revision without `ir_compat.py`.
+- [R1 synthesis](../../reports/r1_report.md) - mechanisms, predictor screen,
+  mathematical status and prototype patch.
 
 ## Evidence status
 
